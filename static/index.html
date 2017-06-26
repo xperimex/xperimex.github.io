@@ -1,0 +1,97 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>{BLOG-NAME}</title>
+        <meta name="description" content="">
+        <meta property="og:description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#FFFFFF">
+
+        <link rel="apple-touch-icon" href="/img/apple-touch-icon-precomposed.png">
+        <link rel="icon" type="image/png" href="/img/favicon.png">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+      <!--[if lt IE 8]>
+          <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+      <![endif]-->
+
+      <hr id="starter" />
+
+      <div id="header">
+        <div class="row">
+          <div class="two columns"></div>
+          <div class="eight columns">
+            <h1>Delta Thoughts</h1>
+            <p class="lead">
+              Lorem ipsum you put your own introduction statements here.<br /><br />
+
+              Lorem ipsum you can put some more fancy introduction text here. <a href="http://www.makeschool.com/">Here is a link</a> and <a href="http://edmodo.com">here is another one</a>. You get the <a href="http://copilot.help">idea</a>.<br /><br />
+
+              Links to your various online profiles is a good practice. For example, here is my <a href="https://github.com/gmittal">GitHub</a> and I occasionally <a href="https://twitter.com/gthinkin">tweet</a>. It's also nice to have a <a href="/docs/resume.pdf">resumé</a>. Posting your contact information for references or question is another good practice. Send me an email at <a href="mailto:adi@mittal.net">adi [at] mittal [dot] net</a>.
+            </p>
+            <!--
+            <div class="navLinks">
+              <a target="_blank" href="https://github.com/gmittal">@gmittal</a>
+              <a target="_blank" href="https://twitter.com/gthinkin">@gthinkin</a>
+              <a target="_blank" href="mailto:gautam@mittal.net">Email</a>
+              <a target="_blank" href="/docs/resume.pdf">resumé</a>
+            </div>
+            -->
+          </div>
+        </div>
+      </div>
+
+      <div class="row contentArea blogArea">
+        <div class="two columns"></div>
+        <div class="eight columns">
+          <h2>
+            Posts
+            <a href="http://fetchrss.com/rss/5864f1038a93f86a600cebfb22675373102.xml">
+              <img id="rss" src="/img/rss.png" alt="RSS" title="Get your RSS"/>
+            </a>
+          </h2>
+
+          {BLOG-POST-LIST}
+          <br />
+        </div>
+      </div>
+
+      <!-- <div class="row contentArea" style="margin-top: 10px;">
+        <div class="two columns"></div>
+        <div class="four columns">
+            <img src="http://placehold.it/400x400" class="pictureOfMe" alt="Me" title=""/>
+        </div>
+        <div class="four columns">
+            <img src="http://placehold.it/400x400" class="pictureOfMe" alt="Me" title=""/>
+        </div>
+        <div class="two columns"></div>
+        </div>
+      </div> -->
+
+      <div id="footer">
+        <div class="row">
+          <div class="two columns"></div>
+          <div class="eight columns">
+            <div class="quote">
+              {QUOTE-OF-THE-DAY}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script src="/js/instantclick.min.js" data-no-instant></script>
+      <script data-no-instant>InstantClick.init();</script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+      <script>
+          (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+          function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+          e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+          e.src='//www.google-analytics.com/analytics.js';
+          r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+          ga('create','{GOOGLE-ANALYTICS-SITE-ID}','auto');ga('send','pageview');
+      </script>
+    </body>
+</html>
