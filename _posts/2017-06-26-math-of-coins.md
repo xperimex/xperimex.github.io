@@ -1,0 +1,23 @@
+---START_METADATA---
+{
+  "title": "The Math of Coins",
+  "author": "Adi Mittal",
+  "summary": "Spinning Coins",
+  "tags":[
+    "me"
+  ]
+}
+---END_METADATA---
+![Spinning Coin](https://media.giphy.com/media/11QVoapNuz4T8A/giphy.gif)
+
+__Coins!__ As some of you may relate to this, I love to take a coin, and just spin it on a flat surface or table. It's just satisfying, but being put to shame by the so called "Fidget Spinner". I was spinning a coin a few days ago, and was ultimately bored at the time, so I decided to ask myself a simple question: __What can information from the coin can be taken away from it spinning?__ This then was taken into is there a __correlation__, or ratio, between the __rate at which the coin rotates__, and the __rate at which it "wobbles"__. With a goal in mind, I picked up my pencil and started to work things out.
+
+
+First things first, defining and finding all of our givens:
+
+![](/img/coinRep.png)
+
+The __radius__ of our coin $= R$<br>
+The __circumference__ of our coin $= 2 \pi R$
+
+$r = \cos (\theta)$
