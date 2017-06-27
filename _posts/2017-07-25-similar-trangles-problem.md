@@ -223,7 +223,7 @@ $\large \frac {\sqrt{3}}{4} = \large \frac {4}{\overline {AB}}$
 
 <br><br>
 
-$\large \frac {\sqrt{3}}{4} \overline {AB} = 4$
+$\begin{large} \frac {\sqrt{3}}{4} \end{large} \overline {AB} = 4$
 
 <br><br>
 
