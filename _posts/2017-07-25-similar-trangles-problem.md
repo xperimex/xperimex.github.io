@@ -203,7 +203,7 @@ $\theta = \arccos \large \frac {\sqrt{3}}{4}$
 
 <br>
 
-We can do this, because as we stated earlier $\theta = any\,angle\,equivalent\,to\, \angle ABC$ (and that's the exact angle we're working with). We also __bisected__ $\overline {BC}$ at $F$ to form the 2 right triangles within our isosceles triangle, the length of $\overline {BF} = 4$. We can then use some basic trigonometry to solve for $\overline {AB}$
+We can do this, because as we stated earlier $\theta = any\,angle\,equivalent\,to\, \angle ABC$ (and that's the exact angle we're working with). We also __bisected__ $\overline {BC}$ at $F$ to form the 2 right triangles within our isosceles triangle, the length of $\overline {BF} = 4$. We can then use some basic trigonometry and evaluation to solve for $\overline {AB}$.
 
 <br>
 <center>
