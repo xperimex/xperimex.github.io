@@ -203,28 +203,35 @@ $\theta = \arccos \large \frac {\sqrt{3}}{4}$
 
 <br>
 
-We can do this, because as we stated earlier $\theta = any\,angle\,equivalent\,to\, \angle ABC$ (and that's the exact angle we're working with). With this, we can state $\alpha = 90 - \arccos \large \frac {\sqrt{3}}{4}$ using the __Angle Sum Theorem__. Since we __bisected__ $\overline {BC}$ at $F$ to form the 2 right triangles within our isosceles triangle, the length of $\overline {BF} = 4$. We can then use some basic trigonometry to solve for $\overline {AB}$
+We can do this, because as we stated earlier $\theta = any\,angle\,equivalent\,to\, \angle ABC$ (and that's the exact angle we're working with). We also __bisected__ $\overline {BC}$ at $F$ to form the 2 right triangles within our isosceles triangle, the length of $\overline {BF} = 4$. We can then use some basic trigonometry to solve for $\overline {AB}$
 
 <br>
 <center>
 	
-$\alpha = 90 - \arccos \frac{\sqrt{3}}{4}$
+$\theta = \arccos \large \frac {\sqrt{3}}{4}$
 <br><br>
 
-$\sin \alpha = \large \frac{4}{\overline {AB}}$
-
-<br><br>
-
-$\sin (90 - \arccos \frac{\sqrt{3}}{4}) = \large \frac{4}{\overline {AB}}$
+$\cos \theta = \large \frac {4}{\overline {AB}}$
 
 <br><br>
 
-$\overline {AB} = \large \frac{4}{\sin (90 - \arccos \frac{\sqrt{3}}{4})}$
+$\cos (\arccos \large \frac {\sqrt{3}}{4}) = \large \frac {4}{\overline {AB}}$
 
+<br><br>
+
+$\large \frac {\sqrt{3}}{4} = \large \frac {4}{\overline {AB}}$
+
+<br><br>
+
+$\large \frac {\sqrt{3}}{4} \overline {AB} = 4$
+
+<br><br>
+
+$\overline {AB} = \large \frac{16}{\sqrt{3}}$
 
 </center>
 <br>
-Just believe me this is equivalent to our original $\frac{16}{\sqrt{3}}$. You can check on a calculator if you want. Now this completes the same thing our first solution did, but I think we can all agree, that's not very clean, and not nice to look at. But hey, it works.
+Just another simple way of getting to the exact same answer.
 
 
 <br>
