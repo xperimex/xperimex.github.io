@@ -31,7 +31,16 @@ The __circumference__ is $c = 2 \pi R \cos (\theta)$
 
 With all the givens that we need out of the way, on to the application.
 
-A thing to note is that as the coin completes a __full rotation__ around the smaller circle, the __original placement of the coin moves by a certain amount__. You can easily demonstrate this by drawing an arrow on a quarter, and guiding it through a rotation on a circle smaller than the quarter. This extra distance it covers can easily be thought out to be as $C - c$.
+A thing to note is that as the coin completes a __full rotation__ around the smaller circle, the __original placement of the coin moves by a certain amount__. You can easily demonstrate this by drawing an arrow on a quarter, and guiding it through a rotation on a circle smaller than the quarter.
+
+<br>
+
+![](/img/quarter2.jpg)
+<center>This was the quarter I used when getting ideas on how the coin behaved.</center>
+
+<br>
+
+This extra distance it covers can easily be thought out to be as $C - c$.
 
 <center>$C - c = 2 \pi R - 2 \pi R \cos (\theta) = 2 \pi R (1 - \cos(\theta))$</center>
 
