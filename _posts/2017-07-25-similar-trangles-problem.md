@@ -224,7 +224,7 @@ $\overline {AB} = \large \frac{4}{\sin (90 - \arccos \frac{\sqrt{3}}{4})}$
 
 </center>
 <br>
-Now this completes the same thing our first solution did, but I think we can all agree, that's not very clean, and not nice to look at. But hey, it works.
+Just believe me this is equivalent to our original $\frac{16}{\sqrt{3}}$. You can check on a calculator if you want. Now this completes the same thing our first solution did, but I think we can all agree, that's not very clean, and not nice to look at. But hey, it works.
 
 
 <br>
