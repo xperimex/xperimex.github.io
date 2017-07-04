@@ -234,8 +234,76 @@ $\overline {AB} = \large \frac{16}{\sqrt{3}}$
 Just another simple way of getting to the exact same answer.
 
 
+<br><br>
+If you have any questions or comments, send me an email or leave a comment!
+
+
+
+
+<br><br><br>
+
+__EDIT (JULY 3RD, 2017): RECURSIVE DIVISIONS SOLUTION__
+
 <br>
 
-If you have any questions or comments, send me an email or leave a comment!
+This specific solution, is one of my favorites that I have seen. One of my inital attempts was to use the dimensions of the similar triangels and find the common ratio between the side length and the base of the triangle. I knew it could be done, but never put my finger on it. However, when a friend of mine took a look at this problem, after a bit of thought, he managed to come up with this. It's really quite a spectacular of a solution, and this is credited entirely to him (no use of name for privacy reasons). Oh, and I'll be speaking in first person, just so I don't cause any confusion, or make it seem like I'm taking it as mine. Just to be clear.
+
+<br>
+
+So the first step is to take the three triangles we know to be similar to one another ($\triangle ABC, \triangle BEC, and \triangle CED$. We know that they are similar due to the fact they all share two common angles, which force them to have a common ratio between the base and a leg of the triangle. This will be important to remember later), and we will $0-index$ them from the original triangle, to the following divisions within one another. I will also now be referring to the triangles by their respective index numbers.
+
+![](/img/trollTriangleDivided.png)
+
+<br>
+
+Now using the fact that every triangle is similar, and that each progressive triangle was formed by using the base length of the previous triangle to form the leg of the next triangle, we can find a ratio between a dimension (say, the base) of a triangle, and its previous/next triangle, and use that to find the length of $\overline{AB}$. I know that is kind of confusing right now, but trust me, it will makes more sense the more I go on.
+
+<br>
+
+So we know the base length of two bases of two triangles ($\triangle 0$, and $\triangle 2$). Since we know that they should share a common ratio, we can right them as a ratio between one another, and hence find said ratio.
+
+<br><center>
+
+$\large \frac{\overline{BC}}{\overline{DE}} = \frac{8}{6}$
+
+<br><br>
+
+$\large = \frac{4}{3}$
+
+<br>
+
+</center>
+
+So we have a ratio, but the problem with this ratio it's for two divisions. It's for going between $\triangle 0$ and $\triangle 2$. We want one between $\triangle 0$ and $\triangle 1$, or $\triangle 1$ and $\triangle 2$. But this is easy! Since a division in this case is a factor of the previous triangle. This means if we take some dimenstion _a_ of a triangle, multiply it by our ratio __once__, we will obtain the dimension _a_ of the next division's triangle. For an example, if we have triangle-base $\overline{BC}$, and multiply it by our ratio, we should get the length of triangle-base $\overline{EC}$. Take a look at the diagram if that helps. Essentially, the base length of $\triangle 0$, multiplied by some ratio, we will get the base length of $\triangle 2$, and do that again, we will get the base length of $\triangle 3$. Now if you see, we had to multiply __twice__ to get from $\triangle 0$ to $\triangle 2$. A.K.A., take the square of the ratio. To undo a square, you take the __squareroot__. So we can undo our two-division ratio, by taking the squareroot of that, to get our one-division ratio.
+<br>
+<center>
+	
+$\sqrt{\large{\frac{4}{3}}} = \large{\frac{2}{\sqrt{3}}}$ 
+
+</center>
+
+So that's our ratio between a one triangle division. So now we need to find the length of $\overline{AB}$. So we can do what we did originally with the base lengths, only with the legs of the triangle. Larger triangle, over the divided triangle. In this case, $\triangle 0$ over $\triangle 1$.
+
+<br>
+<center>
+	
+$\large \frac{\overline{AB}}{\overline{BC}} = \frac{2}{\sqrt{3}}$
+
+<br><br>
+
+$\large \frac{\overline{AB}}{8} = \frac{2}{\sqrt{3}}$
+
+<br><br>
+
+$\overline{AB} = \large \frac{2 \cdot 8}{\sqrt{3}}$
+
+<br><br>
+
+$\overline{AB} = \large \frac{16}{\sqrt{3}}$
+
+<br>
+</center>
+And there it is! The answer we had before. I cannot tell you how cool of a solution this is. Simple in concept, but well executed. So major props to my friend for carrying out such a clean solution. I tried this, completely missed the obvious, and he did not. Major props to him.
+
 
 
