@@ -68,6 +68,7 @@ So you can expect to win __2 dollars__ every time you play this game.
 
 <br>
 This is where the fun is at.
+
 <br>
 __(b)__: We have 50% chance to win 1 dollar. We have a 25% chance to win 2 dollars. We have a 12.5% chance to win 4 dollars...
 <br>
