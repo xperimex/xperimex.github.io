@@ -91,4 +91,4 @@ let compile = (contentDir, outputDir) => {
 
 
 // Yesterday is history, tomorrow is a mystery, but today is a gift.
-compile(`_posts`, `posts`);
+compile(`_posts`, `blog`);

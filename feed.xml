@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Sun, 31 Dec 2017 00:20:22 GMT</lastBuildDate>
+      <lastBuildDate>Sun, 31 Dec 2017 00:23:44 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -15,8 +15,8 @@
 <p><strong>Hello, World</strong>! I’m Adi Mittal, a student at <a href="http://terman.pausd.org">Terman Middle School</a>. I enjoy food, math, running, martial arts, and music of memes.</p>
 <p>My main intent in starting this blog is to share my thoughts, ideas, and outlooks on cool math. My primary goal is to create content that&#39;s interesting and to share my thoughts on the world around me. I hope my ideas and thoughts can appeal to you, just as it did to me and showed me the interests of math!</p>
 ]]></description>
-         <link>http://xperimex.github.io/posts/hello-world</link>
-         <guid isPermaLink="true">http://xperimex.github.io/posts/hello-world</guid>
+         <link>http://xperimex.github.io/blog/hello-world</link>
+         <guid isPermaLink="true">http://xperimex.github.io/blog/hello-world</guid>
          <dc:creator><![CDATA[Adi Mittal]]></dc:creator>
       </item>
       <item>
@@ -55,8 +55,8 @@ The <strong>circumference</strong> is $c = 2 \pi R \cos (\theta)$</p>
 <p>Just to recap, we took the basics and givens of our coin and it&#39;s enviornment. Used those to get the generalized rates of the coin spinning and wobbling. We then used those calculate our ratio between the two at a given instant. Not bad!</p>
 <p>If you have any questions or comments, send me an email or leave a comment!</p>
 ]]></description>
-         <link>http://xperimex.github.io/posts/math-of-coins</link>
-         <guid isPermaLink="true">http://xperimex.github.io/posts/math-of-coins</guid>
+         <link>http://xperimex.github.io/blog/math-of-coins</link>
+         <guid isPermaLink="true">http://xperimex.github.io/blog/math-of-coins</guid>
          <dc:creator><![CDATA[Adi Mittal]]></dc:creator>
       </item>
       <item>
@@ -321,8 +321,8 @@ $\sqrt{\large{\frac{4}{3}}} = \large{\frac{2}{\sqrt{3}}}$
 </center>
 And there it is! The answer we had before. I cannot tell you how cool of a solution this is. Simple in concept, but well executed. So major props to my friend for carrying out such a clean solution. I tried this, completely missed the obvious, and he did not. Major props to him.</p>
 ]]></description>
-         <link>http://xperimex.github.io/posts/similar-trangles-problem</link>
-         <guid isPermaLink="true">http://xperimex.github.io/posts/similar-trangles-problem</guid>
+         <link>http://xperimex.github.io/blog/similar-trangles-problem</link>
+         <guid isPermaLink="true">http://xperimex.github.io/blog/similar-trangles-problem</guid>
          <dc:creator><![CDATA[Adi Mittal]]></dc:creator>
       </item>
       <item>
@@ -544,8 +544,8 @@ $\approx \large \frac{17681.760583\,miles}{hour}$
 <p><br></p>
 <p>If you have any questions or comments, send me an email or leave a comment!</p>
 ]]></description>
-         <link>http://xperimex.github.io/posts/falling-through-earth</link>
-         <guid isPermaLink="true">http://xperimex.github.io/posts/falling-through-earth</guid>
+         <link>http://xperimex.github.io/blog/falling-through-earth</link>
+         <guid isPermaLink="true">http://xperimex.github.io/blog/falling-through-earth</guid>
          <dc:creator><![CDATA[Adi Mittal]]></dc:creator>
       </item>
       <item>
@@ -585,8 +585,8 @@ And I know, some of you may be thinking, &quot;But, hey! Wouldn&#39;t most probl
 <p><br><br>
 If you have any questions or comments, send me an email or leave a comment!</p>
 ]]></description>
-         <link>http://xperimex.github.io/posts/p-vs-np</link>
-         <guid isPermaLink="true">http://xperimex.github.io/posts/p-vs-np</guid>
+         <link>http://xperimex.github.io/blog/p-vs-np</link>
+         <guid isPermaLink="true">http://xperimex.github.io/blog/p-vs-np</guid>
          <dc:creator><![CDATA[Adi Mittal]]></dc:creator>
       </item>
       <item>
@@ -661,8 +661,8 @@ This is why I picked this problem. The first part is quite simple, but this part
 <p><br><br>
 If you have any questions or comments, send me an email or leave a comment!</p>
 ]]></description>
-         <link>http://xperimex.github.io/posts/flipping-coins</link>
-         <guid isPermaLink="true">http://xperimex.github.io/posts/flipping-coins</guid>
+         <link>http://xperimex.github.io/blog/flipping-coins</link>
+         <guid isPermaLink="true">http://xperimex.github.io/blog/flipping-coins</guid>
          <dc:creator><![CDATA[Adi Mittal]]></dc:creator>
       </item>
    </channel>
