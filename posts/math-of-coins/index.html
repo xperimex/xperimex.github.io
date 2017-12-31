@@ -1,0 +1,113 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>{BLOG-NAME} - The Math of Coins</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#FFFFFF" />
+
+        <link rel="apple-touch-icon" href="/img/apple-touch-icon-precomposed.png">
+        <link rel="icon" type="image/png" href="/img/favicon.png">
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <hr id="starter" />
+
+        <div id="header">
+          <div class="row">
+            <div class="two columns"></div>
+            <div class="eight columns">
+              <h1><span id="goHome" onclick="javascript:location.href='/';">Delta Thoughts</span></h1>
+              <p class="lead" style="margin-top: -10px;">
+                {QUOTE-OF-THE-DAY}
+              </p>
+            </div>
+
+          </div>
+        </div>
+        <div class="content row">
+          <div class="two columns"></div>
+          <div class="eight columns">
+            <div class="mainIntro">
+              <div id="headline">
+                The Math of Coins
+              </div>
+              <div class="date" style="margin-left:0px!important;">By <a href="/">Adi Mittal</a> &#183; June 26, 2017 &#183; 4 min read</div>
+            </div>
+            <div class="articleBody firstcharacter">
+              <p><img src="https://media.giphy.com/media/11QVoapNuz4T8A/giphy.gif" alt="Spinning Coin"></p>
+<p><strong>Coins!</strong> As some of you may relate to this, I love to take a coin, and just spin it on a flat surface or table. It&#39;s just satisfying, but being put to shame by the so called &quot;Fidget Spinner&quot;. I was spinning a coin a few days ago, and was ultimately bored at the time, so I decided to ask myself a simple question: <strong>What  information from the coin can be taken away from it spinning?</strong> This then was taken into is there a <strong>correlation</strong>, or ratio, between the <strong>rate at which the coin rotates</strong>, and the <strong>rate at which it &quot;wobbles&quot;</strong>. With a goal in mind, I picked up my pencil and started to work things out.</p>
+<p>First things first, defining and finding all of our givens:</p>
+<p><img src="/img/coinRep2.png" alt=""></p>
+<p>This diagram represents what the coin might look like at a given instance.</p>
+<p>What we know about the coin:</p>
+<p>The <strong>radius</strong> of our coin $= R$<br>
+The <strong>circumference</strong> of our coin $C = 2 \pi R$<br></p>
+<p>Now for the circle our coin rotates and wobbles upon:</p>
+<p>The <strong>radius</strong> of this circle is entirely dependant on the angle of the coin to the horizontal (table/flat surface. We will define that as $\theta$). Using the diagram, we can find that $r = R \cos (\theta)$ <br>
+The <strong>circumference</strong> is $c = 2 \pi R \cos (\theta)$</p>
+<p>With all the givens that we need out of the way, on to the application.</p>
+<p>A thing to note is that as the coin completes a <strong>full rotation</strong> around the smaller circle, the <strong>original placement of the coin moves by a certain amount</strong>. You can easily demonstrate this by drawing an arrow on a quarter, and guiding it through a rotation on a circle smaller than the quarter.</p>
+<p><br></p>
+<p><img src="/img/quarter2.jpg" alt=""></p>
+<center>This was the quarter I used when getting ideas on how the coin behaved.</center>
+
+<p><br></p>
+<p>This extra distance it covers can easily be thought out to be as $C - c$.</p>
+<center>$C - c = 2 \pi R - 2 \pi R \cos (\theta) = 2 \pi R (1 - \cos(\theta))$</center>
+
+<p>$2 \pi R (1 - \cos(\theta)) =$ the rate at which the distance our coin completes per revolution.</p>
+<p>The rate for the distance per revolution our coin completes while &quot;wobbling&quot; is the same as the circumference our coin moves around upon, which we know is $2 \pi R \cos(\theta)$</p>
+<p>Putting these two together as ratio of rate of rotation, to rate of &quot;wobbling&quot;, we get:</p>
+<center> $\frac{Rate\,Of\,Spinning}{Rate\,Of\,Wobling} = \frac{2 \pi R \cos (1 - \theta)}{2 \pi R cos (\theta)}$<br><br> $\large= \frac{1}{\cos (\theta)} - 1$ </center>
+
+
+<p>This expression represents that at any given moment, the ratio between how fast the coin is spinning, and the how fast the coin is &quot;wobbling&quot; (which can be seen as the amount of hertz produced by the coin), will be $\frac{1}{\cos (\theta)} - 1$. This also means that if you multiply the frequency of &quot;wobbling&quot; by this expression, it will output how fast the coin should be spinning at the given value of theta. For example, let&#39;s say the coin is wobbling at a frequency of $5\,hertz$ at an angle of $\frac{\pi}{4}\,radians$ (because radians are cool), the coin would have to be rotating about $4.52\,revolutions\,a\,second$ to maintain that angle to the horizontal at that &quot;wobbling&quot; frequency (because of how hertz measure $cycles\,per\,second$, the cycles translate into revolutions for the output). </p>
+<p>Of course, this is all theoretical. In practice, the coin may slip. Wind may change the local air pressure, thus changing the air resistance. Everything needs to stay <strong>constant</strong>, with no disturbances or changes occuring during the coin&#39;s movement. But this is still a neat thing if you were to ask me!</p>
+<p>Just to recap, we took the basics and givens of our coin and it&#39;s enviornment. Used those to get the generalized rates of the coin spinning and wobbling. We then used those calculate our ratio between the two at a given instant. Not bad!</p>
+<p>If you have any questions or comments, send me an email or leave a comment!</p>
+
+              <div id="disqus_thread"></div>
+            <script>
+                (function() {  // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+
+                    s.src = '//{DISQUS-LINK}/embed.js';
+
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            </div>
+          </div>
+          <div class="two columns"></div>
+        </div>
+
+        <script src="/js/instantclick.min.js" data-no-instant></script>
+        <script data-no-instant>InstantClick.init();</script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <script type="text/javascript">
+          window.MathJax = {
+            tex2jax: {
+              inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+              processEscapes: true
+            }
+          };
+        </script>
+        <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','{GOOGLE-ANALYTICS-SITE-ID}','auto');ga('send','pageview');
+        </script>
+    </body>
+</html>

@@ -1,0 +1,669 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+   <channel>
+      <title><![CDATA[Delta Thoughts]]></title>
+      <description><![CDATA[Delta Thoughts]]></description>
+      <link>http://xperimex.github.io</link>
+      <generator>RSS for Node</generator>
+      <lastBuildDate>Sun, 31 Dec 2017 00:13:06 GMT</lastBuildDate>
+      <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+      <language><![CDATA[en]]></language>
+      <item>
+         <title><![CDATA[First Blog Post]]></title>
+         <description><![CDATA[Hello, world! 
+
+ <p><img src="/img/wildExponential.png" alt="Greetings..."></p>
+<p><strong>Hello, World</strong>! I’m Adi Mittal, a student at <a href="http://terman.pausd.org">Terman Middle School</a>. I enjoy food, math, running, martial arts, and music of memes.</p>
+<p>My main intent in starting this blog is to share my thoughts, ideas, and outlooks on cool math. My primary goal is to create content that&#39;s interesting and to share my thoughts on the world around me. I hope my ideas and thoughts can appeal to you, just as it did to me and showed me the interests of math!</p>
+]]></description>
+         <link>http://xperimex.github.io/posts/hello-world</link>
+         <guid isPermaLink="true">http://xperimex.github.io/posts/hello-world</guid>
+         <dc:creator><![CDATA[Adi Mittal]]></dc:creator>
+      </item>
+      <item>
+         <title><![CDATA[The Math of Coins]]></title>
+         <description><![CDATA[Spinning Coins 
+
+ <p><img src="https://media.giphy.com/media/11QVoapNuz4T8A/giphy.gif" alt="Spinning Coin"></p>
+<p><strong>Coins!</strong> As some of you may relate to this, I love to take a coin, and just spin it on a flat surface or table. It&#39;s just satisfying, but being put to shame by the so called &quot;Fidget Spinner&quot;. I was spinning a coin a few days ago, and was ultimately bored at the time, so I decided to ask myself a simple question: <strong>What  information from the coin can be taken away from it spinning?</strong> This then was taken into is there a <strong>correlation</strong>, or ratio, between the <strong>rate at which the coin rotates</strong>, and the <strong>rate at which it &quot;wobbles&quot;</strong>. With a goal in mind, I picked up my pencil and started to work things out.</p>
+<p>First things first, defining and finding all of our givens:</p>
+<p><img src="/img/coinRep2.png" alt=""></p>
+<p>This diagram represents what the coin might look like at a given instance.</p>
+<p>What we know about the coin:</p>
+<p>The <strong>radius</strong> of our coin $= R$<br>
+The <strong>circumference</strong> of our coin $C = 2 \pi R$<br></p>
+<p>Now for the circle our coin rotates and wobbles upon:</p>
+<p>The <strong>radius</strong> of this circle is entirely dependant on the angle of the coin to the horizontal (table/flat surface. We will define that as $\theta$). Using the diagram, we can find that $r = R \cos (\theta)$ <br>
+The <strong>circumference</strong> is $c = 2 \pi R \cos (\theta)$</p>
+<p>With all the givens that we need out of the way, on to the application.</p>
+<p>A thing to note is that as the coin completes a <strong>full rotation</strong> around the smaller circle, the <strong>original placement of the coin moves by a certain amount</strong>. You can easily demonstrate this by drawing an arrow on a quarter, and guiding it through a rotation on a circle smaller than the quarter.</p>
+<p><br></p>
+<p><img src="/img/quarter2.jpg" alt=""></p>
+<center>This was the quarter I used when getting ideas on how the coin behaved.</center>
+
+<p><br></p>
+<p>This extra distance it covers can easily be thought out to be as $C - c$.</p>
+<center>$C - c = 2 \pi R - 2 \pi R \cos (\theta) = 2 \pi R (1 - \cos(\theta))$</center>
+
+<p>$2 \pi R (1 - \cos(\theta)) =$ the rate at which the distance our coin completes per revolution.</p>
+<p>The rate for the distance per revolution our coin completes while &quot;wobbling&quot; is the same as the circumference our coin moves around upon, which we know is $2 \pi R \cos(\theta)$</p>
+<p>Putting these two together as ratio of rate of rotation, to rate of &quot;wobbling&quot;, we get:</p>
+<center> $\frac{Rate\,Of\,Spinning}{Rate\,Of\,Wobling} = \frac{2 \pi R \cos (1 - \theta)}{2 \pi R cos (\theta)}$<br><br> $\large= \frac{1}{\cos (\theta)} - 1$ </center>
+
+
+<p>This expression represents that at any given moment, the ratio between how fast the coin is spinning, and the how fast the coin is &quot;wobbling&quot; (which can be seen as the amount of hertz produced by the coin), will be $\frac{1}{\cos (\theta)} - 1$. This also means that if you multiply the frequency of &quot;wobbling&quot; by this expression, it will output how fast the coin should be spinning at the given value of theta. For example, let&#39;s say the coin is wobbling at a frequency of $5\,hertz$ at an angle of $\frac{\pi}{4}\,radians$ (because radians are cool), the coin would have to be rotating about $4.52\,revolutions\,a\,second$ to maintain that angle to the horizontal at that &quot;wobbling&quot; frequency (because of how hertz measure $cycles\,per\,second$, the cycles translate into revolutions for the output). </p>
+<p>Of course, this is all theoretical. In practice, the coin may slip. Wind may change the local air pressure, thus changing the air resistance. Everything needs to stay <strong>constant</strong>, with no disturbances or changes occuring during the coin&#39;s movement. But this is still a neat thing if you were to ask me!</p>
+<p>Just to recap, we took the basics and givens of our coin and it&#39;s enviornment. Used those to get the generalized rates of the coin spinning and wobbling. We then used those calculate our ratio between the two at a given instant. Not bad!</p>
+<p>If you have any questions or comments, send me an email or leave a comment!</p>
+]]></description>
+         <link>http://xperimex.github.io/posts/math-of-coins</link>
+         <guid isPermaLink="true">http://xperimex.github.io/posts/math-of-coins</guid>
+         <dc:creator><![CDATA[Adi Mittal]]></dc:creator>
+      </item>
+      <item>
+         <title><![CDATA[Trial and Eventual-Success]]></title>
+         <description><![CDATA[This triangle though... 
+
+ <p><img src="" alt=""></p>
+<p><strong>How do you... How do you even...</strong> This is when you know the problem you are about to be shown, will be annoying. When a friend of mine first introduced this problem, I thought this would be very, VERY simple, to solve. Use some angle properties, use the given similar triangles, and soon enough, a solution will be found. Of course this didn&#39;t work. I tried a few other things, same result. Showed it to my family, not much help was gained. They tried what I did. Then it hit me. The goal is to find a specific <strong>measure</strong> of the <strong>triangle</strong>s. <strong>Trigonometry</strong> $=$ The <strong>Measurement of Triangles</strong>. The solution quickly followed using a specific property, and I was like, &quot;Meh. That was quite obvious.&quot; Enough ranting, it&#39;s time you got a look at the problem itself.</p>
+<p><br>
+<em>In the diagram below,</em> $\angle ABC = \angle ACB = \angle DEC = \angle CDE$, $\,\overline {BC} = 8$, <em>and</em> $\,\overline {DB} = 2$. <em>Find</em> $\,\overline {AB}$
+<img src="/img/trollTriangle.png" alt=""></p>
+<p><br>
+When drawing everyting out...</p>
+<p><img src="/img/trollTriangleGiven.png" alt=""></p>
+<center>
+<em>SPOILER ALERT</em>
+<br>
+Before you continue reading, I highly encourage you attempt this geometry problem. It&#39;s an interesting problem, and once you found the concept you need to use to solve it, it&#39;s all an easy ride down from there. Following this warning will be the full solution and my thoughts on how I solved this myself. I know I already talked about my thoughts and how I solved this a little in the beginning of this post, but from here on will be <em>everything</em> I thought about.
+<br>
+<strong>You have been warned...</strong>
+</center>
+<br><br>
+
+The property I thought of (after my 45 minutes of trial-and-error) that we can use to solve for $\,\overline {AB}$ is the <strong>The Law of Sines</strong>, which states:
+<center>
+$\large \frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C}$
+<br><br>
+Where $A$ is the angle oposite of $a$, $\,B$ is the angle oposite of $b$, and $C$ is the angle oposite of $c$.
+</center>
+
+<p>We can rewrite this using the diagram:</p>
+<center>
+
+$\large \frac{\overline{BC}}{\sin \angle BAC} = \frac{\overline{AC}}{\sin \angle ABC} = \frac{\overline{AB}}{\sin \angle ACB}$
+
+</center>
+
+<p><br>
+So now that we have this written out, we can start solving for $\,\overline {AB}$. For convenience, I&#39;m going to refer to the angles equivalent to $\,\angle ABC$ as $\,\theta$.</p>
+<p>Using the <strong>Angle Sum Theorem</strong>, $\,\angle BAC = 180 - 2 \theta$. Using this, we can find an expression equal to $\,\overline {AB}$.</p>
+<center>
+
+$\large \frac{\overline {BC}}{\sin \angle BAC} = \frac{\overline {AB}}{\sin \angle ACB}$
+
+<br><br>Doing some substitution...<br><br>
+
+$\large \frac{8}{\sin 2 \theta} = \frac{\overline {AB}}{\sin \theta}$
+
+
+</center>
+
+
+<p>For where the $\sin 2 \theta$ came from, $\sin 180 - 2 \theta$ when evaluated, is the same as $\sin 2 \theta$. Now for some expansion and evaluation...</p>
+<center>
+
+$\large \frac{8}{2 \sin \theta \cos \theta} = \frac{\overline {AB}}{\sin \theta}$
+
+<br><br>
+
+$\overline {AB} \sin \theta \cos \theta = 4 \sin \theta$
+
+<br><br>
+
+$\overline {AB} = \large \frac{4}{\cos \theta}$
+
+</center>
+
+<p>Now that we have an <strong>expression</strong> for $\overline {AB}$, we just need to find a value of $\cos \theta$, and that will give us the length of $\overline {AB}$! So now, what can we do? What I first thought (based on the information we were given), if we find two expressions representing the value of the <strong>same side length</strong>, we can set those two expressions to equal one another, to find a value that makes that equation true. That equation will mostly likely output a value of a function of an angle, as we know very few side lengths, and know no angles (we&#39;re hoping it would output a value of $\cos \theta$). Again, this is only what I was thinking when solving this problem at the time. The only reason I thought this, is that I noticed two triangles, that were similar to $\triangle ABC$, contained within $\triangle ABC$. </p>
+<p><img src="/img/trollTriangleSimilars.png" alt=""></p>
+<p><br></p>
+<p>We have similar triangles $\triangle DEC$ and $\triangle BEC$. And we know that they are similar as the both triangles share the same angles ($\theta, \theta, and \,180 - \theta$) as the original triangle $\triangle ABC$. And rememeber that side length I mentioned earlier that we could find two expressions for, and use those to solve for its length (that&#39;s a mouthful)? That length is $\overline {CE}$! It shares a side length with $\triangle DEC$ and $\triangle BEC$, and we can find our two expressions, by solving for the length of $\overline {CE}$ once, in $\triangle DEC$, and again in $\triangle BEC$. Agian, we&#39;re hoping for a value of $\cos \theta$. Starting by solving for $\triangle BEC$...</p>
+<p>We are given the length of $\overline {BC} = 8$, which simplifies our job quite a bit. We can do the same thing we did to find an expression for $\overline {AB}$: Use the <strong>Law of Sines</strong>!</p>
+<center>
+
+$\large \frac{8}{\sin \theta} = \frac{\overline {CE}}{\sin 2 \theta}$
+
+<br><br>
+
+$\large \frac{8}{\sin \theta} = \frac{\overline {CE}}{2 \sin \theta \cos \theta}$
+
+<br><br>
+
+$\overline {CE} \sin \theta = 16 \sin \theta \cos \theta$
+
+<br><br>
+
+$\overline {CE} = 16 \cos \theta$
+
+
+</center>
+
+
+<p><br></p>
+<p>We now have a value of $\overline {CE}$ from $\triangle BEC$, time to solve $\overline {CE}$ for $\triangle DEC$...</p>
+<p><br>
+First off, all though it&#39;s not stated, we know the length of $\overline {DE}$. $\triangle BEC$ is an isosceles, where $\angle BEC = \angle ECB$, which also means $\overline {BC} = \overline {BE}$. As $\overline {BC} = 8$, therfore $\overline {BE} = 8$. Since we were told $\overline {DB} = 2$, we can solve $\overline {BE} - \overline {BD} = \overline {DE} = 6$. Now back to the all-mighty, <strong>Law of Sines</strong>...</p>
+<center>
+
+$\large \frac{\overline {DE}}{\sin 2 \theta} = \frac{\overline {CE}}{\sin \theta}$
+
+<br><br>
+
+Substitution and expansion...
+
+<br><br>
+
+$\large \frac{3}{\sin \theta \cos \theta} = \frac{\overline {CE}}{\sin \theta}$
+
+<br><br>
+
+$\overline {CE} \sin \theta \cos \theta = 3 \sin \theta$
+
+<br><br>
+
+$\overline {CE} = \large \frac{3}{\cos \theta}$
+
+</center>
+
+<p><br></p>
+<p>Great! We&#39;re lucky that it came out as a value of $\cos \theta$, but anyways, we have our two expressions, now just to set them equal to one another...</p>
+<center>
+
+
+$16 \cos \theta = \large \frac{3}{\cos \theta}$
+
+<br><br>
+
+$16 \cos^2 \theta = 3$
+
+<br><br>
+
+
+$cos^2 \theta = \large \frac{3}{16}$
+
+<br><br>
+
+$\cos \theta = \large \frac{\sqrt{3}}{4}$
+
+
+</center>
+
+<p><br></p>
+<p>Now that we have our value of $\cos \theta$, we can just substitute this into our original expression for $\overline {AB}$...</p>
+<center>
+
+$\overline {AB} = \large \frac{4}{\cos \theta}$
+
+<br><br>
+
+$= \large \frac{4}{(\frac{\sqrt{3}}{4})}$
+
+<br><br>
+
+$ = \large \frac{16}{\sqrt{3}}$
+</center>
+
+
+<p><br></p>
+<p>And there it would be, our solution! Although it might of seemed quite lengthy to get to $\frac{16}{\sqrt{3}}$, it all just revolved around the one concept of the <strong>Law of Sines</strong>, so not to bad.</p>
+<p><br></p>
+<p>Although this is one way to obtain the solution, I&#39;m sure there are other ways to tackle this problem, and I found another way which completely negates our first step, to find an expression for $\overline {AB}$, but adds an extra step to the end.</p>
+<p><br>
+With our value of $\cos \theta = \frac{\sqrt{3}}{4}$, we can draw a right triangle with this as one of our angles with a bit moving around.</p>
+<center>
+
+$\theta = \arccos \large \frac {\sqrt{3}}{4}$
+
+</center>
+
+<p><img src="/img/trollTriangleRight.png" alt=""></p>
+<p><br></p>
+<p>We can do this, because as we stated earlier $\theta = any\,angle\,equivalent\,to\, \angle ABC$ (and that&#39;s the exact angle we&#39;re working with). We also <strong>bisected</strong> $\overline {BC}$ at $F$ to form the 2 right triangles within our isosceles triangle, so the length of $\overline {BF} = 4$. We can then use some basic trigonometry and evaluation to solve for $\overline {AB}$.</p>
+<p><br></p>
+<center>
+
+$\theta = \arccos \large \frac {\sqrt{3}}{4}$
+<br><br>
+
+$\cos \theta = \large \frac {4}{\overline {AB}}$
+
+<br><br>
+
+$\cos (\arccos \large \frac {\sqrt{3}}{4}) = \large \frac {4}{\overline {AB}}$
+
+<br><br>
+
+$\large \frac {\sqrt{3}}{4} = \large \frac {4}{\overline {AB}}$
+
+<br><br>
+
+${\large \frac {\sqrt{3}}{4}} \overline {AB} = 4$
+
+<br><br>
+
+$\overline {AB} = \large \frac{16}{\sqrt{3}}$
+
+</center>
+<br>
+Just another simple way of getting to the exact same answer.
+
+
+<br><br>
+If you have any questions or comments, send me an email or leave a comment!
+
+
+
+
+<br><br><br>
+
+<strong>EDIT (JULY 3RD, 2017): RECURSIVE DIVISIONS SOLUTION</strong>
+
+<br>
+
+This specific solution, is one of my favorites that I have seen. One of my inital attempts was to use the dimensions of the similar triangels and find the common ratio between the side length and the base of the triangle. I knew it could be done, but never put my finger on it. However, when a friend of mine took a look at this problem, after a bit of thought, he managed to come up with this. It&#39;s really quite a spectacular of a solution, and this is credited entirely to him (no use of name for privacy reasons). Oh, and I&#39;ll be speaking in first person, just so I don&#39;t cause any confusion, or make it seem like I&#39;m taking it as mine. Just to be clear.
+
+<br>
+
+So the first step is to take the three triangles we know to be similar to one another ($\triangle ABC, \triangle BEC, and \triangle CED$. We know that they are similar due to the fact they all share two common angles, which force them to have a common ratio between the base and a leg of the triangle. This will be important to remember later), and we will $0-index$ them from the original triangle, to the following divisions within one another. I will also now be referring to the triangles by their respective index numbers.
+
+<img src="/img/trollTriangleDivided.png" alt="">
+
+<br>
+
+Now using the fact that every triangle is similar, and that each progressive triangle was formed by using the base length of the previous triangle to form the leg of the next triangle, we can find a ratio between a dimension (say, the base) of a triangle, and its previous/next triangle, and use that to find the length of $\overline{AB}$. I know that is kind of confusing right now, but trust me, it will makes more sense the more I go on.
+
+<br>
+
+So we know the base length of two bases of two triangles ($\triangle 0$, and $\triangle 2$). Since we know that they should share a common ratio, we can right them as a ratio between one another, and hence find said ratio.
+
+<br><center>
+
+$\large \frac{\overline{BC}}{\overline{DE}} = \frac{8}{6}$
+
+<br><br>
+
+$\large = \frac{4}{3}$
+
+<br>
+
+</center>
+
+<p>So we have a ratio, but the problem with this ratio it&#39;s for two divisions. It&#39;s for going between $\triangle 0$ and $\triangle 2$. We want one between $\triangle 0$ and $\triangle 1$, or $\triangle 1$ and $\triangle 2$. But this is easy! Since a division in this case is a factor of the previous triangle. This means if we take some dimenstion <em>a</em> of a triangle, multiply it by our ratio <strong>once</strong>, we will obtain the dimension <em>a</em> of the next division&#39;s triangle. For an example, if we have triangle-base $\overline{BC}$, and multiply it by our ratio, we should get the length of triangle-base $\overline{EC}$. Take a look at the diagram if that helps. Essentially, the base length of $\triangle 0$, multiplied by some ratio, we will get the base length of $\triangle 2$, and do that again, we will get the base length of $\triangle 3$. Now if you see, we had to multiply <strong>twice</strong> to get from $\triangle 0$ to $\triangle 2$. A.K.A., take the square of the ratio. To undo a square, you take the <strong>squareroot</strong>. So we can undo our two-division ratio, by taking the squareroot of that, to get our one-division ratio.
+<br></p>
+<center>
+
+$\sqrt{\large{\frac{4}{3}}} = \large{\frac{2}{\sqrt{3}}}$ 
+
+</center>
+
+<p>So that&#39;s our ratio between a one triangle division. So now we need to find the length of $\overline{AB}$. So we can do what we did originally with the base lengths, only with the legs of the triangle. Larger triangle, over the divided triangle. In this case, $\triangle 0$ over $\triangle 1$.</p>
+<p><br></p>
+<center>
+
+<p>$\large \frac{\overline{AB}}{\overline{BC}} = \frac{2}{\sqrt{3}}$</p>
+<p><br><br></p>
+<p>$\large \frac{\overline{AB}}{8} = \frac{2}{\sqrt{3}}$</p>
+<p><br><br></p>
+<p>$\overline{AB} = \large \frac{2 \cdot 8}{\sqrt{3}}$</p>
+<p><br><br></p>
+<p>$\overline{AB} = \large \frac{16}{\sqrt{3}}$</p>
+<p><br>
+</center>
+And there it is! The answer we had before. I cannot tell you how cool of a solution this is. Simple in concept, but well executed. So major props to my friend for carrying out such a clean solution. I tried this, completely missed the obvious, and he did not. Major props to him.</p>
+]]></description>
+         <link>http://xperimex.github.io/posts/similar-trangles-problem</link>
+         <guid isPermaLink="true">http://xperimex.github.io/posts/similar-trangles-problem</guid>
+         <dc:creator><![CDATA[Adi Mittal]]></dc:creator>
+      </item>
+      <item>
+         <title><![CDATA[How fast can I travel? Part 1]]></title>
+         <description><![CDATA[Answer: Too fast 
+
+ <p><img src="" alt=""></p>
+<p>The Earth has a diameter of approximately 12742000 meters. Most people of course wouldn&#39;t travel that far, but what if you did? How fast can you get across with nothing but yourself? That&#39;s essentially what people have asked in the form of the question: How long will it take to fall through the center of the Earth?
+<br><br></p>
+<center>
+
+<em>SPOLIER WARINING:</em><br>
+
+<em>THIS WARNING IS TO INDICATE ANY WORD FOLLOWING THIS MESSAGE WILL BE A PART OF THE SOLUTION TO THIS PROBLEM. HIGHLY ENCOURAGE THE ATTEMPT TO SOLVE THIS PROBLEM.</em> <br>
+
+<em>YOU HAVE BEEN WARNED...</em>
+
+
+</center>
+<br><br><br> Following our standard procedure, let&#39;s list all the givens:
+
+<br>
+<center>
+$The\,radius\,of\,the\,Earth is R = 6,371,000$ meters
+
+<br><br>
+$The\,Force\,of\,Gravity\,is\,F = \large \frac{G m M}{r^2}$
+<br><br>
+Where...<br> $G = Gravity$<br>
+$m = Mass\,of\,Object_1\, (in\,this\,case,\,us)$<br>
+$M = Mass\,of\,Object_2\,(in\,this\,case,\,Earth)$<br>
+$r = the\,distance\,between\,m\,and\,M.$
+</center>
+
+<p>So now we are just trying to find as many values or expressions to variables within that eqauation of force. We can leave $m$ as is, becuase that&#39;s the mass of our human/us. So what we really need is $r$ and $M$.</p>
+<p><img src="/img/earthModel.png" alt=""></p>
+<p><br></p>
+<p>One thing we have to worry about though, is that as we fall $r$ will change. As we fall we will get clsoer to Earth&#39;s center of mass, eventually pass it, and then get farther from it. So we will call our current distance relative to Earth&#39;s center of mass as $x$. And what&#39;s great about this, if we are any distance into our fall, we can just ignore any mass above us. Using the diagram as an example, if we are $R-x$ deep into our fall, we can ignore any mass of Earth contained between $R$ and $x$. Some of you may think, &quot;But wait! Wouldn&#39;t the mass above us have it&#39;s own force of gravity acting upon you, and therefore slowing you down as you fall?&quot; The answer is technically yes, but that all balances out with the mass <em>below</em> you and to the <em>side of</em> you. All these forces cancel out, making it not affect you at all. So, all we really care about is the amount of mass below us, and the distance between us and the Earth&#39;s center of mass (which would be the radius $x$ as we have been discussing). So we have one variable filled.</p>
+<p><br></p>
+<center>
+
+$F = \large \frac{G m M}{x^2}$
+
+</center>
+
+<p>Now we need $M$. The formula for mass is $M = volume \times density$. The volume of the Earth $= \frac{4 \pi x^3}{3}$ (we are using $x$ again as the mass affecting us changes over our fall). And we can represent density with $\rho$. So the $M$ equals:</p>
+<p><br></p>
+<center>
+
+$\large \frac{4 \pi \rho x^3}{3}$
+
+</center>
+
+<p>Putting this all together, the force of gravity acting upon us during this fall equals:</p>
+<p><br></p>
+<center>
+
+$F = \large \frac{4 \pi G m \rho x^3}{3 x^2}$
+<br><br>
+
+$ = \large \frac{4 \pi G m \rho}{3} x$
+
+</center>
+
+<p>If we let $\frac{4 \pi G m \rho}{3} =$ say, v, we get $F = -v x$. It&#39;s negative because we are falling first. This is actually an <strong>oscillating system</strong>. To represent this, I&#39;ve made a mock graph to show how gravity affects us over time starting from the top of &quot;Earth&quot;. The graph is just a representation.</p>
+<p><img src="/img/oscillatingModel.png" alt=""></p>
+<p><br></p>
+<p>If the x-axis is time, and we fell from the top of Earth (and there is NO air resistence), as you can see, we would just continuously bounce back and forth between the top and bottom of the Earth. Now we need to find the <strong>period</strong> of our oscillating system. The period is the time it takes for one cycle to be completed. To be more precise, we need <em>half</em> of the period. That is because one cycle (in this case) is falling all the way down, and coming all the way back. We only want the time it takes to fall down, so that&#39;s why the half.</p>
+<p>The eqauation for the period of a simple oscillating system (also called a harmonic motion) is:</p>
+<p><br></p>
+<center>
+
+$P = 2 \pi \sqrt {\large \frac {m}{k}}$
+
+
+</center>
+
+
+<p>The variable representation is that $k$ is our oscillating system, and $m$ is our mass. But since we want half of that, so therefor time to fall through the Earth is...</p>
+<p><br></p>
+<center>
+
+$Time = \pi \sqrt {\large \frac {m}{k}}$
+<br><br>
+Doing some substitution...
+
+<br><br>
+
+
+$Time = \pi \sqrt {\large \frac {m}{\large \frac{4 \pi G m \rho}{3}}}$
+
+<br><br>
+
+$ = \pi \sqrt {\large \frac {3 m }{4 \pi G m \rho}}$
+
+<br><br>
+
+$ = \sqrt {\large \frac {3 m \pi^2}{4 \pi G m \rho}}$
+
+<br><br>
+
+$ = \sqrt {\large \frac {3 \pi}{4 G \rho}}$
+
+
+</center>
+
+<p>Now all we need to do is put in $G$ as the Gravitational Constant, and $\rho$ as the density ($\rho = \frac{mass}{volume}$) of Earth (I did some Googling...)!</p>
+<p><br></p>
+<center>
+
+$Time = \sqrt {\large \frac {3 \pi}{4 \cdot 6.67408 \cdot 10^{-11} \cdot m^3 \cdot kg^{-1} \cdot s^{-2} \cdot \frac{5.972 \cdot 10^{24}\, kg}{\frac{4 \pi \cdot 6371000^3}{3} \, m^3} }}$
+
+<br><br>
+
+</center> This looks bad. Let&#39;s clean it up.
+<br><br>
+
+<center>
+$= \sqrt {\large \frac {3 \pi}{4 \cdot 6.67408 \cdot 10^{-11} \cdot m^3 \cdot kg^{-1} \cdot s^{-2} \cdot \frac{5.972 \cdot 10^{24} \cdot 3 \, kg}{4 \pi \cdot 6371000^3 \, m^3} }}$
+
+<br><br>
+
+$= \sqrt {\large \frac {3 \pi}{4 \cdot 6.67408 \cdot 10^{-11} \cdot s^{-2} \cdot \frac{5.972 \cdot 10^{24} \cdot 3}{4 \pi \cdot 6371000^3} }}$
+
+<br><br>
+
+$ = \sqrt {\large \frac {3 \pi \cdot s^{2}}{4 \cdot 6.67408 \cdot 10^{-11} \cdot \frac{5.972 \cdot 10^{24} \cdot 3}{4 \pi \cdot 6371000^3} }}$
+
+<br><br>
+
+
+$ = s \sqrt {\large \frac {3 \pi}{4 \cdot 6.67408 \cdot 10^{-11} \cdot \frac{5.972 \cdot 10^{24} \cdot 3}{4 \pi \cdot 6371000^3} }}$
+
+</center>
+
+<p>So, I don&#39;t know about you, but when I have something like this, I just straight up put it into <a href ="http://www.m.wolframalpha.com"> <em>Wolfram Alpha</em> </a>, or a similar calculator, as I am just lazy and it&#39;s a pain to evaluate. So, letting it be computed by the calculator...</p>
+<p><br></p>
+<center>
+
+$Time = s \sqrt {\large \frac {3 \pi}{4 \cdot 6.67408 \cdot 10^{-11} \cdot \frac{5.972 \cdot 10^{24} \cdot 3}{4 \pi \cdot 6371000^3} }}$
+
+<br><br>
+
+$ \large = 2530.5\,seconds$
+
+</center>
+
+<p>This, funnily enough is also the answer to the universe and all of its questions. $2530.5\,seconds = 42\,minutes\,(+10.5\,seconds)$. Quite a coincidence if I say so!</p>
+<p><br></p>
+<p>Now what&#39;s great about our equation we used ($ = \sqrt {\frac {3 \pi}{4 G \rho}}$), it&#39;s quite easy to apply to other objects, as most of it is constant! 3, is well, a constant. So is 4. $\pi$ has been universally agreed upon for its value. And as far as we can tell in the universe, the Gravitational Constant is true. The only thing that determines the fall length is the density. So you could have two planets, one with $x$ as its radius, and the other as $100 x$. If the are just as dense as one another, you will fall through them (across the diameter) in the same time.</p>
+<p><br></p>
+<p>Now just as a random fact that I thought was amusing, was the top speed you would attain. We know that acceleration due to gravity on Earth is $\frac{9.807\,m}{s^2}$. The top speed would be when you reach the center of the Earth, which is 6,371,000 meters from the surface (aka, the radius of Earth). Using this, we can calculate the speed at which we would be at in meters per second at the center. Just to be sure, we can calculate acceleration due to gravity, using our original formula, where we ignore our mass: $g = \frac{G \cdot M_{Earth}}{R^2}$</p>
+<p><br></p>
+<center>
+
+$g = \large \frac{G \cdot M_{Earth} }{R^2}$
+
+
+<br><br>
+
+</center> Substituting everything we have... <center> <br><br>
+
+$g = \frac{6.67408 \cdot 10^{-11} \cdot m^3 \cdot kg^{-1} \cdot s^{-2} \cdot 5.972 \cdot 10^{24}\, kg }{6371000^2\,m^2}$
+
+<br><br>
+
+$g = \frac{6.67408 \cdot 5.972 \cdot 10^{13} \cdot m}{6371000^2 \cdot s^2}$
+
+<br><br>
+
+Thanks to a calculator...
+
+<br><br>
+
+$\approx \large\frac{9.82m}{s^2}$
+
+</center>
+
+<p>Of course this is not the same as what others have put on the internet, values will differ from here to there. I trust the value of $\frac{9.807m}{s^2}, as I think there values they used to calculate it would be more accurate. Back to the top speed now.</p>
+<p><br></p>
+<center>
+
+$g = \large \frac{9.807\,m}{s^2}$
+
+<br><br>
+
+$ = \large \frac{9.807 \cdot 6371000}{s^2}$
+
+<br><br>
+
+$ = \large \frac{\sqrt{9.807 \cdot 6371000}}{s}$
+
+<br><br>
+
+$\approx \large \frac{7904.454251 m}{s}$
+
+<br>
+</center>
+Which is equivalent to...
+
+<br><br>
+
+<center>
+
+$\approx \large \frac{28456.035304\,km}{hour}$
+
+<br><br>
+
+$\approx \large \frac{17681.760583\,miles}{hour}$
+
+</center>
+
+<p>That&#39;s about 23.23 times the speed of sound! This literally means you can&#39;t yell during this fall, as you would be going literally faster than the time it takes to vibrate the air around you. It will be a silent fall. That is, if there was air, and the terminal velcoity of a human wasn&#39;t $\frac{53m}{s}$.</p>
+<p><br></p>
+<p>So that would be it for this post! We found out we can cross Earth in under 45 minutes, and break the sound barrier 23 times over! <br></p>
+<p>I plan on following it up with another post showing how you can use integration to find the time to fall through Earth (and that equation to find the period of an oscillating system/simple harmonic motion that kind of came out of nowhere. The $2 \pi \sqrt{\frac{m}{k}}$), and to show some other cool properties and interesting things about falling, pendulums, and oscillating systems in general.</p>
+<p><br></p>
+<p>Now here&#39;s an extra challenge for you: How long will it take to fall through Earth, 500 kilometers above the surface?</p>
+<p><br></p>
+<p>If you have any questions or comments, send me an email or leave a comment!</p>
+]]></description>
+         <link>http://xperimex.github.io/posts/falling-through-earth</link>
+         <guid isPermaLink="true">http://xperimex.github.io/posts/falling-through-earth</guid>
+         <dc:creator><![CDATA[Adi Mittal]]></dc:creator>
+      </item>
+      <item>
+         <title><![CDATA[To equal NP or to not equal NP. That is the question.]]></title>
+         <description><![CDATA[I tried... 
+
+ <p><img src="" alt=""></p>
+<p>There is just no introduction needed here. The problem at hand is probably one of the hardest, most controversial topic in computer science:
+<br><br></p>
+<center><em>Prove that</em> $P = NP$, <em>or otherwise</em></center>
+
+<p><br></p>
+<p>In case this is not clear (or never have heard this problem before), it is to show that all NP-hard problems are P problems, or show that they are not equal. An NP-hard problem is a problem that cannot be solved in polynomial time ($NP$ represents for non-deterministic polynomial-time, and $P$ just represents for polynomial-time). Polynomial time is time that can be represented as a function of the input (input being whatever you need to achieve/solve for in the problem), and the function is a simple polynomial function. For example, the following function representing the time it takes to solve some problem,
+<br></p>
+<center>$f(x) = p(x^k)$, where $k$ is constant</center>
+<br>
+..., this would classify the problem as a $P$ problem, as we can represent the time it takes to solve the problem as a simple polynomial function. An example for how long some $NP-hard$ problem might take to solve would be such as...
+<br>
+<center>$f(x) = p(k^x)$, where $k$ is constant</center>
+<br>
+This is bad for computation time, since $x$ is our input, our values would explode the greater the amount of input we have. That&#39;s why this is an $NP-hard$ problem. We would essentially have to brute force our, and check every possible scenario (within allotted values for our problem) to solve for this. 
+<br>
+So now the reason why this problem is so controversial, it&#39;s because that if we can show that $P = NP$ is true, we can then theoretically solve ANY problem within an algorithmic, and in polynomial time. It will cut so much time off of the time it takes to solve all the crazy hard, unsolved problems.
+
+<br>
+And I know, some of you may be thinking, &quot;But, hey! Wouldn&#39;t most problems need a completely different approach to solve, than another problem?&quot; Well, my response to this, would be yes, but, there are some $NP-hard$ problems that <em>have</em> been solved. These are called $NP-complete$ problems. The reason why these are important (especially when answering the above question) is because a common way to tackle these $NP-hard$ problems is by boiling it down to a smaller, similar, $NP-complete$ problem, and then brute force it in a way similar to that $NP-complete$ problem. <a href = "https://en.wikipedia.org/wiki/List_of_NP-complete_problems"> Here is a list of $NP-complete$ problems. </a>
+
+<br><br>
+
+<img src="/img/np-reduction.png" alt="">
+<center>This here shows how you can work from one $NP-hard$ problem to another, smaller, but related problem.</center>
+
+<p><br></p>
+<p>Okay, now with that all out of the way, the reason why I started discussing $NP-problems$, the $P$ versus $NP$ problem. This problem bothers me so much, for a few reasons. <strong>ONE</strong>: This seems a lot easier to solve than it actually is, and this just intuitively bothers me more than other problems do. It seems like such a simple statement to show, but it&#39;s just not. <strong>TWO</strong>: The way people are approaching this problem, it seems all to <em>awkward</em> and incorrect to me. It seems that they are overcomplicating this quite a bit. But this is computer science, so I don&#39;t have much say. And the person who proved <em>Fermat&#39;s Last Theorem</em> did so in more or less 150 pages (I think), so this could very well be so as well.</p>
+<p><br></p>
+<p>My attempts haven&#39;t been as successful (well, if it was successful, I would be too excited to write this up), but I do have a few thoughts on the matter. My first attempt was rather bleak. Take a generalized form of the time it takes to solve an $NP-hard$ problem, and just try to work it down to some representation of polynomial time. This obviously, did not work. What ended up happening was that I was trying to represent the wrong variable into polynomial-time representation, and couldn&#39;t find a way to expand on onto the variable that I needed to express. So, that idea was gone. The second idea, would be a bit more practical. Take some $NP-complete$ problem, look at it how it&#39;s time is in its NP form, then try to find some algorithm that results in the same solution, but is in polynomial time. The reason why I would do this, is because you can link almost any $NP-problem$ to one of the $NP-complete$ problems. Using this, we can creat a map, linking every $NP-complete$ problem to another. That way, if we can solve for one, we have then technically shown for every $NP-problem$. We can do that, or generalize somehow our $NP-complete$ problem, and show from there. My last idea on the matter, is to think of the consequences of this statement ($P=NP$) of being <strong>true</strong>, or <strong>false</strong>. If this is <strong>true</strong>, I feel that this would create a paradox. Because finding the polynomial-time fuction of a $NP-problem$ is $NP-hard$ in itself. But that cannot happen, as we said that $P=NP$, so we have a contradiction in itself. So you would then have to show that finding a P function of a NP function is in P. But that is also $NP-hard$. Then you would have to show that is also in P. But that&#39;s also $NP-hard$, so we have to show that it&#39;s in P, etc., etc. So we end up with having to contiuously prove that something that is in NP is in P, to show that the smaller $NP-hard$ problem of P versus NP (showing the conversion of NP to P in a given $NP-problem$), is also in P (that was a bit long and a mouthful. Essentially you get a recursive $NP-problem$, and each iteration of this recursive problem is slightly different than the last iteration, but with the same goal of showing that that iteration of an $NP-problem$ takes P time to actually solve). If it was <strong>false</strong>, we would stay where we are computationally, and nothing would of changed. Personally, based on what I have done so far, I think $P \neq NP$. But don&#39;t think that is my final decision. People have shown $NP-hard$ problems to be computed in polynomial-time, so based on my second idea of mapping $NP-complete$ problems, there is still some possibility. Expect some updates, and future posts, as this is one of many other problems (I&#39;ll just say them: The Millenium Problems) that have gotten me thinking in almost no way I have done before (that&#39;s probably because they are not all math-based, and I&#39;m a math-based guy, so math-based + not-math-based-problem = new type of thinking). Actually, don&#39;t expect future updates and posts, just know there will be future updates and posts.</p>
+<p><br><br>
+If you have any questions or comments, send me an email or leave a comment!</p>
+]]></description>
+         <link>http://xperimex.github.io/posts/p-vs-np</link>
+         <guid isPermaLink="true">http://xperimex.github.io/posts/p-vs-np</guid>
+         <dc:creator><![CDATA[Adi Mittal]]></dc:creator>
+      </item>
+      <item>
+         <title><![CDATA[Money Maker? From money?!]]></title>
+         <description><![CDATA[Okay, you don't make that much... 
+
+ <p><img src="" alt=""></p>
+<p>Not much for an introduction this post. Found this problem when looking for interesting problems for myself. Shoutout to <a href = "https://www.physics.harvard.edu/academics/undergrad/problems">Harvard&#39;s Problem of the Week</a> (from 2002 to 2004). The problem at hand is:</p>
+<center>
+
+Consider the following game: You flip a coin until you get tails, and the amount of money you win is equal to number of coins you end up flipping (i.e. If you flip a coin, and immediately get tails, you win one dollar. If it takes 2 flips to get tails, you get 2 dollars. 3 flips = 3 dollars. So on, and so on).
+<br><br>
+(a) What is your expected value you win when playing the game? 
+<br><br>
+(b) Play the same game, except let your earnings be $2^{n-1}$, where $n$ is the amount of flips. What do you expect to win now? Does it make sense?
+
+</center>
+
+<p><br><br><br></p>
+<center><strong>SPOILER WARNING: SOLUTION INCOMING</strong></center>
+
+<p><br><br><br></p>
+<p><strong>(a)</strong>: Expected value is the amount you win, multiplied by the probability of it occuring, and adding up all the possible outcomes.
+<br>
+You have a 50% chance to win 1 dollar. 25% chance to win 2 dollars. 12.5% chance to win 3 dollars... </p>
+<p><br></p>
+<center>
+
+<p>$\large \frac{1}{2} + \frac{2}{4} + \frac{3}{8} + \frac{4}{16} + ...$ </p>
+<p><br><br></p>
+<p>$= \large \sum _{n=1}^{\infty }\: \frac{n}{2^n}$
+<br><br></p>
+<p>$= \large 2$</p>
+<p><br><br></p>
+<p><strong>OR</strong></p>
+<p><br><br>
+$\large \frac{1}{2} + \frac{2}{4} + \frac{3}{8} + \frac{4}{16} + ...$ </p>
+<p><br><br>
+$\large =(\frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{6} + ...) + (\frac{1}{4} + \frac{1}{8} + \frac{1}{16} + ...) + (\frac{1}{8} + \frac{1}{16} + ...) + ...$</p>
+<p><br><br></p>
+<p>$= (1) + \large (\frac{1}{2}) + (\frac{1}{4}) + (\frac{1}{8}) + (\frac{1}{16}) +...$</p>
+<p><br><br></p>
+<p>$\large = 2$
+</center>
+<br>
+So you can expect to win <strong>2 dollars</strong> every time you play this game.</p>
+<p><br>
+This is where the fun is at.</p>
+<p><br>
+<strong>(b)</strong>: We have 50% chance to win 1 dollar. We have a 25% chance to win 2 dollars. We have a 12.5% chance to win 4 dollars...
+<br></p>
+<center>
+
+<p>$\large \frac{1}{2} + \frac{2}{4} + \frac{4}{8} + \frac{8}{16} +...$</p>
+<p><br><br>
+If you don&#39;t mind, since I like to write things in sigma notation, I would like to write the simplified verison of this sum in sigma notation.
+<br><br></p>
+<p>$=\large \sum _{n=1}^{\infty}\: \frac{1}{2}$
+<br><br></p>
+<p>$\large = \infty$</p>
+<p></center>
+<br>
+This is why I picked this problem. The first part is quite simple, but this part creates quite a dilemma. What can we do now? How should we interpret this for the expected value of our game? Now one would ever put up a game in which the player is expected to win an infinte amount of money, since no one has an infinite amount money!
+<br></p>
+<p>The following explanation is a jumble between what I thought, and Harvard&#39;s. I recommend looking at what they <a href = "https://www.physics.harvard.edu/uploads/files/undergrad/probweek/sol6.pdf">said</a> specifically. </p>
+<p><br></p>
+<p>The solution is that our game (would be known as the <em>experiment</em> in our scenario) doesn&#39;t agree with the exact definition of <strong>expected value</strong>. Expected value is defined as an average over an <em>infinite</em> amount of attempts/trials (this can be viewed at least as the limit towards an infinite number of attempts/trials). The thing is that, you&#39;ll never be able to play an infinite amount of games. Essentially, our experiment (game) doesn&#39;t agree with our calculated expected value, as the experiment has nothing to do whatsoever with the precise defintion of expected value. Just as an example, if you were to (somehow) play an infinite amount of games, your earnings would indeed average an infinite amount. This whole idea of this expecting to win an infinite amount, and it &quot;not working/making sense/not being possible&quot; arises when we try to make expected value, something it isn&#39;t.</p>
+<p><br> Okay, I like math, but from this point onward I didn&#39;t have much. And what I did wasn&#39;t cohesive, as 25% was written down, the other 75% was in my head. The problem is, that 75% <em>was</em> in my head. I would try to go through and get my complete explanation, but I feel that Harvard&#39;s solution is already quite nice. So the rest is all Harvard&#39;s explanation. Only credit I get here is for the fact I formatted it for this page. Here you go.<br></p>
+<p>&quot;<em>This might not be a very satisfying explanation, so let us get a better feeling for the problem by looking at a situation where someone plays $N = 2^n$ games. How much money would a “reasonable” person be willing to put up front for the opportunity to play these N games? Well, in about $2^{n−1}$ games he will win one dollar; in about 2^{n−2} he will win two dollars; in about $2^{n−3}$ games he will win four dollars; etc., until in about one game he will win $2^{n−1}$ dollars. In addition, there are the “fractional” numbers of games where he wins much larger quantities of money (for example, inhalf a game he will win $2^n$ dollars, etc.), and this is indeed where the infinite expectation value comes from, in the calculation above. But let us forget about these for the moment, in order to just get a lower bound on what a reasonable person should put on the table. Adding up the above cases gives the total winnings as: $2^{n−1}(1) + 2^{n−2}(2) + 2^{n−3}(4) +· · ·+ 1(2^{n−1}) = 2^{n−1}n$. The average value of these winnings in the $N = 2^n$ games is therefore $\frac{2^{n−1}n}{2^n} = \frac{n}{2} = \frac{(\log_2 N)}{2}$. A reasonable person should therefore expect to win at least $\frac{(\log_2 N)}{2}$ dollars per game. (By “expect”, we mean that if the player plays a very large number of sets of $N$ games, and then takes an average over these sets, he will win at least $2^{n−1}n$ dollars per set.) This clearly increases with $N$, and goes to infinity as $N$ goes to infinity. It is nice to see that we can obtain this infinite limit without having to worry about what happens in the infinite number of “fractional” games. Remember, though, that this quantity, $\frac{(\log_2 N)}{2}$, has nothing to do with a true expectation value, which is only defined for $N → ∞$. Someone may still not be satisfied and want to ask, “But what if I play only $N$ games? I will never ever play another game. How much money do I expect to win?” The proper answer is that the question has no meaning. It is not possible to define how much one expects to win, if one is not willing to take an average over a arbitrarily large number of trials.</em>&quot;</p>
+<p><br><br></p>
+<p>Neat little problem if I do say so myself. Some of my work, some of Harvard&#39;s, hope it was cohesive and clear who was writing what when. I wish I could of gotten my last piece of explanation, just would of taken a bit too long for something I need to redo. Moral of the story: Take complete notes.</p>
+<p><br><br>
+If you have any questions or comments, send me an email or leave a comment!</p>
+]]></description>
+         <link>http://xperimex.github.io/posts/flipping-coins</link>
+         <guid isPermaLink="true">http://xperimex.github.io/posts/flipping-coins</guid>
+         <dc:creator><![CDATA[Adi Mittal]]></dc:creator>
+      </item>
+   </channel>
+</rss>

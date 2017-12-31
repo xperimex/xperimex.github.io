@@ -1,0 +1,114 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>{BLOG-NAME} - To equal NP or to not equal NP. That is the question.</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#FFFFFF" />
+
+        <link rel="apple-touch-icon" href="/img/apple-touch-icon-precomposed.png">
+        <link rel="icon" type="image/png" href="/img/favicon.png">
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <hr id="starter" />
+
+        <div id="header">
+          <div class="row">
+            <div class="two columns"></div>
+            <div class="eight columns">
+              <h1><span id="goHome" onclick="javascript:location.href='/';">Delta Thoughts</span></h1>
+              <p class="lead" style="margin-top: -10px;">
+                {QUOTE-OF-THE-DAY}
+              </p>
+            </div>
+
+          </div>
+        </div>
+        <div class="content row">
+          <div class="two columns"></div>
+          <div class="eight columns">
+            <div class="mainIntro">
+              <div id="headline">
+                To equal NP or to not equal NP. That is the question.
+              </div>
+              <div class="date" style="margin-left:0px!important;">By <a href="/">Adi Mittal</a> &#183; July 9, 2017 &#183; 6 min read</div>
+            </div>
+            <div class="articleBody firstcharacter">
+              <p><img src="" alt=""></p>
+<p>There is just no introduction needed here. The problem at hand is probably one of the hardest, most controversial topic in computer science:
+<br><br></p>
+<center><em>Prove that</em> $P = NP$, <em>or otherwise</em></center>
+
+<p><br></p>
+<p>In case this is not clear (or never have heard this problem before), it is to show that all NP-hard problems are P problems, or show that they are not equal. An NP-hard problem is a problem that cannot be solved in polynomial time ($NP$ represents for non-deterministic polynomial-time, and $P$ just represents for polynomial-time). Polynomial time is time that can be represented as a function of the input (input being whatever you need to achieve/solve for in the problem), and the function is a simple polynomial function. For example, the following function representing the time it takes to solve some problem,
+<br></p>
+<center>$f(x) = p(x^k)$, where $k$ is constant</center>
+<br>
+..., this would classify the problem as a $P$ problem, as we can represent the time it takes to solve the problem as a simple polynomial function. An example for how long some $NP-hard$ problem might take to solve would be such as...
+<br>
+<center>$f(x) = p(k^x)$, where $k$ is constant</center>
+<br>
+This is bad for computation time, since $x$ is our input, our values would explode the greater the amount of input we have. That&#39;s why this is an $NP-hard$ problem. We would essentially have to brute force our, and check every possible scenario (within allotted values for our problem) to solve for this. 
+<br>
+So now the reason why this problem is so controversial, it&#39;s because that if we can show that $P = NP$ is true, we can then theoretically solve ANY problem within an algorithmic, and in polynomial time. It will cut so much time off of the time it takes to solve all the crazy hard, unsolved problems.
+
+<br>
+And I know, some of you may be thinking, &quot;But, hey! Wouldn&#39;t most problems need a completely different approach to solve, than another problem?&quot; Well, my response to this, would be yes, but, there are some $NP-hard$ problems that <em>have</em> been solved. These are called $NP-complete$ problems. The reason why these are important (especially when answering the above question) is because a common way to tackle these $NP-hard$ problems is by boiling it down to a smaller, similar, $NP-complete$ problem, and then brute force it in a way similar to that $NP-complete$ problem. <a href = "https://en.wikipedia.org/wiki/List_of_NP-complete_problems"> Here is a list of $NP-complete$ problems. </a>
+
+<br><br>
+
+<img src="/img/np-reduction.png" alt="">
+<center>This here shows how you can work from one $NP-hard$ problem to another, smaller, but related problem.</center>
+
+<p><br></p>
+<p>Okay, now with that all out of the way, the reason why I started discussing $NP-problems$, the $P$ versus $NP$ problem. This problem bothers me so much, for a few reasons. <strong>ONE</strong>: This seems a lot easier to solve than it actually is, and this just intuitively bothers me more than other problems do. It seems like such a simple statement to show, but it&#39;s just not. <strong>TWO</strong>: The way people are approaching this problem, it seems all to <em>awkward</em> and incorrect to me. It seems that they are overcomplicating this quite a bit. But this is computer science, so I don&#39;t have much say. And the person who proved <em>Fermat&#39;s Last Theorem</em> did so in more or less 150 pages (I think), so this could very well be so as well.</p>
+<p><br></p>
+<p>My attempts haven&#39;t been as successful (well, if it was successful, I would be too excited to write this up), but I do have a few thoughts on the matter. My first attempt was rather bleak. Take a generalized form of the time it takes to solve an $NP-hard$ problem, and just try to work it down to some representation of polynomial time. This obviously, did not work. What ended up happening was that I was trying to represent the wrong variable into polynomial-time representation, and couldn&#39;t find a way to expand on onto the variable that I needed to express. So, that idea was gone. The second idea, would be a bit more practical. Take some $NP-complete$ problem, look at it how it&#39;s time is in its NP form, then try to find some algorithm that results in the same solution, but is in polynomial time. The reason why I would do this, is because you can link almost any $NP-problem$ to one of the $NP-complete$ problems. Using this, we can creat a map, linking every $NP-complete$ problem to another. That way, if we can solve for one, we have then technically shown for every $NP-problem$. We can do that, or generalize somehow our $NP-complete$ problem, and show from there. My last idea on the matter, is to think of the consequences of this statement ($P=NP$) of being <strong>true</strong>, or <strong>false</strong>. If this is <strong>true</strong>, I feel that this would create a paradox. Because finding the polynomial-time fuction of a $NP-problem$ is $NP-hard$ in itself. But that cannot happen, as we said that $P=NP$, so we have a contradiction in itself. So you would then have to show that finding a P function of a NP function is in P. But that is also $NP-hard$. Then you would have to show that is also in P. But that&#39;s also $NP-hard$, so we have to show that it&#39;s in P, etc., etc. So we end up with having to contiuously prove that something that is in NP is in P, to show that the smaller $NP-hard$ problem of P versus NP (showing the conversion of NP to P in a given $NP-problem$), is also in P (that was a bit long and a mouthful. Essentially you get a recursive $NP-problem$, and each iteration of this recursive problem is slightly different than the last iteration, but with the same goal of showing that that iteration of an $NP-problem$ takes P time to actually solve). If it was <strong>false</strong>, we would stay where we are computationally, and nothing would of changed. Personally, based on what I have done so far, I think $P \neq NP$. But don&#39;t think that is my final decision. People have shown $NP-hard$ problems to be computed in polynomial-time, so based on my second idea of mapping $NP-complete$ problems, there is still some possibility. Expect some updates, and future posts, as this is one of many other problems (I&#39;ll just say them: The Millenium Problems) that have gotten me thinking in almost no way I have done before (that&#39;s probably because they are not all math-based, and I&#39;m a math-based guy, so math-based + not-math-based-problem = new type of thinking). Actually, don&#39;t expect future updates and posts, just know there will be future updates and posts.</p>
+<p><br><br>
+If you have any questions or comments, send me an email or leave a comment!</p>
+
+              <div id="disqus_thread"></div>
+            <script>
+                (function() {  // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+
+                    s.src = '//{DISQUS-LINK}/embed.js';
+
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            </div>
+          </div>
+          <div class="two columns"></div>
+        </div>
+
+        <script src="/js/instantclick.min.js" data-no-instant></script>
+        <script data-no-instant>InstantClick.init();</script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <script type="text/javascript">
+          window.MathJax = {
+            tex2jax: {
+              inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+              processEscapes: true
+            }
+          };
+        </script>
+        <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','{GOOGLE-ANALYTICS-SITE-ID}','auto');ga('send','pageview');
+        </script>
+    </body>
+</html>

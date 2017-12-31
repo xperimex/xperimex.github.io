@@ -1,0 +1,339 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>{BLOG-NAME} - Trial and Eventual-Success</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#FFFFFF" />
+
+        <link rel="apple-touch-icon" href="/img/apple-touch-icon-precomposed.png">
+        <link rel="icon" type="image/png" href="/img/favicon.png">
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <hr id="starter" />
+
+        <div id="header">
+          <div class="row">
+            <div class="two columns"></div>
+            <div class="eight columns">
+              <h1><span id="goHome" onclick="javascript:location.href='/';">Delta Thoughts</span></h1>
+              <p class="lead" style="margin-top: -10px;">
+                {QUOTE-OF-THE-DAY}
+              </p>
+            </div>
+
+          </div>
+        </div>
+        <div class="content row">
+          <div class="two columns"></div>
+          <div class="eight columns">
+            <div class="mainIntro">
+              <div id="headline">
+                Trial and Eventual-Success
+              </div>
+              <div class="date" style="margin-left:0px!important;">By <a href="/">Adi Mittal</a> &#183; June 27, 2017 &#183; 10 min read</div>
+            </div>
+            <div class="articleBody firstcharacter">
+              <p><img src="" alt=""></p>
+<p><strong>How do you... How do you even...</strong> This is when you know the problem you are about to be shown, will be annoying. When a friend of mine first introduced this problem, I thought this would be very, VERY simple, to solve. Use some angle properties, use the given similar triangles, and soon enough, a solution will be found. Of course this didn&#39;t work. I tried a few other things, same result. Showed it to my family, not much help was gained. They tried what I did. Then it hit me. The goal is to find a specific <strong>measure</strong> of the <strong>triangle</strong>s. <strong>Trigonometry</strong> $=$ The <strong>Measurement of Triangles</strong>. The solution quickly followed using a specific property, and I was like, &quot;Meh. That was quite obvious.&quot; Enough ranting, it&#39;s time you got a look at the problem itself.</p>
+<p><br>
+<em>In the diagram below,</em> $\angle ABC = \angle ACB = \angle DEC = \angle CDE$, $\,\overline {BC} = 8$, <em>and</em> $\,\overline {DB} = 2$. <em>Find</em> $\,\overline {AB}$
+<img src="/img/trollTriangle.png" alt=""></p>
+<p><br>
+When drawing everyting out...</p>
+<p><img src="/img/trollTriangleGiven.png" alt=""></p>
+<center>
+<em>SPOILER ALERT</em>
+<br>
+Before you continue reading, I highly encourage you attempt this geometry problem. It&#39;s an interesting problem, and once you found the concept you need to use to solve it, it&#39;s all an easy ride down from there. Following this warning will be the full solution and my thoughts on how I solved this myself. I know I already talked about my thoughts and how I solved this a little in the beginning of this post, but from here on will be <em>everything</em> I thought about.
+<br>
+<strong>You have been warned...</strong>
+</center>
+<br><br>
+
+The property I thought of (after my 45 minutes of trial-and-error) that we can use to solve for $\,\overline {AB}$ is the <strong>The Law of Sines</strong>, which states:
+<center>
+$\large \frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C}$
+<br><br>
+Where $A$ is the angle oposite of $a$, $\,B$ is the angle oposite of $b$, and $C$ is the angle oposite of $c$.
+</center>
+
+<p>We can rewrite this using the diagram:</p>
+<center>
+
+$\large \frac{\overline{BC}}{\sin \angle BAC} = \frac{\overline{AC}}{\sin \angle ABC} = \frac{\overline{AB}}{\sin \angle ACB}$
+
+</center>
+
+<p><br>
+So now that we have this written out, we can start solving for $\,\overline {AB}$. For convenience, I&#39;m going to refer to the angles equivalent to $\,\angle ABC$ as $\,\theta$.</p>
+<p>Using the <strong>Angle Sum Theorem</strong>, $\,\angle BAC = 180 - 2 \theta$. Using this, we can find an expression equal to $\,\overline {AB}$.</p>
+<center>
+
+$\large \frac{\overline {BC}}{\sin \angle BAC} = \frac{\overline {AB}}{\sin \angle ACB}$
+
+<br><br>Doing some substitution...<br><br>
+
+$\large \frac{8}{\sin 2 \theta} = \frac{\overline {AB}}{\sin \theta}$
+
+
+</center>
+
+
+<p>For where the $\sin 2 \theta$ came from, $\sin 180 - 2 \theta$ when evaluated, is the same as $\sin 2 \theta$. Now for some expansion and evaluation...</p>
+<center>
+
+$\large \frac{8}{2 \sin \theta \cos \theta} = \frac{\overline {AB}}{\sin \theta}$
+
+<br><br>
+
+$\overline {AB} \sin \theta \cos \theta = 4 \sin \theta$
+
+<br><br>
+
+$\overline {AB} = \large \frac{4}{\cos \theta}$
+
+</center>
+
+<p>Now that we have an <strong>expression</strong> for $\overline {AB}$, we just need to find a value of $\cos \theta$, and that will give us the length of $\overline {AB}$! So now, what can we do? What I first thought (based on the information we were given), if we find two expressions representing the value of the <strong>same side length</strong>, we can set those two expressions to equal one another, to find a value that makes that equation true. That equation will mostly likely output a value of a function of an angle, as we know very few side lengths, and know no angles (we&#39;re hoping it would output a value of $\cos \theta$). Again, this is only what I was thinking when solving this problem at the time. The only reason I thought this, is that I noticed two triangles, that were similar to $\triangle ABC$, contained within $\triangle ABC$. </p>
+<p><img src="/img/trollTriangleSimilars.png" alt=""></p>
+<p><br></p>
+<p>We have similar triangles $\triangle DEC$ and $\triangle BEC$. And we know that they are similar as the both triangles share the same angles ($\theta, \theta, and \,180 - \theta$) as the original triangle $\triangle ABC$. And rememeber that side length I mentioned earlier that we could find two expressions for, and use those to solve for its length (that&#39;s a mouthful)? That length is $\overline {CE}$! It shares a side length with $\triangle DEC$ and $\triangle BEC$, and we can find our two expressions, by solving for the length of $\overline {CE}$ once, in $\triangle DEC$, and again in $\triangle BEC$. Agian, we&#39;re hoping for a value of $\cos \theta$. Starting by solving for $\triangle BEC$...</p>
+<p>We are given the length of $\overline {BC} = 8$, which simplifies our job quite a bit. We can do the same thing we did to find an expression for $\overline {AB}$: Use the <strong>Law of Sines</strong>!</p>
+<center>
+
+$\large \frac{8}{\sin \theta} = \frac{\overline {CE}}{\sin 2 \theta}$
+
+<br><br>
+
+$\large \frac{8}{\sin \theta} = \frac{\overline {CE}}{2 \sin \theta \cos \theta}$
+
+<br><br>
+
+$\overline {CE} \sin \theta = 16 \sin \theta \cos \theta$
+
+<br><br>
+
+$\overline {CE} = 16 \cos \theta$
+
+
+</center>
+
+
+<p><br></p>
+<p>We now have a value of $\overline {CE}$ from $\triangle BEC$, time to solve $\overline {CE}$ for $\triangle DEC$...</p>
+<p><br>
+First off, all though it&#39;s not stated, we know the length of $\overline {DE}$. $\triangle BEC$ is an isosceles, where $\angle BEC = \angle ECB$, which also means $\overline {BC} = \overline {BE}$. As $\overline {BC} = 8$, therfore $\overline {BE} = 8$. Since we were told $\overline {DB} = 2$, we can solve $\overline {BE} - \overline {BD} = \overline {DE} = 6$. Now back to the all-mighty, <strong>Law of Sines</strong>...</p>
+<center>
+
+$\large \frac{\overline {DE}}{\sin 2 \theta} = \frac{\overline {CE}}{\sin \theta}$
+
+<br><br>
+
+Substitution and expansion...
+
+<br><br>
+
+$\large \frac{3}{\sin \theta \cos \theta} = \frac{\overline {CE}}{\sin \theta}$
+
+<br><br>
+
+$\overline {CE} \sin \theta \cos \theta = 3 \sin \theta$
+
+<br><br>
+
+$\overline {CE} = \large \frac{3}{\cos \theta}$
+
+</center>
+
+<p><br></p>
+<p>Great! We&#39;re lucky that it came out as a value of $\cos \theta$, but anyways, we have our two expressions, now just to set them equal to one another...</p>
+<center>
+
+
+$16 \cos \theta = \large \frac{3}{\cos \theta}$
+
+<br><br>
+
+$16 \cos^2 \theta = 3$
+
+<br><br>
+
+
+$cos^2 \theta = \large \frac{3}{16}$
+
+<br><br>
+
+$\cos \theta = \large \frac{\sqrt{3}}{4}$
+
+
+</center>
+
+<p><br></p>
+<p>Now that we have our value of $\cos \theta$, we can just substitute this into our original expression for $\overline {AB}$...</p>
+<center>
+
+$\overline {AB} = \large \frac{4}{\cos \theta}$
+
+<br><br>
+
+$= \large \frac{4}{(\frac{\sqrt{3}}{4})}$
+
+<br><br>
+
+$ = \large \frac{16}{\sqrt{3}}$
+</center>
+
+
+<p><br></p>
+<p>And there it would be, our solution! Although it might of seemed quite lengthy to get to $\frac{16}{\sqrt{3}}$, it all just revolved around the one concept of the <strong>Law of Sines</strong>, so not to bad.</p>
+<p><br></p>
+<p>Although this is one way to obtain the solution, I&#39;m sure there are other ways to tackle this problem, and I found another way which completely negates our first step, to find an expression for $\overline {AB}$, but adds an extra step to the end.</p>
+<p><br>
+With our value of $\cos \theta = \frac{\sqrt{3}}{4}$, we can draw a right triangle with this as one of our angles with a bit moving around.</p>
+<center>
+
+$\theta = \arccos \large \frac {\sqrt{3}}{4}$
+
+</center>
+
+<p><img src="/img/trollTriangleRight.png" alt=""></p>
+<p><br></p>
+<p>We can do this, because as we stated earlier $\theta = any\,angle\,equivalent\,to\, \angle ABC$ (and that&#39;s the exact angle we&#39;re working with). We also <strong>bisected</strong> $\overline {BC}$ at $F$ to form the 2 right triangles within our isosceles triangle, so the length of $\overline {BF} = 4$. We can then use some basic trigonometry and evaluation to solve for $\overline {AB}$.</p>
+<p><br></p>
+<center>
+
+$\theta = \arccos \large \frac {\sqrt{3}}{4}$
+<br><br>
+
+$\cos \theta = \large \frac {4}{\overline {AB}}$
+
+<br><br>
+
+$\cos (\arccos \large \frac {\sqrt{3}}{4}) = \large \frac {4}{\overline {AB}}$
+
+<br><br>
+
+$\large \frac {\sqrt{3}}{4} = \large \frac {4}{\overline {AB}}$
+
+<br><br>
+
+${\large \frac {\sqrt{3}}{4}} \overline {AB} = 4$
+
+<br><br>
+
+$\overline {AB} = \large \frac{16}{\sqrt{3}}$
+
+</center>
+<br>
+Just another simple way of getting to the exact same answer.
+
+
+<br><br>
+If you have any questions or comments, send me an email or leave a comment!
+
+
+
+
+<br><br><br>
+
+<strong>EDIT (JULY 3RD, 2017): RECURSIVE DIVISIONS SOLUTION</strong>
+
+<br>
+
+This specific solution, is one of my favorites that I have seen. One of my inital attempts was to use the dimensions of the similar triangels and find the common ratio between the side length and the base of the triangle. I knew it could be done, but never put my finger on it. However, when a friend of mine took a look at this problem, after a bit of thought, he managed to come up with this. It&#39;s really quite a spectacular of a solution, and this is credited entirely to him (no use of name for privacy reasons). Oh, and I&#39;ll be speaking in first person, just so I don&#39;t cause any confusion, or make it seem like I&#39;m taking it as mine. Just to be clear.
+
+<br>
+
+So the first step is to take the three triangles we know to be similar to one another ($\triangle ABC, \triangle BEC, and \triangle CED$. We know that they are similar due to the fact they all share two common angles, which force them to have a common ratio between the base and a leg of the triangle. This will be important to remember later), and we will $0-index$ them from the original triangle, to the following divisions within one another. I will also now be referring to the triangles by their respective index numbers.
+
+<img src="/img/trollTriangleDivided.png" alt="">
+
+<br>
+
+Now using the fact that every triangle is similar, and that each progressive triangle was formed by using the base length of the previous triangle to form the leg of the next triangle, we can find a ratio between a dimension (say, the base) of a triangle, and its previous/next triangle, and use that to find the length of $\overline{AB}$. I know that is kind of confusing right now, but trust me, it will makes more sense the more I go on.
+
+<br>
+
+So we know the base length of two bases of two triangles ($\triangle 0$, and $\triangle 2$). Since we know that they should share a common ratio, we can right them as a ratio between one another, and hence find said ratio.
+
+<br><center>
+
+$\large \frac{\overline{BC}}{\overline{DE}} = \frac{8}{6}$
+
+<br><br>
+
+$\large = \frac{4}{3}$
+
+<br>
+
+</center>
+
+<p>So we have a ratio, but the problem with this ratio it&#39;s for two divisions. It&#39;s for going between $\triangle 0$ and $\triangle 2$. We want one between $\triangle 0$ and $\triangle 1$, or $\triangle 1$ and $\triangle 2$. But this is easy! Since a division in this case is a factor of the previous triangle. This means if we take some dimenstion <em>a</em> of a triangle, multiply it by our ratio <strong>once</strong>, we will obtain the dimension <em>a</em> of the next division&#39;s triangle. For an example, if we have triangle-base $\overline{BC}$, and multiply it by our ratio, we should get the length of triangle-base $\overline{EC}$. Take a look at the diagram if that helps. Essentially, the base length of $\triangle 0$, multiplied by some ratio, we will get the base length of $\triangle 2$, and do that again, we will get the base length of $\triangle 3$. Now if you see, we had to multiply <strong>twice</strong> to get from $\triangle 0$ to $\triangle 2$. A.K.A., take the square of the ratio. To undo a square, you take the <strong>squareroot</strong>. So we can undo our two-division ratio, by taking the squareroot of that, to get our one-division ratio.
+<br></p>
+<center>
+
+$\sqrt{\large{\frac{4}{3}}} = \large{\frac{2}{\sqrt{3}}}$ 
+
+</center>
+
+<p>So that&#39;s our ratio between a one triangle division. So now we need to find the length of $\overline{AB}$. So we can do what we did originally with the base lengths, only with the legs of the triangle. Larger triangle, over the divided triangle. In this case, $\triangle 0$ over $\triangle 1$.</p>
+<p><br></p>
+<center>
+
+<p>$\large \frac{\overline{AB}}{\overline{BC}} = \frac{2}{\sqrt{3}}$</p>
+<p><br><br></p>
+<p>$\large \frac{\overline{AB}}{8} = \frac{2}{\sqrt{3}}$</p>
+<p><br><br></p>
+<p>$\overline{AB} = \large \frac{2 \cdot 8}{\sqrt{3}}$</p>
+<p><br><br></p>
+<p>$\overline{AB} = \large \frac{16}{\sqrt{3}}$</p>
+<p><br>
+</center>
+And there it is! The answer we had before. I cannot tell you how cool of a solution this is. Simple in concept, but well executed. So major props to my friend for carrying out such a clean solution. I tried this, completely missed the obvious, and he did not. Major props to him.</p>
+
+              <div id="disqus_thread"></div>
+            <script>
+                (function() {  // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+
+                    s.src = '//{DISQUS-LINK}/embed.js';
+
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            </div>
+          </div>
+          <div class="two columns"></div>
+        </div>
+
+        <script src="/js/instantclick.min.js" data-no-instant></script>
+        <script data-no-instant>InstantClick.init();</script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <script type="text/javascript">
+          window.MathJax = {
+            tex2jax: {
+              inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+              processEscapes: true
+            }
+          };
+        </script>
+        <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','{GOOGLE-ANALYTICS-SITE-ID}','auto');ga('send','pageview');
+        </script>
+    </body>
+</html>
