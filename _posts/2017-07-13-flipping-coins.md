@@ -1,6 +1,6 @@
 ---START_METADATA---
 {
-  "title": "Money Maker? From money?!",
+  "title": "(Un)Expected Value",
   "author": "Adi Mittal",
   "summary": "Okay, you don't make that much...",
   "tags":[
@@ -13,10 +13,10 @@
 Not much for an introduction this post. Found this problem when looking for interesting problems for myself. Shoutout to <a href = "https://www.physics.harvard.edu/academics/undergrad/problems">Harvard's Problem of the Week</a> (from 2002 to 2004). The problem at hand is:
 
 <center>
-	
+
 Consider the following game: You flip a coin until you get tails, and the amount of money you win is equal to number of coins you end up flipping (i.e. If you flip a coin, and immediately get tails, you win one dollar. If it takes 2 flips to get tails, you get 2 dollars. 3 flips = 3 dollars. So on, and so on).
 <br><br>
-(a) What is your expected value you win when playing the game? 
+(a) What is your expected value you win when playing the game?
 <br><br>
 (b) Play the same game, except let your earnings be $2^{n-1}$, where $n$ is the amount of flips. What do you expect to win now? Does it make sense?
 
@@ -31,12 +31,12 @@ Consider the following game: You flip a coin until you get tails, and the amount
 
 __(a)__: Expected value is the amount you win, multiplied by the probability of it occuring, and adding up all the possible outcomes.
 <br>
-You have a 50% chance to win 1 dollar. 25% chance to win 2 dollars. 12.5% chance to win 3 dollars... 
+You have a 50% chance to win 1 dollar. 25% chance to win 2 dollars. 12.5% chance to win 3 dollars...
 
 <br>
 <center>
-	
-$\large \frac{1}{2} + \frac{2}{4} + \frac{3}{8} + \frac{4}{16} + ...$ 
+
+$\large \frac{1}{2} + \frac{2}{4} + \frac{3}{8} + \frac{4}{16} + ...$
 
 <br><br>
 
@@ -50,7 +50,7 @@ $= \large 2$
 __OR__
 
 <br><br>
-$\large \frac{1}{2} + \frac{2}{4} + \frac{3}{8} + \frac{4}{16} + ...$ 
+$\large \frac{1}{2} + \frac{2}{4} + \frac{3}{8} + \frac{4}{16} + ...$
 
 <br><br>
 $\large =(\frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{6} + ...) + (\frac{1}{4} + \frac{1}{8} + \frac{1}{16} + ...) + (\frac{1}{8} + \frac{1}{16} + ...) + ...$
@@ -73,7 +73,7 @@ This is where the fun is at.
 __(b)__: We have 50% chance to win 1 dollar. We have a 25% chance to win 2 dollars. We have a 12.5% chance to win 4 dollars...
 <br>
 <center>
-	
+
 $\large \frac{1}{2} + \frac{2}{4} + \frac{4}{8} + \frac{8}{16} +...$
 
 <br><br>
@@ -90,7 +90,7 @@ $\large = \infty$
 This is why I picked this problem. The first part is quite simple, but this part creates quite a dilemma. What can we do now? How should we interpret this for the expected value of our game? Now one would ever put up a game in which the player is expected to win an infinte amount of money, since no one has an infinite amount money!
 <br>
 
-The following explanation is a jumble between what I thought, and Harvard's. I recommend looking at what they <a href = "https://www.physics.harvard.edu/uploads/files/undergrad/probweek/sol6.pdf">said</a> specifically. 
+The following explanation is a jumble between what I thought, and Harvard's. I recommend looking at what they <a href = "https://www.physics.harvard.edu/uploads/files/undergrad/probweek/sol6.pdf">said</a> specifically.
 
 <br>
 
@@ -109,9 +109,3 @@ Neat little problem if I do say so myself. Some of my work, some of Harvard's, h
 
 <br><br>
 If you have any questions or comments, send me an email or leave a comment!
-
-
-
-
-
-

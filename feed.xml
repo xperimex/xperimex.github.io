@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Sat, 09 May 2020 21:01:24 GMT</lastBuildDate>
+      <lastBuildDate>Sun, 10 May 2020 02:19:53 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -590,83 +590,7 @@ If you have any questions or comments, send me an email or leave a comment!</p>
          <dc:creator><![CDATA[Adi Mittal]]></dc:creator>
       </item>
       <item>
-         <title><![CDATA[Money Maker? From money?!]]></title>
-         <description><![CDATA[Okay, you don't make that much... 
-
- <p><img src="" alt=""></p>
-<p>Not much for an introduction this post. Found this problem when looking for interesting problems for myself. Shoutout to <a href = "https://www.physics.harvard.edu/academics/undergrad/problems">Harvard&#39;s Problem of the Week</a> (from 2002 to 2004). The problem at hand is:</p>
-<center>
-
-Consider the following game: You flip a coin until you get tails, and the amount of money you win is equal to number of coins you end up flipping (i.e. If you flip a coin, and immediately get tails, you win one dollar. If it takes 2 flips to get tails, you get 2 dollars. 3 flips = 3 dollars. So on, and so on).
-<br><br>
-(a) What is your expected value you win when playing the game? 
-<br><br>
-(b) Play the same game, except let your earnings be $2^{n-1}$, where $n$ is the amount of flips. What do you expect to win now? Does it make sense?
-
-</center>
-
-<p><br><br><br></p>
-<center><strong>SPOILER WARNING: SOLUTION INCOMING</strong></center>
-
-<p><br><br><br></p>
-<p><strong>(a)</strong>: Expected value is the amount you win, multiplied by the probability of it occuring, and adding up all the possible outcomes.
-<br>
-You have a 50% chance to win 1 dollar. 25% chance to win 2 dollars. 12.5% chance to win 3 dollars... </p>
-<p><br></p>
-<center>
-
-<p>$\large \frac{1}{2} + \frac{2}{4} + \frac{3}{8} + \frac{4}{16} + ...$ </p>
-<p><br><br></p>
-<p>$= \large \sum _{n=1}^{\infty }\: \frac{n}{2^n}$
-<br><br></p>
-<p>$= \large 2$</p>
-<p><br><br></p>
-<p><strong>OR</strong></p>
-<p><br><br>
-$\large \frac{1}{2} + \frac{2}{4} + \frac{3}{8} + \frac{4}{16} + ...$ </p>
-<p><br><br>
-$\large =(\frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{6} + ...) + (\frac{1}{4} + \frac{1}{8} + \frac{1}{16} + ...) + (\frac{1}{8} + \frac{1}{16} + ...) + ...$</p>
-<p><br><br></p>
-<p>$= (1) + \large (\frac{1}{2}) + (\frac{1}{4}) + (\frac{1}{8}) + (\frac{1}{16}) +...$</p>
-<p><br><br></p>
-<p>$\large = 2$
-</center>
-<br>
-So you can expect to win <strong>2 dollars</strong> every time you play this game.</p>
-<p><br>
-This is where the fun is at.</p>
-<p><br>
-<strong>(b)</strong>: We have 50% chance to win 1 dollar. We have a 25% chance to win 2 dollars. We have a 12.5% chance to win 4 dollars...
-<br></p>
-<center>
-
-<p>$\large \frac{1}{2} + \frac{2}{4} + \frac{4}{8} + \frac{8}{16} +...$</p>
-<p><br><br>
-If you don&#39;t mind, since I like to write things in sigma notation, I would like to write the simplified verison of this sum in sigma notation.
-<br><br></p>
-<p>$=\large \sum _{n=1}^{\infty}\: \frac{1}{2}$
-<br><br></p>
-<p>$\large = \infty$</p>
-<p></center>
-<br>
-This is why I picked this problem. The first part is quite simple, but this part creates quite a dilemma. What can we do now? How should we interpret this for the expected value of our game? Now one would ever put up a game in which the player is expected to win an infinte amount of money, since no one has an infinite amount money!
-<br></p>
-<p>The following explanation is a jumble between what I thought, and Harvard&#39;s. I recommend looking at what they <a href = "https://www.physics.harvard.edu/uploads/files/undergrad/probweek/sol6.pdf">said</a> specifically. </p>
-<p><br></p>
-<p>The solution is that our game (would be known as the <em>experiment</em> in our scenario) doesn&#39;t agree with the exact definition of <strong>expected value</strong>. Expected value is defined as an average over an <em>infinite</em> amount of attempts/trials (this can be viewed at least as the limit towards an infinite number of attempts/trials). The thing is that, you&#39;ll never be able to play an infinite amount of games. Essentially, our experiment (game) doesn&#39;t agree with our calculated expected value, as the experiment has nothing to do whatsoever with the precise defintion of expected value. Just as an example, if you were to (somehow) play an infinite amount of games, your earnings would indeed average an infinite amount. This whole idea of this expecting to win an infinite amount, and it &quot;not working/making sense/not being possible&quot; arises when we try to make expected value, something it isn&#39;t.</p>
-<p><br> Okay, I like math, but from this point onward I didn&#39;t have much. And what I did wasn&#39;t cohesive, as 25% was written down, the other 75% was in my head. The problem is, that 75% <em>was</em> in my head. I would try to go through and get my complete explanation, but I feel that Harvard&#39;s solution is already quite nice. So the rest is all Harvard&#39;s explanation. Only credit I get here is for the fact I formatted it for this page. Here you go.<br></p>
-<p>&quot;<em>This might not be a very satisfying explanation, so let us get a better feeling for the problem by looking at a situation where someone plays $N = 2^n$ games. How much money would a “reasonable” person be willing to put up front for the opportunity to play these N games? Well, in about $2^{n−1}$ games he will win one dollar; in about 2^{n−2} he will win two dollars; in about $2^{n−3}$ games he will win four dollars; etc., until in about one game he will win $2^{n−1}$ dollars. In addition, there are the “fractional” numbers of games where he wins much larger quantities of money (for example, inhalf a game he will win $2^n$ dollars, etc.), and this is indeed where the infinite expectation value comes from, in the calculation above. But let us forget about these for the moment, in order to just get a lower bound on what a reasonable person should put on the table. Adding up the above cases gives the total winnings as: $2^{n−1}(1) + 2^{n−2}(2) + 2^{n−3}(4) +· · ·+ 1(2^{n−1}) = 2^{n−1}n$. The average value of these winnings in the $N = 2^n$ games is therefore $\frac{2^{n−1}n}{2^n} = \frac{n}{2} = \frac{(\log_2 N)}{2}$. A reasonable person should therefore expect to win at least $\frac{(\log_2 N)}{2}$ dollars per game. (By “expect”, we mean that if the player plays a very large number of sets of $N$ games, and then takes an average over these sets, he will win at least $2^{n−1}n$ dollars per set.) This clearly increases with $N$, and goes to infinity as $N$ goes to infinity. It is nice to see that we can obtain this infinite limit without having to worry about what happens in the infinite number of “fractional” games. Remember, though, that this quantity, $\frac{(\log_2 N)}{2}$, has nothing to do with a true expectation value, which is only defined for $N → ∞$. Someone may still not be satisfied and want to ask, “But what if I play only $N$ games? I will never ever play another game. How much money do I expect to win?” The proper answer is that the question has no meaning. It is not possible to define how much one expects to win, if one is not willing to take an average over a arbitrarily large number of trials.</em>&quot;</p>
-<p><br><br></p>
-<p>Neat little problem if I do say so myself. Some of my work, some of Harvard&#39;s, hope it was cohesive and clear who was writing what when. I wish I could of gotten my last piece of explanation, just would of taken a bit too long for something I need to redo. Moral of the story: Take complete notes.</p>
-<p><br><br>
-If you have any questions or comments, send me an email or leave a comment!</p>
-]]></description>
-         <link>http://xperimex.github.io/blog/flipping-coins</link>
-         <guid isPermaLink="true">http://xperimex.github.io/blog/flipping-coins</guid>
-         <dc:creator><![CDATA[Adi Mittal]]></dc:creator>
-      </item>
-      <item>
-         <title><![CDATA[Money Maker? From money?!]]></title>
+         <title><![CDATA[(Un)Expected Value]]></title>
          <description><![CDATA[Okay, you don't make that much... 
 
  <p><img src="" alt=""></p>
@@ -737,8 +661,71 @@ This is why I picked this problem. The first part is quite simple, but this part
 <p><br><br>
 If you have any questions or comments, send me an email or leave a comment!</p>
 ]]></description>
-         <link>http://xperimex.github.io/blog/new</link>
-         <guid isPermaLink="true">http://xperimex.github.io/blog/new</guid>
+         <link>http://xperimex.github.io/blog/flipping-coins</link>
+         <guid isPermaLink="true">http://xperimex.github.io/blog/flipping-coins</guid>
+         <dc:creator><![CDATA[Adi Mittal]]></dc:creator>
+      </item>
+      <item>
+         <title><![CDATA[Persuasion is Hard]]></title>
+         <description><![CDATA[System 1 and System 2 Persuasion Tactics and Their Impacts on Secondary School Absenteeism 
+
+ <p>This was done as part of the Advanced Authentic Research program during the 2019-2020 academic school year.</p>
+<hr>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Over 7 million students</strong> across the United States missed 15+ days of school in the 2015-16 school year (US Department of Education, 2012). These <em>chronically absent</em> who miss 10% of their academic year cause over 40 <em>billion</em> worth of instructional minutes to go to waste. Even more jarring, in the same report, it was cited that inconsistent student attendance is a better indicator than test scores to whether a student will drop out of school or not. In case it wasn&#39;t clear enough, student absenteeism is a major issue haunting the education system, and the need find a solution to it is greater than ever. Over the past 8 months, I have conducted a small series of experiments to try and alter the state of this issue in one public high school in Palo Alto, California.</p>
+<h2 id="introduction">Introduction</h2>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>In the case of Palo Alto&#39;s Henry M. Gunn High School</strong>, only 5% of the school&#39;s 2000 students are in this category of the chronically absent. That means on average, 1 student is missing in every class on campus. What makes this statistic concerning though is when one considers the demographic of Palo Alto. Here are two maps of the United States: one of the median household income (New York Public Radio), and another of chronic absentee rates by district (US Department of Education, 2012).</p>
+<center>
+
+<table>
+<colgroup>
+       <col span="1" style="width: 44.25105485%;">
+       <col span="2" style="width: 55.74894515%;">
+</colgroup>
+<tr>
+<td>
+<a href="/img/medianIncome1.png">
+<img src="/img/medianIncome1.png" height=300 />
+</a>
+</td>
+<td>
+<a href="/img/absenteeRate.png">
+<img src="/img/absenteeRate.png" height=300 />
+</a>
+</td>
+</tr>
+</table>
+
+</center>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Although Palo Alto is in one of the most affluent neighborhoods in the nation, its chronic absentee rate is equal to some areas with with not even half its median household income. This lead to the idea that absenteeism may be fueled by different motivators across the country. For example, in some less fortunate neighborhoods, kids may be an active contributor their family income, leading to conflicts with their academic commitment. Similarly, because of Palo Alto&#39;s wealth and greater access to resources, academic competitiveness may fuel absenteeism. This may seem counterintuitive at first: if someone wants to do well in class, why would they skip it? These <em>strategic absentees</em> skip class not because they want to, but rather as a necessary evil: they feel the need to skip a class a means to prepare for another one. These are the students that can most affect the absentee rate, as not only are they motivated to go to class, but their absences are likely more sporadic than they standard chronically absent, meaning that they are more likely to be in class to be influenced by a teacher or administrator, which nicely leads into the next section.</p>
+<h2 id="nudges">Nudges</h2>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Students can&#39;t be forced to go to class</strong>. Especially as Henry M. Gunn High School sports an open-campus policy, it is impossible to be able to force a substantial number of absentees to go to class beyond the already instated measures. So, we tried to <strong>persuade</strong> the students, as if they are if they agree themselves attending class is the right thing to do, they are more likely to act on it. To do so, we used specially engineered social measures to try and convince the students as best as possible, known as <strong>nudges</strong>.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nudges, at their core, are suggestions. They don&#39;t affect one&#39;s ability to choose, but they utilize the person&#39;s experience to guide them to pick an option. The most commonly used nudge utilizes comparisons: let&#39;s say a restaurant has a dish that doesn&#39;t sell super well, and is ultimately costing them money having it listed on the menu. To boost its sales, they can list a slightly cheaper dish that has no intention of actually being sold in large quantities. This &quot;fake&quot; dish provides a reference frame for the buyer, making what originally seemed as overprice as suddenly as a great deal. It should be reiterated that this doesn&#39;t change one&#39;s ability to pick what food item they want, and that&#39;s what makes a nudge so effective. It allows the person to convince themselves without needing to feel as if the choice was imposed on them (i.e. remove everything on the menu except one dish). This is a form of <em>indirect persuasion</em>: we&#39;re not explicitly saying what we want the affected person to do, but we are adding information to guide one choice over another. The counterpart to this would be <em>direct persuasion</em>: giving explicit desires for which option to choose.</p>
+<h2 id="experimental-model">Experimental Model</h2>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>This project employed 2 types of persuasion tactics that were each disseminated via 2 types of mediums</strong>. The two types of mediums you are already familiar with: direct and indirect persuasion. This was examined by having the teacher give information by describing a set of data (see below) for direct persuasion. Indirect persuasion was tested by having the environment give the information, meaning instead of having the teacher give information on data, the students take in the information for themselves by noticing the data as a poster in the classroom. Now, I have been purposely vague about what data was shown to the students as there were two different sets of data that were shown to different classes, but they communicated the same idea.</p>
+<p><a href="/img/dataStimuli1.png">
+<img src="/img/dataStimuli1.png" height=250 />
+</a></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If these curves look the same, that&#39;s because they are; they are the same set of data, but one is presented in a positive connotation (attendance is good) and the other in a negative connotation (absenteeism is bad). These are the two sets of data presented, as to see whether <em>how</em> one presents data affects one&#39;s ability to influence.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; So, in total, there are 5 classes: $\mathrm{i})$ teacher presents positive connotation data; $\mathrm{ii})$ teacher presents negative connotation data; $\mathrm{iii})$ classroom presents positive connotation data; $\mathrm{iv})$ classroom presents negative connotation data; and lastly, all compared to a  $\mathrm{v})$ control with no intervention.</p>
+<h2 id="results">Results</h2>
+<p><a href="/img/results.png">
+<img src="/img/results.png" height=450 />
+</a></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; As you can see, there are 5 lines shown on the graph: 4 lines in blue and red to represent data collected and a green line that represents the aforementioned Gunn&#39;s 5% chronic absentee rate. The blue lines represent tardy and absentee data from January, to collect pre-experimental data. Red lines represent data collected in February, the month in which the experiment was set in motion.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This graph may be a bit intimidating to read, but it helps to realize that the x-axis is not a representation of time like most line graphs, but rather are the individual class models. This allows for easy comparison between months, as if there was, say, a virus moving throughout the classes causing a 3% increase to absences to all classes, it will look as if one line was shifted upwards, having the same structure more or less to the other.</p>
+<h2 id="analyses">Analyses</h2>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; These results are really surprising, as there was <em>no</em> improvement at all from implementing our information stimulus. If anything, it got marginally worse with a slight increase to tardies in all classes (~3-4% increase). Which makes some sense as when you consider whenever someone commands you to do something or says you&#39;re doing something wrong, the first instinct is to disagree and defend your actions. This feeling is known as <strong>reactance</strong>, and it is likely what caused this mild increase in tardies.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; What is extremely concerning however is the massive increase in absences seen in the &quot;-/teacher&quot; class (negative connotation data presented by teacher), which observed an astonishing <strong>85% increase</strong> in absences. That is the difference between another <strong>90 additional students</strong> absent in Gunn, and an additional 560 across all of the Palo Alto Unified School District. This incites an interesting thought: <strong>subconscious effects, such as reactance, can be amplified by other effects as well</strong>. In this case, it was the <em>negativity bias</em> -- the idea that negative connotations tend to be overestimated in their impact than positive ones -- that amplified the reactance. For instance, say you are an avid fan of Apple products. If someone says Android is better than Apple, reactance will be incurred and you&#39;ll likely disagree. If someone says Apple is worse than Android however, now there is this feeling of losing an opinion as well, amplifying the disagreement. Here, it is the difference between saying attending class is better than skipping it, and vice versa.</p>
+<p>If you want to read to a higher degree of depth on the matter, everything cited here and more can be found in the <a href="/img/Milestone 7 Draft.pdf"> original paper</a>.</p>
+<h2 id="process">Process</h2>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Originally, this project was never supposed to be about attendance</strong>. Originally, I was intending on studying voting theory as I was (and still am) super interested in how individual behavior affects the collective, and how that can be leveraged. I was looking at networks and graph theory, synchronization, and other related topics, but I was especially looking at behavioral economics and prospect theory. Realizing I was about a year too early to be able to study and recent and significant elections or voting processes, I honed in on the behavioral economics end of the research, and started to look for a new problem to address. I talked to Gunn High School&#39;s principle on school issues that could be examined, and attendance was a recurring theme. This was only corroborated by the <em>California Healthy Kids Survey</em>, a questionnaire that surveyed 9th and 11th graders each year, and it reported that 7% of freshmen and 11% of juniors cut class to prepare for another class alone in the month the survey was distributed (California Department of Education, 2017-18). So, I started directing my attention to different studies and papers that were already conducted, such as what Moore (2004) and Self (2012) did.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Very quickly on, however, I realized I was probably going to have the same issue that I was going to have with voting theory: gathering original experimental data. Not that there is anything wrong with using pre-existing data, I personally wanted to collect my own original data to analyze, especially as I wasn&#39;t sure if something like attendance would be internalized the same way in a high school population as the more frequently studied college population (which was even observed in this experiment; the inspiration for an easy experimental model was inspired by Moore, who showed this to be effective for <em>university</em> students, while our showed to not be effective for high schoolers). Finding a teacher was difficult, as I needed a teacher who taught at least 5 classes of 20+ students that had some absentees in each class, who also had the class time to be able to explain the necessary information to 2 classes. I was able to properly contact 2 teachers, one of which I was able to collect data for, and the other I was not due to the sudden COVID-19 outbreak.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Another thing that made this project difficult was that I had an incredible workload set out for this year. Between the 5 required academic classes, 2 electives, an after-school elective, club commitments, and a sport for two-thirds of the year, I just didn&#39;t have the time in my schedule to devote another 2+ hours of class time, which didn&#39;t even include time needed outside of class to research and write. Almost all of my meetings were 7am or earlier, or entirely across email threads, which made communication ambiguous and difficult at times.</p>
+<p>Regardless, this whole experience taught me so much about academia beyond the scope of what any high school classroom could have.</p>
+]]></description>
+         <link>http://xperimex.github.io/blog/absenteeism</link>
+         <guid isPermaLink="true">http://xperimex.github.io/blog/absenteeism</guid>
          <dc:creator><![CDATA[Adi Mittal]]></dc:creator>
       </item>
    </channel>
