@@ -85,4 +85,4 @@ If you want to read to a higher degree of depth on the matter, everything cited 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Another thing that made this project difficult was that I had an incredible workload set out for this year. Between the 5 required academic classes, 2 electives, an after-school elective, club commitments, and a sport for two-thirds of the year, I just didn't have the time in my schedule to devote another 2+ hours of class time, which didn't even include time needed outside of class to research and write. Almost all of my meetings were 7am or earlier, or entirely across email threads, which made communication ambiguous and difficult at times.
 
-Regardless, this whole experience taught me so much about academia beyond the scope of what any high school classroom could have.
+Regardless, this whole experience taught me so much about academia beyond the scope of what any high school classroom could have, and taught me how as a simple as a question one has can lead to incredible results.
