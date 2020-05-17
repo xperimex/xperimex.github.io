@@ -67,7 +67,7 @@ This was done as part of the Advanced Authentic Research program during the 2019
 <img src="/img/results.png" height=450 />
 </a>
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; As you can see, there are 5 lines shown on the graph: 4 lines in blue and red to represent data collected and a green line that represents the aforementioned Gunn's 5% chronic absentee rate. The blue lines represent tardy and absentee data from January, to collect pre-experimental data. Red lines represent data collected in February, the month in which the experiment was set in motion.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; As you can see, there are 5 lines shown on the graph: 4 lines, 2 blue and 2 red, to represent data collected and a green line that represents the aforementioned Gunn's 5% chronic absentee rate. The blue lines represent tardy and absentee data from January, to collect pre-experimental data. Red lines represent data collected in February, the month in which the experiment was set in motion.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This graph may be a bit intimidating to read, but it helps to realize that the x-axis is not a representation of time like most line graphs, but rather are the individual class models. This allows for easy comparison between months, as if there was, say, a virus moving throughout the classes causing a 3% increase to absences to all classes, it will look as if one line was shifted upwards, having the same structure more or less to the other.
 
