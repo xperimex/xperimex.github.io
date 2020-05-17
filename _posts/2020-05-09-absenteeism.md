@@ -93,5 +93,5 @@ If you want to read to a higher degree of depth on the matter, everything cited 
 Regardless, this whole experience taught me so much about academia beyond the scope of what any high school classroom could have, and taught me how no matter no simple a question one has, willing to ask it can lead to incredible results.
 
 
-## AAR
+## About AAR
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; As stated at the top, this was done as part of the <a href="https://aar.pausd.org/"> <b>A</b>dvanced <b>A</b>uthentic <b>R</b>esearch </a> program that PAUSD provides to its two high schools as a means to introduce students to formal research and academic writing, well beyond what a standard English class essay or chemistry lab write-up teaches. Providing students with community mentors, experts, and  connections, it fosters student growth via the students' own motivation to learn, creating an environment where projects, such as the former, can be created out of curiosity, and not by seeking a letter on a report card.
