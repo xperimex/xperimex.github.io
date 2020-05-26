@@ -79,6 +79,8 @@ This was done as part of the Advanced Authentic Research program during the 2019
 ## Conclusion
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __These results are highly specific__. Before you try to go and apply these ideas beyond the realm of this project, you should consider who were subject to this experiment. In fact, I had witnessed this exact concept during my trials: the inspiration for an easy experimental model was inspired by Moore (2004), who conducted an almost identical scenario of my experiment and found it to be effective for *university* students, while mine showed to not be effective for high schoolers. Further testing is needed, but the greatest takeaway from this experiment is that communication and persuasion is something that can only be achieved when it is very specifically tailored for a specific audience.
 
+<br>
+
 ----------
 
 If you want to read to a higher degree of depth on the matter, everything cited here and more can be found in my <a href="/img/absenteePaper.pdf">original paper</a>.
