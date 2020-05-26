@@ -85,7 +85,7 @@ If you want to read to a higher degree of depth on the matter, everything cited 
 
 ----------
 
-</ br>
+<br>
 
 ## Process
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __Originally, this project was never supposed to be about attendance__. Originally, I was intending on studying voting theory as I was (and still am) super interested in how individual behavior affects the collective, and how that can be leveraged. I was looking at networks and graph theory, synchronization, and other related topics, but I was especially looking at behavioral economics and prospect theory. Realizing I was about a year too early to be able to study any recent elections or voting processes, I honed in on the behavioral economics aspect of the research, and started to look for a new problem to address. I talked to Gunn High School's principal on school issues that could be examined, and attendance was a recurring theme. This was only corroborated by the *California Healthy Kids Survey*, a questionnaire that surveyed 9th and 11th graders each year, and it reported that 7% of freshmen and 11% of juniors cut class to prepare for another class alone in the month the survey was distributed (California Department of Education, 2017-18). So, I started directing my attention to different studies and papers that were already conducted, such as what Moore (2004) and Self (2012) did.
