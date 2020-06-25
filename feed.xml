@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Tue, 26 May 2020 19:37:59 GMT</lastBuildDate>
+      <lastBuildDate>Thu, 25 Jun 2020 02:53:26 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -734,6 +734,16 @@ If you have any questions or comments, send me an email or leave a comment!</p>
 ]]></description>
          <link>http://xperimex.github.io/blog/absenteeism</link>
          <guid isPermaLink="true">http://xperimex.github.io/blog/absenteeism</guid>
+         <dc:creator><![CDATA[Adi Mittal]]></dc:creator>
+      </item>
+      <item>
+         <title><![CDATA[Golden Quartics]]></title>
+         <description><![CDATA[Hidden relationship of quartics and phi 
+
+ <p>yo</p>
+]]></description>
+         <link>http://xperimex.github.io/blog/golden-quartics</link>
+         <guid isPermaLink="true">http://xperimex.github.io/blog/golden-quartics</guid>
          <dc:creator><![CDATA[Adi Mittal]]></dc:creator>
       </item>
    </channel>
