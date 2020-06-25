@@ -9,6 +9,5 @@
 }
 
 
----END_METADATA---
 
-yo
+---END_METADATA---
