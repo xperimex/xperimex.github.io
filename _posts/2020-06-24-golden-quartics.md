@@ -48,13 +48,13 @@ $\varphi^2-\varphi-1=0$
 $\varphi=\large{ \frac{1 \pm \sqrt{5}}{2} }$
 </center>
 
-The positive solution to this quadratic is the more well known value $\varphi$. Taking some variations of the previous equations can net other interesting relationships that $\varphi$ pertains to. For example, taking the third line from the derivation of $\varphi$ nets a recursive, cyclic definition of the golden ratio. Expanding out the relation gives another famous value of $\varphi$.
+The positive solution to this quadratic is the more well known value $\varphi$. Taking some variations of the previous equations can net other interesting relationships that $\varphi$ pertains to. For example, taking the third line from the derivation of $\varphi$ nets a recursive, cyclic definition of the golden ratio. Expanding out the relation gives another famous definition of $\varphi$.
 
 <center>
 $\varphi = 1 + \large{ \frac{1}{1 + \frac{1}{1 + \frac{1}{1 + \frac{1}{\ddots}}}} }$
 </center>
 
-An infinite descending fraction solely containing 1s. Taking a variation of the fourth line also gives an interesting value for $\varphi$.
+An infinite descending fraction solely containing 1s. Taking a variation of the fourth line also gives an interesting appearance of $\varphi$.
 
 <center>
 $\varphi = \sqrt{1 + \sqrt{1 + \sqrt{1 + \sqrt{1 + \ldots}}}}$

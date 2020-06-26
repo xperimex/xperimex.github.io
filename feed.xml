@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Fri, 26 Jun 2020 02:34:52 GMT</lastBuildDate>
+      <lastBuildDate>Fri, 26 Jun 2020 02:39:22 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -773,12 +773,12 @@ $\varphi^2-\varphi-1=0$
 $\varphi=\large{ \frac{1 \pm \sqrt{5}}{2} }$
 </center>
 
-<p>The positive solution to this quadratic is the more well known value $\varphi$. Taking some variations of the previous equations can net other interesting relationships that $\varphi$ pertains to. For example, taking the third line from the derivation of $\varphi$ nets a recursive, cyclic definition of the golden ratio. Expanding out the relation gives another famous value of $\varphi$.</p>
+<p>The positive solution to this quadratic is the more well known value $\varphi$. Taking some variations of the previous equations can net other interesting relationships that $\varphi$ pertains to. For example, taking the third line from the derivation of $\varphi$ nets a recursive, cyclic definition of the golden ratio. Expanding out the relation gives another famous definition of $\varphi$.</p>
 <center>
 $\varphi = 1 + \large{ \frac{1}{1 + \frac{1}{1 + \frac{1}{1 + \frac{1}{\ddots}}}} }$
 </center>
 
-<p>An infinite descending fraction solely containing 1s. Taking a variation of the fourth line also gives an interesting value for $\varphi$.</p>
+<p>An infinite descending fraction solely containing 1s. Taking a variation of the fourth line also gives an interesting appearance of $\varphi$.</p>
 <center>
 $\varphi = \sqrt{1 + \sqrt{1 + \sqrt{1 + \sqrt{1 + \ldots}}}}$
 </center>
