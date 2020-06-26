@@ -88,7 +88,7 @@ As this is a degree 2 polynomial, the quadratic formula quickly gives our two so
 $p = \large{ \frac{-3B-\sqrt{9B^2-24AC}}{12A} }$ &nbsp;&nbsp; $q = \large{ \frac{-3B+\sqrt{9B^2-24AC}}{12A} }$
 </center>
 
-Having solutions for our inflection points P and Q respectively, the line through them can quickly be written as:
+Having solutions for our inflection points $P$ and $Q$ respectively, the line through them can quickly be written as:
 
 <center>
 $g(x)=\frac{f(q)-f(p)}{q-p}(x-p)+f(p)$
