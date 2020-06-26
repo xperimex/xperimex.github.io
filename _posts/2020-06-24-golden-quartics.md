@@ -72,7 +72,7 @@ First, let's look at how to find the inflection points of a quartic. Inflection 
 </center>
 
 
-Notice how as we let our value $a$ increase, the slope of our tangent line -- the first derivative of $f(x)$ -- decreases from $-1.5$ to $0$. But from $0$ to $1.5$, the slope begins to increase. This is all visualized in our graph $f'(x)$ which plots every point $x$ and the value of its slope at $f(x)$. One can clearly see $f'(x)$ tends in a downward manner initially, before rising again. And for it to have a slope that's first negative then positive, it must have a slope of zero in between. So, our point where our concavity changes is when the slope of $f'(x)$ equals 0. In other words, when the second derivative $f''(x)=0$. Here we can see it clearly visualized at the solution $x=0$, which confirms all of our previous observations. Doing so for any general quartic nets us:
+Notice how as we let our value $a$ increase, the slope of our tangent line -- the first derivative of $f(x)$ -- decreases from $-1.5$ to $0$. But from $0$ to $1.5$, the slope begins to increase. This is all visualized in our graph $f'(x)$ which plots every point $x$ and the value of its slope at $f(x)$. One can clearly see $f'(x)$ tends in a downward manner initially, before rising again. And for $f'(x)$ to have a slope that's first negative (decreasing) then positive (incrasing), it must have a slope of zero in between. So, our point where our concavity changes is when the slope of $f'(x)$ equals 0. In other words, when the second derivative $f''(x)=0$. Here we can see it clearly visualized at the solution $x=0$, which confirms all of our previous observations. Doing so for any general quartic nets us:
 
 <center>
 $f(x) = Ax^4+Bx^3+Cx^2+Dx+E$
