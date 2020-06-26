@@ -105,7 +105,7 @@ $Ax^4+Bx^3+Cx^2+Dx+E-\frac{f(q)-f(p)}{q-p}(x-p)-f(p) = 0$
 One can try to factor and work this out, but there is a much nicer approach that avoids working with this messy equation.
 
 ## Transformations
-If we limit our transformations to purely scaling and translating our graph, all of our ratios will remain equivalent. So if we can find a set of transformations to make our work easier, we will still be able to prove our initial proposition much easier. To (re)start, we're going to define a new function $h(x)$ that takes $f(x)$, and scales and moves it around as follows:
+If we limit our transformations to purely scaling and translating our graph, all of our ratios will remain equivalent. So if we can find a set of transformations to make our work easier, we will still be able to prove our initial proposition, but in a much easier way. To (re)start, we're going to define a new function $h(x)$ that takes $f(x)$, and scales and moves it around as follows:
 
 <center>
 $h(x) = \frac{1}{q-p}(f([q-p]x+p)-f(p))$
