@@ -94,7 +94,7 @@ Having solutions for our inflection points $P$ and $Q$ respectively, the line th
 $g(x)=\frac{f(q)-f(p)}{q-p}(x-p)+f(p)$
 </center>
 
-The intersection point $R$ can be found as solving for when $f(x)=g(x)$, or in other words, $f(x)-g(x)=0$
+The intersection point $R$ can be found as solving for when $f(x)=g(x)$, or in other words, when $f(x)-g(x)=0$
 
 <center>
 $f(x)-g(x)=0$
