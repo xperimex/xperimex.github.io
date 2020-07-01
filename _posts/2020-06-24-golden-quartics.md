@@ -200,7 +200,7 @@ You can also quickly find other ratios of different lengths and find other inter
 $\large{ \frac{PQ}{QR} = \large{ \frac{P'Q'}{Q'R'} } = \frac{1 - 0}{\frac{1 + \sqrt{5}}{2} - 1} = \frac{1}{\varphi-1} }$
 </center>
 
-If you look at our defining quadratic $\varphi^2-\varphi-1=0$, it can be rewritten as $\varphi(\varphi-1)=1 \rightarrow \varphi=\frac{1}{1-\varphi}$. Completing our expression gives us:
+If you look at our defining quadratic $\varphi^2-\varphi-1=0$, it can be rewritten as $\varphi(\varphi-1)=1 \rightarrow \varphi=\frac{1}{\varphi-1}$. Completing our expression gives us:
 
 
 <center>
