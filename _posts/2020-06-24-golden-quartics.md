@@ -174,7 +174,7 @@ $ax^4-2ax^3-ax=0$
 $ax(x^3-2x^2-1)=0$
 </center>
 
-That $ax$ we factored out is our solution at $x=0$, or $P'$, which we used to construct the line in the first place. Similarly, because we used Q' to construct the line as well at $x=1$, we can factor out an $x-1$ as well.
+That $ax$ we factored out is our solution at $x=0$, or $P'$, which we used to construct the line in the first place. Similarly, because we used $Q'$ to construct the line as well at $x=1$, we can factor out an $x-1$ as well.
 
 <center>
 $ax(x^3-2x^2-1)=0$
