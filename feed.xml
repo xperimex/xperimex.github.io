@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Wed, 01 Jul 2020 20:26:53 GMT</lastBuildDate>
+      <lastBuildDate>Fri, 03 Jul 2020 19:01:52 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -872,16 +872,16 @@ $h(x)-g(x)=0$
 <br>
 $ax^4-2ax^3+bx-(b-a)x=0$
 <br>
-$ax^4-2ax^3+bx-bx-ax=0$
+$ax^4-2ax^3+bx-bx+ax=0$
 <br>
-$ax^4-2ax^3-ax=0$
+$ax^4-2ax^3+ax=0$
 <br>
-$ax(x^3-2x^2-1)=0$
+$ax(x^3-2x^2+1)=0$
 </center>
 
 <p>That $ax$ we factored out is our solution at $x=0$, or $P&#39;$, which we used to construct the line in the first place. Similarly, because we used $Q&#39;$ to construct the line as well at $x=1$, we can factor out an $x-1$ as well.</p>
 <center>
-$ax(x^3-2x^2-1)=0$
+$ax(x^3-2x^2+1)=0$
 <br>
 $ax(x-1)(x^2-x-1)=0$
 </center>
