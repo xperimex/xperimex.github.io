@@ -132,7 +132,7 @@ Multiplying $x$ by $q-p$ results in _compressing_ the $x$-axis by a factor of $q
 
 Notice how the two inflection lines are parallel. That is due to that extra factor of $\frac{1}{q-p}$ in $h(x)$, but note that the math that follows is not dependent on it.
 
-It's worth noting that we don't actually know any of the constants that shape our new quartic $h(x)=ax^4+bx^3+cx^2+dx+e$ as they don't change according to our scaling factors. However, we do know the solutions to $h''(x)=0$. Instead of using our function to find its second derivative like we did in our original approach, we are working backwards from our second derivative to narrow in on our function. Since we know where our inflection points are at, we can rewrite our $h''(x)$ as a product of factors.
+It's worth noting that we don't actually know any of the constants that shape our new quartic $h(x)=ax^4+bx^3+cx^2+dx+e$ as they don't change according to our scaling factors (notice the change in capitalization; these new constants for $h(x)$ is separate and different to those of $f(x)$). However, we do know the solutions to $h''(x)=0$. Instead of using our function to find its second derivative like we did in our original approach, we are working backwards from our second derivative to narrow in on our function. Since we know where our inflection points are at, we can rewrite our $h''(x)$ as a product of factors.
 
 <center>
 $h''(x)=0 \rightarrow x=P',Q' \rightarrow x=0,1 \rightarrow h''(x)=12ax(x-1)$
