@@ -89,7 +89,7 @@ Now you can probably see why this is called a cobweb plot, as we weave back and 
 
 <img src="/img/fixed-points/cobwebZoom.png" style="width:500px; height=auto ">
 
-There's also an intersection at $x=4$! Even with all of this, I don't think it would be wrong to feel that $x=4$ should _not_ be a solution to some extent. Even though, it clearly shows a lot of the same characteristics that $x=2$ does, it still feels weird for this to be considered an answer, or at least to the extent that $x=2$ is. For any seed $x<4$, our iteration converges to $x=2$, and for any $x>4$, it diverges. Only at $x=4$ does our repeated power tower equal 4. To properly understand this, we'll need to utilize derivatives.
+There's also an intersection at $x=4$! Even with all of this, I don't think it would be wrong to feel that $x=4$ should _not_ be a solution to some extent. Even though, it clearly shows a lot of the same characteristics that $x=2$ does, it still feels weird for this to be considered an answer, or at least to the same extent that $x=2$ is. For any seed $x<4$, our iteration converges to $x=2$, and for any $x>4$, it diverges. Only at $x=4$ does our repeated power tower equal 4. To properly understand this, we'll need to utilize derivatives.
 
 ## Derivatives and Sensitivity
 The classic definition of the derivative $f'(x)$ is a function that returns the slope of $f(x)$ at every point $x$. While this definition of the derivative isn't wrong, it is fairly limiting when only considered in the contexts of slopes. We can reframe the idea of a derivative not to be the slope of a function at a point $(a,f(a))$ but rather how _sensitive_ the function is at the point $(a,f(a))$. This will be more apparent if we plot our $f(x)=\sqrt{2}^x$ in a new way.
