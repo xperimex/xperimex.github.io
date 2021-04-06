@@ -89,7 +89,7 @@ Now you can probably see why this is called a cobweb plot, as we weave back and 
 
 <img src="/img/fixed-points/cobwebZoom.png" style="width:500px; height=auto ">
 
-There's also an intersection at $x=4$! Even with all of this, I don't think it would be wrong to feel that $x=4$ should _not_ be a solution to some extent. It clearly shows a lot of the same characteristics that $x=2$ does, so even if it's not as apparent, there should be maybe some way for this to be considered an answer. For any seed $x<4$, our iteration converges to $x=2$, and for any $x>4$, it diverges. Only at $x=4$ does our repeated power tower equal 4. To properly understand this, we'll need to utilize derivatives.
+There's also an intersection at $x=4$! Even with all of this, I don't think it would be wrong to feel that $x=4$ should _not_ be a solution to some extent. Even though, it clearly shows a lot of the same characteristics that $x=2$ does, it still feels weird for this to be considered an answer, or at least to the extent that $x=2$ is. For any seed $x<4$, our iteration converges to $x=2$, and for any $x>4$, it diverges. Only at $x=4$ does our repeated power tower equal 4. To properly understand this, we'll need to utilize derivatives.
 
 ## Derivatives and Sensitivity
 The classic definition of the derivative $f'(x)$ is a function that returns the slope of $f(x)$ at every point $x$. While this definition of the derivative isn't wrong, it is fairly limiting when only considered in the contexts of slopes. We can reframe the idea of a derivative not to be the slope of a function at a point $(a,f(a))$ but rather how _sensitive_ the function is at the point $(a,f(a))$. This will be more apparent if we plot our $f(x)=\sqrt{2}^x$ in a new way.
@@ -132,7 +132,7 @@ Well, look at that! Our $x=4$ solution is in our blue $|f'(x)|>1$ region, while 
 
 Connecting this all together now, we had two solutions to an iterative function, but only one of which was appearing in practically every case. When graphing its respective cobweb plot, we see that one solution lies in a non-sensitive region ($f'(2) = .6931$), while the other does ($f'(4) = 1.3863$). So what can we say about either solution? Since we know $f(2)$ is not sensitive to small changes and moreover shrinks space around it, we know that $x=2$ is a __stable fixed point__ of the iterative function $f(x) = \sqrt{2}^x$. It's stable under the notion that because it isn't sensitive to small changes in its neighborhood of points, each iteration we take maps points closer and closer to $x=2$. But for $x=4$, which is sensitive, each iteration tends to stretch and repel points away from $x=4$, even though it too intersects in our cobweb plot as well as analytically solves the equation. Hence, we call $x=4$ an __unstable fixed point__ of the system. Just like we've described, while $x=4$ is valid for its seed value, but the slightest discrepancy in value pushes numbers away from it to either start approaching $x=2$, or diverge (like in our rounding error in the Python script before!).
 
-That's why we were able to analytically solve for two different solutions, but only one kept popping up everywhere. This isn't limited to just power towers, though.
+This is why we were also able to use cobweb plots: they were the geometric algorithm to solve when $f(x)=x$, which makes sense as if something is a fixed point, no matter how many times we apply a function to it, it should remain the same. So when solving $\sqrt{2}^x = x$, you'll get the intersections we found earlier at $x=2,4$. That's why we were able to analytically solve for two different solutions, but only one kept popping up everywhere. This isn't limited to just power towers, though.
 
 ## Variations
 This type of relationship between stable and unstable fixed points is everywhere. Take the well-known infinite fraction below:
@@ -169,7 +169,79 @@ $1+\frac{1}{1-\varphi} = 1-\varphi$
 
 For its own seed value, $1-\varphi$ is valid, but I guess that's up to you if you want to equate a negative value to a positive infinite fraction.
 
+For those who are interested, try setting your seed value to a number in the form of $-\frac{F_n}{F_{n+1}}$ where $F_n$ represents the nth Fibonacci number. The golden ratio is closely tied to the Fibonacci numbers, so it may be a bit unsurprising why they may relate here. If you try to iterate over any number in this form, you'll eventually hit a point where evaluating the function becomes undefined. Try plugging in a few and watch the strange cascading effect happen.
+
+The previous problem with the golden ratio can be extended to a more general case of an iterative approximation technique known as the __Newton-Raphson Method__ which can (usually) effectively hone in on roots of a polynomial quite efficiently.
+
+## Newton-Raphson Method
+
+The idea is fairly similar to what we did before, but since it's catered to finding roots of polynomials, its iterations have an extra step as we're looking for intersections with the $x$-axis instead of the line $y=x$. Here's the basic idea: 1) Pick an initial seed value $x_0$. 2) Draw a vertical line (like we did with the cobweb) until we hit the function $f(x)$. 3) Draw the tangent line of $f(x)$ at $x_0$, and see where it hits the $x$-axis. Call this new point $x_1$. 4) Repeat the process as many times as you'd like for as accurate an approximation as you'd like. Here's an example geometric interpretation for this method with $f(x) = x^2 - 13$.
+
+<img src="/img/fixed-points/NR1.png" style="width:500px; height=auto ">
+
+I had to zoom in extremely close for this graph because, as you can see, just a two iterations from a seed value $x_0=5$ finds a really accurate approximation of one of the roots of $f(x)$ and you wouldn't be able to see those lines unless magnified by this much. Let's work out a general iterative formula for this method. We first start with some $f(x)$. Just by using derivatives and definition of a line passing through the point $(x_n,f(x_n))$ for our tangent, we can solve the equation
+
+<center>
+$f'(x_n)(x-x_n) + f(x_n) = 0$
+</center>
+
+to find the next point $x_{n+1}$ to continue iterating on (as it should be the $x$-intercept of that line like the instructions describe). Doing some basic algebra shows that:
+
+<center>
+$f'(x_n)(x-x_n) + f(x_n) = 0$
+<br>
+$f'(x_n)(x-x_n) = -f(x_n)$
+<br>
+$x = x_n - \frac{f(x_n)}{f'(x_n)}$
+</center>
+
+So, tidying things up, for a given (continuous and differentiable) function $f(x)$, we can approximate its roots by iterating over with some initial $x_0$:
+
+<center>
+$x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}$
+</center>
+
+Trying this out with our $f(x) = x^2 - 13$, our recurrence relation after some simplifying becomes
+
+<center>
+$x_{n+1} = \frac{1}{2}(x_n + \frac{13}{x_n})$
+</center>
+
+Or if you liked our previous notation, we can rewrite this as a function we iterate over as
+
+<center>
+$g(x) = \frac{1}{2}(x + \frac{13}{x})$
+</center>
+
+Since this is in function form, we can use our old friend the cobweb to solve this for us.
+
+<img src="/img/fixed-points/cobwebSQRT.png" style="width:500px; height=auto ">
+
+It nicely finds $\sqrt{13}$ as a solution, just as we would expect. However, notice that there are two intersection points that lie _outside_ of the sensitive region. One we found at $x=\sqrt{13}$, and the other is actually $x=-\sqrt{13}$. Our seed value significantly matters more in this case, as now depending on which zero of $f(x)$ is closer, our iteration will target only the closest solution, and this only becomes more important the more zeroes our function contains.
+
+Even with all those caveats, notice what we just made! Our iterative function $g(x)$ is essentially a square root estimator. While it's nice and convenient just to use exact answers, having decimal approximations are just as useful, especially for computers who don't have unlimited memory to use exact answers. For any number $n$, we can $\sqrt{n}$ as accurately as we'd like by iterating over the function
+
+<center>
+$g(x) = \frac{1}{2}(x + \frac{n}{x})$
+</center>
+
+as many times as we want. A square root with nothing but basic arithmetic! There are some exceptions where certain seeds can infinitely cycle or actually result in no subsequent $x_{n+1}$ (imagine a horizontal tangent line), but this method is fairly useful, as this doesn't just extend to square roots, but to any function you want to approximate using the aforementioned formula
+
+<center>
+$x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}$
+</center>
+
+Going back to our golden ratio iteration, we can rewrite it under the fixed point formula $f(x)=x\rightarrow 1+\frac{1}{x}=x$. If you multiply that through by $x$ and rearrange, we get a quadratic $x^2-x-1=0$. That's a quadratic we can solve for with the Newton-Raphson Method! Plugging it into the formula, we get a function to iterate over as
+
+<center>
+$g(x) = \frac{x^2+1}{2x-1}$
+</center>
+
+And sure enough, it works! The advantage of using the Newton-Raphson Method in this case, is that we no longer have to worry about unstable fixed points, as all of our solutions lie outside the sensitivity region. So even if we lose some insight into the nature of each solution, we consistently find each solution to an accurate decimal expansion.
+
+<img src="/img/fixed-points/cobwebGolden2.png" style="width:500px; height=auto ">
+
 ## What Else?
 Iteration and fixed points become one of the prime topics for dynamical systems and describing much of the world around us. Solving systems of differential equations comes down to finding the equivalent of a higher-dimensional fixed point, or in other words, an eigenvector: a vector (which is just an object that can encode more than one number and hence dimension) which doesn't change direction under the transformation describing the system of equations. Synchronization is a prime example of a fixed point under iteration: even if a group of fireflies begin out of phase with one another, their coupling over time will reduce each other into a single large group with one cyclic, uniform behavior. The Mandelbrot set (and all of the Julia sets, for that matter) arise out of the fact that some complex numbers are bounded under iteration of functions $f(z)=z^n+c$ that remain bounded after a long time (sometimes being bounded to multiple values at once!). There are even entire studies dedicated to this. _Invariant theory_ studies mathematical groups and polynomials to see how they remain unchanged under transformations. Almost all of chaos theory is about stability over long periods of time (Nicky Case has a great introduction to [attractors](https://ncase.me/attractors/)), and especially when what should be simple, predictable equations are not (the [Bifurcation diagram](https://en.wikipedia.org/wiki/Bifurcation_diagram) is particularly interesting as it appears in the most unlikely of places). There are even hundreds of theorems dedicated to fixed-points.
 
-Fixed points appear everywhere, and I hope this shared a few insights into how they can appear, and even appear falsely.
+Fixed points appear everywhere, and I hope this shared a few insights into how they can appear, deceive, and approximate even the most out there of expressions.
