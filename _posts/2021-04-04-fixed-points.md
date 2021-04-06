@@ -207,7 +207,7 @@ Trying this out with our $f(x) = x^2 - 13$, our recurrence relation after some s
 $x_{n+1} = \frac{1}{2}(x_n + \frac{13}{x_n})$
 </center>
 
-Or if you liked our previous notation, we can rewrite this as a function we iterate over as
+Or if you liked our previous notation, we can rewrite this as a function and iterate over
 
 <center>
 $g(x) = \frac{1}{2}(x + \frac{13}{x})$
