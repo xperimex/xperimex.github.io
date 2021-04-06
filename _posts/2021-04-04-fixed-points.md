@@ -175,7 +175,7 @@ The previous problem with the golden ratio can be extended to a more general cas
 
 ## Newton-Raphson Method
 
-The idea is fairly similar to what we did before, but since it's catered to finding roots of polynomials, its iterations have an extra step as we're looking for intersections with the $x$-axis instead of the line $y=x$. Here's the basic idea: 1) Pick an initial seed value $x_0$. 2) Draw a vertical line (like we did with the cobweb) until we hit the function $f(x)$. 3) Draw the tangent line of $f(x)$ at $x_0$, and see where it hits the $x$-axis. Call this new point $x_1$. 4) Repeat the process as many times as you'd like for as accurate an approximation as you'd like. Here's an example geometric interpretation for this method with $f(x) = x^2 - 13$.
+The idea is fairly similar to what we did before, but since it's catered to finding roots of polynomials, its iterations have an extra step as we're looking for intersections with the $x$-axis instead of the line $y=x$. Here's the basic idea: 1) Pick an initial seed value $x_0$. 2) Draw a vertical line (like we did with the cobweb) until we hit the function $f(x)$. 3) Draw the tangent line of $f(x)$ at $x_0$, and see where it hits the $x$-axis. Call this new point $x_1$. 4) Repeat the process as many times as you'd like for as accurate an approximation as you'd like to some $x_n$. Here's an example geometric interpretation for this method with $f(x) = x^2 - 13$.
 
 <img src="/img/fixed-points/NR1.png" style="width:500px; height=auto ">
 
