@@ -157,7 +157,7 @@ Using the quadratic formula, we once again get two solutions:
 $\varphi = \frac{1+\sqrt{5}}{2} \approx 1.618$ and $1-\varphi = \frac{1-\sqrt{5}}{2} \approx -.618$
 </center>
 
-The famous golden ratio $\varphi$ and its underrated second solution. Still, it begs the question, how can a completely positive infinite fraction equate to something negative? Illustrating this with our cobweb and sensitivity regions will make this clear once again. Setting $f(x)=1+\frac{1}{x}$, we get…
+The famous Golden ratio $\varphi$ and its underrated second solution. Still, it begs the question, how can a completely positive infinite fraction equate to something negative? Illustrating this with our cobweb and sensitivity regions will make this clear once again. Setting $f(x)=1+\frac{1}{x}$, we get…
 
 <img src="/img/fixed-points/cobwebGolden.png" style="width:500px; height=auto ">
 
@@ -169,9 +169,9 @@ $1+\frac{1}{1-\varphi} = 1-\varphi$
 
 For its own seed value, $1-\varphi$ is valid, but I guess that's up to you if you want to equate a negative value to a positive infinite fraction.
 
-For those who are interested, try setting your seed value to a number in the form of $-\frac{F_n}{F_{n+1}}$ where $F_n$ represents the nth Fibonacci number. The golden ratio is closely tied to the Fibonacci numbers, so it may be a bit unsurprising why they may relate here. If you try to iterate over any number in this form, you'll eventually hit a point where evaluating the function becomes undefined. Try plugging in a few and watch the strange cascading effect happen.
+For those who are interested, try setting your seed value to a number in the form of $-\frac{F_n}{F_{n+1}}$ where $F_n$ represents the nth Fibonacci number. The Golden ratio is closely tied to the Fibonacci numbers, so it may be a bit unsurprising why they may relate here. If you try to iterate over any number in this form, you'll eventually hit a point where evaluating the function becomes undefined. Try plugging in a few and watch the strange cascading effect happen.
 
-The previous problem with the golden ratio can be extended to a more general case of an iterative approximation technique known as the __Newton-Raphson Method__ which can (usually) effectively hone in on roots of a polynomial quite efficiently.
+The previous problem with the Golden ratio can be extended to a more general case of an iterative approximation technique known as the __Newton-Raphson Method__ which can (usually) effectively hone in on roots of a polynomial quite efficiently.
 
 ## Newton-Raphson Method
 
@@ -243,7 +243,7 @@ $\sqrt[4]{n} \rightarrow \frac{1}{4}(3x+\frac{n}{x^3})$
 $\sqrt[p]{n} \rightarrow \frac{1}{p}((p-1)x+\frac{n}{x^{p-1}})$
 </center>
 
-Going back to our golden ratio iteration, we can rewrite it under the fixed point formula $f(x)=x\rightarrow 1+\frac{1}{x}=x$. If you multiply that through by $x$ and rearrange, we get a quadratic $x^2-x-1=0$. That's a quadratic we can solve for with the Newton-Raphson Method! Plugging it into the formula, we get a function to iterate over as
+Going back to our Golden ratio iteration, we can rewrite it under the fixed point formula $f(x)=x\rightarrow 1+\frac{1}{x}=x$. If you multiply that through by $x$ and rearrange, we get a quadratic $x^2-x-1=0$. That's a quadratic we can solve for with the Newton-Raphson Method! Plugging it into the formula, we get a function to iterate over as
 
 <center>
 $g(x) = \frac{x^2+1}{2x-1}$
