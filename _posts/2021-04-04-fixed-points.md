@@ -77,7 +77,7 @@ Nothing too crazy. The green graph is our $f(x) = \sqrt{2}^x$, while the red gra
 
 <img src="/img/fixed-points/cobweb2.png" style="width:500px; height=auto ">
 
-Now we have a line segment with points $(1,1)\rightarrow(1,f(1))$. This step is equivalent to plugging in 1 into the top of our power tower, actually doing the operation of $f(x)$ Since we just a drew a vertical line, we now draw a horizontal one from the green graph $f(x)$ until it intersects the red one $y = x$.
+Now we have a line segment with points $(1,1)\rightarrow(1,f(1))$. This step is equivalent to plugging in 1 into the top of our power tower, geometrically doing the operation of $f(x)$. Since we just a drew a vertical line, we now draw a horizontal one from the green graph $f(x)$ until it intersects the red one $y = x$.
 
 <img src="/img/fixed-points/cobweb3.png" style="width:500px; height=auto ">
 
