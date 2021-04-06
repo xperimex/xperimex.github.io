@@ -161,7 +161,7 @@ The famous golden ratio $\varphi$ and its underrated second solution. Still, it 
 
 <img src="/img/fixed-points/cobwebGolden.png" style="width:500px; height=auto ">
 
-A lot like $4$ when iterating $\sqrt{2}^x$, $1-\varphi$ is the unstable fixed point in the sensitive region, while $\varphi$ is the stable one which we quickly spiral down towards. We can quickly verify that $1-\varphi$ is a "valid" solution by plugging it in just like $4$ into $\sqrt{2}^x$.
+A lot like $x=4$ when iterating $\sqrt{2}^x$, $1-\varphi$ is the unstable fixed point in the sensitive region, while $\varphi$ is the stable one which we quickly spiral down towards. We can quickly verify that $1-\varphi$ is a "valid" solution by plugging it in just like $4$ into $\sqrt{2}^x$.
 
 <center>
 $1+\frac{1}{1-\varphi} = 1-\varphi$
