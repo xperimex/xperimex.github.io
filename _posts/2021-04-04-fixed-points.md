@@ -60,7 +60,7 @@ def f(x):
 print(f(1))
 ```
 
-The above code does a power tower 1000 numbers tall, giving us an approximation of `2.0000000000000004`, which is pretty close to 2. So, is 4 anywhere to be seen? Actually, yeah; our solution wasn't _completely_ false. Notice that at the end of the script it says `f(1)`. That 1 is our _seed value_. Since our power tower can't be infinite in order to get a calculable approximation, we need to cut it off after some amount (in this case, 1000 numbers high). In order to do that, though, there has to be some number there at the top of that power tower. In this case it was 1, but it can be anything as we constantly plug our output back into our input, in the case of an infinitely stacked power tower, that seed value is negligible. Let's see what happens if that is changed to `f(4)`.
+The above code creates and evaluates a power tower 1000 numbers tall, giving us an approximation of `2.0000000000000004`, which is pretty close to 2. So, is 4 anywhere to be seen? Actually, yeah; our solution wasn't _completely_ false. Notice that at the end of the script it says `f(1)`. That 1 is our _seed value_. Since our power tower can't be infinite in order to get a calculable approximation, we need to cut it off after some amount (in this case, 1000 numbers high). In order to do that, though, there has to be some number there at the top of that power tower. In this case it was 1, but it can be anything as we constantly plug our output back into our input, in the case of an infinitely stacked power tower, that seed value is negligible. Let's see what happens if that is changed to `f(4)`.
 
 `print(f(4))`
 
