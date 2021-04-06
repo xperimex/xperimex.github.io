@@ -179,7 +179,7 @@ The idea is fairly similar to what we did before, but since it's catered to find
 
 <img src="/img/fixed-points/NR1.png" style="width:500px; height=auto ">
 
-I had to zoom in extremely close for this graph because, as you can see, just a two iterations from a seed value $x_0=5$ finds a really accurate approximation of one of the roots of $f(x)$ and you wouldn't be able to see those lines unless magnified by this much. Let's work out a general iterative formula for this method. We first start with some $f(x)$. Just by using derivatives and definition of a line passing through the point $(x_n,f(x_n))$ for our tangent, we can solve the equation
+I had to zoom in extremely close for this graph because, as you can see, just after two iterations from a seed value $x_0=5$ finds a really accurate approximation of one of the roots of $f(x)$ and you wouldn't be able to see those lines unless magnified by this much. Let's work out a general iterative formula for this method. We first start with some $f(x)$. Just by using derivatives and definition of a line passing through the point $(x_n,f(x_n))$ for our tangent, we can solve the equation
 
 <center>
 $f'(x_n)(x-x_n) + f(x_n) = 0$

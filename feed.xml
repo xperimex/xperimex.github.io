@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Tue, 06 Apr 2021 18:45:01 GMT</lastBuildDate>
+      <lastBuildDate>Tue, 06 Apr 2021 18:46:43 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -1077,7 +1077,7 @@ $1+\frac{1}{1-\varphi} = 1-\varphi$
 <h2 id="newton-raphson-method">Newton-Raphson Method</h2>
 <p>The idea is fairly similar to what we did before, but since it&#39;s catered to finding roots of polynomials, its iterations have an extra step as we&#39;re looking for intersections with the $x$-axis instead of the line $y=x$. Here&#39;s the basic idea: 1) Pick an initial seed value $x_0$. 2) Draw a vertical line (like we did with the cobweb) until we hit the function $f(x)$. 3) Draw the tangent line of $f(x)$ at $x_0$, and see where it hits the $x$-axis. Call this new point $x_1$. 4) Repeat the process as many times as you&#39;d like for as accurate an approximation as you&#39;d like. Here&#39;s an example geometric interpretation for this method with $f(x) = x^2 - 13$.</p>
 <p><img src="/img/fixed-points/NR1.png" style="width:500px; height=auto "></p>
-<p>I had to zoom in extremely close for this graph because, as you can see, just a two iterations from a seed value $x_0=5$ finds a really accurate approximation of one of the roots of $f(x)$ and you wouldn&#39;t be able to see those lines unless magnified by this much. Let&#39;s work out a general iterative formula for this method. We first start with some $f(x)$. Just by using derivatives and definition of a line passing through the point $(x_n,f(x_n))$ for our tangent, we can solve the equation</p>
+<p>I had to zoom in extremely close for this graph because, as you can see, just after two iterations from a seed value $x_0=5$ finds a really accurate approximation of one of the roots of $f(x)$ and you wouldn&#39;t be able to see those lines unless magnified by this much. Let&#39;s work out a general iterative formula for this method. We first start with some $f(x)$. Just by using derivatives and definition of a line passing through the point $(x_n,f(x_n))$ for our tangent, we can solve the equation</p>
 <center>
 $f&#39;(x_n)(x-x_n) + f(x_n) = 0$
 </center>
