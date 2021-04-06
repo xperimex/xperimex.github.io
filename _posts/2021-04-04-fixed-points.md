@@ -219,7 +219,7 @@ Since this is in function form, we can use our old friend the cobweb to solve th
 
 It nicely finds $\sqrt{13}$ as a solution, just as we would expect. However, notice that there are two intersection points that lie _outside_ of the sensitive region. One we found at $x=\sqrt{13}$, and the other is actually the second solution to $x^2-13=0$ at $x=-\sqrt{13}$. Our seed value significantly matters more in this case, as now depending on which zero of $f(x)$ is closer, our iteration will target only the closest solution, and this only becomes more important the more zeroes our function contains.
 
-Even with all those caveats, notice what we just made! Our iterative function $g(x)$ is essentially a square root estimator. While it's nice and convenient just to use exact answers, having decimal approximations are just as useful, especially for computers who don't have unlimited memory to use exact answers. For any number $n$, we can $\sqrt{n}$ as accurately as we'd like by iterating over the function
+Even with all those caveats, notice what we just made! Our iterative function $g(x)$ is essentially a square root estimator. While it's nice and convenient just to use exact answers, having decimal approximations are just as useful, especially for computers who don't have unlimited memory to use exact answers. For any number $n$, we can calculate $\sqrt{n}$ as accurately as we'd like by iterating over the function
 
 <center>
 $g(x) = \frac{1}{2}(x + \frac{n}{x})$

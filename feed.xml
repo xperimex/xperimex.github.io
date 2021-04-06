@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Tue, 06 Apr 2021 20:40:36 GMT</lastBuildDate>
+      <lastBuildDate>Tue, 06 Apr 2021 20:50:08 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -1109,7 +1109,7 @@ $g(x) = \frac{1}{2}(x + \frac{13}{x})$
 <p>Since this is in function form, we can use our old friend the cobweb to solve this for us.</p>
 <p><img src="/img/fixed-points/cobwebSQRT.png" style="width:500px; height=auto "></p>
 <p>It nicely finds $\sqrt{13}$ as a solution, just as we would expect. However, notice that there are two intersection points that lie <em>outside</em> of the sensitive region. One we found at $x=\sqrt{13}$, and the other is actually the second solution to $x^2-13=0$ at $x=-\sqrt{13}$. Our seed value significantly matters more in this case, as now depending on which zero of $f(x)$ is closer, our iteration will target only the closest solution, and this only becomes more important the more zeroes our function contains.</p>
-<p>Even with all those caveats, notice what we just made! Our iterative function $g(x)$ is essentially a square root estimator. While it&#39;s nice and convenient just to use exact answers, having decimal approximations are just as useful, especially for computers who don&#39;t have unlimited memory to use exact answers. For any number $n$, we can $\sqrt{n}$ as accurately as we&#39;d like by iterating over the function</p>
+<p>Even with all those caveats, notice what we just made! Our iterative function $g(x)$ is essentially a square root estimator. While it&#39;s nice and convenient just to use exact answers, having decimal approximations are just as useful, especially for computers who don&#39;t have unlimited memory to use exact answers. For any number $n$, we can calculate $\sqrt{n}$ as accurately as we&#39;d like by iterating over the function</p>
 <center>
 $g(x) = \frac{1}{2}(x + \frac{n}{x})$
 </center>
