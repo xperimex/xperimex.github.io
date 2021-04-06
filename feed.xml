@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Tue, 06 Apr 2021 20:50:08 GMT</lastBuildDate>
+      <lastBuildDate>Tue, 06 Apr 2021 20:51:36 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -1119,7 +1119,7 @@ $g(x) = \frac{1}{2}(x + \frac{n}{x})$
 $x_{n+1} = x_n - \frac{f(x_n)}{f&#39;(x_n)}$
 </center>
 
-<p>Here are a few other recurrences for other roots of $n$:</p>
+<p>Here are a few other iterative functions for other roots of $n$:</p>
 <center>
 $\sqrt{n} \rightarrow \frac{1}{2}(x + \frac{n}{x})$
 <br>

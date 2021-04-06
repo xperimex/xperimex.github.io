@@ -231,7 +231,7 @@ as many times as we want. A square root with nothing but basic arithmetic! There
 $x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}$
 </center>
 
-Here are a few other recurrences for other roots of $n$:
+Here are a few other iterative functions for other roots of $n$:
 
 <center>
 $\sqrt{n} \rightarrow \frac{1}{2}(x + \frac{n}{x})$
