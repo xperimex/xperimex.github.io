@@ -231,17 +231,29 @@ as many times as we want. A square root with nothing but basic arithmetic! There
 $x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}$
 </center>
 
+Here are a few other recurrences for other roots of $n$:
+
+<center>
+$\sqrt{n} \rightarrow \frac{1}{2}(x + \frac{n}{x})$
+<br>
+$\sqrt[3]{n} \rightarrow \frac{1}{3}(2x+\frac{n}{x^2})$
+<br>
+$\sqrt[4]{n} \rightarrow \frac{1}{4}(3x+\frac{n}{x^3})$
+<br>
+$\sqrt[p]{n} \rightarrow \frac{1}{p}((p-1)x+\frac{n}{x^{p-1}})$
+</center>
+
 Going back to our golden ratio iteration, we can rewrite it under the fixed point formula $f(x)=x\rightarrow 1+\frac{1}{x}=x$. If you multiply that through by $x$ and rearrange, we get a quadratic $x^2-x-1=0$. That's a quadratic we can solve for with the Newton-Raphson Method! Plugging it into the formula, we get a function to iterate over as
 
 <center>
 $g(x) = \frac{x^2+1}{2x-1}$
 </center>
 
-And sure enough, it works! The advantage of using the Newton-Raphson Method in this case, is that we no longer have to worry about unstable fixed points, as all of our solutions lie outside the sensitivity region. So even if we lose some insight into the nature of each solution, we consistently find each solution to an accurate decimal expansion.
+And sure enough, it works! The advantage of using the Newton-Raphson Method in this case, is that we no longer have to worry about unstable fixed points, as all of our solutions lie outside the sensitivity region. So even if we lose some insight into the nature of each solution, we consistently find each solution of $\varphi$ and $1-\varphi$ to an accurate decimal expansion with the right seed.
 
 <img src="/img/fixed-points/cobwebGolden2.png" style="width:500px; height=auto ">
 
 ## What Else?
-Iteration and fixed points become one of the prime topics for dynamical systems and describing much of the world around us. Solving systems of differential equations comes down to finding the equivalent of a higher-dimensional fixed point, or in other words, an eigenvector: a vector (which is just an object that can encode more than one number and hence dimension) which doesn't change direction under the transformation describing the system of equations. Synchronization is a prime example of a fixed point under iteration: even if a group of fireflies begin out of phase with one another, their coupling over time will reduce each other into a single large group with one cyclic, uniform behavior. The Mandelbrot set (and all of the Julia sets, for that matter) arise out of the fact that some complex numbers are bounded under iteration of functions $f(z)=z^n+c$ that remain bounded after a long time (sometimes being bounded to multiple values at once!). There are even entire studies dedicated to this. _Invariant theory_ studies mathematical groups and polynomials to see how they remain unchanged under transformations. Almost all of chaos theory is about stability over long periods of time (Nicky Case has a great introduction to [attractors](https://ncase.me/attractors/)), and especially when what should be simple, predictable equations are not (the [Bifurcation diagram](https://en.wikipedia.org/wiki/Bifurcation_diagram) is particularly interesting as it appears in the most unlikely of places). There are even hundreds of theorems dedicated to fixed-points.
+Iteration and fixed points become one of the prime topics for dynamical systems and describing much of the world around us. We discussed the Newton-Raphson Method of root finding, but there are many other recurrence relations for approximating roots of functions, each catered for their own purpose with different convergence rates and fail cases. Solving systems of differential equations comes down to finding the equivalent of a higher-dimensional fixed point, or in other words, an eigenvector: a vector (which is just an object that can encode more than one number and hence dimension) which doesn't change direction under the transformation describing the system of equations. Synchronization is a prime example of a fixed point under iteration: even if a group of fireflies begin out of phase with one another, their coupling over time will reduce each other into a single large group with one cyclic, uniform behavior. The Mandelbrot set (and all of the Julia sets, for that matter) arise out of the fact that some complex numbers are bounded under iteration of functions $f(z)=z^n+c$ that remain bounded after a long time (sometimes being bounded to multiple values at once!). There are even entire studies dedicated to this. _Invariant theory_ studies mathematical groups and polynomials to see how they remain unchanged under transformations. Almost all of chaos theory is about stability over long periods of time (Nicky Case has a great introduction to [attractors](https://ncase.me/attractors/)), and especially when what should be simple, predictable equations are not (the [Bifurcation diagram](https://en.wikipedia.org/wiki/Bifurcation_diagram) is particularly interesting as it appears in the most unlikely of places). There are even hundreds of theorems dedicated to fixed points (most notable of them being [Brouwer's Fixed-Point Theorem](https://en.wikipedia.org/wiki/Brouwer_fixed-point_theorem)).
 
 Fixed points appear everywhere, and I hope this shared a few insights into how they can appear, deceive, and approximate even the most out there of expressions.
