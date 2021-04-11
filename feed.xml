@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Sun, 11 Apr 2021 02:41:22 GMT</lastBuildDate>
+      <lastBuildDate>Sun, 11 Apr 2021 02:49:40 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -760,7 +760,7 @@ If you have any questions or comments, send me an email or leave a comment!</p>
 
 <p>In this <em>golden rectangle</em>, there are two rectangles to focus on: the large one with aspect ratio $\frac{a+b}{a}$, and the smaller red one with aspect ratio $\frac{a}{b}$. The golden ratio is given by $\frac{a}{b}$ when the small blue rectangle has the <em>same</em> aspect ratio as the larger rectangle. Letting $\varphi=\frac{a}{b}$, and setting the ratios equal to each other nets us:</p>
 <center>
-$\frac{a+b}{b}=\frac{a}{b}$
+$\frac{a+b}{a}=\frac{a}{b}$
 <br>
 $1+\frac{b}{a}=\frac{a}{b}$
 <br>

@@ -35,7 +35,7 @@ The classic definition of $\varphi$ comes from a specific geometric construction
 In this _golden rectangle_, there are two rectangles to focus on: the large one with aspect ratio $\frac{a+b}{a}$, and the smaller red one with aspect ratio $\frac{a}{b}$. The golden ratio is given by $\frac{a}{b}$ when the small blue rectangle has the _same_ aspect ratio as the larger rectangle. Letting $\varphi=\frac{a}{b}$, and setting the ratios equal to each other nets us:
 
 <center>
-$\frac{a+b}{b}=\frac{a}{b}$
+$\frac{a+b}{a}=\frac{a}{b}$
 <br>
 $1+\frac{b}{a}=\frac{a}{b}$
 <br>
