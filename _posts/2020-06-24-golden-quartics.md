@@ -60,7 +60,7 @@ An infinite descending fraction solely containing 1s. Taking a variation of the 
 $\varphi = \sqrt{1 + \sqrt{1 + \sqrt{1 + \sqrt{1 + \ldots}}}}$
 </center>
 
-An infinitely nested radical solely containing 1s. Notice, however, that the solution to the golden ratio has a negative counter part as well: $1-\varphi=-.61803$. Although it may seem nonsensical to assign a negative value to many of the expressions we used in defining $\varphi$, this value holds many of the same properties that $\varphi$ holds on its own as well, and the reason we don't see it as often has to do with the volatility of the value in these iterated scenarios, but that's for another time.
+An infinitely nested radical solely containing 1s. Notice, however, that the solution to the golden ratio has a negative counter part as well: $1-\varphi=-.61803$. Although it may seem nonsensical to assign a negative value to many of the expressions we used in defining $\varphi$, this value holds many of the same properties that $\varphi$ holds on its own as well, and the reason we don't see it as often has to do with the volatility of the value in these iterated scenarios, but that's for [another time](http://xperimex.com/blog/fixed-points/).
 
 ## The Proof
 First, let's look at how to find the inflection points of a quartic. Inflection points are given by the quality that it's the point along a function where its concavity changes. I.e. if you look at the tangent lines along a curve as you vary the input $x$, the tangent lines' slopes will change. The inflection points are found when the slopes' behavior alters. Take the function $x^3$, for example.
