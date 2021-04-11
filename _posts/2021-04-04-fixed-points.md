@@ -179,7 +179,7 @@ There are a whole host of functions that have interesting iterations as well. Le
 
 <img src="/img/fixed-points/cobwebCOS.png" style="width:500px; height=auto ">
 
-Since $f'(x) = -\sin(x)$, $f'(x)$ is always less than or equal to 1, so all fixed points it has will not diverge. In this case, we get a solution of $\approx .73909$, sometimes referred to as the [Dottie number](https://mathworld.wolfram.com/DottieNumber.html), which has its own set of interesting properties (for one, it's a transcendental number of the likes of $\pi$ and $e$!). Let's try another function. What happens if we scale $f(x)$, though? Let's try $5f(x) = 5\cos(x)$
+Since $f'(x) = -\sin(x)$, $f'(x)$ is always less than or equal to 1, so all fixed points it has will not diverge. In this case, we get a solution of $\approx .73909$, sometimes referred to as the [Dottie number](https://mathworld.wolfram.com/DottieNumber.html), which has its own set of interesting properties (for one, it's a transcendental number of the likes of $\pi$ and $e$!). Let's try another function. What happens if we scale $f(x)$? Let's try $5f(x) = 5\cos(x)$
 
 <img src="/img/fixed-points/cobweb5COS.png" style="width:500px; height=auto ">
 
