@@ -1,0 +1,144 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Delta Thoughts - Metropolis-Hastings and MCMC, Briefly</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#FFFFFF" />
+
+        <link rel="apple-touch-icon" href="/img/apple-touch-icon-precomposed.png">
+        <link rel="icon" type="image/png" href="/img/favicon.png">
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <hr id="starter" />
+
+        <div id="header">
+          <div class="row">
+            <div class="two columns"></div>
+            <div class="eight columns">
+              <h1><span id="goHome" onclick="javascript:location.href='/';">Delta Thoughts</span></h1>
+              <p class="lead" style="margin-top: -10px;">
+                "Pure mathematics is, in its way, the poetry of logical ideas." &mdash; Albert Einstein
+              </p>
+            </div>
+
+          </div>
+        </div>
+        <div class="content row">
+          <div class="two columns"></div>
+          <div class="eight columns">
+            <div class="mainIntro">
+              <div id="headline">
+                Metropolis-Hastings and MCMC, Briefly
+              </div>
+              <div class="date" style="margin-left:0px!important;">By <a href="/">Adi Mittal</a> &#183; May 23, 2021 &#183; 7 min read</div>
+            </div>
+            <div class="articleBody firstcharacter">
+              <p>Today, I want to talk about a really powerful tool in math and statistics, that on its own may seem very niche, the concept behind it is something really—and I mean <em>really</em>—powerful and is how many other discoveries and tools are made and immortalized. In particular, I want to talk about the Metropolis-Hastings algorithm and Monte Carlo Markov Chain methods. But first, some review.</p>
+<h2 id="markov-chains">Markov Chains</h2>
+<p><strong>Markov chains</strong>, in essence, are a way to model a process that randomly jumps between different outputs, where each output is said to have some probability to jump to other outputs. They&#39;re sort of like rolling dice, but the likelihood you roll any number is only dependent on the number you rolled last. It might help to describe this with an example. Let&#39;s say you want to know what the weather will be in 5 days: will it be sunny or rainy? Fortunately, the weather doesn&#39;t vary too much, so if it&#39;s sunny one day, it&#39;s likely to be sunny again the next day with 80% chance. If it&#39;s rainy, it will likely be rainy again too, with, say, 60% chance. This can be shown quite succinctly in a little diagram:</p>
+<p><img src="/img/metropolis-hastings/markovChainExample.png"></p>
+<p>This is our actual Markov chain, showing the two <em>transition states</em>, S(unny) and R(ainy) with their associated <em>transition probabilities</em>. However, we can&#39;t actually <em>do</em> much with just a picture alone. So, we can rewrite these probabilities and encode them in a matrix:</p>
+<center>
+$
+M =
+\begin{bmatrix}
+.8 &amp; .2 \\
+.4 &amp; .6
+\end{bmatrix}
+$
+</center>
+
+<p>You can think of each row as a different state for current weather, and the columns as probabilities for different states of tomorrow&#39;s weather. In this case, I have written row 1 and column 1 to indicate sunny days, and row 2 and column 2 to be rainy days. That&#39;s why entry $a_{1,1}$ in row 1, column 1 shows 80%, because if it is sunny today (row 1), we expect an 80% chance for it to be sunny tomorrow (column 1). Similarly $a_{2,2}=.6$, as if it&#39;s rainy today, we expect a 60% chance for rain again. $a_{1,2}=.2$ means that if today is sunny, then there is a 20% chance of rain tomorrow, and for completeness sake, $a_{2,1}=.4$ indicates a 40% chance for it to be sunny given today is rainy.</p>
+<p>What we&#39;ve built here is known as a <em>transition matrix</em>, as, well, it&#39;s a matrix that shows transition probabilities; it&#39;s a matrix that shows how likely we are to jump from one state to another. In this case, our states are the different weathers: sunny or rainy. So, how does this help us answer our original question of the what the weather will be in 5 days? Well, let&#39;s first try to find the weather 2 days from now. We know how to model 1 day from now, and since these are probabilities, wouldn&#39;t it make sense just to multiply our matrix by itself?</p>
+<center>
+$
+M^2 =
+\begin{bmatrix}
+.72 &amp; .28 \\
+.56 &amp; .44
+\end{bmatrix}
+$
+</center>
+
+<p>Our probabilities have changed a little bit. Now it&#39;s saying, if today is sunny, there is a 72% chance it will be sunny 2 days from now. The reason why multiplying our matrix itself to get this result makes sense is because of the mechanics of matrix multiplication essentially asks: &quot;What is the probability from getting from one state to another in two steps?&quot; If you work out the multiplication itself, it might be clearer, but the way I like to think about it is in terms of transformations of space. For those familiar with a bit of linear algebra, we can think of our matrix $M$ as a collection of basis vectors that scale space (where our vectors in space can be thought of as a collection of starting states, i.e. the initial observed proportion of sunny days to rainy days). So applying $M$ once transforms space, we can then take that as a new &quot;default&quot; or &quot;unit&quot;. If we apply $M$ again to our basis vectors, it has the effect of transforming space once again. This can be thought of as our standard, independent probability multiplication, but instead of changing a singular probability (i.e. dice value), we are changing two (likelihood of sunny <em>and</em> likelihood of rainy days).</p>
+<p>With this in mind, our question is easy. It boils down to what $M^5$ is.</p>
+<center>
+$
+M^5 =
+\begin{bmatrix}
+.67008 &amp; .32992 \\
+.65984 &amp; .34016
+\end{bmatrix}
+$
+</center>
+
+<p>So if today is sunny, we look at row 1 and can expect a 67.008% chance of sunny weather, and if it&#39;s rainy, row 2 shows a 65.984% chance for sunny weather. Nice! But you might be looking at that matrix and notice that row 1 and row 2 are <em>almost</em> the same. Watch what happens if we don&#39;t check for any 5 days in the future, but if we look towards an infinite number of days ahead?</p>
+<center>
+$
+\lim\limits_{n\to\infty} M^n =
+\begin{bmatrix}
+.\overline{666} &amp; .\overline{333} \\
+.\overline{666} &amp; .\overline{333}
+\end{bmatrix}
+$
+</center>
+
+<p>The rows <em>do</em> become the same. So, if we were to pick a random day far, far into the future, we can expect it to be twice as likely to be sunny than rainy regardless of today&#39;s weather. There&#39;s two important interpretations of this fact. 1) going back to our transformation of space idea, this <em>equilibrium state</em> is our eigenvector (specifically for $\lambda=1$) of our transition matrix $M$. Meaning, it is the solution to the matrix equation $vM = v$ where $v$ is a row vector (here, $v=\begin{bmatrix} .\overline{666} &amp; .\overline{333} \end{bmatrix}$). The second—and more important—way to think of this equilibrium state is that it is the final, or <em>stationary</em> distribution of sunny and rainy days. That is, if you took the fraction of $\frac{\textrm{Sunny Days}}{\textrm{Total Days}}$, you&#39;d expect it to approach $\frac{2}{3}$ as time went on, and $\frac{\textrm{Rainy Days}}{\textrm{Total Days}}$ to likewise approach $\frac{1}{3}$.</p>
+<p>To summarize, here are a few important concepts about Markov chains:</p>
+<ol>
+<li>A Markov chain is a random process that describes the ability to switch between multiple states.</li>
+<li>A Markov chain&#39;s probability for any future state depends only on the current state (this is also known as the <a href="https://en.wikipedia.org/wiki/Markov_property">Markov property</a>).</li>
+<li>All Markov chains will eventually reach an equilibrium state that describes the final distribution of states over a long time.</li>
+</ol>
+<p>Markov chains are extremely powerful tools to model dynamics with multiple states due to their above properties, but some of their uses from chaos to disease modeling deserve their own post another day.</p>
+<hr>
+<p>If you understood this so far, you&#39;ve got the hardest part of Markov chain Monte Carlo methods under your belt. That being said, we are still missing second MC of MCMC.</p>
+<h2 id="monte-carlo-simulations">Monte Carlo Simulations</h2>
+<p><em>Monte Carlo simulations</em> are probably the closest you&#39;ll ever get to the scientific version of guess-and-check. The idea is if there is something that&#39;s too hard to calculate, you do a bunch of mini, random experiments to obtain data (called samples) that can give us numerical approximations. It&#39;s very akin to Bayesian thinking: the more data you give to your approximation, the better the approximation you can update to be more confident. As with all things, let&#39;s do a quick example.</p>
+<p>If I hand you a coin, you probably would assume it&#39;s a fair coin: 50/50 chance for either heads or tails.</p>
+<p>Reframing questions and asking them from a different perspective is so incredibly important, even if this might not inspire you. From Fourier asking about sums of sines (link to series) to why the Mandelbrot set has a cardioid, to even what 4-dimensional space means (encoding), there&#39;s so much to gain from just asking: &quot;What if ____?&quot;</p>
+
+              <div id="disqus_thread"></div>
+            <script>
+                (function() {  // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+
+                    s.src = '//delta-thoughts.disqus.com/embed.js';
+
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            </div>
+          </div>
+          <div class="two columns"></div>
+        </div>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <script type="text/javascript">
+          window.MathJax = {
+            tex2jax: {
+              inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+              processEscapes: true
+            }
+          };
+        </script>
+        <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-101583586-1','auto');ga('send','pageview');
+        </script>
+    </body>
+</html>
