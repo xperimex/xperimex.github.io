@@ -203,7 +203,7 @@ Here is the scatter plot of our algorithm walking all around $\pi(x)$ across 100
 
 <img src="/img/metropolis-hastings/histogramMH.png">
 
-We can now generate discrete samples proportional to our continuous distributions!
+We can now generate discrete samples proportional to our continuous distribution!
 
 ----------
 

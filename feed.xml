@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Thu, 03 Jun 2021 06:33:43 GMT</lastBuildDate>
+      <lastBuildDate>Thu, 03 Jun 2021 06:34:53 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -1306,7 +1306,7 @@ $\large{\pi(x)=\frac{1}{2}\exp(-|x|)}$
 <p><img src="/img/metropolis-hastings/scatterMH.png"></p>
 <p>...and here is the corresponding histogram that fits almost too perfectly to our target distribution.</p>
 <p><img src="/img/metropolis-hastings/histogramMH.png"></p>
-<p>We can now generate discrete samples proportional to our continuous distributions!</p>
+<p>We can now generate discrete samples proportional to our continuous distribution!</p>
 <hr>
 <p>The algorithm aside, an extremely important concept is shown here: reframing questions and objects and asking them from a different perspective can lead to extremely powerful tools and thoughts. We take a Markov chain, and instead of letting its equilibrium state arise as a property, we use it to turn our definition inside out and use the equilibrium state itself to define the Markov chain. This pattern of rethinking concepts has always been a useful, sobeit from building intuition while learning, to defining tools in all of math. From connecting why Mandelbrot set to its cardioid and cycloids, to encoding parameters in 4-dimensional space means, to even Fourier rebuilding <a href="https://en.wikipedia.org/wiki/Fourier_series">functions from sine waves</a>, the most impactful question one can ask is usually in the form of, &quot;What if?&quot;</p>
 ]]></description>
