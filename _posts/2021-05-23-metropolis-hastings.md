@@ -185,7 +185,7 @@ Here it is in only 20 lines of code:
   <span style="color: #f8f8f2">current</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span> 
   <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">in</span> <span style="color: #f8f8f2">range(iterations):</span>
     <span style="color: #f8f8f2">states</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">append(current)</span>
-    <span style="color: #75715e"># Step 2 --&gt; Q generates a proposed (normal distribution)</span>
+    <span style="color: #75715e"># Step 2 --&gt; Q generates a proposal (normal distribution)</span>
     <span style="color: #f8f8f2">proposal</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">np</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">random</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">normal(current,</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> 
     <span style="color: #75715e"># Step 3 --&gt; Check how good our proposal is</span>
     <span style="color: #f8f8f2">goodness</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">min(</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">target(proposal)</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">target(current))</span>
