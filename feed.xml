@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Thu, 03 Jun 2021 06:34:53 GMT</lastBuildDate>
+      <lastBuildDate>Thu, 03 Jun 2021 19:01:12 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -1157,7 +1157,7 @@ $g(x) = \frac{x^2+1}{2x-1}$
          <title><![CDATA[Metropolis-Hastings and MCMC, Briefly]]></title>
          <description><![CDATA[How to guess mathematically 
 
- <p>Today, I want to talk about a really powerful tool in math and statistics, that on its own may seem very niche, the concept behind it is something really—and I mean <em>really</em>—powerful and is how many other discoveries and tools are made and immortalized. In particular, I want to talk about the Metropolis-Hastings algorithm and Monte Carlo Markov Chain methods. If you want to skip the basics, here&#39;s a short table of contents:</p>
+ <p>Today, I want to talk about a really powerful tool in math and statistics, that on its own may seem very niche, the concept behind it is something really—and I mean <em>really</em>—powerful and is how many other discoveries and tools are made and immortalized. In particular, I want to talk about the Metropolis-Hastings algorithm and Markov chain Monte Carlo methods. If you want to skip the basics, here&#39;s a short table of contents:</p>
 <ol>
 <li><a href="#markov-chains">Markov Chains</a></li>
 <li><a href="#monte-carlo-simulations">Monte Carlo Simulations</a></li>

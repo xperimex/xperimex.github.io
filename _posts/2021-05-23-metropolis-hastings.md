@@ -12,7 +12,7 @@
 
 ---END_METADATA---
 
-Today, I want to talk about a really powerful tool in math and statistics, that on its own may seem very niche, the concept behind it is something really—and I mean _really_—powerful and is how many other discoveries and tools are made and immortalized. In particular, I want to talk about the Metropolis-Hastings algorithm and Monte Carlo Markov Chain methods. If you want to skip the basics, here's a short table of contents:
+Today, I want to talk about a really powerful tool in math and statistics, that on its own may seem very niche, the concept behind it is something really—and I mean _really_—powerful and is how many other discoveries and tools are made and immortalized. In particular, I want to talk about the Metropolis-Hastings algorithm and Markov chain Monte Carlo methods. If you want to skip the basics, here's a short table of contents:
 
 1. [Markov Chains](#markov-chains)
 2. [Monte Carlo Simulations](#monte-carlo-simulations)
