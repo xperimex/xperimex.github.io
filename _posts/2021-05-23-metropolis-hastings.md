@@ -83,7 +83,7 @@ To summarize, here are a few important concepts about Markov chains:
 
 1. A Markov chain is a random process that describes the ability to switch between multiple states.
 2. A Markov chain's probability for any future state depends only on the current state (this is also known as the [Markov property](https://en.wikipedia.org/wiki/Markov_property)).
-3. The sum of each row of a Markov chain's transition matrix must sum to 1 (something has to occur at each time step at eachs state, even if that means not changing states)
+3. The sum of each row of a Markov chain's transition matrix must sum to 1 (something has to occur at each time step for each state, even if that means not changing states)
 4. All Markov chains will eventually reach an equilibrium state that describes the final distribution of states over a long time.
 
 Markov chains are extremely powerful tools to model dynamics with multiple states due to their above properties, but some of their uses from chaos to disease modeling deserve their own post another day.
