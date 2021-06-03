@@ -203,6 +203,8 @@ Here is the scatter plot of our algorithm walking all around $\pi(x)$ across 100
 
 <img src="/img/metropolis-hastings/histogramMH.png">
 
+We can now generate discrete samples proportional to our continuous distributions!
+
 ----------
 
 The algorithm aside, an extremely important concept is shown here: reframing questions and objects and asking them from a different perspective can lead to extremely powerful tools and thoughts. We take a Markov chain, and instead of letting its equilibrium state arise as a property, we use it to turn our definition inside out and use the equilibrium state itself to define the Markov chain. This pattern of rethinking concepts has always been a useful, sobeit from building intuition while learning, to defining tools in all of math. From connecting why Mandelbrot set to its cardioid and cycloids, to encoding parameters in 4-dimensional space means, to even Fourier rebuilding [functions from sine waves](https://en.wikipedia.org/wiki/Fourier_series), the most impactful question one can ask is usually in the form of, "What if?"
