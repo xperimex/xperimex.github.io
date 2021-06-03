@@ -50,19 +50,20 @@ Which is… the same answer as before? How can $f(x) = \sqrt{2}^x$ iterated over
 ## Estimation with Python
 With some simple Python, we can get a pretty good approximation quickly.
 
-```python
-import math
-def f(x):
-    temp = x
-    for i in range(1000):
-        temp = math.sqrt(2)**temp
-    return temp
-print(f(1))
-```
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em; font-size: 11pt;"><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">import</span> <span style="color: #f8f8f2">math</span>
+<span style="color: #66d9ef">def</span> <span style="color: #a6e22e">f</span><span style="color: #f8f8f2">(x):</span>
+    <span style="color: #f8f8f2">temp</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">x</span>
+    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">in</span> <span style="color: #f8f8f2">range(</span><span style="color: #ae81ff">1000</span><span style="color: #f8f8f2">):</span>
+        <span style="color: #f8f8f2">temp</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">math</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">sqrt(</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">)</span><span style="color: #f92672">**</span><span style="color: #f8f8f2">temp</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">temp</span>
+<span style="color: #f8f8f2">print(f(</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">))</span>
+</pre></div>
+
 
 The above code creates and evaluates a power tower 1000 numbers tall, giving us an approximation of `2.0000000000000004`, which is pretty close to 2. So, is 4 anywhere to be seen? Actually, yeah; our solution wasn't _completely_ false. Notice that at the end of the script it says `f(1)`. That 1 is our _seed value_. Since our power tower can't be infinite in order to get a calculable approximation, we need to cut it off after some amount (in this case, 1000 numbers high). In order to do that, though, there has to be some number there at the top of that power tower. In this case it was 1, but it can be anything as we constantly plug our output back into our input, in the case of an infinitely stacked power tower, that seed value is negligible. Let's see what happens if that is changed to `f(4)`.
 
-`print(f(4))`
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em; font-size: 11pt;"><pre style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">print(f(</span><span style="color: #ae81ff">4</span><span style="color: #f8f8f2">))</span>
+</pre></div>
 
 Due to rounding, our script actually blows up to infinity with `f(4)`, but we can reason this out by hand. If we start with 4, then our first output of iteration will be $\sqrt{2}^4 = 4$. Since 4 is our output, that's our new input. But since 4 was also our seed value, it'll just constantly output 4 at every iteration. So 4 <i>is</i> a convergent value (as we can only calculate finite approximations) to the infinite power tower of $\sqrt{2}$, but only for its seed value. To better understand this, we can use a tool known as a _cobweb plot_.
 
@@ -97,26 +98,27 @@ The classic definition of the derivative $f'(x)$ is a function that returns the 
 <img src="/img/fixed-points/newGraph.png" style="width:700px; height=auto ">
 
 You can generate the above plot with the following Python:
-```python
-import numpy as np
-import matplotlib.pyplot as plt
 
-def f(x):
-  return np.sqrt(2)**x
-inp = np.linspace(-5,5,40)
-out = [f(n) for n in inp]
-d = 10
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em; font-size: 11pt;"><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">import</span> <span style="color: #f8f8f2">numpy</span> <span style="color: #66d9ef">as</span> <span style="color: #f8f8f2">np</span>
+<span style="color: #f92672">import</span> <span style="color: #f8f8f2">matplotlib.pyplot</span> <span style="color: #66d9ef">as</span> <span style="color: #f8f8f2">plt</span>
 
-fig = plt.figure(figsize=(20,4))
-axes = plt.gca()
-axes.set_xlim([-5.3,5.3])
-axes.set_ylim([-6,6])
+<span style="color: #66d9ef">def</span> <span style="color: #a6e22e">f</span><span style="color: #f8f8f2">(x):</span>
+  <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">np</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">sqrt(</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">)</span><span style="color: #f92672">**</span><span style="color: #f8f8f2">x</span>
+<span style="color: #f8f8f2">inp</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">np</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">linspace(</span><span style="color: #f92672">-</span><span style="color: #ae81ff">5</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">5</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">40</span><span style="color: #f8f8f2">)</span>
+<span style="color: #f8f8f2">out</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">[f(n)</span> <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">in</span> <span style="color: #f8f8f2">inp]</span>
+<span style="color: #f8f8f2">d</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">10</span>
 
-plt.scatter(inp, [d/2 for n in range(len(inp))])
-plt.scatter(out, [-d/2 for n in range(len(out))])
-for n in range(len(inp)):
-  plt.plot([inp[n], out[n]], [d/2, -d/2], color='green')
-```
+<span style="color: #f8f8f2">fig</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">plt</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">figure(figsize</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">20</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">4</span><span style="color: #f8f8f2">))</span>
+<span style="color: #f8f8f2">axes</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">plt</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">gca()</span>
+<span style="color: #f8f8f2">axes</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">set_xlim([</span><span style="color: #f92672">-</span><span style="color: #ae81ff">5.3</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">5.3</span><span style="color: #f8f8f2">])</span>
+<span style="color: #f8f8f2">axes</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">set_ylim([</span><span style="color: #f92672">-</span><span style="color: #ae81ff">6</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">6</span><span style="color: #f8f8f2">])</span>
+
+<span style="color: #f8f8f2">plt</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">scatter(inp,</span> <span style="color: #f8f8f2">[d</span><span style="color: #f92672">/</span><span style="color: #ae81ff">2</span> <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">in</span> <span style="color: #f8f8f2">range(len(inp))])</span>
+<span style="color: #f8f8f2">plt</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">scatter(out,</span> <span style="color: #f8f8f2">[</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">d</span><span style="color: #f92672">/</span><span style="color: #ae81ff">2</span> <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">in</span> <span style="color: #f8f8f2">range(len(out))])</span>
+<span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">in</span> <span style="color: #f8f8f2">range(len(inp)):</span>
+  <span style="color: #f8f8f2">plt</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">plot([inp[n],</span> <span style="color: #f8f8f2">out[n]],</span> <span style="color: #f8f8f2">[d</span><span style="color: #f92672">/</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">,</span> <span style="color: #f92672">-</span><span style="color: #f8f8f2">d</span><span style="color: #f92672">/</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">],</span> <span style="color: #f8f8f2">color</span><span style="color: #f92672">=</span><span style="color: #e6db74">&#39;green&#39;</span><span style="color: #f8f8f2">)</span>
+</pre></div>
+
 
 This basically just took the $y$-axis of our Cartesian graph and rotated it $90^\circ$. The blue dots represent the preimage of points $x$, while the orange dots represent their associated transformations under $f(x)$ with green lines connecting them. Just looking at it, it's consistent with our Cartesian graph as $f(x)$ never goes below 0, which makes sense as an exponential is always positive. The reason why we want this graph as it guides the intuition behind this idea of sensitivity and the derivative.
 
