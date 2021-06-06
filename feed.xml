@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Thu, 03 Jun 2021 19:01:12 GMT</lastBuildDate>
+      <lastBuildDate>Sun, 06 Jun 2021 08:48:31 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -1164,6 +1164,8 @@ $g(x) = \frac{x^2+1}{2x-1}$
 <li><a href="#metropolis-hastings-and-mcmc">The Metropolis-Hastings Algorithm</a></li>
 </ol>
 <p>Brief summaries are at the bottom of each section if you want a quick referesher for anything above, but first, some review.</p>
+<hr>
+<p>This is also all written more formally with other examples in this <a href="/img/metropolis-hastings/Metropolis_Hastings_and_MCMC.pdf">paper</a>.</p>
 <h2 id="markov-chains">Markov Chains</h2>
 <p><strong>Markov chains</strong>, in essence, are a way to model a process that randomly jumps between different outputs, where each output is said to have some probability to jump to other outputs. They&#39;re sort of like rolling dice, but the likelihood you roll any number is only dependent on the number you rolled last. It might help to describe this with an example. Let&#39;s say you want to know what the weather will be in 5 days: will it be sunny or rainy? Fortunately, the weather doesn&#39;t vary too much, so if it&#39;s sunny one day, it&#39;s likely to be sunny again the next day with 80% chance. If it&#39;s rainy, it will likely be rainy again too, with, say, 60% chance. This can be shown quite succinctly in a little diagram:</p>
 <p><img src="/img/metropolis-hastings/markovChainExample.png"></p>

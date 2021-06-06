@@ -20,6 +20,10 @@ Today, I want to talk about a really powerful tool in math and statistics, that 
 
 Brief summaries are at the bottom of each section if you want a quick referesher for anything above, but first, some review.
 
+----------
+
+This is also all written more formally with other examples in this [paper](/img/metropolis-hastings/Metropolis_Hastings_and_MCMC.pdf).
+
 ## Markov Chains
 __Markov chains__, in essence, are a way to model a process that randomly jumps between different outputs, where each output is said to have some probability to jump to other outputs. They're sort of like rolling dice, but the likelihood you roll any number is only dependent on the number you rolled last. It might help to describe this with an example. Let's say you want to know what the weather will be in 5 days: will it be sunny or rainy? Fortunately, the weather doesn't vary too much, so if it's sunny one day, it's likely to be sunny again the next day with 80% chance. If it's rainy, it will likely be rainy again too, with, say, 60% chance. This can be shown quite succinctly in a little diagram:
 
