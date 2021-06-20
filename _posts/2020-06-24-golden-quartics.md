@@ -35,7 +35,7 @@ The classic definition of $\varphi$ comes from a specific geometric construction
 In this _golden rectangle_, there are two rectangles to focus on: the large one with aspect ratio $\frac{a+b}{a}$, and the smaller red one with aspect ratio $\frac{a}{b}$. The golden ratio is given by $\frac{a}{b}$ when the small red rectangle has the _same_ aspect ratio as the larger rectangle (made up of the blue square and red rectangle). Letting $\varphi=\frac{a}{b}$, and setting the ratios equal to each other nets us:
 
 <center>
-$\frac{a+b}{a}=\frac{a}{b}$
+<!-- $\frac{a+b}{a}=\frac{a}{b}$
 <br>
 $1+\frac{b}{a}=\frac{a}{b}$
 <br>
@@ -45,7 +45,23 @@ $\varphi+1=\varphi^2$
 <br>
 $\varphi^2-\varphi-1=0$
 <br>
-$\varphi=\large{ \frac{1 \pm \sqrt{5}}{2} }$
+$\varphi=\large{ \frac{1 \pm \sqrt{5}}{2} }$ -->
+
+$\begin{align}
+  \frac{a+b}{a} & = \frac{a}{b} \\
+  \newline
+  1+\frac{b}{a} & = \frac{a}{b} \\
+  \newline
+  1+\frac{1}{\varphi} & = \varphi \\
+  \newline
+  \varphi+1 & = \varphi^2 \\
+  \newline
+  \varphi^2-\varphi-1 & = 0 \\
+  \newline
+\end{align}$
+<br><br>
+$\large{\varphi = \large{\frac{1 \pm \sqrt{5}}{2}}}$
+
 </center>
 
 The positive solution to this quadratic is the more well known value $\varphi$. Taking some variations of the previous equations can net other interesting relationships that $\varphi$ pertains to. For example, taking the third line from the derivation of $\varphi$ nets a recursive, cyclic definition of the golden ratio. Expanding out the relation gives another famous definition of $\varphi$.
@@ -75,11 +91,13 @@ First, let's look at how to find the inflection points of a quartic. Inflection 
 Notice how as we let our value $a$ increase, the slope of our tangent line — the first derivative of $f(x)$ — decreases from $-1.5$ to $0$. But from $0$ to $1.5$, the slope begins to increase. This is all visualized in our graph $f'(x)$ which plots every point $x$ and the value of its slope at $f(x)$. One can clearly see $f'(x)$ tends in a downward manner initially, before rising again. And for $f'(x)$ to have a slope that's first negative (decreasing) then positive (increasing), it must have a slope of zero in between. So, our point where our concavity changes is when the slope of $f'(x)$ equals 0. In other words, when the second derivative $f''(x)=0$. Here we can see it clearly visualized at the solution $x=0$, which confirms all of our previous observations. Doing so for any general quartic nets us:
 
 <center>
-$f(x) = Ax^4+Bx^3+Cx^2+Dx+E$
-<br>
-$f'(x) = 4Ax^3+3Bx^2+2Cx+D$
-<br>
-$f''(x) = 12Ax^2+6Bx+2C = 0$
+$\begin{align}
+f(x) & = Ax^4+Bx^3+Cx^2+Dx+E \\
+\newline
+f'(x) & = 4Ax^3+3Bx^2+2Cx+D \\
+\newline
+f''(x) & = 12Ax^2+6Bx+2C = 0
+\end{align}$
 </center>
 
 As this is a degree 2 polynomial, the quadratic formula quickly gives our two solutions for $x$ in general, which we will call $p$ and $q$.
@@ -141,11 +159,13 @@ $h''(x)=0 \rightarrow x=P',Q' \rightarrow x=0,1 \rightarrow h''(x)=12ax(x-1)$
 The factor of $12a$ comes from the leading term when taking the second derivative of any general quartic, as we saw in the original attempt to prove this. Expanding this expression and integrating twice gives us:
 
 <center>
-$h''(x)=12ax(x-1)=12ax^2-12ax$
-<br>
-$h'(x)=4ax^3-6ax^2+b$
-<br>
-$h(x)=ax^4-2ax^3+bx$
+$\begin{align}
+  h''(x) & = 12ax(x-1)=12ax^2-12ax \\
+  \newline
+  h'(x) & = 4ax^3-6ax^2+b \\
+  \newline
+  h(x) & = ax^4-2ax^3+bx
+\end{align}$
 </center>
 
 Notice I didn't add a new constant after the second integration, as that is equivalent to the $y$-intercept, which we know to be at $(0,0)$. Now that we have $h(x)$ in terms of itself, separated from $f(x)$, we can easily find the coordinates of $Q'$ and find $h(1)$.
@@ -163,23 +183,27 @@ $g(x)=\frac{b-a-0}{1-0}(x-0)+0=(b-a)x$
 Now we can continue using our original method, which is to find all solutions to $h(x)-g(x)=0$. Only this time, our transformations should net a cleaner equation.
 
 <center>
-$h(x)-g(x)=0$
-<br>
-$ax^4-2ax^3+bx-(b-a)x=0$
-<br>
-$ax^4-2ax^3+bx-bx+ax=0$
-<br>
-$ax^4-2ax^3+ax=0$
-<br>
-$ax(x^3-2x^2+1)=0$
+$\begin{align}
+  h(x)-g(x) & = 0 \\
+  \newline
+  ax^4-2ax^3+bx-(b-a)x & = 0 \\
+  \newline
+  ax^4-2ax^3+bx-bx+ax & = 0 \\
+  \newline
+  ax^4-2ax^3+ax & = 0 \\
+  \newline
+  ax(x^3-2x^2+1) & = 0 
+  \end{align}$
 </center>
 
 That $ax$ we factored out is our solution at $x=0$, or $P'$, which we used to construct the line in the first place. Similarly, because we used $Q'$ to construct the line as well at $x=1$, we can factor out an $x-1$ as well.
 
 <center>
-$ax(x^3-2x^2+1)=0$
-<br>
-$ax(x-1)(x^2-x-1)=0$
+$\begin{align}
+  ax(x^3-2x^2+1) & = 0 \\
+  \newline
+  ax(x-1)(x^2-x-1) & = 0
+\end{align}$
 </center>
 
 That last factor is the exact quadratic that we derived to define the golden ratio. Knowing that, we now have all of our solutions to the intersection points between our quartic and secant line.
