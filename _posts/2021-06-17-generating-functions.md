@@ -141,7 +141,7 @@ Now, let's try a different type of problem generating functions can help us out 
 ## Counting Birds with Generating Functions
 Say you're visiting an aviary with some friends. Well-respected, the aviary has a vast number of birds, but they've noticed some interesting patterns in the behavior of their avifauna: their hummingbirds always fly solo; blue jays tend to nest in fours; toucans perch in pairs; and cassowaries chill in fives. How many ways can you see a total of 20 birds? 
 
-This may seeem like an odd spot for generating functions, but we'll see a nice property of exponents that allow us to use them. Here, a generating function $A(x) = \sum_{n=0}^{\infty}a_nx^n$ is an encoding such that each term $a_n$ denotes how many ways there are to see $n$ birds. Let's write the generating function for hummingbirds:
+This may seeem like an odd spot for generating functions, but we'll see a nice property of exponents that allows us to use them. Here, a generating function $A(x) = \sum_{n=0}^{\infty}a_nx^n$ is an encoding such that each term $a_n$ denotes how many ways there are to see $n$ birds. Let's write the generating function for hummingbirds:
 
 <center>
 $H(x) = 1+x+x^2+x^3+x^4+\cdots$
