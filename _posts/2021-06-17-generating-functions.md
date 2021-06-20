@@ -232,7 +232,7 @@ B(x) & = \frac{1}{6}x(1+x+x^2)(1+x)(1-x+x^2) \\
 \end{align}$
 </center>
 
-Which is just our normal dice from before, labellling both dice 1,2,3,4,5,6. But if we try the former option...
+Which is just our normal dice from before, labelling both dice 1,2,3,4,5,6. But if we try the former option...
 
 <center>
 $\begin{align}

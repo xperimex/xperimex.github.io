@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Sun, 20 Jun 2021 00:51:34 GMT</lastBuildDate>
+      <lastBuildDate>Sun, 20 Jun 2021 06:04:29 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -1527,7 +1527,7 @@ B(x) &amp; = \frac{1}{6}x(1+x+x^2)(1+x)(1-x+x^2) \
 \end{align}$
 </center>
 
-<p>Which is just our normal dice from before, labellling both dice 1,2,3,4,5,6. But if we try the former option...</p>
+<p>Which is just our normal dice from before, labelling both dice 1,2,3,4,5,6. But if we try the former option...</p>
 <center>
 $\begin{align}
 A(x) &amp; = \frac{1}{6}x(1+x+x^2)(1+x)(1-x+x^2)^2 \
