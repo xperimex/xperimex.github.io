@@ -150,7 +150,7 @@ $H(x) = 1+x+x^2+x^3+x^4+\cdots$
 So, if we want to see any number of birds, there is exactly one way we can see that many birds with only seeing hummingbirds. That makes sense! What about blue jays?
 
 <center>
-$B(x) = 1+x^3+x^6+x^9+\cdots$
+$B(x) = 1+x^3+x^6+x^9+x^{12}+\cdots$
 </center>
 
 Jays come in groups of 3, so it would make sense we could only see total birds in multiples of 3. If we want to see a group of 6 birds with only jays, there is one way we can do that (that is by seeing two groups of jays), but 0 ways to see 5 birds of only jays. Similar generating functions can be written for the other birds.
