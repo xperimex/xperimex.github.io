@@ -134,7 +134,7 @@ $F(x) = \sum_{n=0}^{\infty}f_nx^n = \sum_{n=0}^{\infty}\frac{\phi^n-\varphi^n}{\
 $\large{f_n = \frac{\phi^n-\varphi^n}{\sqrt{5}}}$
 </center>
 
-Just like that, we've found a formula for the nth Fibonacci number! This is only a _sliver_ of the power of generating functions: being able to turn a recurrence relation into a closed form solution, barely even interacting with the sequence at all! 
+Just like that, we've found a formula for the nth Fibonacci number (this is known as [Binet's formula](https://artofproblemsolving.com/wiki/index.php/Binet%27s_Formula))! This is only a _sliver_ of the power of generating functions: being able to turn a recurrence relation into a closed form solution, barely even interacting with the sequence at all! 
 
 Now, let's try a different type of problem generating functions can help us out with.
 
