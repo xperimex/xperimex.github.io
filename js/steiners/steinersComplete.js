@@ -3,7 +3,7 @@ var initialData = {
     circle1_y: 0,
     // circle1_rx: 75-35,
     // circle1_ry: 0,
-    circle1_rad: 165,
+    circle1_rad: 175.95,
     circle1_angle: 0,
     circle2_x: -25-25,
     circle2_y: -25,
