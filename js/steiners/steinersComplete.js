@@ -250,7 +250,11 @@ ctx.circle(c2x, c2y, rad2, {affects:'none', fill:'none', stroke:'red'})
 //   ctx.line(new_purple_line2[0][0] - 10000*purple_line2_vec[0], new_purple_line2[0][1] - 10000*purple_line2_vec[1], 
 //            new_purple_line2[0][0] + 10000*purple_line2_vec[0], new_purple_line2[0][1] + 10000*purple_line2_vec[1], {affects:'none', stroke:'purple'})
  
-
+    if (abs_c1_to_c2 > (rad1 + rad2)){
+      let copy = new_blue_circle
+      new_blue_circle = new_red_circle
+      new_red_circle = copy
+    }
   
     if ((Math.abs(c1x - c2x) < .000001) && (Math.abs(c1y - c2y) < .000001)){
       var stein_rad = (rad1 - rad2)/2
