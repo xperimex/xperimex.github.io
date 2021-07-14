@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Wed, 14 Jul 2021 06:19:54 GMT</lastBuildDate>
+      <lastBuildDate>Wed, 14 Jul 2021 06:21:11 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -1636,7 +1636,7 @@ B(x) &amp; = \frac{1}{6}x(1+x+x^2)(1+x) \
 <p><div id="tilted_squares" style="flex: 2; position: relative;"></div></p>
 <script src="/js/grid-polygons/tilted_squares.js"></script>
 
-<p>A nice puzzle directly follows from this: given an $n \times n$ square grid, how many different squares can you draw? Check the <a href="#solution-to-squares-in-a-grid-puzzle">footnote</a> below if you want a solution, but just drawing it out will likely give you the intuition you need. Anyways, this tilted square reveals an important property of grids: rotating a lattice point by 90° around another point gives you a new, different lattice point. You can see this nicely with complex numbers. If you have a lattice point $a+bi$, a 90° rotation is equivalent to multiplying our number by $i\rightarrow i \cdot (a+bi) = -b + ai$. The coefficients remain integers, so if $(a,b)$ is a point, so is $(-b,a)$. </p>
+<p>Now that you know about tilted square, here&#39;s nice puzzle to think about: given an $n \times n$ square grid, how many different squares can you draw? Check the <a href="#solution-to-squares-in-a-grid-puzzle">footnote</a> below if you want a solution, but just drawing it out will likely give you the intuition you need. Anyways, this tilted square reveals an important property of grids: rotating a lattice point by 90° around another point gives you a new, different lattice point. You can see this nicely with complex numbers. If you have a lattice point $a+bi$, a 90° rotation is equivalent to multiplying our number by $i\rightarrow i \cdot (a+bi) = -b + ai$. The coefficients remain integers, so if $(a,b)$ is a point, so is $(-b,a)$. </p>
 <p>Another (less relevant for us) property is that if you know a line segment defined by 2 lattice points, and you are given a 3rd lattice point, you can find a 4th one by drawing a second line segment from your 3rd point (think of it like vector addition: if we know a vector and a point, we can find a new point by adding that vector the point). For the purpose of this post, though, just remember the former property.</p>
 <h2 id="rotating-regular-polygons">Rotating Regular Polygons</h2>
 <p>The proof that only regular polygon that a grid can define is a square is very simple, but very clever. Just as an example, we&#39;ll use a pentagon for demonstrative purposes. Let&#39;s assume that our regular $p$-gon (in our case, pentagon; I use $p$-gon due to poor variable naming later) exists in the grid.</p>
