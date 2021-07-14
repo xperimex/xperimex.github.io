@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Wed, 14 Jul 2021 06:29:18 GMT</lastBuildDate>
+      <lastBuildDate>Wed, 14 Jul 2021 19:22:08 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -1780,7 +1780,7 @@ While that shows it's impossible to have a pentagon in the grid, we still want t
 $r(p) = \sqrt{3 - 2\sqrt{2}\sin(\frac{2\pi}{p} + \frac{\pi}{4})}$
 </center>
 
-Since we were working with the example of a pentagon, $p=5$. The reason why our pentagons kept shrinking is because $r < 1$ for $p=5$. We need to show all regular polygons except the square results in a shrinking radius. In other words, we need to show that $r<1$ for all $p>4$. First, let's note the value of $p=4$ to start:
+Since we were working with the example of a pentagon, originally $p=5$ for us. The reason why our pentagons kept shrinking is because $r < 1$ for $p=5$. We need to show all regular polygons except the square results in a shrinking radius. In other words, we need to show that $r<1$ for all $p>4$. First, let's note the value of $p=4$ to start:
 
 <center>
 $\begin{align}
