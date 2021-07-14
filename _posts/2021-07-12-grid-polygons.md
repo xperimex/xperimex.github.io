@@ -177,7 +177,7 @@ With our previous logic, we know that this too is a regular pentagon, which agai
 
 Now here's the clever part of the proof. Remember, our grid is made up of a set of discrete points with some distance between each point. But, since we can always find 5 new lattice points that make a pentagon as small as we want by repeating the 90° rotation. That means that we can find a pentagon who's radius/sides are smaller than our grid point distances, which is obviously impossible to draw. So by contradiction, our initial assumption that a pentagon can exist in the grid must have been false. $\blacksquare$
 
-While that shows it's impossible to have a pentagon in the grid, we still want to show that _only_ the square can exist in the grid. Recall our formula for the radius of the bounding circle of our pentagon (if you skipped ahead originally go back to see where this comes from):
+While that shows it's impossible to have a pentagon in the grid, we still want to show that <i>only</i> the square can exist in the grid. Recall our formula for the radius of the bounding circle of our pentagon (if you skipped ahead originally go back to see where this comes from):
 
 <center>
 $r(p) = \sqrt{3 - 2\sqrt{2}\sin(\frac{2\pi}{p} + \frac{\pi}{4})}$
