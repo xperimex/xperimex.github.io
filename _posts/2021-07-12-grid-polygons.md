@@ -162,7 +162,7 @@ What's great about our linear algebra approach too is that it quickly generalize
 
 ----------
 
-To get back to the original point though, we have shown that a vertex $v$ on the unit circle under our specific transformation maps to a vertex $v'$ on a scaled, rotated circle (and because it was all linear transformations, the scalings and rotations are uniform), which implies that our black pentagon maps to another regular pentagon in red. Since those vertices in red are valid points in the grid since we found them with 90° rotations of other, valid lattice points, we can find yet _another_ set of 5 valid lattice points by doing the same operation again of rotating each vertex 90° around its neighbor.
+To get back to the original point though, we have shown that a vertex $v$ on the unit circle under our specific transformation maps to a vertex $v'$ on a scaled, rotated circle (and because it was all linear transformations, the scalings and rotations are uniform around the origin), which implies that our black pentagon maps to another regular pentagon in red. Since those vertices in red are valid points in the grid since we found them with 90° rotations of other, valid lattice points, we can find yet _another_ set of 5 valid lattice points by doing the same operation again of rotating each vertex 90° around its neighbor.
 
 <div id="pentagon_rotate2" style="flex: 2; position: relative;"></div>
 <script src="/js/grid-polygons/pentagon_rotate2.js"></script>
