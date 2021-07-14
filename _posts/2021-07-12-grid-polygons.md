@@ -99,7 +99,7 @@ $
 $
 </center>
 
-Unfortunately, this transformation matrix alone can't show us our net tranform is a rotation and scaling due to that third column (which indicates a translation). So, we will have to look at the individual components of $v'$.
+Unfortunately, this transformation matrix alone can't show us our net tranform is purely a rotation and scaling due to that third column (which indicates a translation). So, we will have to look at the individual components of $v'$.
 
 <center>
 $
