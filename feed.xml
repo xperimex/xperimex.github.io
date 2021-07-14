@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Wed, 14 Jul 2021 06:27:10 GMT</lastBuildDate>
+      <lastBuildDate>Wed, 14 Jul 2021 06:29:18 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -1647,7 +1647,7 @@ B(x) &amp; = \frac{1}{6}x(1+x+x^2)(1+x) \
 <p><div id="pentagon_rotate" style="flex: 2; position: relative;"></div></p>
 <script src="/js/grid-polygons/pentagon_rotate.js"></script>
 
-<p>Notice, though, that we just made another, smaller regular pentagon! ...Or did we? We can prove this quite simply geometrically (trust me, drawing it out and symmetry will guide you all the way through), but I don&#39;t want to draw anything right now so instead I&#39;ll show you a much more needlessly complicated, linear algebra approach to it (this will, though, give us specific numbers at the end of it). If you can accept this is a regular pentagon, just <a href="#skip">skip ahead</a>, but for now I&#39;ll present the proof. </p>
+<p>Notice, though, that we just made another, smaller regular pentagon! ...Or did we? We can prove this quite simply geometrically (trust me, drawing it out and symmetry will guide you all the way through), but I don&#39;t want to draw anything right now so instead I&#39;ll show you a much more needlessly complicated, linear algebra approach to it (this will, though, give us specific numbers at the end of it). If you can accept this red pentagon is in fact a regular pentagon, just <a href="#skip">skip ahead</a>, but for now I&#39;ll present the proof. </p>
 <p>If we can show that the new red pentagon lies on a parametric circle, we can then show that we our 5 angles to generate the original, black pentagon, maps to the new red pentagon. The way we generated our red pentagon was by taking a black point $v$, rotating it around its neighbor $t$ by 90° to land at $v&#39;$ as seen above. We can write this transformation as a product of 3 matrices: translating by $-t$, rotating 90°, then translating back by $+t$ (in a linear transformation, the origin remains fixed so the translations are our way to rotate about any point we want). If $v$ is a point of the form $(\cos\frac{2\pi n}{5}, \sin\frac{2\pi n}{5})$, then $t$ is the point $(\cos\frac{2\pi (n-1)}{5}, \sin\frac{2\pi (n-1)}{5})$ just as definition of being a pentagon on the unit circle, and $v$ and $t$ being neighboring points. So, our matrix equation of going from $v\rightarrow v&#39;$ is</p>
 <center>
 $
