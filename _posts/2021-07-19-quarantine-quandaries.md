@@ -163,7 +163,7 @@ Another type of graph is the **Barabási-Albert** type graph. The idea with this
 
 <img src="/img/quarantine-quandaries/exampleBA (1).png">
 <center style="color: #666;">
-<p>An Barabási-Albert graph with an where each new node gets 2 connections to the existing network. Can you see the clusters of the graph?</p>
+<p>A Barabási-Albert graph with an where each new node gets 2 connections to the existing network. Can you see the clusters of the graph?</p>
 </center>
 
 If you want to explore this more, the [inspiring article](https://www.complexity-explorables.org/explorables/facebooked-flu-shots/) that led to this project analyzes these 2 exact graphs in the exact problem we discussed above, going a bit more in depth with the idea of the counterintuitive [friendship paradox](https://en.wikipedia.org/wiki/Friendship_paradox).

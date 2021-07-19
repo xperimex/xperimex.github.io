@@ -163,7 +163,7 @@ $\frac{dS}{dt}+\frac{dI}{dt}+\frac{dR}{dt}=0$
 <p>Another type of graph is the <strong>Barabási-Albert</strong> type graph. The idea with this network is that people there tend to be a distinct &quot;hub&quot; of people that make up most of a network. The idea is that you start with a small network of $m$ people/nodes to begin with. At each step, you add a new node and connect it to another person $i$ with probability $p_i = \frac{E(i)}{\sum_jE(j)}$ where $E(x)$ is the number of edges for node $x$ and $j$ represents all other nodes. The idea is that if $E(i)$ is really big (i.e. a super popular person), then you&#39;ll have a much bigger probability to connect to that person over someone who only has a few connections. Wouldn&#39;t you want to hang out with the cool kids? You can give $i$ as many connections as you want, so long as it&#39;s less than $m$ (think about the first new node: how can someone have 10 different friends in a group of 5?).</p>
 <p><img src="/img/quarantine-quandaries/exampleBA (1).png"></p>
 <center style="color: #666;">
-<p>An Barabási-Albert graph with an where each new node gets 2 connections to the existing network. Can you see the clusters of the graph?</p>
+<p>A Barabási-Albert graph with an where each new node gets 2 connections to the existing network. Can you see the clusters of the graph?</p>
 </center>
 
 <p>If you want to explore this more, the <a href="https://www.complexity-explorables.org/explorables/facebooked-flu-shots/">inspiring article</a> that led to this project analyzes these 2 exact graphs in the exact problem we discussed above, going a bit more in depth with the idea of the counterintuitive <a href="https://en.wikipedia.org/wiki/Friendship_paradox">friendship paradox</a>.</p>
