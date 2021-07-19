@@ -179,7 +179,7 @@ The final problem I wanted to talk about what the goal of vaccines are in a netw
 <p>Vaccinating the literal middle-man isolates the two groups</p>
 </center>
 
-This searching for a way to split our graph in 2 is called the **sparsest cut problem**. If we can find the (usually approximate) sparsest cut, we can divide our graph in two and attempt to isolate the virus in only a singular bubble. Before, we were looking to remove something known as [**Hamiltonian paths**](https://en.wikipedia.org/wiki/Hamiltonian_path), where you can't connect any one node to another. Here, we are trying to isolate the virus into a smaller bubble.
+This searching for a way to split our graph in two parts with the fewest number of edges removed is called the **sparsest cut problem**. If we can find the (usually approximate) sparsest cut, we can divide our graph in two and attempt to isolate the virus in only a singular bubble. Before, we were looking to remove something known as [**Hamiltonian paths**](https://en.wikipedia.org/wiki/Hamiltonian_path), where you can't connect any one node to another. Here, we are trying to isolate the virus into a smaller bubble.
 
 <img src="/img/quarantine-quandaries/sparsestCut (1).png">
 <center style="color: #666;">
