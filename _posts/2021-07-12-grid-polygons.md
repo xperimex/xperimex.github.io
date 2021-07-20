@@ -222,6 +222,58 @@ $\lim\limits_{p\to\infty} \sin(\frac{2\pi}{p} + \frac{\pi}{4}) = \sin(0 + \frac{
 
 Which as we saw, would lead to an $r$ value of 1. So, according to this limit, an infinite sided $p$-gon, better known as the circle, is possible... _at the limit_. You'll get better and better approximations of the circle the more sides you add, but this essentially turns our grid into lattice points that are infinitely close together, which ruins the point of the grid in my opinion. So, it's up to you if you think a circle can exist in a grid, but an interesting thought nonetheless.
 
+
+## Other Grids?
+
+Earlier I mentioned we don't need to worry about triangular or hexagonal grids, but what if we did?
+
+<div id="trihex_grid" style="flex: 2; position: relative;"></div>
+<script src="/js/grid-polygons/trihex_grid.js"></script>
+<center style="color: #666;">
+<p>The triangular grid (left) and hexagonal grid (right) are less obvious for what other regular polygons can fit.</p>
+</center>
+
+Fortunately, this just requires tweaking our matrix equation from before a little bit: instead of rotating by 90°, we now rotate by 60° and 120° for the triangular and hexagonal grids respectively. In general, if we want to rotate by $\theta$ radians (easy conversion from degrees) around a neighboring point for a regular $p$-gon, the vector for $v'$ in terms of $v$ is 
+
+<center>
+$
+\begin{bmatrix}
+x \\\
+y \\\
+1
+\end{bmatrix}
+=
+\begin{bmatrix}
+\cos(\theta + \frac{2\pi n}{p}) + 2\sin(\frac{2\pi (n-1)}{p} + \frac{\theta}{2})\sin(\frac{\theta}{2}) \\\
+\sin(\theta + \frac{2\pi n}{p}) - 2\cos(\frac{2\pi (n-1)}{p} + \frac{\theta}{2})\sin(\frac{\theta}{2}) \\\
+1
+\end{bmatrix}
+= v'
+$
+</center>
+
+Finding $r=\sqrt{x^2 + y^2}$ again reveals that
+
+<center>
+$r_\theta (p) = \sqrt{3+2\cos(\theta + \frac{2\pi}{p}) - 2\cos(\theta) - 2\cos(\frac{2\pi}{p})}$
+</center>
+
+...which is in fact a constant. So rotations of <i>any</i> angle around neighboring points output more regular polygons. 
+
+<div id="pentagon_rotate_angle" style="flex: 2; position: relative;"></div>
+<script src="/js/grid-polygons/pentagon_rotate_angle.js"></script>
+<center style="color: #666;">
+<p>Try rotating one of the red dots to watch the regular pentagon grow and shrink according to the angle.</p>
+</center>
+
+As before, we can plot this function to see what regular polygons ahve a bounding radius less than one for each grid:
+
+<!-- </br></br> -->
+<img src="/img/grid-polygons/hexTriCompare.png">
+<!-- </br> -->
+
+Even though it would appear that no hexagons can be made in the triangular grid as they have an $r_{\frac{2\pi}{3}}(6)=0$, they actually collapse into another point of the triangular grid. This is because that's a type of definition of the triangular grid: draw a hexagonal grid and place extra points in the center of each hexagon. So again, the only apparent shapes in that can be contained in the triangular and hexagonal grids unfortunately appear to be none other than just the equilateral triangle and regular hexagon themselves.
+
 ----------
 
 This post was inspired by a Mathologer video discussing an application of [shrinking polygons](https://youtu.be/sDfzCIWpS7Q) and this out-of-the-box thinking that is so cool. Part way through the video, he glosses over the reasoning behind why the shrinking polygons are similar, so this is my own take on that portion of the video.
