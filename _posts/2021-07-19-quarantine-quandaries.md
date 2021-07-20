@@ -46,7 +46,7 @@ M =
 $
 </center>
 
-With that, let's run a trial with infectivity $\beta=.4$ and $\gamma=\frac{1}{5}$ (we expect 1 recovery every 5 days). So on Day 0, everyone is healthy and (ironically) susceptible to our disease. The following Day 1, people are interacting and enjoying themselves, unbeknown to them that they are spreading a new contagion. Day 1 results in $PM = \begin{bmatrix} 800 & 200 & 0 \end{bmatrix}$, which makes sense as we expected 20% to become infected. We can track each state of S, I, and R and plot them accordingly across the span of a month.
+With that, let's run a trial with infectivity $\beta=.4$ and $\gamma=\frac{1}{5}$ (we expect an infection to take 5 days to recover). So on Day 0, everyone is healthy and (ironically) susceptible to our disease. The following Day 1, people are interacting and enjoying themselves, unbeknown to them that they are spreading a new contagion. Day 1 results in $PM = \begin{bmatrix} 800 & 200 & 0 \end{bmatrix}$, which makes sense as we expected 20% to become infected. We can track each state of S, I, and R and plot them accordingly across the span of a month.
 
 <img src="/img/quarantine-quandaries/SIRMarkov.png">
 <center style="color: #666;">
