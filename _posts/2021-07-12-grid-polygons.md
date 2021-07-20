@@ -264,7 +264,7 @@ $r_\theta (p) = \sqrt{3+2\cos(\theta + \frac{2\pi}{p}) - 2\cos(\theta) - 2\cos(\
 <div id="pentagon_rotate_angle" style="flex: 2; position: relative;"></div>
 <script src="/js/grid-polygons/pentagon_rotate_angle.js"></script>
 <center style="color: #666;">
-<p>Try rotating one of the red dots to watch the regular pentagon grow and shrink according to the angle.</p>
+<p>Try rotating one of the red dots to watch the regular pentagon grow and shrink according to the angle you rotate around its neighbor.</p>
 </center>
 
 As before, we can plot this function to see what regular polygons ahve a bounding radius less than one for each grid:
