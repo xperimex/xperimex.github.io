@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Tue, 20 Jul 2021 03:59:07 GMT</lastBuildDate>
+      <lastBuildDate>Tue, 20 Jul 2021 04:01:05 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -1821,7 +1821,7 @@ $\lim\limits_{p\to\infty} \sin(\frac{2\pi}{p} + \frac{\pi}{4}) = \sin(0 + \frac{
 <p><div id="trihex_grid" style="flex: 2; position: relative;"></div></p>
 <p><script src="/js/grid-polygons/trihex_grid.js"></script></p>
 <center style="color: #666;">
-<p>The triangular grid (left) and hexagonal grid (right) are less obvious for what other regular polygons can fit.</p>
+<p>The triangular (left) and hexagonal (right) grids are less obvious for what other regular polygons they can fit.</p>
 </center>
 
 <p>Fortunately, this just requires tweaking our matrix equation from before a little bit: instead of rotating by 90°, we now rotate by 60° and 120° for the triangular and hexagonal grids respectively. In general, if we want to rotate by $\theta$ radians (easy conversion from degrees) around a neighboring point for a regular $p$-gon, the vector for $v&#39;$ in terms of $v$ is </p>

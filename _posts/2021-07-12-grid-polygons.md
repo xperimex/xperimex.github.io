@@ -230,7 +230,7 @@ Earlier I mentioned that we did't need to worry about triangular or hexagonal gr
 <div id="trihex_grid" style="flex: 2; position: relative;"></div>
 <script src="/js/grid-polygons/trihex_grid.js"></script>
 <center style="color: #666;">
-<p>The triangular grid (left) and hexagonal grid (right) are less obvious for what other regular polygons can fit.</p>
+<p>The triangular (left) and hexagonal (right) grids are less obvious for what other regular polygons they can fit.</p>
 </center>
 
 Fortunately, this just requires tweaking our matrix equation from before a little bit: instead of rotating by 90°, we now rotate by 60° and 120° for the triangular and hexagonal grids respectively. In general, if we want to rotate by $\theta$ radians (easy conversion from degrees) around a neighboring point for a regular $p$-gon, the vector for $v'$ in terms of $v$ is 
