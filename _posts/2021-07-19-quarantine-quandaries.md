@@ -24,14 +24,14 @@ It took around 2 months to hit a million cases in the U.S., and another 3 months
 
 ## The SIR Model 2 Ways
 
-The **S**usceptible **I**nfected **R**ecovered Model of disease spread groups individuals into 3 boxes and relates them to show how each box grows or diminishes over time. This sounds like the perfect use for a Markov chain (here's a [refresher if you need one](http://xperimex.com/blog/metropolis-hastings/#markov-chains))! Our Markov chain will have 3 states being susceptible, infected, and recovered, and will follow a transition model as such:
+The **S**usceptible **I**nfected **R**ecovered Model of disease spread groups individuals into 3 boxes and relates them to show how each box grows or diminishes over time: susceptible means that you are currently healthy but are vulnerable to the infection; infected means just that and indicates a current illness; and while recovered doesn't necessarily mean you overcame the disease, it means you are unable to spread the disease anymore (sobeit proper recovery and developed immunity, but also the unfortunate case if you die since both are no longer disease vectors). This sounds like the perfect use for a Markov chain (here's a [refresher if you need one](http://xperimex.com/blog/metropolis-hastings/#markov-chains))! Our Markov chain will have 3 states being the aforementioned susceptible, infected, and recovered, and will follow a transition model as such:
 
 <img src="/img/quarantine-quandaries/markovSIR2.png">
 <center style="color: #666;">
 <p>The SIR Markov chain model</p>
 </center>
 
-Let's say everyone starts out as susceptible; we can write our initial population as $N$, and the initial distribution as $P = \begin{bmatrix} N & 0 & 0 \end{bmatrix}$ for $N$ susceptible, 0 infected, and 0 recovered. While we're at it, I want to clarify what recovered actually means. If you are "recovered", it doesn't necessarily mean you overcame the disease, but it means you are unable to spread the disease anymore (sobeit proper recovery and developed immunity, but also the unfortunate case if you die since both are no longer disease vectors).
+Let's say everyone starts out as susceptible; we can write our initial population as $N$, and the initial distribution of those $N$ people as $P = \begin{bmatrix} N & 0 & 0 \end{bmatrix}$ for $N$ susceptible, 0 infected, and 0 recovered.
 
 With that out of the way, let's think about the above Markov chain. If you are currently susceptible, each day there's a chance you might become infected. Let's call this probability $\beta$ as the average chance of getting infected. At the same time though, if you are smart and act carefully, you might not become infected, and this will be $1-\beta$. Similarly if you're infected, there's a chance you might (positively or otherwise) overcome the disease! We'll call this probability $\gamma$, and the chance of not recovering $1-\gamma$ (you can think of $\gamma$ by taking its inverse: $\frac{1}{\gamma}$ is the average number of days for a recovery to occur). Finally, if you're recovered, that's the end of your journey, as once recovered you're always recovered. This can be condensed into the simple transition matrix below.
 

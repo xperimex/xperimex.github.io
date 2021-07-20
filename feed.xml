@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Tue, 20 Jul 2021 07:49:18 GMT</lastBuildDate>
+      <lastBuildDate>Tue, 20 Jul 2021 20:47:25 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -1884,13 +1884,13 @@ $r_\theta (p) = \sqrt{3+2\cos(\theta + \frac{2\pi}{p}) - 2\cos(\theta) - 2\cos(\
 
 <p>It took around 2 months to hit a million cases in the U.S., and another 3 months to reach 5 million cases. That&#39;s the issue with pandemics: they explode at a rate faster than we can realize. So, today, I want to talk a little bit about different types of disease models, and how these can educate ourselves on the right preventative courses of action.</p>
 <h2 id="the-sir-model-2-ways">The SIR Model 2 Ways</h2>
-<p>The <strong>S</strong>usceptible <strong>I</strong>nfected <strong>R</strong>ecovered Model of disease spread groups individuals into 3 boxes and relates them to show how each box grows or diminishes over time. This sounds like the perfect use for a Markov chain (here&#39;s a <a href="http://xperimex.com/blog/metropolis-hastings/#markov-chains">refresher if you need one</a>)! Our Markov chain will have 3 states being susceptible, infected, and recovered, and will follow a transition model as such:</p>
+<p>The <strong>S</strong>usceptible <strong>I</strong>nfected <strong>R</strong>ecovered Model of disease spread groups individuals into 3 boxes and relates them to show how each box grows or diminishes over time: susceptible means that you are currently healthy but are vulnerable to the infection; infected means just that and indicates a current illness; and while recovered doesn&#39;t necessarily mean you overcame the disease, it means you are unable to spread the disease anymore (sobeit proper recovery and developed immunity, but also the unfortunate case if you die since both are no longer disease vectors). This sounds like the perfect use for a Markov chain (here&#39;s a <a href="http://xperimex.com/blog/metropolis-hastings/#markov-chains">refresher if you need one</a>)! Our Markov chain will have 3 states being the aforementioned susceptible, infected, and recovered, and will follow a transition model as such:</p>
 <p><img src="/img/quarantine-quandaries/markovSIR2.png"></p>
 <center style="color: #666;">
 <p>The SIR Markov chain model</p>
 </center>
 
-<p>Let&#39;s say everyone starts out as susceptible; we can write our initial population as $N$, and the initial distribution as $P = \begin{bmatrix} N &amp; 0 &amp; 0 \end{bmatrix}$ for $N$ susceptible, 0 infected, and 0 recovered. While we&#39;re at it, I want to clarify what recovered actually means. If you are &quot;recovered&quot;, it doesn&#39;t necessarily mean you overcame the disease, but it means you are unable to spread the disease anymore (sobeit proper recovery and developed immunity, but also the unfortunate case if you die since both are no longer disease vectors).</p>
+<p>Let&#39;s say everyone starts out as susceptible; we can write our initial population as $N$, and the initial distribution of those $N$ people as $P = \begin{bmatrix} N &amp; 0 &amp; 0 \end{bmatrix}$ for $N$ susceptible, 0 infected, and 0 recovered.</p>
 <p>With that out of the way, let&#39;s think about the above Markov chain. If you are currently susceptible, each day there&#39;s a chance you might become infected. Let&#39;s call this probability $\beta$ as the average chance of getting infected. At the same time though, if you are smart and act carefully, you might not become infected, and this will be $1-\beta$. Similarly if you&#39;re infected, there&#39;s a chance you might (positively or otherwise) overcome the disease! We&#39;ll call this probability $\gamma$, and the chance of not recovering $1-\gamma$ (you can think of $\gamma$ by taking its inverse: $\frac{1}{\gamma}$ is the average number of days for a recovery to occur). Finally, if you&#39;re recovered, that&#39;s the end of your journey, as once recovered you&#39;re always recovered. This can be condensed into the simple transition matrix below.</p>
 <center>
 $
