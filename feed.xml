@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Tue, 20 Jul 2021 03:56:20 GMT</lastBuildDate>
+      <lastBuildDate>Tue, 20 Jul 2021 03:59:07 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -1817,7 +1817,7 @@ $\lim\limits_{p\to\infty} \sin(\frac{2\pi}{p} + \frac{\pi}{4}) = \sin(0 + \frac{
 
 <p>Which as we saw, would lead to an $r$ value of 1. So, according to this limit, an infinite sided $p$-gon, better known as the circle, is possible... <em>at the limit</em>. You&#39;ll get better and better approximations of the circle the more sides you add, but this essentially turns our grid into lattice points that are infinitely close together, which ruins the point of the grid in my opinion. So, it&#39;s up to you if you think a circle can exist in a grid, but an interesting thought nonetheless.</p>
 <h2 id="other-grids-">Other Grids?</h2>
-<p>Earlier I mentioned we don&#39;t need to worry about triangular or hexagonal grids, but what if we did?</p>
+<p>Earlier I mentioned that we did&#39;t need to worry about triangular or hexagonal grids, but what if we did?</p>
 <p><div id="trihex_grid" style="flex: 2; position: relative;"></div></p>
 <p><script src="/js/grid-polygons/trihex_grid.js"></script></p>
 <center style="color: #666;">
@@ -1843,6 +1843,7 @@ $
 </center>
 
 <p>Finding $r=\sqrt{x^2 + y^2}$ again reveals that</p>
+<!-- Thanks WolframAlpha: https://www.wolframalpha.com/input/?i=%28cos%28theta+%2B+2pi*n%2Fp%29+%2B+2sin%282pi%28n-1%29%2Fp+%2B+theta%2F2%29sin%28theta%2F2%29%29%5E2+%2B+%28sin%28theta+%2B+2pi*n%2Fp%29+-+2cos%282pi%28n-1%29%2Fp+%2B+theta%2F2%29sin%28theta%2F2%29%29%5E2 -->
 <center>
 $r_\theta (p) = \sqrt{3+2\cos(\theta + \frac{2\pi}{p}) - 2\cos(\theta) - 2\cos(\frac{2\pi}{p})}$
 </center>

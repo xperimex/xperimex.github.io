@@ -225,7 +225,7 @@ Which as we saw, would lead to an $r$ value of 1. So, according to this limit, a
 
 ## Other Grids?
 
-Earlier I mentioned we don't need to worry about triangular or hexagonal grids, but what if we did?
+Earlier I mentioned that we did't need to worry about triangular or hexagonal grids, but what if we did?
 
 <div id="trihex_grid" style="flex: 2; position: relative;"></div>
 <script src="/js/grid-polygons/trihex_grid.js"></script>
@@ -254,6 +254,7 @@ $
 
 Finding $r=\sqrt{x^2 + y^2}$ again reveals that
 
+<!-- Thanks WolframAlpha: https://www.wolframalpha.com/input/?i=%28cos%28theta+%2B+2pi*n%2Fp%29+%2B+2sin%282pi%28n-1%29%2Fp+%2B+theta%2F2%29sin%28theta%2F2%29%29%5E2+%2B+%28sin%28theta+%2B+2pi*n%2Fp%29+-+2cos%282pi%28n-1%29%2Fp+%2B+theta%2F2%29sin%28theta%2F2%29%29%5E2 -->
 <center>
 $r_\theta (p) = \sqrt{3+2\cos(\theta + \frac{2\pi}{p}) - 2\cos(\theta) - 2\cos(\frac{2\pi}{p})}$
 </center>
