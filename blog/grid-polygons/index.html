@@ -188,7 +188,7 @@ $\tan^{-1}(\frac{1 - \sqrt{2}\sin(\frac{2\pi}{5} + \frac{\pi}{4})}{\sqrt{2}\cos(
 <p>Here are 15 nested pentagons; try dragging any of the vertices to zoom in and you can see they are just smaller, rotated regular pentagons.</p>
 </center>
 
-Now here's the clever part of the proof. Remember, our grid is made up of a set of discrete points with some distance between each point. But, since we can always find 5 new lattice points that make a pentagon as small as we want by repeating the 90° rotation, that means that we can find a pentagon who's radius/sides are smaller than our grid point distances themselves. How do you draw a pentagon smaller than the space between points itself? It would be like trying to draw between the pixels of the screen you're reading this on, which is obviously impossible. So by contradiction, our initial assumption that a pentagon can exist in the grid must have been false. $\blacksquare$
+Now here's the clever part of the proof. Remember, our grid is made up of a set of discrete points with some distance between each point. But, since we can always find 5 new lattice points that make a pentagon as small as we want by repeating the 90° rotation, that means that we can find a pentagon who's radius/sides are <i>smaller</i> than our grid point distances themselves. How do you draw a pentagon smaller than the space between points itself? It would be like trying to draw between the pixels of the screen you're reading this on, which is obviously impossible. So by contradiction, our initial assumption that a pentagon can exist in the grid must have been false. $\blacksquare$
 
 While that shows it's impossible to have a pentagon in the grid, we still want to show that <i>only</i> the square can exist in the grid. Recall our formula for the radius of the bounding circle of our pentagon (if you skipped ahead originally go back to see where this comes from):
 
@@ -210,7 +210,7 @@ r(4) & = \sqrt{3 - 2\sqrt{2}\sin(\frac{2\pi}{4} + \frac{\pi}{4})} \\
 \end{align}$
 </center>
 
-This is why the square works out as it never shrinks after a rotation since a 90° rotation just maps one vertex to another already existing one. Now, let's examine the term $\sin(\frac{2\pi}{p} + \frac{\pi}{4})$. As $p$ gets larger than 4, the angle we're taking the $\sin$ of is not only bounded to quadrant 1, but is also getting smaller and closer to $\frac{\pi}{4}$, but never quite equal. This results in a $\sin$ value slightly larger than $\frac{\sqrt{2}}{2}$, which makes the difference $3-2\sqrt{2}\sin(\frac{2\pi}{p} + \frac{\pi}{4}) < 1$. Here's the graph of $r(p)$ as well as the bound of $r=1$.
+This is why the square works out as it never shrinks as a 90° rotation around neighbors just maps one vertex to another already existing one. Now, let's examine the term $\sin(\frac{2\pi}{p} + \frac{\pi}{4})$. As $p$ gets larger than 4, the angle we're taking the $\sin$ of is not only bounded to quadrant 1, but is also getting smaller and closer to $\frac{\pi}{4}$, but never quite equal. This results in a $\sin$ value slightly larger than $\frac{\sqrt{2}}{2}$, which makes the difference $3-2\sqrt{2}\sin(\frac{2\pi}{p} + \frac{\pi}{4}) < 1$. Here's the graph of $r(p)$ as well as the bound of $r=1$.
 
 </br></br>
 <img src="/img/grid-polygons/regPolygonVRad2.png">
@@ -271,7 +271,7 @@ $r_\theta (p) = \sqrt{3+2\cos(\theta + \frac{2\pi}{p}) - 2\cos(\theta) - 2\cos(\
 <p>Try rotating one of the red dots to watch the regular pentagon grow and shrink according to the angle you rotate around its neighbor.</p>
 </center>
 
-<p>As before, we can plot this function to see what regular polygons ahve a bounding radius less than one for each grid:</p>
+<p>As before, we can plot this function to see what regular polygons have a bounding radius less than one for each grid:</p>
 <!-- </br></br> -->
 <p><img src="/img/grid-polygons/hexTriCompare.png">
 <!-- </br> --></p>
