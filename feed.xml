@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Mon, 02 Aug 2021 06:34:05 GMT</lastBuildDate>
+      <lastBuildDate>Mon, 02 Aug 2021 06:34:49 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -1596,7 +1596,7 @@ $\large{|OP| \cdot |OP&#39;| = r^2}$
 <hr>
 <p>With the basics of inversion down, we are now ready to explore that animation from the very top of this post.</p>
 <h2 id="steiner-s-porism">Steiner&#39;s Porism</h2>
-<p>Steiner&#39;s Porism can sound a lot more complicated than it is, but I promise you the animation at the top explains everything. First, draw two circles with one inside the other. Second, draw a third circle that just touches the inside and outside circle. Third, draw as many circles as you can fit touching the inside, outside, and last circle you drew until no more can fit. <strong>Steiner&#39;s Porism</strong> states if the last circle touches the first circle you drew, then no matter <em>where</em> you draw the first circle, the chain will always connect (and if the last circle doesn&#39;t touch the first, then they will never touch). So in the GIF above, the black circles are free to rotate like ball bearings in between the outer blue and inner red bounding circles and the chain will always link up. It&#39;s a pretty neat fact, but how would someone ever prove this? That&#39;s where our friend inversion comes in.</p>
+<p>Steiner&#39;s Porism can sound a lot more complicated than it is, but I promise you the animation at the top explains everything. First, draw two non-intersecting circles with one inside the other. Second, draw a third circle that just touches the inside and outside circle. Third, draw as many circles as you can fit touching the inside, outside, and last circle you drew until no more can fit. <strong>Steiner&#39;s Porism</strong> states if the last circle touches the first circle you drew, then no matter <em>where</em> you draw the first circle, the chain will always connect (and if the last circle doesn&#39;t touch the first, then they will never touch). So in the GIF above, the black circles are free to rotate like ball bearings in between the outer blue and inner red bounding circles and the chain will always link up. It&#39;s a pretty neat fact, but how would someone ever prove this? That&#39;s where our friend inversion comes in.</p>
 <p>Before we go any further though, let&#39;s quickly see if there&#39;s an easier version of this scenario. One of the main issues I first had when looking at this was the fact that the black circles rolling around didn&#39;t have to be the same size. Fortunately, there&#39;s an obvious case where we don&#39;t have to worry about that: when the two bounding circles are concentric.</p>
 <p><div id="concentricVariableSteinerChain" style="flex: 2; position: relative;"></div></p>
 <script src="/js/steiners/concentricVariableSteinerChain.js"></script>
