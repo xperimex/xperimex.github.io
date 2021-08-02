@@ -103,6 +103,14 @@ function render(data, ctx){
   var tang_rad = dist(P[0], tangents_C1[0][0], P[1], tangents_C1[0][1])
   ctx.circle(P[0], P[1], tang_rad, {affects:'none', fill:'none', stroke:'purple'})
 
+  ctx.line(c1x, c1y, tangents_C1[0][0], tangents_C1[0][1], {affects:'none', stroke:'blue'})
+  ctx.line(c1x, c1y, tangents_C1[1][0], tangents_C1[1][1], {affects:'none', stroke:'blue'})
+
+  ctx.line(c2x, c2y, tangents_C2[0][0], tangents_C2[0][1], {affects:'none', stroke:'red'})
+  ctx.line(c2x, c2y, tangents_C2[1][0], tangents_C2[1][1], {affects:'none', stroke:'red'})
+
+
+
 
 // Drawing control points
   ctx.point(P[0], P[1], {affects:['axis_t'], fill:'green'})

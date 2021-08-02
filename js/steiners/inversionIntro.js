@@ -28,8 +28,8 @@ function render(data, ctx){
 
     var cX = data.center_x
     var cY = data.center_y
-    cX = Math.max(Math.min(cX, ctx.width / 2 - 50), -ctx.width / 2 + 50)
-    cY = Math.max(Math.min(cY, ctx.height / 2 - 50), -ctx.height / 2 + 50)
+    // cX = Math.max(Math.min(cX, ctx.width / 2 - 50), -ctx.width / 2 + 50)
+    // cY = Math.max(Math.min(cY, ctx.height / 2 - 50), -ctx.height / 2 + 50)
     ctx.text('O', cX, cY+25,{affects: 'none', 'text-anchor': 'middle', 'fill': 'green'})
 
     var radius = data.rad
@@ -53,15 +53,18 @@ function render(data, ctx){
     var tX = data.test_x
     var tY = data.test_y
 
-    tX = Math.max(Math.min(tX, ctx.width / 2 - 50), -ctx.width / 2 + 50)
-    tY = Math.max(Math.min(tY, ctx.height / 2 - 50), -ctx.height / 2 + 50)
+    var tX_text = tX
+    var tY_text = tY
+
+    tX_text = Math.max(Math.min(tX, ctx.width / 2 - 50), -ctx.width / 2 + 50)
+    tY_text = Math.max(Math.min(tY, ctx.height / 2 - 50), -ctx.height / 2 + 50)
 
     var inverted = invert(tX, tY, cX, cY, radius)
 
     ctx.line(cX, cY, tX, tY, {affects: 'none'})
-        ctx.text(norm(cX,tX,cY,tY).toFixed(3), tX, tY-10,{affects: 'none',
+        ctx.text(norm(cX,tX,cY,tY).toFixed(3), tX_text, tY_text-10,{affects: 'none',
                                                           'text-anchor': 'middle'})
-        ctx.text('P', tX, tY+25,{affects: 'none', 'text-anchor': 'middle'})
+        ctx.text('P', tX_text, tY_text+25,{affects: 'none', 'text-anchor': 'middle'})
 
 
     var inverted_txt_x = inverted[0]
