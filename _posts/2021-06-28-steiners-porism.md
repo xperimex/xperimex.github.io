@@ -67,6 +67,10 @@ Before we go any further though, let's quickly see if there's an easier version 
 <div id="concentricVariableSteinerChain" style="flex: 2; position: relative;"></div>
 <script src="/js/steiners/concentricVariableSteinerChain.js"></script>
 
+<center style="color: #666;">
+<p>Try dragging the red point to change the red circle's radius, and try rotating the black point to see the symmetry in the chains of circles.</p>
+</center>
+
 When the circles share the same center, then Steiner's Porism becomes obvious: our set up now becomes symmetrical, so you can think of any starting point as a rotation of the original chain of circles. Since this is an easy fact to see, we can now use a key property of inversions to prove the general case for _any_ pair of bounding circles:
 
 > Intersections and tangency between two or more shapes are preserved during an inversion
@@ -81,6 +85,11 @@ The **radical axis** of a pair of circles is the line (or axis, I guess) that ev
 <div id="radicalAxis" style="flex: 2; position: relative;"></div>
 <script src="/js/steiners/radicalAxis.js"></script>
 
+<center style="color: #666;">
+<p>Although we can drag the green point anywhere, it always allows us to find an purple orthogonal circle.</p>
+</center>
+
+
 Of course, the point $P$ in question has to be _outside_ the two circles to be able to find tangents, but that's only a worry for intersecting circles (which we don't care about). I drew a purple circle center around $P$ to show that the tangents are in fact equal in length. This purple circle, however, has one notable property due to the 4 tangent lines it has as its radii: it is **orthogonal** to the red and blue circles, meaning that it intersects the red and blue circles at right angles. This is a result from the fact that [a circle's radius is perpendicular to its tangent](https://en.wikipedia.org/wiki/Tangent_lines_to_circles#:~:text=The%20radius%20of%20a%20circle,the%20axis%20of%20the%20radius.). Hold up a corner of a piece of paper and you'll see the right angles clearly. Speaking of orthogonal circles, that brings us to our next step.
 
 ### Step 2: Draw two orthogonal circles and find their intersection
@@ -88,6 +97,11 @@ This step is easy enough since we've basically already done half of it. We just 
 
 <div id="intersection" style="flex: 2; position: relative;"></div>
 <script src="/js/steiners/intersection.js"></script>
+
+<center style="color: #666;">
+<p>For any pair of red and blue circles, their orthogonal circles always intersect in the same two locations.</p>
+</center>
+
 
 Here I've selected the outermost intersection for clarity, but we'll see in just a second that either of the two intersections work just fine. First, it's worth noting that for a given configuration of outer blue and inner red bounding circles, the intersection points remain constant. No matter how you may slide those green points, the intersection point doesn't change. That should help cue you into its importance. 
 
@@ -99,6 +113,11 @@ Notice how I said "any" circle. A circle with any radius will suffice as our des
 <div id="concentricInversion" style="flex: 2; position: relative;"></div>
 <script src="/js/steiners/concentricInversion.js"></script>
 
+<center style="color: #666;">
+<p>Finally, we are able to invert our red and blue circles into concentric ones based on the black intersection point.</p>
+</center>
+
+
 And just like that, we've obtained our concentric circles just as we desired! Just to reiterate, because tangencies are preserved through our inversion, we can then draw our chain of tangent circles in the original blue and red bounding circles and know for a fact that they'll remain tangent after our inversion as well. Moreover, since the inversion turns our circles into concentric ones which is the nice symmetric case from before, Steiner's Porism is nicely proved as we know, once again, tangencies are preserved during an inversion.
 
 ## Analysis
@@ -108,8 +127,6 @@ Ok, but why does this even work? I mean, yeah, it produces concentric circles, b
 So, we have two lines that intersect that need to be orthogonal to two other circles. What configuration allows this? The only way that a pair of lines can be orthogonal to a circle is if those lines are the radial line of the circle! So, both circles must share the same center of the intersection of the lines which ensure the lines become radial, and by definition of sharing a center, they must be concentric! Isn't that neat?
 
 One thing worth noting, though, is that we get a solution even when the two circles are _not_ contained within one another. If the two circles are non-intersecting and are completely separated from one another, we can still follow our procedure from before: we can find a radical axis of the two circles, which leads to our two purple orthogonal circles, that finally intersect at the center of our inversion circle. However, we now get a reversed solution with the red circle becoming the outer concentric circle instead of the inner one (this only happens as a result of the choice of intersection point of our orthogonal circles).
-
-----------
 
 ## Conclusion
 
