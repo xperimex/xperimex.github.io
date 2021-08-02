@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Thu, 22 Jul 2021 05:16:46 GMT</lastBuildDate>
+      <lastBuildDate>Mon, 02 Aug 2021 03:38:56 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -978,7 +978,7 @@ $\large{ \frac{PQ}{QR} = \large{ \frac{P&#39;Q&#39;}{Q&#39;R&#39;} } = \frac{1 -
          <dc:creator><![CDATA[Adi Mittal]]></dc:creator>
       </item>
       <item>
-         <title><![CDATA[Iteration and Fixed Points]]></title>
+         <title><![CDATA[Fixed Points and Fantastic Plots]]></title>
          <description><![CDATA[Stability amidst the chaos 
 
  <h2 id="introduction">Introduction</h2>

@@ -1,6 +1,6 @@
 ---START_METADATA---
 {
-  "title": "Iteration and Fixed Points",
+  "title": "Fixed Points and Fantastic Plots",
   "author": "Adi Mittal",
   "summary": "Stability amidst the chaos",
   "tags":[
