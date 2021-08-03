@@ -1,16 +1,16 @@
 var initialData = {
     angle: 0,
-    inv_center_x: -130,
+    inv_center_x: -110,
     inv_center_y: 30,
     // inv_rad_x: 30,
     // inv_rad_y: 30,
     inv_rad: 160,
     inv_angle: 0,
-    test_center_x: 130,
+    test_center_x: 110,
     test_center_y: -70,
     // test_rad_x: 130-150,
     // test_rad_y: -20,
-    test_rad: 160,
+    test_rad: 100,
     test_angle: Math.PI + .5
 
 }
