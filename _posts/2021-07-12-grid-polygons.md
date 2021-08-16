@@ -142,7 +142,7 @@ This may look like a pain to work with, but just grouping like terms and trigono
 
 <center>
 $\begin{align}
-1 + 2 + 2\sqrt{2}\sin(a - \frac{2\pi n}{5}) & = \\
+1 + 2 + 2\sqrt{2}\sin(\alpha - \frac{2\pi n}{5}) & = \\
 \newline
 3 + 2\sqrt{2}\sin(-\frac{2\pi}{5} - \frac{\pi}{4}) & = \\
 \newline
