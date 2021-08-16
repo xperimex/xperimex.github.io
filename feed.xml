@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Mon, 16 Aug 2021 04:51:04 GMT</lastBuildDate>
+      <lastBuildDate>Mon, 16 Aug 2021 06:13:44 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -2088,7 +2088,7 @@ $\frac{dS}{dt}+\frac{dI}{dt}+\frac{dR}{dt}=0$
 <p>So, that means that no segment can be longer than half the length of our stick. Now, we can start solving the puzzle. Without loss of generality, make the first break at point $x$ between 0 and .5 to ensure our first break is on the left side (if it&#39;s not within this range, it&#39;ll be some symmetric case on the right half of the stick). Our left half of the stick is already less than .5, so that&#39;s good, but that means our second break <em>must</em> be on the right half, as otherwise that will be a leg that will be greater than .5, and that&#39;s no good. The probability our second break will be on the right half of the leg is equal to the length of that segment over the total line (since it&#39;s uniformly random): $\frac{1-x}{1}$. Let&#39;s analyze that longer leg now.</p>
 <p><img src="/img/triangle-puzzle/longLegFeasible.png"></p>
 <center style="color: #666;">
-<p>The feasibility region in red shows the location of a valid cut to ensure itdoes not make a segment longer than .5 units.</p>
+<p>The feasibility region in red shows the location of a valid cut to ensure it does not make a segment longer than .5 units.</p>
 </center>
 
 <p>We can&#39;t make a cut at or further than the .5 mark on the segment for the obvious reason: it would make a leg longer than .5, breaking the triangle inequality. For a similar reason, we can&#39;t make a cut at $1-x-.5$ or earlier, as that will make a leg on the right side longer than .5 too. We need a cut in between those two boundaries. Just like we found the probability for making a cut on this longer leg to begin with, if we can find the length of that feasibile region and divide that by the length of the leg, that will give us the probability for making a good cut here. The length of the red feasible region is $|.5-(1-x-.5)| = |1-1+x| = x$, and the total length is just $1-x$. So the probability our second cut is valid is $\frac{x}{1-x}$.</p>
@@ -2103,6 +2103,16 @@ $\frac{1}{\frac{1}{2} - 0} \int_0^{\frac{1}{2}} x \,dx = 2 \cdot \frac{x^2}{2} \
 ]]></description>
          <link>http://xperimex.github.io/blog/triangle-puzzle</link>
          <guid isPermaLink="true">http://xperimex.github.io/blog/triangle-puzzle</guid>
+         <dc:creator><![CDATA[Adi Mittal]]></dc:creator>
+      </item>
+      <item>
+         <title><![CDATA[Linear Programming and Laudable Polytopes]]></title>
+         <description><![CDATA[Monopolize the world with mx+b 
+
+ <p>wooo</p>
+]]></description>
+         <link>http://xperimex.github.io/blog/linear-programming</link>
+         <guid isPermaLink="true">http://xperimex.github.io/blog/linear-programming</guid>
          <dc:creator><![CDATA[Adi Mittal]]></dc:creator>
       </item>
    </channel>

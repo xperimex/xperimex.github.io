@@ -31,7 +31,7 @@ So, that means that no segment can be longer than half the length of our stick. 
 
 <img src="/img/triangle-puzzle/longLegFeasible.png">
 <center style="color: #666;">
-<p>The feasibility region in red shows the location of a valid cut to ensure itdoes not make a segment longer than .5 units.</p>
+<p>The feasibility region in red shows the location of a valid cut to ensure it does not make a segment longer than .5 units.</p>
 </center>
 
 We can't make a cut at or further than the .5 mark on the segment for the obvious reason: it would make a leg longer than .5, breaking the triangle inequality. For a similar reason, we can't make a cut at $1-x-.5$ or earlier, as that will make a leg on the right side longer than .5 too. We need a cut in between those two boundaries. Just like we found the probability for making a cut on this longer leg to begin with, if we can find the length of that feasibile region and divide that by the length of the leg, that will give us the probability for making a good cut here. The length of the red feasible region is $|.5-(1-x-.5)| = |1-1+x| = x$, and the total length is just $1-x$. So the probability our second cut is valid is $\frac{x}{1-x}$.
