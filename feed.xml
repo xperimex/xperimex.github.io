@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Mon, 16 Aug 2021 23:34:59 GMT</lastBuildDate>
+      <lastBuildDate>Mon, 16 Aug 2021 23:40:07 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -2103,16 +2103,6 @@ $\frac{1}{\frac{1}{2} - 0} \int_0^{\frac{1}{2}} x \,dx = 2 \cdot \frac{x^2}{2} \
 ]]></description>
          <link>http://xperimex.github.io/blog/triangle-puzzle</link>
          <guid isPermaLink="true">http://xperimex.github.io/blog/triangle-puzzle</guid>
-         <dc:creator><![CDATA[Adi Mittal]]></dc:creator>
-      </item>
-      <item>
-         <title><![CDATA[Linear Programming and Laudable Polytopes]]></title>
-         <description><![CDATA[Monopolize the world with mx+b 
-
- <p>You&#39;re a young business tycoon. There are profits in mind but no products in hand. </p>
-]]></description>
-         <link>http://xperimex.github.io/blog/linear-programming</link>
-         <guid isPermaLink="true">http://xperimex.github.io/blog/linear-programming</guid>
          <dc:creator><![CDATA[Adi Mittal]]></dc:creator>
       </item>
    </channel>
