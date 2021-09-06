@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Mon, 06 Sep 2021 06:06:59 GMT</lastBuildDate>
+      <lastBuildDate>Mon, 06 Sep 2021 06:10:28 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -982,7 +982,7 @@ $\large{ \frac{PQ}{QR} = \large{ \frac{P&#39;Q&#39;}{Q&#39;R&#39;} } = \frac{1 -
       </item>
       <item>
          <title><![CDATA[Mad Max: Fury Road]]></title>
-         <description><![CDATA[Analysis of practical  
+         <description><![CDATA[Yes, the flamethrowing guitar was necessary. 
 
  <p>This post is a collection of essays analyzing scenes, themes, dialogue, and scoring of George Miller&#39;s 2015 120 minute action packed car chase of a movie, <em>Mad Max: Fury Road</em>. It is truly one of my favorite, raw action movies I&#39;ve seen in a long time as it knows exactly what it is: an action movie. It delivers in spades what every action enthusiasts craves with some of the wildest practical effects seen to date, it still manages to have tender moments and characters develop through the action rather than just through some corny moments or having explosions for the sake of explosions. If you have not seen it, do what you can to do so, as even if you&#39;re not a fan of action movies, <em>Fury Road</em> transcends the category and delivers so much more.</p>
 <p>You should also watch it as these essays assume: a) that you know the movie so you don&#39;t walk into thousands of words of spoilers, and b) that you are familiar with some of the terminology introduced in the film as well. </p>
@@ -2146,15 +2146,6 @@ $\frac{1}{\frac{1}{2} - 0} \int_0^{\frac{1}{2}} x \,dx = 2 \cdot \frac{x^2}{2} \
 ]]></description>
          <link>http://xperimex.github.io/blog/triangle-puzzle</link>
          <guid isPermaLink="true">http://xperimex.github.io/blog/triangle-puzzle</guid>
-         <dc:creator><![CDATA[Adi Mittal]]></dc:creator>
-      </item>
-      <item>
-         <title><![CDATA[Linear Programming and Laudable Polytopes]]></title>
-         <description><![CDATA[Monopolize the world with mx+b 
-
- ]]></description>
-         <link>http://xperimex.github.io/blog/linear-programming</link>
-         <guid isPermaLink="true">http://xperimex.github.io/blog/linear-programming</guid>
          <dc:creator><![CDATA[Adi Mittal]]></dc:creator>
       </item>
    </channel>
