@@ -1,86 +1,110 @@
 <!doctype html>
 <html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Delta Thoughts</title>
-        <meta name="description" content="Adi Mittal's blog.">
-        <meta property="og:description" content="Adi Mittal's blog.">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#FFFFFF">
 
-        <link rel="apple-touch-icon" href="/img/apple-touch-icon-precomposed.png">
-        <link rel="icon" type="image/png" href="/img/favicon.png">
-        <link rel="stylesheet" href="/css/main.css">
-    </head>
-    <body>
-      <!--[if lt IE 8]>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Delta Thoughts</title>
+    <meta name="description" content="Adi Mittal's blog.">
+    <meta property="og:description" content="Adi Mittal's blog.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#FFFFFF">
+
+    <link rel="apple-touch-icon" href="/img/apple-touch-icon-precomposed.png">
+    <link rel="icon" type="image/png" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+    <!--[if lt IE 8]>
           <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
       <![endif]-->
 
-      <hr id="starter" />
+    <hr id="starter" />
 
-      <div id="header">
+    <div id="header">
         <div class="row">
-          <div class="two columns"></div>
-          <div class="eight columns">
-            <h1>Delta Thoughts</h1>
-            <p class="lead">
-              Hey! Welcome to Delta Thoughts, a math blog covering the random intricacies, and just generally interesting and cool things in math (and maybe the occasional other stuff), whether it's practical, or not. 
-            <br><br/> 
-
-            If you have any questions or comments, send me an email at <a href="mailto:adi@mittal.net">adi [at] mittal [dot] net</a>.
-            </p> 
-          </div>
+            <div class="two columns"></div>
+            <div class="eight columns">
+                <h1>Delta Thoughts</h1>
+                <p class="lead">
+                    Hey! Welcome to Delta Thoughts, a math blog covering the random intricacies, and just generally interesting and cool things in math (and maybe the occasional other stuff), whether it's practical, or not.
+                    <br><br/> If you have any questions or comments, send me an email at <a href="mailto:adi@mittal.net">adi [at] mittal [dot] net</a>.
+                </p>
+            </div>
         </div>
-      </div>
+    </div>
 
-      <div class="row contentArea blogArea">
+    <div class="row contentArea blogArea">
         <div class="two columns"></div>
         <div class="eight columns">
-          <h2>
-            Posts
-            <a href="/feed.xml">
-              <img id="rss" src="/img/rss.png" alt="RSS" title="Get your RSS"/>
-            </a>
-          </h2>
+            <h2 class="nav">
+                <a id="postLink">Posts</a>
+                <a id="movieLink">Films</a>
+                <a href="/feed.xml">
+                    <img id="rss" src="/img/rss.png" alt="RSS" title="Get your RSS" />
+                </a>
 
-          {BLOG-POST-LIST}
-          <br />
-        </div>
-      </div>
+            </h2>
 
-      <!-- <div class="row contentArea" style="margin-top: 10px;">
-        <div class="two columns"></div>
-        <div class="four columns">
-            <img src="http://placehold.it/400x400" class="pictureOfMe" alt="Me" title=""/>
-        </div>
-        <div class="four columns">
-            <img src="http://placehold.it/400x400" class="pictureOfMe" alt="Me" title=""/>
-        </div>
-        <div class="two columns"></div>
-        </div>
-      </div> -->
-
-      <div id="footer">
-        <div class="row">
-          <div class="two columns"></div>
-          <div class="eight columns">
-            <div class="quote">
-              &copy; 2017-present Adi Mittal
+            <div id="postList">
+                {BLOG-POST-LIST}
             </div>
-          </div>
+            <div id="movieList">
+                {FILM-POST-LIST}
+            </div>
+            <br />
         </div>
-      </div>
+    </div>
 
-      <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-      <script>
-          (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-          function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-          e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-          e.src='//www.google-analytics.com/analytics.js';
-          r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-          ga('create','UA-101583586-1','auto');ga('send','pageview');
-      </script>
-    </body>
+    <div id="footer">
+        <div class="row">
+            <div class="two columns"></div>
+            <div class="eight columns">
+                <div class="quote">
+                    &copy; 2017-present Adi Mittal
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script>
+        var postLink = document.getElementById("postLink")
+        var movieLink = document.getElementById("movieLink")
+        var postList = document.getElementById("postList")
+        var movieList = document.getElementById("movieList")
+
+        postLink.onclick = (e) => {
+            postLink.style.color = "#222"
+            movieLink.style.color = "#999"
+            postList.style.display = "block"
+            movieList.style.display = "none"
+        }
+
+        movieLink.onclick = (e) => {
+            postLink.style.color = "#999"
+            movieLink.style.color = "#222"
+            postList.style.display = "none"
+            movieList.style.display = "block"
+        }
+    </script>
+    <script>
+        (function(b, o, i, l, e, r) {
+            b.GoogleAnalyticsObject = l;
+            b[l] || (b[l] =
+                function() {
+                    (b[l].q = b[l].q || []).push(arguments)
+                });
+            b[l].l = +new Date;
+            e = o.createElement(i);
+            r = o.getElementsByTagName(i)[0];
+            e.src = '//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e, r)
+        }(window, document, 'script', 'ga'));
+        ga('create', 'UA-101583586-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+
 </html>

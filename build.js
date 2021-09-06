@@ -1,14 +1,16 @@
 /*
-* 2017-present Gautam Mittal
-*/
+ * 2017-present Gautam Mittal
+ */
 
 const fs = require('fs');
 const marked = require('marked');
 const moment = require('moment');
 const rss = require('rss');
 
-marked.setOptions({ gfm: true, tables: true,
-    highlight: function (code) {
+marked.setOptions({
+    gfm: true,
+    tables: true,
+    highlight: function(code) {
         return require(`highlight.js`).highlightAuto(code).value;
     }
 });
@@ -25,10 +27,10 @@ let extract = (contentDir, postFileName) => {
     const end = fileContent.indexOf(`---END_METADATA---`);
     const jsonStart = fileContent.substr(start, end).indexOf(`{`);
     return {
-        'slug': postFileName.substr(11, postFileName.length-14),
+        'slug': postFileName.substr(11, postFileName.length - 14),
         'timestamp': moment(postFileName.substr(0, 10), [`YYYY-MM-DD`]).format(`LL`),
-        'metadata': JSON.parse(fileContent.substr(jsonStart, end-jsonStart)),
-        'content': fileContent.substr(end+`---END_METADATA---`.length, fileContent.length)
+        'metadata': JSON.parse(fileContent.substr(jsonStart, end - jsonStart)),
+        'content': fileContent.substr(end + `---END_METADATA---`.length, fileContent.length)
     }
 }
 
@@ -36,6 +38,7 @@ let compile = (contentDir, outputDir) => {
     if (!fs.existsSync(contentDir)) throw `No content directory "${contentDir}" found.`;
     if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir);
     let postListMarkup = [];
+    let movieListMarkup = [];
 
     // Setup RSS feed
     let feed = new rss({
@@ -53,17 +56,21 @@ let compile = (contentDir, outputDir) => {
         const listTemplate = `<div class="story">
             <a href="/${outputDir}/${extract(contentDir, post).slug}">${metadata.title}</a>
             <span class="date">${extract(contentDir, post).timestamp}. ${metadata.summary}</span></div>`;
-        postListMarkup.unshift(listTemplate);
+
+        if (metadata['tags'].indexOf('film') > -1)
+            movieListMarkup.unshift(listTemplate);
+        else
+            postListMarkup.unshift(listTemplate);
 
         // Build individual posts from template
-        marked(extract(contentDir, post).content, function (err, content) {
+        marked(extract(contentDir, post).content, function(err, content) {
             if (err) throw err;
             const postTemplate = fs.readFileSync(`${__dirname}/templates/post.html`, `utf-8`)
-                                   .replace(/{POST-TITLE}/g, metadata.title)
-                                   .replace(/{POST-DATE}/g, extract(contentDir, post).timestamp)
-                                   .replace(/{POST-AUTHOR}/g, metadata.author)
-                                   .replace(/{POST-READ-TIME}/g, Math.ceil(content.split(` `).length / 200))
-                                   .replace(/{POST-CONTENT}/g, content);
+                .replace(/{POST-TITLE}/g, metadata.title)
+                .replace(/{POST-DATE}/g, extract(contentDir, post).timestamp)
+                .replace(/{POST-AUTHOR}/g, metadata.author)
+                .replace(/{POST-READ-TIME}/g, Math.ceil(content.split(` `).length / 200))
+                .replace(/{POST-CONTENT}/g, content);
             // Write post to disk
             const targetDir = `${outputDir}/${extract(contentDir, post).slug}`;
             if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir);
@@ -85,7 +92,8 @@ let compile = (contentDir, outputDir) => {
 
     // Build home page
     const indexTemplate = fs.readFileSync(`${__dirname}/templates/index.html`, `utf-8`)
-                            .replace(/{BLOG-POST-LIST}/g, postListMarkup.join(``));
+        .replace(/{BLOG-POST-LIST}/g, postListMarkup.join(``))
+        .replace(/{FILM-POST-LIST}/g, movieListMarkup.join(``));
     fs.writeFileSync(`${__dirname}/index.html`, indexTemplate);
 }
 

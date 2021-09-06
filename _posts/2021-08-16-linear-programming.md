@@ -10,5 +10,3 @@
 
 
 ---END_METADATA---
-
-You're a young business tycoon. You have profits in mind, but no products in hand.
