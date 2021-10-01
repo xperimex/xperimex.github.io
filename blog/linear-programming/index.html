@@ -1,0 +1,111 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Delta Thoughts - Linear Programming and Laudable Polytopes</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#FFFFFF" />
+
+        <link rel="apple-touch-icon" href="/img/apple-touch-icon-precomposed.png">
+        <link rel="icon" type="image/png" href="/img/favicon.png">
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <hr id="starter" />
+
+        <div id="header">
+          <div class="row">
+            <div class="two columns"></div>
+            <div class="eight columns">
+              <h1><span id="goHome" onclick="javascript:location.href='/';">Delta Thoughts</span></h1>
+              <p class="lead" style="margin-top: -10px;">
+                "Pure mathematics is, in its way, the poetry of logical ideas." &mdash; Albert Einstein
+              </p>
+            </div>
+
+          </div>
+        </div>
+        <div class="content row">
+          <div class="two columns"></div>
+          <div class="eight columns">
+            <div class="mainIntro">
+              <div id="headline">
+                Linear Programming and Laudable Polytopes
+              </div>
+              <div class="date" style="margin-left:0px!important;">By <a href="/">Adi Mittal</a> &#183; September 5, 2021 &#183; 2 min read</div>
+            </div>
+            <div class="articleBody firstcharacter">
+              <p>You&#39;re a business tycoon. You have ideas in mind but no products on hand. You need to make a quick buck now and all you have is some needlework on your belt to carry you. If you wanted to maximize profit between making hats and shirts, what combination of the two should you make? Well, let&#39;s look at what our goal is. If I make \$15 per shirt, and \$10 per hat, we can have a simple goal of</p>
+<center>
+$\max(15s + 10h)$
+</center>
+
+<p>Obviously, we can&#39;t just make infinite of each wearable. We have some constraints between available cloth, printing, and effort. If you have 20 sheets of cloth, and each shirt requires $\frac{1}{2}$ of one and the hats only require $\frac{1}{5}$ of one. For printing, maybe you only have enough ink for 100 prints total. Finally, hats are hard to make, so you cap yourself at only making 70 and no more. We have a list of constraints which can be nicely added as a set of inequalities:</p>
+<center>
+$\max(15s + 10h)$ </br>
+$\begin{align}
+\frac{1}{2}s + \frac{1}{5}h &amp; \leq 35 \
+\newline
+s + h &amp; \leq 100 \
+\newline
+h &amp; \leq 70
+\end{align}$
+</center>
+
+<p>This isn&#39;t an easy system to solve as, well, we&#39;re not solving anything in the traditional sense by plugging in equations to one another, nor is it a standard maximization problem where we can take some form of a gradient since every equation here is a line, so we would only get constants that give us no new information. </p>
+<p>This type of problem where we want to maximize a linear equation that is also bound by a set of linear restraints is called a <strong>linear program</strong>. These types of problems are called specifically programs as you&#39;ll see that we have analytic ways to find solutions, but to find the <em>best</em> solution requires some well-crafted algorithms to make solving them faster and more efficient. Before we can understand the 2, and later the general $n$, variable set up, let&#39;s try an easier case.</p>
+<h2 id="1d-linear-program">1D Linear Program</h2>
+<p>As with all problems, let&#39;s try and cut back on degrees of freedom so we can really focus on what&#39;s going on here. Instead of maximizing a function of 2 variables, let&#39;s do a function of 1 variable.</p>
+<center>
+$\max(3x)$</br>
+$\begin{align}
+5x &amp; \leq 50 \
+\newline
+x &amp; \geq 6
+\end{align}$
+</center>
+
+<p>This isn&#39;t all that interesting, as I&#39;m sure the answer is popping out almost immediately: $\max(3x)=30$ from since we can only have at most 10 of variable $x$.</p>
+
+              <div id="disqus_thread"></div>
+            <script>
+                (function() {  // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+
+                    s.src = '//delta-thoughts.disqus.com/embed.js';
+
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            </div>
+          </div>
+          <div class="two columns"></div>
+        </div>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <script type="text/javascript">
+          window.MathJax = {
+            tex2jax: {
+              inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+              processEscapes: true
+            }
+          };
+        </script>
+        <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-101583586-1','auto');ga('send','pageview');
+        </script>
+    </body>
+</html>

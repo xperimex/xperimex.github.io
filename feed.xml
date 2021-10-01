@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Mon, 06 Sep 2021 06:11:35 GMT</lastBuildDate>
+      <lastBuildDate>Fri, 01 Oct 2021 05:18:48 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -1607,6 +1607,9 @@ B(x) &amp; = \frac{1}{6}x(1+x+x^2)(1+x) \
 <script src="https://unpkg.com/mathjs/lib/browser/math.js"></script>
 
 <p><img src="/img/steiners-porism/steinersAnimated.gif"></p>
+<!-- 
+<div id="hook" style="flex: 2; position: relative;"></div>
+<script src="/js/steiners/hook.js"></script> -->
 <p>Today I want to talk about a type of geometry I think is grossly overlooked, especially when compared to the popularity of its Euclidean brother. In a world where linear transformations are the norm between translations, rotations, and dilations, sometimes it&#39;s hard to see anything but them as the workhorse geometric tools. However, there is an additional transformation that takes us from the solidarity of linear transforms to one of a type of circular transform that may seem novel at first, but is able to even extend complex analysis. Today I want to talk about <strong>inversive geometry</strong>. Inversive geometry takes the standard plane we know and quite literally flips it inside out. By the end of this post, you will be familiar with not only what in the world an inversion is, but a very cool theorem that results in the animation above that relates tangent circles to one another. But before we can get there, we first need to learn <em>how</em> to flip our world inside out.</p>
 <h2 id="plane-inversions">Plane Inversions</h2>
 <p>As you can imagine, inversive geometry is geometry that relies on something called <em>inversions</em>. You can think of an inversion as a function that takes a point $P$ and spits out a transformed point $P&#39;$. But, what exactly is our function? It&#39;s not a standard $f(x)$ as we&#39;re giving <em>two</em> coordinates not one. So maybe it&#39;s a 2-by-2 matrix, as we&#39;re giving a 2D vector and outputting another 2D vector? Not a bad idea, but it will quickly become clear why we don&#39;t want to do that. So, what <i>is</i> our functional object? It&#39;s actually a <em>circle</em>. As weird as that sounds, just hear it out. Given a circle $Ø$ with center $O$ and radius $r$, the point $P$ is inverted to $P&#39;$ based on the following equation: </p>
@@ -2146,6 +2149,46 @@ $\frac{1}{\frac{1}{2} - 0} \int_0^{\frac{1}{2}} x \,dx = 2 \cdot \frac{x^2}{2} \
 ]]></description>
          <link>http://xperimex.github.io/blog/triangle-puzzle</link>
          <guid isPermaLink="true">http://xperimex.github.io/blog/triangle-puzzle</guid>
+         <dc:creator><![CDATA[Adi Mittal]]></dc:creator>
+      </item>
+      <item>
+         <title><![CDATA[Linear Programming and Laudable Polytopes]]></title>
+         <description><![CDATA[Monopolize the world with mx+b 
+
+ <p>You&#39;re a business tycoon. You have ideas in mind but no products on hand. You need to make a quick buck now and all you have is some needlework on your belt to carry you. If you wanted to maximize profit between making hats and shirts, what combination of the two should you make? Well, let&#39;s look at what our goal is. If I make \$15 per shirt, and \$10 per hat, we can have a simple goal of</p>
+<center>
+$\max(15s + 10h)$
+</center>
+
+<p>Obviously, we can&#39;t just make infinite of each wearable. We have some constraints between available cloth, printing, and effort. If you have 20 sheets of cloth, and each shirt requires $\frac{1}{2}$ of one and the hats only require $\frac{1}{5}$ of one. For printing, maybe you only have enough ink for 100 prints total. Finally, hats are hard to make, so you cap yourself at only making 70 and no more. We have a list of constraints which can be nicely added as a set of inequalities:</p>
+<center>
+$\max(15s + 10h)$ </br>
+$\begin{align}
+\frac{1}{2}s + \frac{1}{5}h &amp; \leq 35 \
+\newline
+s + h &amp; \leq 100 \
+\newline
+h &amp; \leq 70
+\end{align}$
+</center>
+
+<p>This isn&#39;t an easy system to solve as, well, we&#39;re not solving anything in the traditional sense by plugging in equations to one another, nor is it a standard maximization problem where we can take some form of a gradient since every equation here is a line, so we would only get constants that give us no new information. </p>
+<p>This type of problem where we want to maximize a linear equation that is also bound by a set of linear restraints is called a <strong>linear program</strong>. These types of problems are called specifically programs as you&#39;ll see that we have analytic ways to find solutions, but to find the <em>best</em> solution requires some well-crafted algorithms to make solving them faster and more efficient. Before we can understand the 2, and later the general $n$, variable set up, let&#39;s try an easier case.</p>
+<h2 id="1d-linear-program">1D Linear Program</h2>
+<p>As with all problems, let&#39;s try and cut back on degrees of freedom so we can really focus on what&#39;s going on here. Instead of maximizing a function of 2 variables, let&#39;s do a function of 1 variable.</p>
+<center>
+$\max(3x)$</br>
+$\begin{align}
+5x &amp; \leq 50 \
+\newline
+x &amp; \geq 6
+\end{align}$
+</center>
+
+<p>This isn&#39;t all that interesting, as I&#39;m sure the answer is popping out almost immediately: $\max(3x)=30$ from since we can only have at most 10 of variable $x$.</p>
+]]></description>
+         <link>http://xperimex.github.io/blog/linear-programming</link>
+         <guid isPermaLink="true">http://xperimex.github.io/blog/linear-programming</guid>
          <dc:creator><![CDATA[Adi Mittal]]></dc:creator>
       </item>
    </channel>
