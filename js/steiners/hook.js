@@ -20,6 +20,7 @@ var initialData = {
 
 var print = console.log
 
+
 function dist(x1, x2, y1, y2){
 	return Math.sqrt((x1-x2)**2 + (y1-y2)**2)
 }
@@ -313,11 +314,13 @@ ctx.circle(c2x, c2y, rad2, {affects:'none', fill:'none', stroke:'red'})
   // ctx.point(c2rx, c2ry, {affects:['circle2_rad', 'circle2_angle'], fill:'red'})
 
 
+  print(angle)
+
 }
 
 var canvas = g9(initialData, render)
 .align('center', 'center')
-.insertInto('#steinersComplete')
+.insertInto('#hook')
 
 canvas.node.style.height = '500px';
 canvas.node.style.width = '100%';
