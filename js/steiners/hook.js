@@ -161,8 +161,8 @@ function render(data, ctx) {
     // ctx.point(c2rx, c2ry, { affects: ['circle2_rad', 'circle2_angle'], fill: 'red' })
 
 
-    ctx.circle(c1x, c1y, rad1, { affects: 'none', fill: 'none', stroke: 'blue' })
-    ctx.circle(c2x, c2y, rad2, { affects: 'none', fill: 'none', stroke: 'red' })
+    ctx.circle(c1x, c1y, rad1, { affects: 'none', fill: 'none', stroke: 'blue', 'stroke-width': 1.5 })
+    ctx.circle(c2x, c2y, rad2, { affects: 'none', fill: 'none', stroke: 'red', 'stroke-width': 1.5 })
 
     // Drawing radical axis
     var c1_to_c2 = [c2x - c1x, c2y - c1y]
@@ -297,7 +297,7 @@ function render(data, ctx) {
             // ctx.circle(inv_center[0] + scale * Math.cos(i * theta + angle),
             //     inv_center[1] + scale * Math.sin(i * theta + angle),
             //     stein_rad, { affects: 'none', fill: 'none', stroke: 'black' })
-            ctx.circle(new_circle[0][0], new_circle[0][1], new_circle[1], { affects: 'none', fill: 'none', stroke: 'black' })
+            ctx.circle(new_circle[0][0], new_circle[0][1], new_circle[1], { affects: 'none', fill: 'none', stroke: 'black', 'stroke-width': 1.5 })
         }
 
     }
