@@ -330,3 +330,5 @@ setInterval(() => {
   initialData.angle += .01
   canvas.setData(initialData)
 }, 25)
+
+// hook note

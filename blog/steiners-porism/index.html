@@ -43,10 +43,11 @@
               <script src='https://cdnjs.cloudflare.com/ajax/libs/g9/1.0.16/g9.js'></script>
 <script src="https://unpkg.com/mathjs/lib/browser/math.js"></script>
 
-<p><img src="/img/steiners-porism/steinersAnimated.gif"></p>
-<!-- 
-<div id="hook" style="flex: 2; position: relative;"></div>
-<script src="/js/steiners/hook.js"></script> -->
+<!-- <img src="/img/steiners-porism/steinersAnimated.gif"> -->
+<p><div id="hook" style="flex: 2; position: relative;"></div></p>
+<script src="/js/steiners/hook.js"></script>
+
+
 <p>Today I want to talk about a type of geometry I think is grossly overlooked, especially when compared to the popularity of its Euclidean brother. In a world where linear transformations are the norm between translations, rotations, and dilations, sometimes it&#39;s hard to see anything but them as the workhorse geometric tools. However, there is an additional transformation that takes us from the solidarity of linear transforms to one of a type of circular transform that may seem novel at first, but is able to even extend complex analysis. Today I want to talk about <strong>inversive geometry</strong>. Inversive geometry takes the standard plane we know and quite literally flips it inside out. By the end of this post, you will be familiar with not only what in the world an inversion is, but a very cool theorem that results in the animation above that relates tangent circles to one another. But before we can get there, we first need to learn <em>how</em> to flip our world inside out.</p>
 <h2 id="plane-inversions">Plane Inversions</h2>
 <p>As you can imagine, inversive geometry is geometry that relies on something called <em>inversions</em>. You can think of an inversion as a function that takes a point $P$ and spits out a transformed point $P&#39;$. But, what exactly is our function? It&#39;s not a standard $f(x)$ as we&#39;re giving <em>two</em> coordinates not one. So maybe it&#39;s a 2-by-2 matrix, as we&#39;re giving a 2D vector and outputting another 2D vector? Not a bad idea, but it will quickly become clear why we don&#39;t want to do that. So, what <i>is</i> our functional object? It&#39;s actually a <em>circle</em>. As weird as that sounds, just hear it out. Given a circle $Ø$ with center $O$ and radius $r$, the point $P$ is inverted to $P&#39;$ based on the following equation: </p>
