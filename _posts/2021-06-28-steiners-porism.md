@@ -17,10 +17,8 @@
 
 
 
-<!-- <div id="hook" style="flex: 2; position: relative;"></div>
-<script src="/js/steiners/hook.js"></script> -->
-
 <div id="hook" style="flex: 2; position: relative;"></div>
+<script src="/js/steiners/hook.js"></script>
 
 
 Today I want to talk about a type of geometry I think is grossly overlooked, especially when compared to the popularity of its Euclidean brother. In a world where linear transformations are the norm between translations, rotations, and dilations, sometimes it's hard to see anything but them as the workhorse geometric tools. However, there is an additional transformation that takes us from the solidarity of linear transforms to one of a type of circular transform that may seem novel at first, but is able to even extend complex analysis. Today I want to talk about **inversive geometry**. Inversive geometry takes the standard plane we know and quite literally flips it inside out. By the end of this post, you will be familiar with not only what in the world an inversion is, but a very cool theorem that results in the animation above that relates tangent circles to one another. But before we can get there, we first need to learn _how_ to flip our world inside out.

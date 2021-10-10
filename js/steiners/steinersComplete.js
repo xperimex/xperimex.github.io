@@ -341,15 +341,3 @@ setInterval(() => {
 }, 25)
 
 
-var canvas2 = g9(initialData, render)
-    .align('center', 'center')
-    .insertInto('#hook')
-
-canvas2.node.style.height = '500px';
-canvas2.node.style.width = '100%';
-canvas2.resize();
-
-setInterval(() => {
-    initialData.angle += .01
-    canvas2.setData(initialData)
-}, 25)

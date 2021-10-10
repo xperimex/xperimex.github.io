@@ -1,21 +1,22 @@
-var initialData = {
-    circle1_x: -90 - 35,
+var initialData2 = {
+    circle1_x: 0,
     circle1_y: 0,
     // circle1_rx: 75-35,
     // circle1_ry: 0,
-    circle1_rad: 175.95,
+    circle1_rad: 225,
     circle1_angle: 0,
-    circle2_x: -25 - 25,
-    circle2_y: -25,
+    circle2_x: -91.00000000676343,
+    circle2_y: 55.00000000001045,
     // circle2_rx: 35-35,
     // circle2_ry: -25,
-    circle2_rad: 65,
+    circle2_rad: 74.06078584514239,
     circle2_angle: 0,
     // axis_t1: -.2,
     // axis_t2: .5,
     inter_r: 100,
     inter_theta: 0,
     angle: 0
+    
 }
 
 var print = console.log
@@ -154,10 +155,10 @@ function render(data, ctx) {
     // var rad2 = dist(c2x, c2rx, c2y, c2ry)
 
 
-    ctx.point(c1x, c1y, { fill: 'blue' })
-    ctx.point(c2x, c2y, { fill: 'red' })
-    ctx.point(c1rx, c1ry, { affects: ['circle1_rad', 'circle1_angle'], fill: 'blue' })
-    ctx.point(c2rx, c2ry, { affects: ['circle2_rad', 'circle2_angle'], fill: 'red' })
+    // ctx.point(c1x, c1y, { fill: 'blue' })
+    // ctx.point(c2x, c2y, { fill: 'red' })
+    // ctx.point(c1rx, c1ry, { affects: ['circle1_rad', 'circle1_angle'], fill: 'blue' })
+    // ctx.point(c2rx, c2ry, { affects: ['circle2_rad', 'circle2_angle'], fill: 'red' })
 
 
     ctx.circle(c1x, c1y, rad1, { affects: 'none', fill: 'none', stroke: 'blue' })
@@ -231,12 +232,12 @@ function render(data, ctx) {
     var inv_angle = data.inter_theta
     var inv_rad_x = intersection[0] + inv_rad * Math.cos(inv_angle)
     var inv_rad_y = intersection[1] + inv_rad * Math.sin(inv_angle)
-    ctx.point(inv_rad_x, inv_rad_y, { affects: ['inter_r', 'inter_theta'], fill: 'black' })
+    // ctx.point(inv_rad_x, inv_rad_y, { affects: ['inter_r', 'inter_theta'], fill: 'black' })
 
     var inv_center = invert(inv_center[0], inv_center[1], intersection[0], intersection[1], inv_rad)
 
 
-    ctx.circle(intersection[0], intersection[1], inv_rad, { affects: 'none', fill: 'none', stroke: 'black' })
+    // ctx.circle(intersection[0], intersection[1], inv_rad, { affects: 'none', fill: 'none', stroke: 'black' })
     var new_blue_circle = invert_circle(intersection[0], intersection[1], inv_rad,
         c1x, c1y, rad1)
     var new_red_circle = invert_circle(intersection[0], intersection[1], inv_rad,
@@ -245,8 +246,8 @@ function render(data, ctx) {
             P1[0] - .05, P1[1] - .05, tang_rad1) // Offset centers a little to not worry about division by 0
     var new_purple2 = invert_circle(intersection[0], intersection[1], inv_rad,
         P2[0] - .05, P2[1] - .05, tang_rad2)
-    ctx.circle(new_blue_circle[0][0], new_blue_circle[0][1], new_blue_circle[1], { affects: 'none', fill: 'none', stroke: 'blue' })
-    ctx.circle(new_red_circle[0][0], new_red_circle[0][1], new_red_circle[1], { affects: 'none', fill: 'none', stroke: 'red' })
+    // ctx.circle(new_blue_circle[0][0], new_blue_circle[0][1], new_blue_circle[1], { affects: 'none', fill: 'none', stroke: 'blue' })
+    // ctx.circle(new_red_circle[0][0], new_red_circle[0][1], new_red_circle[1], { affects: 'none', fill: 'none', stroke: 'red' })
 
     // Uncomment for inverted orthogonal circles
     // ctx.circle(new_purple1[0][0], new_purple1[0][1], new_purple1[1], {affects:'none', fill:'none', stroke:'purple'})
@@ -293,9 +294,9 @@ function render(data, ctx) {
         for (let i = 0; i < number; i++) {
             let new_circle = invert_circle(intersection[0], intersection[1], inv_rad,
                 inv_center[0] + scale * Math.cos(i * theta + angle), inv_center[1] + scale * Math.sin(i * theta + angle), stein_rad)
-            ctx.circle(inv_center[0] + scale * Math.cos(i * theta + angle),
-                inv_center[1] + scale * Math.sin(i * theta + angle),
-                stein_rad, { affects: 'none', fill: 'none', stroke: 'black' })
+            // ctx.circle(inv_center[0] + scale * Math.cos(i * theta + angle),
+            //     inv_center[1] + scale * Math.sin(i * theta + angle),
+            //     stein_rad, { affects: 'none', fill: 'none', stroke: 'black' })
             ctx.circle(new_circle[0][0], new_circle[0][1], new_circle[1], { affects: 'none', fill: 'none', stroke: 'black' })
         }
 
@@ -326,21 +327,19 @@ function render(data, ctx) {
     // ctx.point(c2rx, c2ry, {affects:['circle2_rad', 'circle2_angle'], fill:'red'})
 
 
-    print(angle)
+    // print(angle)
 
 }
 
-var canvas = g9(initialData, render)
+var canvas2 = g9(initialData2, render)
     .align('center', 'center')
     .insertInto('#hook')
 
-canvas.node.style.height = '500px';
-canvas.node.style.width = '100%';
-canvas.resize();
+canvas2.node.style.height = '500px';
+canvas2.node.style.width = '100%';
+canvas2.resize();
 
 setInterval(() => {
-  initialData.angle += .01
-  canvas.setData(initialData)
+    initialData2.angle += .01
+    canvas2.setData(initialData2)
 }, 25)
-
-// hook note
