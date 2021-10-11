@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Mon, 11 Oct 2021 05:37:20 GMT</lastBuildDate>
+      <lastBuildDate>Mon, 11 Oct 2021 05:46:58 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -2081,7 +2081,7 @@ $\frac{dS}{dt}+\frac{dI}{dt}+\frac{dR}{dt}=0$
 <h2 id="what-next-">What next?</h2>
 <p>Honestly, our graph model isn&#39;t all that bad considering how simple it is, but let&#39;s look at some nice upgrades we can hand over to it.</p>
 <h3 id="graph-generation">Graph Generation</h3>
-<p>This was originally made as a school project, so we generated our graph by taking some number of edges and placing them randomly between nodes for simplicity in presentation. However, these obviously aren&#39;t the only types of networks. A prominent one for modelling interactions between people is the <strong>Erdös-Rényi</strong> graph. For $n$ nodes, there are $n \choose 2$ possible pairings of nodes for edges. In an ER graph, we flip a weighted coin to accept an individual edge, and the final result is just the collection of edges we added. If our acceptance probability is $p$, then we would expect each node to have on average $p(n-1)$ connections. In this network, people are approximately as popular as others (since our coin flip method leads to a binomial distribution with few super popular or super unpopular people).</p>
+<p>This was originally made as a school project, so we generated our graph by taking some number of edges and placing them randomly between nodes for simplicity in presentation. However, these obviously aren&#39;t the only types of networks. A prominent one for modelling interactions between people is the <strong>Erdös-Rényi</strong> graph. For $n$ nodes, there are $n \choose 2$ possible pairings of nodes for edges. In an ER graph, we flip a weighted coin to accept an individual edge, and the final result is just the collection of edges we added. If our acceptance probability is $p$, then we would expect the graph to have a total of ${n \choose 2}p$ edges, each node to have on average $p(n-1)$ connections. In this network, people are approximately as popular as others (since our coin flip method leads to a binomial distribution with few super popular or super unpopular people).</p>
 <p><img src="/img/quarantine-quandaries/exampleER (1).png"></p>
 <center style="color: #666;">
 <p>An Erdös-Rényi graph with an average connection of 4.8. Look how nice and even this graph is.</p>
