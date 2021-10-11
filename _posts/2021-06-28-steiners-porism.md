@@ -16,10 +16,7 @@
 <!-- <img src="/img/steiners-porism/steinersAnimated.gif"> -->
 
 
-
 <div id="hook" style="flex: 2; position: relative;"></div>
-<script src="/js/steiners/hook.js"></script>
-
 
 Today I want to talk about a type of geometry I think is grossly overlooked, especially when compared to the popularity of its Euclidean brother. In a world where linear transformations are the norm between translations, rotations, and dilations, sometimes it's hard to see anything but them as the workhorse geometric tools. However, there is an additional transformation that takes us from the solidarity of linear transforms to one of a type of circular transform that may seem novel at first, but is able to even extend complex analysis. Today I want to talk about **inversive geometry**. Inversive geometry takes the standard plane we know and quite literally flips it inside out. By the end of this post, you will be familiar with not only what in the world an inversion is, but a very cool theorem that results in the animation above that relates tangent circles to one another. But before we can get there, we first need to learn _how_ to flip our world inside out.
 
@@ -34,7 +31,6 @@ $\large{|OP| \cdot |OP'| = r^2}$
 ...where $P'$ lies on the ray $\overrightarrow{OP}$. Try dragging the points below to get a handle on this idea.
 
 <div id="inversionIntro" style="flex: 2; position: relative;"></div>
-<script src="/js/steiners/inversionIntro.js"></script>
 
 <center style="color: #666;">
 <p>Here we have the green circle $Ø$ which we are inverting the point $P$ over. Try dragging $P$, $O$, and $R$ around to see where its image $P'$ goes under inversion.</p>
@@ -51,7 +47,6 @@ However, there might be a glaring issue to some of you: what if the point $P$ we
 Now that we can invert points, we can now easily invert _shapes_. All we have to do is invert the collection of points individually, and remember the order to connect them. We could try basic polygons like squares and triangles, but the one that is most interesting (and will be most helpful) is inverting other circles. Below, we'll again invert over the green circle with center $O$, but now instead of a point, we'll invert the blue circle with center $C$ to the red circle.
 
 <div id="invertingCirclesFast" style="flex: 2; position: relative;"></div>
-<script src="/js/steiners/invertingCirclesFast.js"></script>
 
 <center style="color: #666;">
 <p>Again, we have the green circle $Ø$ as our inversion circle, but instead of just a point $P$ that we'll invert, we'll invert the entire blue circle with center $C$. Drag the different points around to see where our blue circle inverts to along with its center $C$ to $C'$.</p>
@@ -79,7 +74,6 @@ Steiner's Porism can sound a lot more complicated than it is, but I promise you 
 Before we go any further though, let's quickly see if there's an easier version of this scenario. One of the main issues I first had when looking at this was the fact that the black circles rolling around didn't have to be the same size. Fortunately, there's an obvious case where we don't have to worry about that: when the two bounding circles are concentric.
 
 <div id="concentricVariableSteinerChain" style="flex: 2; position: relative;"></div>
-<script src="/js/steiners/concentricVariableSteinerChain.js"></script>
 
 <center style="color: #666;">
 <p>Try dragging the red point to change the red circle's radius, and try rotating the black point to see the symmetry in the chains of circles.</p>
@@ -97,7 +91,6 @@ To find our desired circle of inversion, I'll present it as a series of steps th
 The **radical axis** of a pair of circles is the line (or axis, I guess) that every point $P$ along the line is the same distance away from the _tangents_ of the two circles. This sounds more complicated than it is and is much easier to see with a picture. Fortunately, it's not too hard to find [with some simple geometry](https://www.cut-the-knot.org/Curriculum/Geometry/GeoGebra/RadicalAxes.shtml). We'll draw the radical axis in green.
 
 <div id="radicalAxis" style="flex: 2; position: relative;"></div>
-<script src="/js/steiners/radicalAxis.js"></script>
 
 <center style="color: #666;">
 <p>Although we can drag the green point anywhere, it always allows us to find an purple orthogonal circle.</p>
@@ -110,7 +103,6 @@ Of course, the point $P$ in question has to be _outside_ the two circles to be a
 This step is easy enough since we've basically already done half of it. We just need to draw another purple orthogonal circle as we've done before, and then find their intersection. Our space will start to get cluttered quickly, so I'll remove the purple tangency lines, but just know that those are what determine our purple circles. We'll draw this intersection point in black.
 
 <div id="intersection" style="flex: 2; position: relative;"></div>
-<script src="/js/steiners/intersection.js"></script>
 
 <center style="color: #666;">
 <p>For any pair of red and blue circles, their orthogonal circles always intersect in the same two locations.</p>
@@ -125,7 +117,6 @@ As a separate, interesting fact (that I haven't looked into enough), the centers
 Notice how I said "any" circle. A circle with any radius will suffice as our desired circle. This will be our circle to invert over! We're going to invert a total of four circles: of course, the red and blue ones, but we'll also invert the two helper, purple circles. The diagram might look a bit busy, but just remember that this building off the same diagrams from before; look for what's new in the graphic, and it will be less overwhelming.
 
 <div id="concentricInversion" style="flex: 2; position: relative;"></div>
-<script src="/js/steiners/concentricInversion.js"></script>
 
 <center style="color: #666;">
 <p>Finally, we are able to invert our red and blue circles into concentric ones based on the black intersection point.</p>
@@ -149,4 +140,12 @@ Inversive geometry has all sorts of interesting quirks and facts to explore, and
 
 <div id="steinersComplete" style="flex: 2; position: relative;"></div>
 
+
+<script src="/js/steiners/hook.js"></script>
+<script src="/js/steiners/inversionIntro.js"></script>
+<script src="/js/steiners/invertingCirclesFast.js"></script>
+<script src="/js/steiners/concentricVariableSteinerChain.js"></script>
+<script src="/js/steiners/radicalAxis.js"></script>
+<script src="/js/steiners/intersection.js"></script>
+<script src="/js/steiners/concentricInversion.js"></script>
 <script src="/js/steiners/steinersComplete.js"></script>
