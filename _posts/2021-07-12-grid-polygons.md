@@ -270,10 +270,10 @@ $r_\theta (p) = \sqrt{3+2\cos(\theta + \frac{2\pi}{p}) - 2\cos(\theta) - 2\cos(\
 As before, we can plot this function to see what regular polygons have a bounding radius less than one for each grid:
 
 <!-- </br></br> -->
-<img src="/img/grid-polygons/hexTriCompare.png">
+<img src="/img/grid-polygons/hexTriCompare2.png">
 <!-- </br> -->
 
-Even though it would appear that no hexagons can be made in the triangular grid as they have a bounding radius $r_{\frac{2\pi}{3}}(6)=0$. However, the point they actually collapse into is valid vertex of the triangular grid. This is because that's a type of definition of the triangular grid: draw a hexagonal grid and place extra points in the center of each hexagon. So again, the only apparent shapes in that can be contained in the triangular and hexagonal grids unfortunately appear to be none other than just the equilateral triangle and regular hexagon themselves.
+Even though it would appear that no hexagons can be made in the triangular grid as they have a bounding radius $r_{\frac{\pi}{3}}(6)=0$. However, the point they actually collapse into is valid vertex of the triangular grid. This is because that's a type of definition of the triangular grid: draw a hexagonal grid and place extra points in the center of each hexagon. So again, the only apparent shapes in that can be contained in the triangular and hexagonal grids unfortunately appear to be none other than just the equilateral triangle and regular hexagon themselves.
 
 ----------
 
