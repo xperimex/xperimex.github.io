@@ -126,7 +126,7 @@ $
 $
 </center>
 
-If $v'$ truly is just a rotated and scaled version of a vertex of our original pentagon, then it follows that any $v'$ should lie on a circle, just as $v$ does. So, we can use the Pythagorean identity that $(r\cos(\theta))^2 + (r\sin(\theta))^2 = r^2$ which implies that if we square the $x$ and $y$ components of $v'$ and add them together, we should get a constant. For simplicity in writing, we'll use $\alpha = \frac{2\pi (n-1)}{5} - \frac{\pi}{4}$.
+If $v'$ truly is just a rotated and scaled version of a vertex of our original pentagon, then it follows that any $v'$ should lie on a circle, just as $v$ does. So, we can use the Pythagorean identity that $(r\cos\theta)^2 + (r\sin\theta)^2 = r^2$ which implies that if we square the $x$ and $y$ components of $v'$ and add them together, we should get a constant. For simplicity in writing, we'll use $\alpha = \frac{2\pi (n-1)}{5} - \frac{\pi}{4}$.
 
 <center>
 $
