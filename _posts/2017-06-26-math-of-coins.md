@@ -52,7 +52,7 @@ The rate for the distance per revolution our coin completes while "wobbling" is 
 Putting these two together as ratio of rate of rotation, to rate of "wobbling", we get:
 
 
-<center> $\frac{Rate\,Of\,Spinning}{Rate\,Of\,Wobling} = \frac{2 \pi R \cos (1 - \theta)}{2 \pi R cos (\theta)}$<br><br> $\large= \frac{1}{\cos (\theta)} - 1$ </center>
+<center> $\frac{\textrm{Rate of Spinning}}{\textrm{Rate of Wobbling}} = \frac{2 \pi R \cos (1 - \theta)}{2 \pi R cos (\theta)}$<br><br> $\large= \frac{1}{\cos (\theta)} - 1$ </center>
 
 
 This expression represents that at any given moment, the ratio between how fast the coin is spinning, and the how fast the coin is "wobbling" (which can be seen as the amount of hertz produced by the coin), will be $\frac{1}{\cos (\theta)} - 1$. This also means that if you multiply the frequency of "wobbling" by this expression, it will output how fast the coin should be spinning at the given value of theta. For example, let's say the coin is wobbling at a frequency of $5\,hertz$ at an angle of $\frac{\pi}{4}\,radians$ (because radians are cool), the coin would have to be rotating about $4.52\,revolutions\,a\,second$ to maintain that angle to the horizontal at that "wobbling" frequency (because of how hertz measure $cycles\,per\,second$, the cycles translate into revolutions for the output). 
