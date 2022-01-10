@@ -38,7 +38,7 @@ function render(data, ctx){
     var total_x_off = -13
     var total_y_off = 6
     for(let i = -height; i < height; i++){
-        for(let j = 1; j < width; j++){
+        for(let j = 1; j < width-3; j++){
             if (Math.abs(i) % 4 == 0) {
                 var x_offset = -x_space/2
                 var y_offset = hex_spacing/2
