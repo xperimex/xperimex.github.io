@@ -2,7 +2,7 @@
 {
   "title": "Billiard Balls and Secure Squares",
   "author": "Adi Mittal",
-  "summary": "",
+  "summary": "The ultimate secret to pool and laser tag",
   "tags":[
     "me"
   ]
