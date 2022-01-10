@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Mon, 10 Jan 2022 04:57:11 GMT</lastBuildDate>
+      <lastBuildDate>Mon, 10 Jan 2022 05:03:12 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -2786,7 +2786,7 @@ $\large{x^2 + y^2 = 1}$
 <div id="secureSquare"></div>
 </center>
 <center style="color: #666;">
-<p>No matter where the <span style="color:red">assassin</span> shoots, the <span style="color:green">target</span> remains safe and sound. Try moving either of them around, and watch the bodyguards adapt and reduce the <span style="color:red">assassin</span>&#39;s efforts to nothing.</p>
+<p>No matter where the <span style="color:red">assassin</span> shoots, the <span style="color:green">target</span> remains safe and sound. Try moving either of them around, and watch the bodyguards adapt and reduce the <span style="color:red">assassin</span>&#39;s efforts to nil.</p>
 </center>
 
 <p>Since it is possible to protect the <span style="color:green">target</span> from the <span style="color:red">assassin</span> with a finite number of <span style="color:blue">bodyguards</span>, we can say that the square is a <strong>secure polygon</strong>.</p>

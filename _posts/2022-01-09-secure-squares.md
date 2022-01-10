@@ -355,7 +355,7 @@ Once you reach the end of the proof, you'll find that you need exactly 4 bodygua
 <div id="secureSquare"></div>
 </center>
 <center style="color: #666;">
-<p>No matter where the <span style="color:red">assassin</span> shoots, the <span style="color:green">target</span> remains safe and sound. Try moving either of them around, and watch the bodyguards adapt and reduce the <span style="color:red">assassin</span>'s efforts to nothing.</p>
+<p>No matter where the <span style="color:red">assassin</span> shoots, the <span style="color:green">target</span> remains safe and sound. Try moving either of them around, and watch the bodyguards adapt and reduce the <span style="color:red">assassin</span>'s efforts to nil.</p>
 </center>
 
 Since it is possible to protect the <span style="color:green">target</span> from the <span style="color:red">assassin</span> with a finite number of <span style="color:blue">bodyguards</span>, we can say that the square is a **secure polygon**.
