@@ -343,9 +343,9 @@ Even though we tile the plane infinitely, there aren't an infinite type of rooms
 <p>Having 4 "unique" rooms generates 4 unique lattices of <span style="color:rgb(0,50,0)">mirrored targets</span>.</p>
 </center>
 
-Each one of the reflected rooms generates a lattice of that reflected target! I've colored the 4 different lattices in <span style="color:rgb(0,50,0)">green</span>, <span style="color:rgb(255,200,0)">yellow</span>, <span style="color:magenta">magenta</span>, and <span style="color:cyan">cyan</span>. Now, since each dot represents a way of hitting our <span style="color:green">target</span>, we just need to block every line from the <span style="color:red">assassin</span> to any one of these dots.
+Each one of the reflected rooms generates a lattice of that reflected target! I've colored the 4 different lattices in <span style="color:rgb(0,50,0)">green</span>, <span style="color:rgb(255,200,0)">yellow</span>, <span style="color:magenta">magenta</span>, and <span style="color:cyan">cyan</span>. Now, since each dot represents a way of hitting our <span style="color:green">target</span>, we just need to block every line from the <span style="color:red">assassin</span> to any one of these colored dots.
 
-This is the second critical idea to finish out this proof: every reflected target falls into 1 of 4 possible lattices. Dividing the mirrored targets into lattices is nice since it places all dots in a given lattice to be the same distance away from each other. 
+This is the second critical idea to finish out this proof: every reflected target falls into 1 of 4 possible lattices (each represented by a color). Dividing the mirrored targets into lattices is nice since it places all dots in a given lattice to be the same distance away from each other. 
 
 At this point, you have everything you need to finish this proof using the flat torus tiling and the 4 lattices. If you want to try and finish it through, I recommend doing so as it has some pretty satisfying reasoning throughout it. If you just want to keep reading, I'd recommend visiting [Bradley's post](https://www.math3ma.com/blog/is-the-square-a-secure-polygon) where she completes the proof there.
 
