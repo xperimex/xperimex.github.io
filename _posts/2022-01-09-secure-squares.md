@@ -340,7 +340,7 @@ Even though we tile the plane infinitely, there aren't an infinite type of rooms
 <div id="secureLattice"></div>
 </center>
 <center style="color: #666;">
-<p>Having 4 "unique" rooms generates 4 unique lattices of <span style="color:rgb(0,50,0)">mirrored targets</span>.</p>
+<p>Having 4 "unique" rooms generates 4 unique lattices of mirrored targets.</p>
 </center>
 
 Each one of the reflected rooms generates a lattice of that reflected target! I've colored the 4 different lattices in <span style="color:rgb(0,50,0)">green</span>, <span style="color:rgb(255,200,0)">yellow</span>, <span style="color:magenta">magenta</span>, and <span style="color:cyan">cyan</span>. Now, since each dot represents a way of hitting our <span style="color:green">target</span>, we just need to block every line from the <span style="color:red">assassin</span> to any one of these colored dots.
