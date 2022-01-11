@@ -231,6 +231,76 @@ const s3 = ( sketch ) => {
     // drawRay(beam);
     
     
+    if (wall_light.x < 5) {
+        wall_light.x = 5
+    }
+    
+    if (wall_light.x > 600 - 5) {
+        wall_light.x = 600 - 5
+    }
+    
+    if (wall_light.y < 5) {
+        wall_light.y = 5
+    }
+    
+    if (wall_light.y > 600 - 5) {
+        wall_light.y = 600 - 5
+    }
+
+    
+    if (wall_target.x < 5) {
+        wall_target.x = 5
+    }
+    
+    if (wall_target.x > 600 - 5) {
+        wall_target.x = 600 - 5
+    }
+    
+    if (wall_target.y < 5) {
+        wall_target.y = 5
+    }
+    
+    if (wall_target.y > 600 - 5) {
+        wall_target.y = 600 - 5
+    }
+    
+
+    if (line1.x < 5) {
+        line1.x = 5
+    }
+    
+    if (line1.x > 600 - 5) {
+        line1.x = 600 - 5
+    }
+    
+    if (line1.y < 5) {
+        line1.y = 5
+    }
+    
+    if (line1.y > 600 - 5) {
+        line1.y = 600 - 5
+    }
+
+    
+    if (line2.x < 5) {
+        line2.x = 5
+    }
+    
+    if (line2.x > 600 - 5) {
+        line2.x = 600 - 5
+    }
+    
+    if (line2.y < 5) {
+        line2.y = 5
+    }
+    
+    if (line2.y > 600 - 5) {
+        line2.y = 600 - 5
+    }
+  
+
+
+
   //   Use cross product to see if both the light and target are on the same side; if either both positive or negative relative to wall, they'll multiply to a positive number
     
     if ((wall.x * (wall_light.y - line1.y) - (wall_light.x - line1.x) * wall.y) * 

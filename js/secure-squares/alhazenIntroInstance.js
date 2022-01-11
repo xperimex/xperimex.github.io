@@ -242,6 +242,75 @@ const s2 = ( sketch2 ) => {
         } else {
             mouse_angle = mouse_angle;
         }
+
+        if (light.x < 5) {
+            light.x = 5
+        }
+        
+        if (light.x > 600 - 5) {
+            light.x = 600 - 5
+        }
+        
+        if (light.y < 5) {
+            light.y = 5
+        }
+        
+        if (light.y > 600 - 5) {
+            light.y = 600 - 5
+        }
+    
+        
+        if (target.x < 5) {
+            target.x = 5
+        }
+        
+        if (target.x > 600 - 5) {
+            target.x = 600 - 5
+        }
+        
+        if (target.y < 5) {
+            target.y = 5
+        }
+        
+        if (target.y > 600 - 5) {
+            target.y = 600 - 5
+        }
+        
+    
+        if (mirror_center.x < 5) {
+            mirror_center.x = 5
+        }
+        
+        if (mirror_center.x > 600 - 5) {
+            mirror_center.x = 600 - 5
+        }
+        
+        if (mirror_center.y < 5) {
+            mirror_center.y = 5
+        }
+        
+        if (mirror_center.y > 600 - 5) {
+            mirror_center.y = 600 - 5
+        }
+    
+        
+        if (mirror_rad.x < 5) {
+            mirror_rad.x = 5
+        }
+        
+        if (mirror_rad.x > 600 - 5) {
+            mirror_rad.x = 600 - 5
+        }
+        
+        if (mirror_rad.y < 5) {
+            mirror_rad.y = 5
+        }
+        
+        if (mirror_rad.y > 600 - 5) {
+            mirror_rad.y = 600 - 5
+        }
+      
+    
         
         var beam = new Ray(light.x, light.y, mouse_angle, 1000);
         // drawRay(beam);

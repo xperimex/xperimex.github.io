@@ -256,6 +256,40 @@ const s8 = ( sketch ) => {
     
     var pillars = computeOptimalPillars();
 
+
+    if (assassin.x < 5) {
+        assassin.x = 5
+    }
+  
+    if (assassin.x > 600 - 5) {
+        assassin.x = 600 - 5
+    }
+  
+    if (assassin.y < 5) {
+        assassin.y = 5
+    }
+  
+    if (assassin.y > 600 - 5) {
+        assassin.y = 600 - 5
+    }
+  
+  
+    if (target.x < 5) {
+        target.x = 5
+    }
+  
+    if (target.x > 600 - 5) {
+        target.x = 600 - 5
+    }
+  
+    if (target.y < 5) {
+        target.y = 5
+    }
+  
+    if (target.y > 600 - 5) {
+        target.y = 600 - 5
+    }
+  
     
     // Shot
     // Interactive shot
