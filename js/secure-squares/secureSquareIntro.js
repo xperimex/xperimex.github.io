@@ -228,11 +228,12 @@ const s8 = ( sketch ) => {
 
 
     // Data indicating user interactivity
-    var track_mouse5 = true;
+    // Number is meaningless at end of track_mouse; used to maybe differentiate from other files
+    var track_mouse8 = true;
 
     sketch.keyPressed = function() {
     if (keyCode == 51) {
-        track_mouse5 = !track_mouse5;
+        track_mouse8 = !track_mouse8;
     }
     
     }
@@ -247,7 +248,7 @@ const s8 = ( sketch ) => {
     sketch.line(0,height,width,height); 
     
     
-    if (track_mouse5) {
+    if (track_mouse8) {
         mouse_angle5 = Math.atan2(sketch.mouseY - assassin.y, sketch.mouseX - assassin.x);
     } else {
         mouse_angle5 = mouse_angle5;

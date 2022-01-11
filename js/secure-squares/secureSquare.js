@@ -257,11 +257,11 @@ const s9 = ( sketch ) => {
     var pillars = computeOptimalPillars();
 
 
-    
+
     if (assassin.x < 5) {
         assassin.x = 5
     }
-  
+    
     if (assassin.x > 600 - 5) {
         assassin.x = 600 - 5
     }

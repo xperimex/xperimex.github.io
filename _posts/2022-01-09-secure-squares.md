@@ -318,7 +318,7 @@ So, if we wanted to model the <span style="color:red">assassin</span>'s hitting 
 <div id="roomSevenWall"></div>
 </center>
 <center style="color: #666;">
-<p>Even with many more reflections of the room, our bullet still bounces off the colored walls in the order our straight line intersects them. Try dragging both the <span style="color:red">assassin</span>, <span style="color:green">target</span>, and <span style="color: rgb(0,50,0)">mirrored target</span> to see how the paths change.</p>
+<p>Even with many more reflections of the room, our bullet still bounces off the colored walls in the order our straight line intersects them. Try dragging both the <span style="color:red">assassin</span>, <span style="color:green">target</span>, and <span style="color: rgb(0,50,0)">mirrored target</span> to see how the paths change. Note these are only paths that result in the <span style="color:red">assassin</span> hitting the target <span style="color:green">target</span></p>
 </center>
 
 Moreover, since squares can tile the plane maintain the same "silhouette" under reflection, we can infinitely tile the plane with reflected copies of our room. Since a line through this plane can represent any bounce shot from the assassin in the original room, we have successfully simplified our problem setup. Why? With straight lines, we can now use coordinate geometry to place our bodyguards and not worry about annoying reflectedl light patterns within our square.
