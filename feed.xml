@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Tue, 11 Jan 2022 04:58:38 GMT</lastBuildDate>
+      <lastBuildDate>Thu, 13 Jan 2022 00:29:07 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -2521,6 +2521,7 @@ $\begin{array}{c|c}
 <!-- [INSERT TABLE OF CONTENTS LATER WHEN DONE: 1) MATH >> SPLIT DYNAMICAL SYSTEMS WITH ALHAZEN'S AND ILLUMINATION PROBLEMS AND OTHERS THEN SECURE POLYGON 2) GRAPHICS >> TALK ABOUT HOW USEFUL VECTORS ARE, SHOW WHY CURRENT INTERSECTION ALGORITHM CHEATS AND INTRO TO RAYTRACING]
 
 look into if hexagon/triangle/other polygons that can or can't tile the plane are secure polygons like the square -->
+<p><span style="color: #666;"><i>For the best experience, avoid reading this in Safari; most other browsers should work and load the visuals correctly, but Safari breaks rendering a few of them.</i></span></p>
 <h2 id="ricochets-and-rebounds">Ricochets and Rebounds</h2>
 <p>If you have ever played pool, or even laser tag, you might already be familiar with <em>billiard problems</em>. If you have a billiard ball you want to land in a pocket, but there are other balls in your way, where on the side of the pool table do you want to bounce your ball to land in the pocket? Alternatively, if you have a laser gun and an opponent by a mirror, where do you want to aim your laser to hit your opponent? To reduce this problem further (and for future reference), if you have a <span style="color:red">laser</span>, a <span style="color:green">target</span>, and a wall, where do you want to aim the laser to hit the target?</p>
 <center>

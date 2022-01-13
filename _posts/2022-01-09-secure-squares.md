@@ -17,11 +17,11 @@ Today's post is one that's been months in the making. It originally started as o
 
 To begin, let's look at a type of problem you might have _experienced_ before, rather than have read formally: **billiard problems**.
 
-
 <!-- [INSERT TABLE OF CONTENTS LATER WHEN DONE: 1) MATH >> SPLIT DYNAMICAL SYSTEMS WITH ALHAZEN'S AND ILLUMINATION PROBLEMS AND OTHERS THEN SECURE POLYGON 2) GRAPHICS >> TALK ABOUT HOW USEFUL VECTORS ARE, SHOW WHY CURRENT INTERSECTION ALGORITHM CHEATS AND INTRO TO RAYTRACING]
 
 look into if hexagon/triangle/other polygons that can or can't tile the plane are secure polygons like the square -->
 
+<span style="color: #666;"><i>For the best experience, avoid reading this in Safari; most other browsers should work and load the visuals correctly, but Safari breaks rendering a few of them.</i></span>
 
 ## Ricochets and Rebounds
 
