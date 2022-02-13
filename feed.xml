@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Sat, 15 Jan 2022 23:21:50 GMT</lastBuildDate>
+      <lastBuildDate>Sun, 13 Feb 2022 20:25:09 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -982,7 +982,7 @@ $\large{ \frac{PQ}{QR} = \large{ \frac{P&#39;Q&#39;}{Q&#39;R&#39;} } = \frac{1 -
       </item>
       <item>
          <title><![CDATA[Mad Max: Fury Road]]></title>
-         <description><![CDATA[Yes, the flamethrowing guitar was necessary. 
+         <description><![CDATA[Yes, the flamethrowing guitar was necessary 
 
  <p>This post is a collection of essays analyzing scenes, themes, dialogue, and scoring of George Miller&#39;s 2015 120-minute action packed car chase of a movie, <em>Mad Max: Fury Road</em>. It is truly one of my favorite, raw action movies I&#39;ve seen in a long time as it knows exactly what it is: an action movie. It delivers in spades what every action enthusiasts craves with some of the wildest practical effects seen to date, it still manages to have tender moments and characters develop through the action rather than just through some corny moments or having explosions for the sake of explosions. If you have not seen it, do what you can to do so, as even if you&#39;re not a fan of action movies, <em>Fury Road</em> transcends the category and delivers so much more.</p>
 <p>You should also watch it as these essays assume: a) that you know the movie so you don&#39;t walk into thousands of words of spoilers, and b) that you are familiar with some of the terminology introduced in the film as well. </p>
@@ -1145,7 +1145,7 @@ $1+\frac{1}{1-\varphi} = 1-\varphi$
 <p>For those who are interested, try setting your seed value to a number in the form of $-\frac{F_n}{F_{n+1}}$ where $F_n$ represents the nth Fibonacci number. The Golden ratio is closely tied to the Fibonacci numbers, so it may be a bit unsurprising why they may relate here. If you try to iterate over any number in this form, you&#39;ll eventually hit a point where evaluating the function becomes undefined. Try plugging in a few and watch the strange cascading effect happen.</p>
 <p>There are a whole host of functions that have interesting iterations as well. Let&#39;s try $f(x) = \cos(x)$</p>
 <p><img src="/img/fixed-points/cobwebCOS.png" style="width:500px; height=auto "></p>
-<p>Since $f&#39;(x) = -\sin(x)$, $|f&#39;(x)|$ is always less than or equal to 1, so all fixed points it has will not diverge. In this case, we get a solution of $\approx .73909$, sometimes referred to as the <a href="https://mathworld.wolfram.com/DottieNumber.html">Dottie number</a>, which has its own set of interesting properties (for one, it&#39;s a transcendental number of the likes of $\pi$ and $e$!). Let&#39;s try another function. What happens if we scale $f(x)$? Let&#39;s try $5f(x) = 5\cos(x)$</p>
+<p>Since $f&#39;(x) = -\sin(x)$, $|f&#39;(x)|$ is always less than or equal to 1, so all fixed points it has will not diverge. In this case, we get a solution of $\approx .73909$, sometimes referred to as the <a href="https://mathworld.wolfram.com/DottieNumber.html">Dottie number</a>, which has its own set of interesting properties (for one, it&#39;s a transcendental number of the likes of $\pi$ and $e$!). If you are interested in a bit of why this has a fixed point, allow me to point you towards the <a href="https://en.wikipedia.org/wiki/Banach_fixed-point_theorem">Banach Fixed-Point Theorem</a> for an interesting perspective that guarantees this fixed point. Let&#39;s try another function. What happens if we scale $f(x)$? Let&#39;s try $5f(x) = 5\cos(x)$</p>
 <p><img src="/img/fixed-points/cobweb5COS.png" style="width:500px; height=auto "></p>
 <p>We have not one, not two, but three different intersection points of where $5\cos(x) = x$. But notice, all three of them lie within the sensitive region where $f&#39;(x) &gt; 1$; they&#39;re all unstable. You can probably tell just by looking at it, it&#39;s a very chaotic diagram. This might not be unexpected for some of you though. If it doesn&#39;t converge to anything, but also not diverge, why wouldn&#39;t it just randomly jump around ad infinitum? Well, let me just present another function to explain why. Let&#39;s make a cobweb plot for $f(x) = 3.2x(1-x)$</p>
 <p><img src="/img/fixed-points/logisticMap.png" style="width:500px; height=auto "></p>
@@ -2807,7 +2807,7 @@ Not to mention, every other regular polygon doesn't tile the plane, so modelling
 
 <hr>
 
-A few other, related problems to consider. While we only looked at rays for light sources, others have considered other types of light sources. In an <a href="https://en.wikipedia.org/wiki/Illumination_problem">Illumination Problem</a>, we consider point sources (i.e. light source that produces light in every direction instead of one). Actually, we've already looked at one type of Illumination Problem: the secure square! It can be rephrased as the the following: if a light bulb is placed in a mirror room, is it possible to place a finite number of pillars such that a given spot is never illuminated? It's idential to our secure polygon question. One of my favorite Illumination Problems is the <a href="https://en.wikipedia.org/wiki/Art_gallery_problem">Art Gallery Problem</a>, which is not only a readily applicable problem, but also has a wonderfully elegant proof that Steve Fisk conjured (it speaks volumes how nice this proof is for it to be in Martin Aigner's <a href="https://www.amazon.com/Proofs-BOOK-Martin-Aigner-dp-3662572648/dp/3662572648/ref=mt_other?_encoding=UTF8&me=&qid="><i>Proofs from THE BOOK</i></a>).
+A few other, related problems to consider. While we only looked at rays for light sources, others have considered other types of light sources. In an <a href="https://en.wikipedia.org/wiki/Illumination_problem">Illumination Problem</a>, we consider point sources (i.e. light source that produces light in every direction instead of one). Actually, we've already looked at one type of Illumination Problem: the secure square! It can be rephrased as the the following: if a light bulb is placed in a mirror room, is it possible to place a finite number of pillars such that a given spot is never illuminated? It's idential to our secure polygon question. One of my favorite Illumination Problems is the <a href="https://en.wikipedia.org/wiki/Art_gallery_problem">Art Gallery Problem</a>, which is not only a readily applicable problem, but also has a wonderfully elegant proof that Steve Fisk conjured (it speaks volumes how nice this proof is for it to be in Martin Aigner's <a href="https://www.amazon.com/Proofs-BOOK-Martin-Aigner-dp-3662572648/dp/3662572648/ref=mt_other?_encoding=UTF8&me=&qid="><i>Proofs from THE BOOK</i></a>). Here's a great, <a href="https://math.mit.edu/~apost/courses/18.204_2018/Nicole_Chesnokov_paper.pdf">in-depth paper</a> I found discussing this famous problem along with some proofs and extensions as well.
 
 <br><br>
 
@@ -2840,6 +2840,210 @@ If you're interested in learning a bit behind today's graphics and widgets, see 
 ]]></description>
          <link>http://xperimex.github.io/blog/secure-squares</link>
          <guid isPermaLink="true">http://xperimex.github.io/blog/secure-squares</guid>
+         <dc:creator><![CDATA[Adi Mittal]]></dc:creator>
+      </item>
+      <item>
+         <title><![CDATA[Circle Computations and Raytracing Remedies]]></title>
+         <description><![CDATA[Basically, Pixar should hire me 
+
+ <script src="//cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/g9/1.0.16/g9.js'></script>
+<script src="https://www.desmos.com/api/v1.5/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+
+<p>Last post, we looked at different types of <a href="http://xperimex.com/blog/secure-squares/">billiard problems</a>, a class of math problems analyzing how light bounces with different setups of mirrors. Notably, we saw how straight lines make for very simple, easy to compute mirrors, while others like <a href="https://en.wikipedia.org/wiki/Alhazen%27s_problem">circular ones</a>, can be incredibly frustrating. </p>
+<p>A large portion of last post&#39;s content, though, was made up of interactive graphics. While I went over much of the math that goes into <em>solving</em> these types of problems, we skipped over a large part of the math that goes into <em>simulating</em> them. Math is very nice in that many problems can be solved with nothing more than a pen, paper, and your mind, but oftentimes, that&#39;s only helpful if you are confident in how to approach the problem. What computer&#39;s can do is help build our intuition to solve a problem by calculating, drawing, and modelling scenarios with precision and speed we can only wish to achieve.</p>
+<p>So, today, we&#39;ll look at some of the clever math that goes into computer graphics (that we&#39;ll later extend), and to introduce such a topic, we&#39;ll look at a simple, fundamental problem in graphics: how do you find the intersection between a line and a circle?</p>
+<h2 id="languishing-lines-and-confounding-circles">Languishing Lines and Confounding Circles</h2>
+<p>Before we can even attempt this problem, we&#39;re going to have to start from scratch, since we have one <em>slight</em> issue: a computer has no idea what a line or a circle is! So before we can do anything, let&#39;s teach our computer how to draw a line.</p>
+<h3 id="perfect-parameterizations">Perfect Parameterizations</h3>
+<p>At its core, computer graphics is displaying a set of pixels with certain colors. If we want to visualize anything on a computer screen, we just need to find all the relevant pixels (coordinates) to light up and color. Because we want to compute these individual coordinates of, say, a line or circle very quickly and easily, almost always we will use <strong>vectors</strong>. These can be typical column or row vectors you see in linear algebra, or it can even take the form of complex numbers. The reason why these tend to be helpful is that they give very easy ways to compute coordinates for lines, circles, and other shapes.</p>
+<p>If we want to draw a line with slope, say 2, we need to ensure that it is constructed by a vector of slope 2. An easy one to find is the vector $v=\small{\begin{bmatrix} 1 \\ 2 \end{bmatrix}}$ since we know that will pass through the point $(1,2)$. So, to get other points beyond this vector, we can scale $v$ by a factor of $t$ to get other vectors (i.e. points) with the same slope. If $t=2$, we get the point $(2,4)$. If $t=1.5$, we get the point $(1.5,3)$. If $t=239470$, we get the point $(239470,478940)$. Whatever you choose $t$ to be, our vector $v$ will give us a point on the line $y=2x$.</p>
+<p>However, this isn&#39;t super helpful, since we are still only restricted to lines that go through the origin at $(0,0)$. So, we can add a starting point $\color{red}{p}$ to our vector equation to offset the line by $\color{red}{p}$, guaranteeing our line goes through the point $\color{red}{p}$ (since that&#39;s the coordinate generated by $t=0$).</p>
+<center>
+$\large{l = \color{red}{p} + tv}$
+</center>
+
+<p>Now we just plot every point for $t \in (-\infty, \infty)$, and we get a line with $v$ dictating the slope of our line (negative $t$ values gives us coordinates <em>behind</em> $\color{red}{p}$)!</p>
+<center>
+<div id="line"></div>
+</center>
+<center style="color: #666;">
+<p>Our parametric line $l$ going through point $\color{red}{p}$. Drag the point to adjust it&#39;s position.</p>
+</center>
+
+<p>We can do a similar process for a circle. To parameterize a circle, we&#39;ll have to pull from trigonometry. We know that a circle is defined by $x^2 + y^2 = r^2$. The Pythagorean identity tells us that $\cos^2(\theta) + \sin^2(\theta) = 1$, so we can quickly make the connection that $x=r\cos(\theta)$ and $y=r\sin(\theta)$ (which the geometry justifies). This precisely defines $x$ and $y$ in terms of the parameter $\theta$! Again, though, this is centered at the origin, so we can center the circle around a point $\color{blue}{q}$ by adding it to our parameterization.</p>
+<center>
+$\large{c = \color{blue}{q} + r\begin{bmatrix} \cos(\theta) \\ \sin(\theta) \end{bmatrix}}$
+</center>
+
+<p>where $r$ is some real number for the radius of the circle, and $\theta \in [0, 2\pi)$. We can now easily draw both lines and circles!</p>
+<center>
+<div id="circle"></div>
+</center>
+<center style="color: #666;">
+<p>Now we also have a circle centered at $\color{blue}{q}$ too. Drag the center point to change its position, and the radial point its radius.</p>
+</center>
+
+
+<h2 id="collisions-and-intersections">Collisions and Intersections</h2>
+<p>Now that we have defined our line and circle for our computer to interpret, we can start thinking about how to detect collisions between a line and a circle. </p>
+<h3 id="discerning-distances">Discerning Distances</h3>
+<p>A good place to start is by looking at how far away the line $l$ is from the center of the circle $\color{blue}{q}$. For reference, the distance from a point to a line is the shortest (i.e. perpendicular) distance from the point to the line. If $l$ is more than a distance of $r$ away from $\color{blue}{q}$, then we know that it&#39;s outside the circle and doesn&#39;t intersect, and if $l$ is less than a distance $r$ away from $\color{blue}{q}$, then we know it&#39;s inside the circle and does intersect.</p>
+<p><img src="/img/circle-computations/circleIntersectExample.png"></p>
+<center style="color: #666;">
+<p>$l_1$ is a distance less than $r$ away from the center, and clearly intersects the circle. $l_2$ is a distance greater than $r$ away, and clearly does not intersect the circle. $l_3$ is exactly a distance $r$ away, making it tangent to the circle (1 intersection point instead of 2).</p>
+</center>
+
+<p>Let&#39;s look at an individual line and see if we can draw any useful conclusions about this distance.</p>
+<p><img src="/img/circle-computations/circleIntersectDist.png"></p>
+<p>From a given point $\color{red}{p}$ on our line $l$, we can find a new vector between $\color{red}{p}$ and the circle&#39;s center $\color{blue}{q}$ as $\overrightarrow{\color{blue}{q} - \color{red}{p}}$. This will form some angle $\theta$ with $l$, more specifically its vector $v$. Recalling that $\color{green}{d}$ is the perpendicular distance between $\color{blue}{q}$ and $l$, we have a right triangle that gives us that $\color{green}{d} = |\overrightarrow{\color{blue}{q} - \color{red}{p}}| \sin \theta$.</p>
+<p>If you&#39;re familiar with your linear algebra, this almost looks like the formula for the magnitude of the cross product: $|v \times u| = |v||u|\sin \theta$. So, writing our two relevant vectors and rearranging we can see that…</p>
+<center>
+$|\overrightarrow{\color{blue}{q} - \color{red}{p}}||v| \sin \theta = |\overrightarrow{\color{blue}{q} - \color{red}{p}} \times v|$
+<br />
+$|\overrightarrow{\color{blue}{q} - \color{red}{p}}| \sin \theta = |\overrightarrow{\color{blue}{q} - \color{red}{p}} \times \frac{v}{|v|}|$
+</center>
+
+<p>So all we need to do to see if our line intersects our circle is if that cross product is less than or equal to the radius of our circle (if you&#39;re concerned about the dimensionality of our vectors—cross products only exist in dimensions 3 and 7—we can treat them as 3D vectors with z-component 0, which makes the calculation easier and equivalent to the determinant). </p>
+<p>If this isn&#39;t totally apparent why this is true, it has to do with the <a href="https://en.wikipedia.org/wiki/Cross_product#Geometric_meaning">geometrical interpretation</a> for the cross product: we&#39;re finding the area of the parallelogram that the two vectors span, and since the area of a parallelogram is $A=\textrm{base}\cdot\textrm{height}$, we&#39;re essentially finding the height of that parallelogram by dividing by its base.</p>
+<center>
+<div id="crossProduct"></div>
+</center>
+<center style="color: #666;">
+<p>Using the closest distance between the circle and line, we can successfully identify when the line intersects our circle.</p>
+</center>
+
+<p>We have a working condition! Using the cross product, we can identify point-circle intersections with a single line of computation. However, this simple solution does have its limitations. Mainly, this is only a <strong>boolean</strong> condition; this method only tells us whether or not an intersection occurs, but nothing else. We don&#39;t know where on the line it intersects, nor how many times. Sometimes, this doesn&#39;t really matter like when you want to approximate lines intersecting points (since then you can treat points as small circles). But for more complex tasks and graphics like raytracing, this won&#39;t cut it.</p>
+<h3 id="fancy-vector-operations">Fancy Vector Operations</h3>
+<p>If we have a point $x$ on our circle, then the distance between $x$ and the center of the circle $\color{blue}{q}$ should be equal to the radius $r$. As an equation, the magnitude of the vector from $x$ to $\color{blue}{q}$ equals $r$.</p>
+<center>
+$|x - \color{blue}{q}| = r$
+</center>
+
+<p>Moreover, we want this point $x$ on our circle to also be on our line $l$. So, $x = \color{red}{p} + tv$ for some value of $t$. With this in mind, we can substitute $x$ in our previous equation.</p>
+<center>
+$|\color{red}{p} + tv - \color{blue}{q}| = r$
+</center>
+
+<p>Now, let&#39;s square both sides.</p>
+<center>
+$|\color{red}{p} + tv - \color{blue}{q}|^2 = r^2$
+</center>
+
+<p>This may seem pointless, but it helps us rewrite that left side of the equation. Generally, working with the magnitude of a vector as an operator isn&#39;t super helpful, but we can quickly rewrite the <em>square</em> of the magnitude in terms of the dot product, since for any vector $v \cdot v = |v|^2$. </p>
+<center>
+$(\color{red}{p} + tv - \color{blue}{q}) \cdot (\color{red}{p} + tv - \color{blue}{q}) = r^2$
+</center>
+
+<p>Expanding this out and collecting like terms gives us…</p>
+<center>
+$(\color{red}{p} + tv - \color{blue}{q}) \cdot (\color{red}{p} + tv - \color{blue}{q}) = r^2$
+<br>
+$t^2(v \cdot v) + 2t(v \cdot (\color{red}{p} - \color{blue}{q})) + (\color{red}{p} - \color{blue}{q}) \cdot (\color{red}{p} - \color{blue}{q}) - r^2 = 0$
+</center>
+
+<p>Which is just a quadratic equation in $t$! With coefficients…</p>
+<center>
+$\begin{align}
+a &amp; = v \cdot v \
+\newline
+b &amp; = 2(v \cdot (\color{red}{p} - \color{blue}{q})) \
+\newline
+c &amp; = (\color{red}{p} - \color{blue}{q}) \cdot (\color{red}{p} - \color{blue}{q}) - r^2
+\end{align}$
+</center>
+
+<p>…we can solve for $t$ using our trusted quadratic formula (note that $a$, $b$, and $c$ are all outputs of dot products, ensuring they are valid scalars to plug in).</p>
+<center>
+$\large{t = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}}$
+</center>
+
+<p>Remember, $t$ is the scalar that tells us where on our line we are, so if there are real solutions to $t$, then we will have the exact intersection points for our line and the circle!</p>
+<center>
+<div id="basicRaytrace"></div>
+</center>
+<center style="color: #666;">
+<p>Our quadratic formula now not only tells us when the line intersects the circle, but also <em>where</em> they intersect.</p>
+</center>
+
+<p>We can analyze this quadratic like any other to give us insight into our intersection points. Specifically, using the discriminant. When $b^2 - 4ac &gt; 0$, then we get two solutions/intersection points. If $b^2 - 4ac &lt; 0$, then we get no real solutions and therefore no intersection points. Finally, if $b^2 - 4ac = 0$, then we have exactly one intersection point, and can conclude our line is tangent to the circle.</p>
+<p>Also, this quadratic can straight up replace our closest-distance method from before, since the point at which our line is closest to the circle corresponds to the vertex of the parabola at $t=\frac{-b}{2a}$.</p>
+<p>Not to mention, notice how everything we did here was independent of the fact our line and circle exist in two dimensions; we can easily use this for 3D graphics, and even higher dimensions as well to find the intersections between lines and hyperspheres! Below is a raytraced scene I drew of 3 balls using this exact quadratic to compute lighting with shadows and reflections (a.k.a. my formal application to Pixar).</p>
+<p><img src="/img/circle-computations/rayTracedEx.png"></p>
+<center style="color: #666;">
+<p>This raytraced scene is just thousands of uses of the quadratic formula.</p>
+</center>
+
+<p>And to think that we&#39;d never use the quadratic formula in real life. </p>
+<h2 id="i-don-t-know-where-else-to-put-this">I Don&#39;t Know Where Else to Put This</h2>
+<p>Before I end off this post, I want to include some other interesting circle facts since I don&#39;t know where else to put them.</p>
+<h3 id="squaring-the-circle-bounces-">Squaring the Circle (Bounces)</h3>
+<p><strong>If you have a ray of light start from the circumference of the circle, after a total of $n$ reflections within the circle, the sum of all the angles of reflection will be $n^2$ times the initial angle.</strong></p>
+<p>Between this and the <a href="https://en.wikipedia.org/wiki/Basel_problem">Basel problem</a>, circles and squares are just weirdly intertwined. The reason this particular statement is true is because of how much the angle with the horizontal increases after a single bounce. If your light starts at an angle $\alpha$, we can show that every additional bounce will add $2\alpha$ to the angle with respect to the horizontal.</p>
+<p><img src="/img/circle-computations/oddBounce.png"></p>
+<p>With the help of some auxiliary lines, I hope the above picture makes this clear. Then by symmetry, of the circle, we can see that each subsequent bounce will also add $2\alpha$ to the angle. Moreover, since our initial angle itself is $\alpha$, every bounce will just be the odd multiples of $\alpha$ (since odd numbers can be thought of as a multiple of 2 plus 1, which is precisely what our angle bounces mimic)! So, for a series of $n$ bounces, the sum of the angles of each reflection is equal to </p>
+<center>
+$\begin{align}
+\alpha + 3\alpha + 5\alpha + 7\alpha + … + (2n-1)\alpha &amp; = \
+\newline
+\alpha(1+3+5+7+…+2n-1)&amp; = \
+\newline
+\alpha(n\cdot 1 + 2(0+1+2+3+…+n-1)&amp; = \
+\newline
+\alpha(n + 2\cdot\frac{(n-1)(n)}{2}) &amp; = \
+\newline
+\alpha(n + n^2 - n) &amp; = \alpha n^2
+\end{align}$
+</center>
+
+<p>(Yes I am aware there is a formula for an arithmetic sequence with with any initial term but this is how I remember to solve them okay) I didn&#39;t know how to fit it in last post with the mention of circular mirrors there, but here seems like a good spot to mention it.</p>
+<h3 id="perpendicular-parabolas">Perpendicular Parabolas</h3>
+<p><strong>The set of intersection points between two orthogonal parabolas lie on a common circle.</strong></p>
+<center>
+  <div id="intro" style="width: 660px; height: 570px;"></div>
+
+  <script src="/js/circle-computations/orthogonalParabolas.js"></script>
+</center>
+
+<p>To show this is true, we just need to crank out the algebra. To find our intersection points, we need to solve the system of equations</p>
+<center>
+$\begin{cases}
+(x - \color{red}{x_1})^2 = y - \color{red}{y_1} \
+\newline
+(y - \color{blue}{y_2})^2 = x - \color{blue}{x_2}
+\end{cases}$
+</center>
+
+<p>If these individual equations are true for our intersection points, then so is their sum.</p>
+<center>
+$(x - \color{red}{x_1})^2 + (y - \color{blue}{y_2})^2 = y - \color{red}{y_1} + x - \color{blue}{x_2}$
+<br>
+$x^2 - x(2\color{red}{x_1}) + \color{red}{x_1}^2 + y^2 - y(2\color{blue}{y_2}) + \color{blue}{y_2}^2 = y - \color{red}{y_1} + x - \color{blue}{x_2}$
+<br>
+$x^2 - x(2\color{red}{x_1} + 1) + y^2 - y(2\color{blue}{y_2} + 1) = -\color{red}{y_1} - \color{red}{x_1}^2 - \color{blue}{x_2} - \color{blue}{y_2}^2$
+<br>
+$(x - (\color{red}{x_1} + \frac{1}{2}))^2 - (\color{red}{x_1} + \frac{1}{2})^2 + (y - (\color{blue}{y_2} + \frac{1}{2}))^2 - (\color{blue}{y_2} + \frac{1}{2})^2 = -\color{red}{y_1} - \color{red}{x_1}^2 - \color{blue}{x_2} - \color{blue}{y_2}^2$
+<br>
+$(x - (\color{red}{x_1} + \frac{1}{2}))^2 + (y - (\color{blue}{y_2} + \frac{1}{2}))^2 = (\color{red}{x_1} + \frac{1}{2})^2 + (\color{blue}{y_2} + \frac{1}{2})^2  -\color{red}{y_1} - \color{red}{x_1}^2 - \color{blue}{x_2} - \color{blue}{y_2}^2$
+</center>
+
+<p>While that last line may seem a bit unruly, note that $\color{red}{x_1}$, $\color{red}{y_1}$, $\color{blue}{x_2}$, and $\color{blue}{y_2}$ are all constants, so the right-hand side of that last equation can be summarized as one big constant.</p>
+<center>
+$(x - (\color{red}{x_1} + \frac{1}{2}))^2 + (y - (\color{blue}{y_2} + \frac{1}{2}))^2 = C$
+</center>
+
+<p>That&#39;s precisely the equation of a circle with a center at $(\color{red}{x_1} + \frac{1}{2}, \color{blue}{y_2} + \frac{1}{2})$ and radius $\sqrt{C}$, and that&#39;s exactly what is plotted above.</p>
+<hr>
+<p>I have a few more circle tidbits to share, but they have more to expand on in their own posts for another day. </p>
+<p>Until then, hopefully you found this slight detour into the world of graphics interesting. There are (as you could imagine) a lot more to graphics I want to share. From image homography, to video textures, to even a more in-depth look into raytracing and rasterization, but we&#39;ll save those for later.</p>
+<script src="/js/circle-computations/line.js"></script>
+<script src="/js/circle-computations/circle.js"></script>
+<script src="/js/circle-computations/crossProduct.js"></script>
+<script src="/js/circle-computations/basicRaytrace.js"></script>
+]]></description>
+         <link>http://xperimex.github.io/blog/circle-computations</link>
+         <guid isPermaLink="true">http://xperimex.github.io/blog/circle-computations</guid>
          <dc:creator><![CDATA[Adi Mittal]]></dc:creator>
       </item>
    </channel>
