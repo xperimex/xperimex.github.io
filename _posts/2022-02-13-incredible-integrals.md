@@ -1,8 +1,8 @@
 ---START_METADATA---
 {
-  "title": "Incredible Integrals and Tactful Tricks",
+  "title": "Incredible Integrals and Tactful Techniques",
   "author": "Adi Mittal",
-  "summary": "Basically, Pixar should hire me",
+  "summary": "Life-changing integration tricks",
   "tags":[
     "me"
   ]
@@ -11,3 +11,4 @@
 
 ---END_METADATA---
 
+woo
