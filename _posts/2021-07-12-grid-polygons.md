@@ -83,7 +83,77 @@ $
 \end{bmatrix}
 = v'
 $
-</br></br>
+</center>
+
+<hr>
+
+Before we really dig into the matrix computations, take a look at the final column of that last matrix: it has something that looks like $\sin(x) + \cos(x)$ and $\sin(x) - \cos(x)$. These seem too nice not to have a formula for this sum and difference. So, before we go on, it will be worthwhile to see if we can condense those into nicer formulas. In fact, when you plot these functions, you do get what looks like nice sine waves.
+
+Let's say we think it is some type of cosine curve.
+
+<center>
+$\sin(x) + \cos(x) = A\cos(x + \phi)$
+</center>
+
+$A$ is the amplitude of this new curve, and $\phi$ is the phase offset. Now, we fortunately have a well known angle addition formula for cosine.
+
+<center>
+$\color{red}{1}\sin(x) + \color{red}{1}\cos(x) = A\cos(x + \phi) = \color{red}{A\cos(\phi)}\cos(x) \color{red}{-A\sin(\phi)}\sin(x)$
+</center>
+
+This may seem hard to solve, but all we need to do now is match our coefficients (highlighted in <span style="color:red">red</span>). For the right hand side to equal the left hand side
+
+<center>
+$A\cos(\phi) = 1$
+<br>
+$-A\sin(\phi) = 1$
+</center>
+
+That way the $\cos(x)$ and $\sin(x)$ terms will be equal on either side. We can now square both equations and add them together to get
+
+<center>
+$
+\begin{array}{cccc}
+  & (A\cos(\phi))^2 & = & 1^2 \\\
++ & (-A\sin(\phi))^2 & = & 1^2 \\\ \hline
+  & A^2(\cos^2(\phi) + \sin^2(\phi)) & = & 2
+\end{array}
+$
+</center>
+
+Remembering that $\cos^2(\phi) + \sin^2(\phi) = 1$, we get that $A = \sqrt{2}$. Now we can solve for $\phi$ fairly quickly, too. Though, we'll have to be careful about range restrictions on $\cos^{-1}(x)$ and $\sin^{-1}(x)$, so we should corroborate them to make sure we get a value that satisfies both equations.
+
+<center>
+$\begin{align}
+A\cos(\phi) = 1 & \rightarrow \phi = \frac{\pi}{4}, \color{red}{-\frac{\pi}{4}} \\
+\newline
+-A\sin(\phi) = 1 & \rightarrow \phi = \color{red}{-\frac{\pi}{4}}, \frac{5\pi}{4}
+\end{align}$
+</center>
+
+The only (reduced) angle that is satisfies both equations is $\phi = -\frac{\pi}{4}$. Putting it all together now, we can see that
+
+<center>
+$\sin(x) + \cos(x) = \sqrt{2} \cos(x - \frac{\pi}{4})$
+</center>
+
+In a similar manner,
+
+<center>
+$\sin(x) - \cos(x) = \sqrt{2} \cos(x - \frac{3\pi}{4})$
+</center>
+
+but we can make this more akin to our previous equation recalling that $\cos(x) = \sin(\frac{\pi}{2} - x)$.
+
+<center>
+$\sin(x) - \cos(x) = \sqrt{2} \sin(\frac{\pi}{2} - (x - \frac{3\pi}{4})) = \sqrt{2} \sin(-x + \frac{5\pi}{4}) = \sqrt{2} \sin(x - \frac{\pi}{4})$
+</center>
+
+Working with one term instead of the sum of two will make our life easier moving forward.
+
+<hr>
+
+<center>
 $
 \begin{bmatrix}
 0 & -1 & \sqrt{2}\cos(\frac{2\pi (n-1)}{5} - \frac{\pi}{4})  \\\
