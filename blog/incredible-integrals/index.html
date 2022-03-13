@@ -1,0 +1,299 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Delta Thoughts - Incredible Integrals and Tactful Techniques</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#FFFFFF" />
+
+        <link rel="apple-touch-icon" href="/img/apple-touch-icon-precomposed.png">
+        <link rel="icon" type="image/png" href="/img/favicon.png">
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <hr id="starter" />
+
+        <div id="header">
+          <div class="row">
+            <div class="two columns"></div>
+            <div class="eight columns">
+              <h1><span id="goHome" onclick="javascript:location.href='/';">Delta Thoughts</span></h1>
+              <p class="lead" style="margin-top: -10px;">
+                "Pure mathematics is, in its way, the poetry of logical ideas." &mdash; Albert Einstein
+              </p>
+            </div>
+
+          </div>
+        </div>
+        <div class="content row">
+          <div class="two columns"></div>
+          <div class="eight columns">
+            <div class="mainIntro">
+              <div id="headline">
+                Incredible Integrals and Tactful Techniques
+              </div>
+              <div class="date" style="margin-left:0px!important;">By <a href="/">Adi Mittal</a> &#183; March 10, 2022 &#183; 13 min read</div>
+            </div>
+            <div class="articleBody firstcharacter">
+              <p>This will be a slightly more theoretical, conceptual post than the others, but these tricks have that mathematical and problem-solving elegance that is too good not to share. We&#39;ll go over a shortcut for some certain integration by parts problems, and one that allows us to make educated guesses of antiderivatives to find an answer.</p>
+<!-- Talk about IBP + C, ansatz, and maybe Feynmann's trick -->
+<p>First, let&#39;s take a loot at the integration by parts shortcut.</p>
+<h2 id="ibp-but-you-forgot-c">IBP, but You Forgot +C</h2>
+<p>This is by far my new favorite trick to pull out of my back pocket whenever I can. It leverages the fact of the innate products built into integration by parts, and the nature of antiderivatives. Though, I&#39;m sure some of us could use a refresher on integration by parts.</p>
+<h3 id="to-undo-the-product-rule">To Undo the Product Rule</h3>
+<p>When given the product of two functions $f(x)g(x)$, the standard formula to compute its derivative is </p>
+<center>
+$\frac{\mathrm{d}}{\mathrm{d}x} \ f(x)g(x) = f&#39;(x)g(x) + f(x)g&#39;(x)$
+</center>
+
+<p>Now if you integrate both sides and rearrange a little bit we can conclude that</p>
+<center>
+$\int \frac{\mathrm{d}}{\mathrm{d}x} \ f(x)g(x) = \int f&#39;(x)g(x) \ dx + \int f(x)g&#39;(x) \ dx$
+<br>
+$\int f(x)g&#39;(x) \ dx = f(x)g(x) - \int f&#39;(x)g(x) \ dx$
+</center>
+
+<p>Let $u = f(x)$ and $v = g(x)$ to get that</p>
+<center>
+$\boxed{ \int u \ dv = uv - \int v \ du \hspace{.2cm} }$
+</center>
+
+<p>…which is precisely the integration by parts formula we&#39;ve come to know. It really just is the opposite of the product rule. The main reason why it&#39;s such a useful technique is because if you have a function that&#39;s really hard or you don&#39;t know how to integrate, you can use it as your function $u$ and express its integral purely in terms of its derivative. Let&#39;s try this with an example:</p>
+<center>
+$\int \ln x \ dx$
+</center>
+
+<p>This doesn&#39;t seem like a particularly product-y integral that can leverage integration by parts, but it really is!</p>
+<center>
+$\int \ln x \ dx = \int 1 \cdot \ln x \ dx$
+</center>
+
+<p>Since we don&#39;t want to deal with integrating $\ln x$ (besides, that&#39;s what we&#39;re trying to find anyway), we can set $u = \ln x$ and $dv = 1 \ dx$. Then working it through we get that</p>
+<center>
+$\int 1 \cdot \ln x \ dx = x \ln x - \int x \cdot \frac{1}{x} \ dx = x \ln x - x + C$
+</center>
+
+<p>That&#39;s pretty neat! We were able to reduce a relatively hard integral into one that was much simpler by thinking of it in terms of what product of functions when differentiated would include our original integral. </p>
+<p>However, this doesn&#39;t always work by itself, and this is where our integral trick comes into play.</p>
+<h2 id="now-remember-your-c">Now, Remember Your +C</h2>
+<p>Let&#39;s try a very similar integral from before: </p>
+<center>
+$\int \ln(x+1) \ dx$
+</center>
+
+<p>This doesn&#39;t look too bad, right? It&#39;s basically the same as before. Let&#39;s try the same choice of $u = \ln(x+1)$ and $dv = 1 \ dx$ again and see where it takes us.</p>
+<center>
+$\int 1 \cdot \ln(x+1) \ dx = x \ln(x+1) - \int x \cdot \frac{1}{x+1} \ dx$
+</center>
+
+<p>Aaand there&#39;s our problem. Our supposed simplified integral of $\int v \ du$ ended up with something also annoying: $\int x \cdot \frac{1}{x+1} \ dx$. This isn&#39;t too bad if you&#39;re okay with polynomial division (with this one being relatively easy, too), but it isn&#39;t necessarily trivial. Since we want to avoid doing more work, we can do much better by realizing an overlooked aspect of integration by parts.</p>
+<p>We rewrote our original integral in the form of $\int u \ dv$, and later found an antiderivative $v$ from that differential. In our case, we let $dv = 1 \ dx$ and deduced that $v = x$ by undoing the power rule of differentiation. This isn&#39;t <em>wrong</em>, per se, but it is incomplete. The antiderivative of $1\ dx$ isn&#39;t $x$, but $x \ \mathbf{+ \ C}$. Since, remember, the derivative of any constant goes to 0, we can add whatever constant we want to the end of our antiderivative and it&#39;ll still remain valid.</p>
+<p>So how can this help us? Well, let&#39;s do the same integral with the same choice of $u$ and $dv$, but instead of letting $v = x$, let&#39;s make $v = x+1$.</p>
+<center>
+$\int 1 \cdot \ln(x+1) \ dx = (x+1) \ln(x+1) - \int (x+1) \cdot \frac{1}{x+1} \ dx$
+</center>
+
+<p>Look at that! That last, previously annoying integral, has become much simpler! Instead of getting two polynomials dividing each other, our new choice of $v$ reduces it to $\int (x+1) \cdot \frac{1}{x+1} \ dx = \int 1 \ dx = x + C$. So, finally, we can conclude that</p>
+<center>
+$\int \ln(x+1) \ dx = (x+1) \ln(x+1) - x + C$
+</center>
+
+<p>In fact, for any choice of a constant $\alpha$, we can see that</p>
+<center>
+$\int \ln(x+\alpha) \ dx = (x+\alpha) \ln(x+\alpha) - x + C$
+</center>
+
+<p>It&#39;s such a simple trick, but an important reminder to remember the basics and fundamentals when attempting a problem. Besides, $+C$ being more than a formality is at least a little bit satisfying.</p>
+<h2 id="polynomial-predictions">Polynomial Predictions</h2>
+<p>The last integral trick is a bit niche—it relies on that second integral when doing IBP to give a quotient two polynomials of matching degrees. This next shortcut, though, uses this idea of polynomial degree a bit more cleverly, but does not always work. When it does, though, it&#39;s certainly satisfying.</p>
+<p>Let&#39;s find the following antiderivative:</p>
+<center>
+$\int \large{\frac{x^3 + 2x^2 + 3}{\sqrt{x^2 + 3}}}$ $dx$
+</center>
+
+<p>This doesn&#39;t look particularly friendly, but we can make some observations about this function. The numerator of our function is a cubic, or a polynomial of degree 3. Similarly, our denominator is the square root of a quadratic, or polynomial degree 2. In the very loose sense of &quot;degree&quot; we can say that asymptotically, the denominator is closer to a degree 1 or linear polynomial (yes, I know that that $\sqrt{x^2} = |x| \neq x$, but just play along for now). So, if we were to carry out all of the polynomial long division, we&#39;d expect our original function to behave like a degree $3 - \frac{2}{2} = 2$ polynomial.</p>
+<p>Ok, so what? With basic integration, antidifferentiating a polynomial increases its degree by one. This is just the power rule.</p>
+<center>
+$\int x^{\color{red}{n}} \ dx = \frac{1}{n+1}x^{\color{red}{n+1}}$
+</center>
+
+<p>This fact implies that if our polynomial is loosely of &quot;degree&quot; 2, then integrating it should give us a function of degree $2+1=3$. So, let&#39;s make a guess at what our integral might look like.</p>
+<center>
+$\int \large{\frac{x^3 + 2x^2 + 3}{\sqrt{x^2 + 3}}}$ $dx = (ax^2 + bx + c)\sqrt{x^2+3}$
+</center>
+
+<p>This guess should look somewhat reasonable, since we have a quadratic multiplied by square root of another quadratic, which we loosely said was degree 1. And a polynomial of degree 2 multiplied by a polynomial of degree 1 gives us a polynomial of degree 3, which we wanted. However, you might wonder why we even wrote this as a product; why not just write this out as a pure cubic of $ax^3 + bx^2 + cx + d$? The main reason is expecting the chain rule of some kind to occur. When composing functions, the derivative—and therefore the integral—tend to include the structure of these compositions, so it&#39;s not unreasonable to make a guess with the denominator in the result.</p>
+<p>Now here&#39;s the trick: let&#39;s differentiate both sides.</p>
+<center>
+$\large{\frac{x^3 + 2x^2 + 3}{\sqrt{x^2 + 3}}}$ $= (2ax + b)\sqrt{x^2+3} + (ax^2 + bx + c) \cdot \large{\frac{x}{\sqrt{x^2 + 3}}}$
+</center>
+
+<p>If we simplify this expression and expand the right side…</p>
+<center>
+$\large{\frac{x^3 + 2x^2 + 3}{\sqrt{x^2 + 3}}}$ $= (2ax + b)\sqrt{x^2+3} + (ax^2 + bx + c) \cdot \large{\frac{x}{\sqrt{x^2 + 3}}}$
+<br>
+$x^3 + 2x^2 + 3 = (2ax + b)(x^2+3) + (ax^2 + bx + c) \cdot x$
+<br>
+$x^3 + 2x^2 + 3 = 3ax^3 + 2bx^2 + (6a + c)x + 3b$
+</center>
+
+<p>For this last equation to hold, we need the coefficients to match.</p>
+<center>
+$\color{red}{x^3} + \color{blue}{2x^2} + \color{green}{0x} + \color{purple}{3} = \color{red}{3ax^3} + \color{blue}{2bx^2} + \color{green}{(6a + c)x} + \color{purple}{3b}$
+</center>
+
+<p>Therefore,</p>
+<center>
+$\begin{align}
+a &amp; = \frac{1}{3} \
+\newline
+b &amp; = 1 \
+\newline
+c &amp; = -2
+\end{align}$
+</center>
+
+<p>Putting it all together, we can go back to our original guess of the antiderivative and find that</p>
+<center>
+$\int \large{\frac{x^3 + 2x^2 + 3}{\sqrt{x^2 + 3}}}$ $dx = \boxed{\ (\frac{1}{3}x^2 + x - 2)\sqrt{x^2+3} + C \ }$
+</center>
+
+<p>There we go! A succcessful antiderivative found.</p>
+<p>This is trick is a great first attempt at integrating rational functions, but it is also extremely sensitive to minute changes in the integrand. For example, if we change our integral to</p>
+<center>
+$\int \large{\frac{x^3 + 2x^2 + \color{red}{3}}{\sqrt{x^2 + 3}}}$ $dx \rightarrow \int \large{\frac{x^3 + 2x^2 + \color{red}{2}}{\sqrt{x^2 + 3}}}$ $dx$
+</center>
+
+<p>our algorithm breaks. It&#39;s the cost associated with what makes this algorithm so convenient: we don&#39;t touch the numerator of the integrand at all. Our antiderivative guess only depended on the denominator, and as a result, the coefficients we tried to match at the end had no intrinsic tie to the numerator and thus polynomial we were matching. </p>
+<p>This integral shortcut&#39;s convenience is definitely a double-edged sword, but the method behind making these educated guesses is a useful idea in its own right to take away. For more on this type of integration, I recommend reading up on the <a href="https://en.wikipedia.org/wiki/Risch_algorithm">Risch algorithm</a>, a standard in computing indefinite integrals. Here&#39;s also <a href="https://blog.wolfram.com/2021/08/18/new-methods-for-computing-algebraic-integrals/">a very thorough synopsis</a> on evaluating integrals on the Wolfram Blog.</p>
+<h2 id="feynman-s-at-it-again">Feynman&#39;s At It Again</h2>
+<p>This last integration stratagem comes from none other than the celebrated Richard Feynman of physics fame, and thus has been aptly coined as Feynman&#39;s Intregral Trick.</p>
+<p>…as it has been popularized. What I&#39;m about to show has historically been known as the Leibniz Integral Rule, or differentiation under the integral sign. Not quite the same ring to it, but nonetheless good to know for accuracy.</p>
+<p>Let&#39;s try the following integral:</p>
+<center>
+$\int_{0}^{1} \large{\frac{x^2 - 1}{\ln x}}$ $dx$
+</center>
+
+<p>What we&#39;re about to do might seem insane, but it will be immensely helpful in a second. What we&#39;re going to do is <em>generalize</em> this integral. Let</p>
+<center>
+$f(\color{red}{t}) = \int_{0}^{1} \large{\frac{x^\color{red}{t} - 1}{\ln x}}$ $dx$
+</center>
+
+<p>We&#39;ve replaced the exponent of 2 with a $t$. So, in our new, generalized problem, we want to find $f(2)$. A useful fact also to note is that we know some values of $f(t)$. For example, we know that $f(0)=0$. How does this help? Well, now we can what the name of this trick alludes to—moreso outright says: we&#39;ll differentiate under the integral sign. Let&#39;s take the derivative of $f(t)$ with respect to $t$. </p>
+<center>
+$\large{\frac{\partial f}{\partial t}}$ $= \large{\frac{\partial}{\partial t}}$ $\int_{0}^{1} \large{\frac{x^{t} - 1}{\ln x}}$ $dx = \int_{0}^{1} \large{\frac{\partial}{\partial t} \frac{x^{t} - 1}{\ln x}}$ $dx = \int_{0}^{1} x^t \ dx$
+</center>
+
+<p>That last integral is super easy, only reversing the power rule to calculate.</p>
+<center>
+$\large{\frac{\partial f}{\partial t}}$ $= \int_{0}^{1} x^t \ dx = \large{\frac{x^{t+1}}{t+1}}$ $|_{0}^{1} = \large{\frac{1}{t+1}}$
+</center>
+
+<p>Now that we know the derivative of $f(t)$, we can now integrate this simpler function in terms of known values and use the Fundamental Theorem of Calculus to find $f(2)$. </p>
+<center>
+$\int_{0}^{2} \partial f = f(2) - f(0) = f(2) = \int_{0}^{2} \large{\frac{1}{t+1}}$ $\partial t = \ln3 - \ln 1 = \boxed{\ln 3 }$
+</center>
+
+<p>Note how I used the Fundamental Theorem of Calculus with clever bounds for our integral. You could instead solve the differential equation generally, but the FTC skips shortcuts a few steps. So, after all of that, we can conclude </p>
+<center>
+$\int_{0}^{1} \large{\frac{x^2 - 1}{\ln x}}$ $dx = \ln 3$
+</center>
+
+<p>As counterintuitive as it may seem, solving a general problem can sometimes actually be easier to solve than its individual cases. The best part about this technique, though, is that we haven&#39;t just solved one integral, but a whole <em>family</em> of integrals. For any exponent $\alpha$, we can conclude that</p>
+<center>
+$\int_{0}^{1} \large{\frac{x^\alpha - 1}{\ln x}}$ $dx = \ln (\alpha + 1)$
+</center>
+
+<p>You might have noticed something different with this integral compared to our previous approaches: this applies to <em>definite</em> integrals as opposed to <em>indefinite</em> integrals (or antiderivatives). Namely, because of the fact we have to integrate not once but twice in this method. So, at the following step,</p>
+<center>
+$\large{\frac{\partial f}{\partial t}}$ $= \int_{0}^{1} x^t \ dx = \large{\frac{x^{t+1}}{t+1}}$ $|_{0}^{1} = \large{\frac{1}{t+1}}$
+</center>
+
+<p>if this was not a definite integral, we would end up with a $+C$ attached to the end of it that we would not be able to solve for. </p>
+<p>Here&#39;s another application of Feynman&#39;s trick:</p>
+<center>
+$\int_{0}^{1} \large{\frac{\ln (x+1)}{x^2 + 1}}$ $dx$
+</center>
+
+<p>Knowing Feynman&#39;s trick wins you the battle, but knowing <em>how</em> to use it wins you the war. Many times, you have to be creative in your choice of parameter when wanting to differentiate under the integral sign, so don&#39;t be discouraged if it doesn&#39;t work the first time. For this particular integral, we&#39;ll want to consider</p>
+<center>
+$f(t) = \int_{0}^{1} \large{\frac{\ln (tx+1)}{x^2 + 1}}$ $dx$
+</center>
+
+<p>Now, we want to find $f(1)$, and we know that $f(0)=0$. Now let&#39;s differentiate both sides with respect to $t$.</p>
+<center>
+$\large{\frac{\partial f}{\partial t}}$ $= \int_{0}^{1} \large{\frac{\partial}{\partial t} \frac{\ln (tx+1)}{x^2 + 1}}$ $dx = \int_{0}^{1} \large{\frac{x}{(tx+1)(x^2 + 1)}}$ $dx$
+</center>
+
+<p>Decomposing that last integral into its partial fractions yields</p>
+<center>
+$\large{\frac{\partial f}{\partial t}}$ $= \int_{0}^{1} \large{\frac{x}{(tx+1)(x^2 + 1)}}$ $dx = \large{\frac{1}{t^2 + 1}}$ $\int_{0}^{1} \large{\frac{-t}{tx+1}}$ $+ \large{\frac{x}{x^2+1}}$ $+ \large{\frac{t}{x^2 + 1}}$ $dx$
+</center>
+
+<p>Now, with more elementary calculus, we can evaluate that integral.</p>
+<center>
+$\int_{0}^{1} \large{\frac{-t}{tx+1}}$ $+ \large{\frac{x}{x^2+1}}$ $+ \large{\frac{t}{x^2 + 1}}$ $dx = -\ln(tx+1) + \frac{1}{2}\ln(x^2+1) + t\tan^{-1}(x) |_{0}^{1}$
+<br><br>
+$\large{\frac{\partial f}{\partial t}}$ $=\large{\frac{-4\ln(t+1) + 2\ln(2) + t\pi}{4(t^2 + 1)}}$
+</center>
+
+<p>Now, we want $f(1)$, and know that $f(0)=0$, so let&#39;s integrate this function of $t$ from 0 to 1.</p>
+<center>
+$f(1) = \int_{0}^{1} \large{\frac{-4\ln(t+1) + 2\ln(2) + t\pi}{4(t^2 + 1)}}$ $\partial t = \int_{0}^{1} \large{\frac{2\ln(2) + t\pi}{4(t^2 + 1)}}$ $\partial t + \int_{0}^{1} \large{\frac{-4\ln(t+1)}{4(t^2 + 1)}}$ $\partial t$
+<br><br>
+$f(1) = \int_{0}^{1} \large{\frac{2\ln(2) + t\pi}{4(t^2 + 1)}}$ $\partial t - \int_{0}^{1} \large{\frac{\ln(t+1)}{t^2 + 1}}$ $\partial t = \int_{0}^{1} \large{\frac{2\ln(2) + t\pi}{4(t^2 + 1)}}$ $\partial t - f(1)$
+<br><br>
+$f(1) = \large{\frac{1}{2}}$ $\int_{0}^{1} \large{\frac{2\ln(2) + t\pi}{4(t^2 + 1)}}$ $\partial t = \large{\frac{\pi \ln 2}{8}}$
+</center>
+
+<p>Again, almost magically, by generalizing a hard integral, it became a much easier one to tackle.</p>
+<center>
+$\int_{0}^{1} \large{\frac{\ln (x+1)}{x^2 + 1}}$ $dx = \large{\frac{\pi \ln 2}{8}}$
+</center>
+
+<p>To give you an idea how powerful this technique is, the above integral comes from the <a href="https://kskedlaya.org/putnam-archive/2005.pdf">2005 Putnam Exam</a>. Not only does it come from one of the most difficult math tests, it&#39;s also the 5th problem of the first set of problems (with problem 1 being the &quot;easiest&quot; and 6 being near impossible). And, in only a few lines, Feynman and Leibniz had it beat.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>These are the three most recent integration techniques I have picked up and tucked away in my problem solving toolbox, but if you&#39;re interested in more advanced integral shortcuts and tricks, take a look at this <a href="https://math.stackexchange.com/questions/942263/really-advanced-techniques-of-integration-definite-or-indefinite/943212">MathStackExchange post</a> I came across while doing this write-up. There are some genuinely mesmerizing ideas showcased there that just are out of the scope of my ability to explain, so do browse the forum if you&#39;re interested.</p>
+
+              <div id="disqus_thread"></div>
+            <script>
+                (function() {  // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+
+                    s.src = '//delta-thoughts.disqus.com/embed.js';
+
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            </div>
+          </div>
+          <div class="two columns"></div>
+        </div>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <script type="text/javascript">
+          window.MathJax = {
+            tex2jax: {
+              inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+              processEscapes: true
+            }
+          };
+        </script>
+        <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-101583586-1','auto');ga('send','pageview');
+        </script>
+    </body>
+</html>
