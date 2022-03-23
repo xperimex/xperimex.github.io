@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Sun, 13 Mar 2022 07:53:20 GMT</lastBuildDate>
+      <lastBuildDate>Wed, 23 Mar 2022 06:28:44 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -3243,7 +3243,7 @@ $\int \large{\frac{x^3 + 2x^2 + \color{red}{3}}{\sqrt{x^2 + 3}}}$ $dx \rightarro
 <p>This integral shortcut&#39;s convenience is definitely a double-edged sword, but the method behind making these educated guesses is a useful idea in its own right to take away. For more on this type of integration, I recommend reading up on the <a href="https://en.wikipedia.org/wiki/Risch_algorithm">Risch algorithm</a>, a standard in computing indefinite integrals. Here&#39;s also <a href="https://blog.wolfram.com/2021/08/18/new-methods-for-computing-algebraic-integrals/">a very thorough synopsis</a> on evaluating integrals on the Wolfram Blog.</p>
 <h2 id="feynman-s-at-it-again">Feynman&#39;s At It Again</h2>
 <p>This last integration stratagem comes from none other than the celebrated Richard Feynman of physics fame, and thus has been aptly coined as Feynman&#39;s Intregral Trick.</p>
-<p>…as it has been popularized. What I&#39;m about to show has historically been known as the Leibniz Integral Rule, or differentiation under the integral sign. Not quite the same ring to it, but nonetheless good to know for accuracy.</p>
+<p>…as it has been popularized. What I&#39;m about to show has historically been known as the <a href="https://en.wikipedia.org/wiki/Leibniz_integral_rule">Leibniz Integral Rule</a>, or differentiation under the integral sign. Not quite the same ring to it, but nonetheless good to know for accuracy.</p>
 <p>Let&#39;s try the following integral:</p>
 <center>
 $\int_{0}^{1} \large{\frac{x^2 - 1}{\ln x}}$ $dx$

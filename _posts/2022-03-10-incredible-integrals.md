@@ -186,7 +186,7 @@ This integral shortcut's convenience is definitely a double-edged sword, but the
 
 This last integration stratagem comes from none other than the celebrated Richard Feynman of physics fame, and thus has been aptly coined as Feynman's Intregral Trick.
 
-…as it has been popularized. What I'm about to show has historically been known as the Leibniz Integral Rule, or differentiation under the integral sign. Not quite the same ring to it, but nonetheless good to know for accuracy.
+…as it has been popularized. What I'm about to show has historically been known as the [Leibniz Integral Rule](https://en.wikipedia.org/wiki/Leibniz_integral_rule), or differentiation under the integral sign. Not quite the same ring to it, but nonetheless good to know for accuracy.
 
 Let's try the following integral:
 
