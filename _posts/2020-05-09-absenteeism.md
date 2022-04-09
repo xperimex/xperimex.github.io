@@ -60,7 +60,7 @@ This was done as part of the Advanced Authentic Research program during the 2019
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If these curves look the same, that's because they are; they are the same set of data, but one is presented with a positive connotation (attendance is good) and the other with a negative connotation (absenteeism is bad). These are the two sets of data presented, as to see whether *how* one presents data affects one's ability to influence.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; So, in total, there are 5 classes: $\mathrm{i})$ teacher presents positive connotation data; $\mathrm{ii})$ teacher presents negative connotation data; $\mathrm{iii})$ classroom presents positive connotation data; $\mathrm{iv})$ classroom presents negative connotation data; and lastly, all compared to a  $\mathrm{v})$ control with no intervention.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; So, in total, there are 5 classes: $\mathrm{i})$ teacher presents positive connotation data; $\mathrm{ii})$ teacher presents negative connotation data; $\mathrm{iii})$ classroom presents positive connotation data; $\mathrm{iv})$ classroom presents negative connotation data; and lastly, all compared to a  $\mathrm{v})$ control with no intervention (this is formally known as [framing](https://en.wikipedia.org/wiki/Framing_effect_(psychology))).
 
 ## Results
 <a href="/img/results.png">
