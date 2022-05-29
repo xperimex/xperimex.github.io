@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Sat, 09 Apr 2022 15:58:47 GMT</lastBuildDate>
+      <lastBuildDate>Sun, 29 May 2022 01:02:55 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -3332,6 +3332,19 @@ $\int_{0}^{1} \large{\frac{\ln (x+1)}{x^2 + 1}}$ $dx = \large{\frac{\pi \ln 2}{8
 ]]></description>
          <link>http://xperimex.github.io/blog/incredible-integrals</link>
          <guid isPermaLink="true">http://xperimex.github.io/blog/incredible-integrals</guid>
+         <dc:creator><![CDATA[Adi Mittal]]></dc:creator>
+      </item>
+      <item>
+         <title><![CDATA[The Calculus of Variations]]></title>
+         <description><![CDATA[ 
+
+ <p>It&#39;s a been a little while since I&#39;ve last posted. As part of my calculus class, we end the year with an exploration into a calculus related topic that we present to the rest of the class. I and my partner chose to explore the origins behind the <em>brachistochrone</em>: the curve of fastest descent for a rolling ball. Below is the related write-up I did as part of this project, and thought it might make for a good posting. It helped refine my LaTeX skills and I think is a good introduction into the field and motivations of the <em>calculus of variations</em>. Now that summer is right around the corner, hopefully I&#39;ll be able to write more in the coming months. For now, I hope this will do. </p>
+<object data="/img/The_Brachistochrone_and_the_Calculus_of_Variations.pdf" type="application/pdf" width=100% height="895px">
+    <iframe src="https://docs.google.com/viewer?url=https://mittal.ai/docs/resume.pdf&embedded=true" width="100%" height="2000px"></iframe>
+</object>
+]]></description>
+         <link>http://xperimex.github.io/blog/variational-calculus</link>
+         <guid isPermaLink="true">http://xperimex.github.io/blog/variational-calculus</guid>
          <dc:creator><![CDATA[Adi Mittal]]></dc:creator>
       </item>
    </channel>
