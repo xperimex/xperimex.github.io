@@ -2,7 +2,7 @@
 {
   "title": "The Calculus of Variations",
   "author": "Adi Mittal",
-  "summary": "",
+  "summary": "The end of an era",
   "tags":[
     "me"
   ]
