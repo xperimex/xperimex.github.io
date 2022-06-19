@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Tue, 31 May 2022 00:19:36 GMT</lastBuildDate>
+      <lastBuildDate>Sun, 19 Jun 2022 07:30:04 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -3345,6 +3345,413 @@ $\int_{0}^{1} \large{\frac{\ln (x+1)}{x^2 + 1}}$ $dx = \large{\frac{\pi \ln 2}{8
 ]]></description>
          <link>http://xperimex.github.io/blog/variational-calculus</link>
          <guid isPermaLink="true">http://xperimex.github.io/blog/variational-calculus</guid>
+         <dc:creator><![CDATA[Adi Mittal]]></dc:creator>
+      </item>
+      <item>
+         <title><![CDATA[<i>Quake III</i>'s Smartest Quasi-Square Root]]></title>
+         <description><![CDATA[See? Video games ARE useful 
+
+ <p>A couple months back, <a href="http://xperimex.com/blog/circle-computations/">we covered a little bit about some random circle computations and facts</a> I had collected over the months leading into that post. In it, we highlighted and rederived the basic raytracing equation for circles and spheres. In a few words, we used properties of vectors to be able to reduce the problem of where a line intersects a sphere into a quadratic equation. And with all quadratics, we were then able to use the quadratic formula to quickly find those points of intersection. In that post, I go on to say that I was able to generate this <em>incredible</em> raytraced scene in a mere matter of tens of minutes in even as simple a programming language as Python:</p>
+<p><img src="/img/circle-computations/rayTracedEx.png"></p>
+<center style="color: #666;">
+<p>This raytraced scene is just millions of uses of the quadratic formula.</p>
+</center>
+
+<p>But I have to admit, I sort of lied to you. While, yes, that image <em>does</em> use the quadratic formula millions of times, it doesn&#39;t <em>only</em> do that. To render shadows and reflections, the scene also had to compute lighting and the physics you&#39;d expect with mirror-like objects. Without any of this, our scene would just look like, well, uh, this:</p>
+<p><img src="/img/fast-sqrt/badRaytrace.png"></p>
+<center style="color: #666;">
+<p>Now <i>this</i> is a peak graphical performance. In a word: art.</p>
+</center>
+
+<p>Whichever one you think is better looking is up to the eye of the beholder, but what can&#39;t be argued, is that the second image is much cheaper to render; I&#39;m sure you could guess, no shadows and reflections causes the scene to be rendered in a fifth of the time. <em>A fifth</em>.</p>
+<h2 id="quizzing-quotients">Quizzing Quotients</h2>
+<p>Intuitively, more stuff to compute should take a computer a longer amount of time to go through, but can we pinpoint this bottleneck? Let&#39;s quickly look at what it takes to compute some of these reflections. When light bounces off, say, a mirror, these calculations become much easier when we use the mirror or surface&#39;s <em>normal vector</em>: the vector perpendicular to the surface (or the point at the surface) in question.</p>
+<p><img src="/img/fast-sqrt/reflectRay.png"></p>
+<center style="color: #666;">
+<p>How to reflect a ray over a normal vector.</p>
+</center>
+
+<p>The above formula for reflecting a ray works in general for reflecting any ray $\vec{R}$ over another vector $\vec{N}$ (even if they&#39;re not normal)… Under a small assumption: the vector $\vec{N}$ is <em>normalized</em> (yes, the naming scheme isn&#39;t ideal), or of unit length (denoted by a little hat $\hat{N}$). We can do this by just scaling the vector down by its own length:</p>
+<center>
+$$\hat{N} = \large{ \frac{\vec{N}}{\lVert N \rVert} }$$
+</center>
+
+<p>Recalling that the length of a vector 3D $\lVert N \rVert = \lVert &lt;x,y,z&gt; \rVert = \sqrt{x^2 + y^2 + z^2}$, we end up with </p>
+<center>
+$$\hat{N} = \large{ \frac{\vec{N}}{\sqrt{x^2 + y^2 + z^2}} }$$
+</center>
+
+<p>And here lies our bottleneck. While we, as humans, treat division not too differently from multiplication in theory, computers can&#39;t work with &quot;just in theory&quot;; computers have to actually compute this arithmetic somehow. It turns out, while multiplication is a bit more complicated than addition, we&#39;ve been able to make <a href="https://en.wikipedia.org/wiki/Karatsuba_algorithm">algorithms</a> for <em>decades</em> to accelerate the computation. Division, on the other hand, has been such a difficult endeavor to match other operations speed, major companies like Intel have lots of <a href="https://www.cl.cam.ac.uk/~jrh13/papers/hol00.pdf">research dedicated to this alone</a>.</p>
+<p>So, what do we do?</p>
+<h2 id="the-fast-inverse-square-root">The Fast Inverse Square Root</h2>
+<p>Under pressure, people can do some amazing things. You can imagine if someone was making a game or anything that required lots of lighting calculations, say, in a video game, calculating $\frac{1}{\sqrt{x}}$ millions of times, therefore also computing millions of divisions won&#39;t really cut it. </p>
+<p>The developers of the video game <em>Quaker III</em>, an incredibly fast-paced shooter that definitely needed these optimizations, used a now infamous algorithm aptly called the <em>fast inverse square root</em>, because, well, it computes the inverse square root $\frac{1}{\sqrt{x}}$, fast and avoids dreaded division. The history of the algorithm has been found to predate the game that made it so infamous, but pop culture assigns value to whatever it latches onto first. Without further ado, the original source code (along with all the original comments and annotations) for <em>Quake III</em> was released in 2005, and the program is right there for us to learn from:</p>
+<div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em; font-size: 12px"><pre style="margin: 0; line-height: 125%"><span style="color: #B00040">float</span> <span style="color: #0000FF">Q_rsqrt</span>( <span style="color: #B00040">float</span> number )
+{
+      <span style="color: #B00040">long</span> i;
+      <span style="color: #B00040">float</span> x2, y;
+      <span style="color: #008000; font-weight: bold">const</span> <span style="color: #B00040">float</span> threehalfs <span style="color: #666666">=</span> <span style="color: #666666">1.5F</span>;
+
+      x2 <span style="color: #666666">=</span> number <span style="color: #666666">*</span> <span style="color: #666666">0.5F</span>;
+      y  <span style="color: #666666">=</span> number;
+      i  <span style="color: #666666">=</span> <span style="color: #666666">*</span> ( <span style="color: #B00040">long</span> <span style="color: #666666">*</span> ) <span style="color: #666666">&amp;</span>y;                     <span style="color: #408080; font-style: italic">// evil floating point bit level hacking</span>
+      i  <span style="color: #666666">=</span> <span style="color: #666666">0x5f3759df</span> <span style="color: #666666">-</span> ( i <span style="color: #666666">&gt;&gt;</span> <span style="color: #666666">1</span> );             <span style="color: #408080; font-style: italic">// what the fuck? </span>
+      y  <span style="color: #666666">=</span> <span style="color: #666666">*</span> ( <span style="color: #B00040">float</span> <span style="color: #666666">*</span> ) <span style="color: #666666">&amp;</span>i;
+      y  <span style="color: #666666">=</span> y <span style="color: #666666">*</span> ( threehalfs <span style="color: #666666">-</span> ( x2 <span style="color: #666666">*</span> y <span style="color: #666666">*</span> y ) ); <span style="color: #408080; font-style: italic">// 1st iteration</span>
+<span style="color: #408080; font-style: italic">//    y  = y * ( threehalfs - ( x2 * y * y ) ); // 2nd iteration, this can be removed</span>
+
+      <span style="color: #008000; font-weight: bold">return</span> y;
+}
+</pre></div>
+
+
+<p>It&#39;s not a long algorithm by any means, but I think the comments themselves explain just how crazy this is; even the developers who USED it are impressed, but let&#39;s break it down line by line.</p>
+<div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">      <span style="color: #B00040">long</span> i;
+      <span style="color: #B00040">float</span> x2, y;
+      <span style="color: #008000; font-weight: bold">const</span> <span style="color: #B00040">float</span> threehalfs <span style="color: #666666">=</span> <span style="color: #666666">1.5F</span>;
+</pre></div>
+
+<p>Here we define four different numbers: <code>i</code>, <code>x2</code>, <code>y</code>, and <code>threehalfs</code>. But not all of these numbers are treated the same.</p>
+<h3 id="binary-and-floating-point">Binary and Floating Point</h3>
+<p>In our day-to-day routine, we (at least, most of us) use base 10, decimal, to represent our numbers. What this means is that each digit in a number corresponds to some power of 10 we add together. For example, the number 1409, can be grouped as</p>
+<center>
+$
+\begin{array}{c|c|c|c}
+1 &amp; 4 &amp; 0 &amp; 9 \\ \hline
+10^3 &amp; 10^2 &amp; 10^1 &amp; 10^0  \\
+\end{array}
+$
+</center>
+
+<p>with 1 thousands, 4 hundred, 0 tens, and 9 ones. You add these all together to get $1(10^3) + 4(10^2) + 0(10^1) + 9(10^0) = 1409$. This may seem obvious, but this is a really important idea in how we write numbers. Each digit represents a condensed shorthand for how many of a specific power of 10 is in our number. Computers do it similarly, but instead of base 10, they use base 2, or binary. If we wanted to represent 1409 in binary, we&#39;d have</p>
+<center>
+$
+\begin{array}{c|c|c|c|c|c|c|c|c|c|c}
+1 &amp; 0 &amp; 1 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 \\ \hline
+2^{10} &amp; 2^9 &amp; 2^8 &amp; 2^7 &amp; 2^6 &amp; 2^5 &amp; 2^4 &amp; 2^3 &amp; 2^2 &amp; 2^1 &amp; 2^0  \\
+\end{array}
+$
+</center>
+
+<p>Now if you went and added these together you could verify that $2^{10} + 2^{8} + 2^{7} + 2^{0} = 1409$. Now each digit—or decimal-igit—represents a power of 2. We call these binary-igits bits. That first line of code that defines a <code>long i</code> means we define a number with 32 bits that looks like</p>
+<center>
+<code>00000000 00000000 00000000 00000000</code>
+</center>
+
+<p>With 32 bits, we can write any number from 0 to $2^{32} - 1 = 4294967295$. Let&#39;s notice some nice properties with this format. In decimal, if we wanted to add a 0 to the end of our number like $1409 \rightarrow 14090$, this is the same as multiplying our number by 10, because now every digit has moved up into one bucket higher than before.</p>
+<center>
+$
+\begin{array}{c|c|c|c|c}
+1 &amp; 4 &amp; 0 &amp; 9 &amp; 0\\ \hline
+10^4 &amp; 10^3 &amp; 10^2 &amp; 10^1 &amp; 10^0  \\
+\end{array}
+$
+</center>
+
+<p>In the same way, we can remove zeroes on the right $14090 \rightarrow 1409$ by dividing by 10 since every digit will be shifted into one power lower. Binary works the same. If we want to add a 0 to the right end of our number, we now multiply our number by 2, but if we wanted to remove a 0, we divide by 2. This is known as <strong>bit shifting</strong>, and serves as one of the nice workarounds of division: if you want to divide specifically by a power of 2, just bit shift the number in binary by however many zeroes you need.</p>
+<p>But that leads to an issue: only even numbers can be wholly divided by 2, so what do we do if we want to divide an odd number? How would we write a decimal like .5? How would we write any rational number? We currently can only represent 32-bit <em>integers</em>, since we have no way of writing fractional parts. If we wanted to add decimals, why don&#39;t we just throw in a decimal point then?</p>
+<center>
+<code>00000000 00000000 . 00000000 00000000</code>
+</center>
+
+<p>(Remember this decimal point is just for our convenience; the computer doesn&#39;t actually see anything here but the 32 bits) If we use the left 16 bits for the integer part, and the right 16 bits for the decimal, we can now in fact write rational numbers, but all of a sudden the range of numbers we can represent has shrunk immensely, only to just under 65535.9999847, but the upside is now we can do much more precise, rational numbers. This is okay, but we can do better. </p>
+<p>If you have ever taken a chemistry or physics class, you&#39;re probably all too familiar with <em>scientific notation</em>. We can write really big numbers and really small numbers in a much more condensed way by turning everything into a product of a power of ten:</p>
+<center>
+$\begin{align}
+4230987 &amp; \rightarrow 4.230987 \cdot 10^6 \
+\newline
+0.000154 &amp; \rightarrow 1.54 \cdot 10^{-4}
+\end{align}$
+</center>
+
+<p>This is how our calculators can do arithmetic beyond just the digits shown on the screen. By slapping on a power of 10, we can now represent a much wider range of values using the same number of digits previously. Similarly, binary works just the same except with powers of 2.</p>
+<center>
+$\begin{align}
+11010111 &amp; \rightarrow 1.1010111 \cdot 2^7 \
+\newline
+0.00101 &amp; \rightarrow 1.01 \cdot 2^{-3}
+\end{align}$
+</center>
+
+
+<p>So, let&#39;s do just that. Let&#39;s allocate 8 bits of our previous 32 to representing the <span style="color:green">exponent</span>, and another 23 to our <span style="color:blue">actual number</span>.</p>
+<center>
+<span style="color:green"><code>00000000</code></span> <span style="color:blue"><code>0.0000000000000000000000</code></span>
+</center>
+
+<p>With 8 bits for the <span style="color:green">exponent</span>, we can represent anything from 0 to 255, but we also want negative exponents, so we just subtract 127 to get the new range of exponents from -127 to 128. With our <span style="color:blue">fractional number</span> and its 1 whole bit and 22 decimal bits, we can represent numbers from 0 to 1.999999761581. We call this part of the number the <span style="color:blue">mantissa</span>. However, this is actually not the full extent of the potential precision we can get. In all of our examples of scientific notation, there was always a non-zero number before the decimal point, since if there was a leading 0, that&#39;s another power of our exponent we could factor out. In binary, there&#39;s only two values: 0 and 1. If we know the first digit is non-zero, then we know it has to be a 1! So we can actually shift our decimal point over and gain an extra bit.</p>
+<center>
+<span style="color:green"><code>00000000</code></span> <span style="color:blue"><code>.00000000000000000000000</code></span>
+</center>
+
+<p>Now all we have to do is affix a leading 1 and we&#39;re good to go. So, the number</p>
+<center>
+<span style="color:green"><code>11001010</code></span> <span style="color:blue"><code>.01110100000000000000000</code></span>
+</center>
+
+<p>would represent $1\color{blue}{.453125} \cdot \color{green}{2^{202-127}}$. In general, if we&#39;re given a 23 bit number representing the <span style="color:blue">mantissa</span> and an 8 bit number representing the <span style="color:green">exponent</span>, we can write our number we&#39;re expressing as:</p>
+<center>
+$\large{(1 + \color{blue}{\frac{M}{2^{23}}}) \cdot \color{green}{2^{E-127}}}$
+</center>
+
+<p>We divide our <span style="color:blue">mantissa</span> by $2^{23}$ so that it is only the fractional part of our number like we want. However, doesn&#39;t part of this just <em>feel</em> wrong? Like, when we were defining an integer as a 32 bit <code>long</code>, we used every bit to denote a new power of 2. Here, we really are writing two <em>different</em> binary numbers side-by-side. If we wrote our number as </p>
+<center>
+<span style="color:blue"><code>.01110100000000000000000</code></span> <span style="color:green"><code>11001010</code></span>
+</center>
+
+<p>would it really make a difference? So, just for the sake of consistency, we&#39;ll put the <span style="color:green">exponent</span> first, and we can then represent our number&#39;s bit representation as a sum:</p>
+<center>
+$\begin{align}
+\color{green}{00000000} 00000000000000000000000 &amp; \
+\newline
+\color{blue}{00000000000000000000000} &amp; \ 
+\newline
+\hline
+\color{green}{00000000}\color{blue}{00000000000000000000000}
+\end{align}$
+</center>
+
+<p>We just added 23 filler zeroes to our exponent to make sure it landed where we wanted to in the final bit representation. That sounds like a bit shift! We can thus multiply our <span style="color:green">exponent</span> by $2^{23}$ to give us our 23 extra zeroes So, this final sum—our <span style="color:green">exponent</span> and <span style="color: blue">mantissa</span> together—can be written as</p>
+<center>
+$\large{ \color{green}{E}\cdot 2^{23} + \color{blue}{M} }$
+</center>
+
+<p>Now, there are some flaws that do need to be addressed. If we assume our leading bit is non-zero, how _do_ we represent 0? That actually doesn&#39;t matter in the grand scheme of our intended use in lighting (i.e. we only call the fast inverse square root when we <em>have</em> to use it), and when we&#39;re not, this is a single edge case that can be put in later. Yeah, I&#39;ll admit, it&#39;s not ideal, but it gives us more precision where we need it. The other issue is we haven&#39;t used all of our 32 bits! $8+23=31$, so where did our last bit go? In our set-up, we have it such that we can only represent <em>positive</em> numbers. We can attach an additional <em>sign bit</em> at the front, where if it&#39;s a 0, we say the number is positive, and if it&#39;s a 1, the number is negative. </p>
+<center>
+<span style="color:red"><code>0</code></span> <span style="color:green"><code>11001010</code></span> <span style="color:blue"><code>.01110100000000000000000</code></span>
+</center>
+
+<p>However, we want to know how to find <em>positive</em> square roots, not enter the complex world, so we always just assume it&#39;s positive. So if we don&#39;t use the bit, why don&#39;t we repurpose it? Conventions. The standard for binary fractional-part representation and arithmetic is known as <strong>IEEE 754</strong>, and for that reason we just have to abide by it.</p>
+<p>I&#39;ve been calling this with terms like &quot;decimal points&quot; and &quot;fractional-parts&quot;, but a decimal point seems wrong when we&#39;re doing it in binary. The type of number we&#39;ve just formatted is called a <em>floating point</em> or a <code>float</code> as we see in lines 2 and 3. While <code>float</code>s give us nice ways to represent a lot of numbers, they are a bit annoying compared to <code>long</code>s in the sense that <strong>we can&#39;t bit shift or manipulate a <code>float</code></strong> since the bits in a <code>float</code> represent multiple, different parts of the number in question, namely the <span style="color:green">exponent</span> and the <span style="color:blue">mantissa</span>.</p>
+<!-- ---------- -->
+<h3 id="bit-approximations-with-themselves-">Bit Approximations… With Themselves?</h3>
+<p>This may seem like a gross, unnecessary dive into how computers understand numbers, but understanding what binary, bits, and floats are will help us greatly in understanding the ingenuity behind the fast inverse square root. To recap, we&#39;ve found that we can represent a binary number as a <code>float</code> with two parts, an <span style="color:green">exponent</span> and a <span style="color:blue">mantissa</span>, as if we were using scientific notation. To find the actual number our <code>float</code> represents, we use the formula</p>
+<center>
+$\large{(1 + \color{blue}{\frac{M}{2^{23}}}) \cdot \color{green}{2^{E-127}}}$
+</center>
+
+<p>Since we&#39;re working with two different binary numbers together, we combine them into one sequence of bits that to as a shorthand to represent our <code>float</code> with the formula</p>
+<center>
+$\large{ \color{green}{E}\cdot 2^{23} + \color{blue}{M} }$
+</center>
+
+<p>We can now perform some mathematical magic. Let&#39;s take the logarithm of the actual number of our <code>float</code> (note by $\log(x)$, we assume it to be $\log_2(x)$ since we&#39;re working in binary).</p>
+<center>
+$\large{ \log((1 + \color{blue}{\frac{M}{2^{23}}}) \cdot \color{green}{2^{E-127}}) =  \log(1 + \color{blue}{\frac{M}{2^{23}}})} + \color{green}{E-127}$
+</center>
+
+<p>This may not seem that useful, but there&#39;s an important detail here: we&#39;re looking to <em>optimize</em> a program, not get exact results. So, a useful fact to note is that for $x$ between 0 and 1, $\log_2(1+x)\approx x$.</p>
+<p><img src="/img/fast-sqrt/logx.png"></p>
+<center style="color: #666;">
+<p>We can simplify $\log_2(1+x)$ by approximating it as $x$.</p>
+</center>
+
+<p>We can get an <em>even better</em> approximation by slightly offseting our estimate; $\log_2(1+x)\approx x + \delta$ is a better approximation than $\log_2(1+x)\approx x$</p>
+<p><img src="/img/fast-sqrt/betterlogx.png"></p>
+<center style="color: #666;">
+<p>We can approximate $\log_2(1+x)$ better with small shift.</p>
+</center>
+
+<p>It turns out the best value for $\delta = 0.0430357$ (as in minimizing the average error). By definition, our <span sytle="color:blue">mantissa</span> is between 0 and 1, so we can use this approximation ourselves.</p>
+<center>
+$\large{ \log(1 + \color{blue}{\frac{M}{2^{23}}}) + \color{green}{E-127} \approx  \color{blue}{\frac{M}{2^{23}}} + \delta + \color{green}{E-127}}$
+</center>
+
+<p>If we rearrange this a bit,</p>
+<center>
+$\large{\color{blue}{\frac{M}{2^{23}}} + \delta + \color{green}{E-127} = \color{blue}{\frac{1}{2^{23}}}(\color{green}{E} \cdot 2^{23} + \color{blue}{M}) + \delta \color{green}{- 127} }$
+</center>
+
+<p>Okay, why did we do any of this? This definitely is kinda random to not only take the $\log$ of our <code>float</code>, but also do all these approximations to then get rid of that $\log$ too? Why?</p>
+<p>Look inside the parantheses in the above equation.</p>
+<center>
+$\large{\color{blue}{\frac{1}{2^{23}}}(\boxed{ \color{green}{E} \cdot 2^{23} + \color{blue}{M} }) + \delta \color{green}{- 127} }$
+</center>
+
+<!-- find better way to box/highlight^^^ -->
+<p>That&#39;s precisely the bit representation of our <code>float</code>! So, in a way, the $\log$ of our number is equal to the bit representation of our <code>float</code>, up to some scaling and shifting.</p>
+<center>
+$\large{\log(\textrm{number}) \approx C(\texttt{bits}) + K}$
+</center>
+
+<p>With this under our belt, we can finally start looking at the steps of the fast inverse square root algorithm.</p>
+<h2 id="evil-floating-point-bit-level-hacking">Evil Floating Point Bit Level Hacking</h2>
+<p>First, we assign our number we want to find the inverse square root of into a <code>float</code> (a.k.a. scientific notation-type decimal number).</p>
+<div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">      y  <span style="color: #666666">=</span> number;
+</pre></div>
+
+<p>Now, recall that a <code>float</code> isn&#39;t that compatible with bit shifting or that many operations, so here&#39;s the first clever part of the algorithm.</p>
+<div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em"><pre style="margin: 0; line-height: 125%">      i  <span style="color: #666666">=</span> <span style="color: #666666">*</span> ( <span style="color: #B00040">long</span> <span style="color: #666666">*</span> ) <span style="color: #666666">&amp;</span>y;<br></pre></div>
+
+<p>What this does is we take the exact bits of our number as a <code>float</code> and copies it into a <code>long</code>. That&#39;s it. Under the hood, it takes the number at the memory address of <code>y</code> and exactly transfers the bits over to <code>i</code>. This will make our life easier here in the next step. </p>
+<p>Since we have now put our number that we&#39;re trying to find the inverse square root to, <code>y</code>, as its bit representation, we have effectively stored approximately $\log({y})$ into <code>i</code>.</p>
+<h2 id="what-the-f-k-">What the F#@k?</h2>
+<p>The fabled step that makes this algorithm so smart.</p>
+<div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">      i  <span style="color: #666666">=</span> <span style="color: #666666">0x5f3759df</span> <span style="color: #666666">-</span> ( i <span style="color: #666666">&gt;&gt;</span> <span style="color: #666666">1</span> );<br></pre></div>
+
+<p>Remember, at the end of all of this, we want to find a number, $\alpha = \frac{1}{\sqrt{{y}}}$, but we have been working almost exclusively in logarithms. So, let&#39;s take the $\log$ of both sides.</p>
+<center>
+$\large{ \log(\alpha) = \log(\frac{1}{\sqrt{{y}}}) = \log({y}^{-\frac{1}{2}}) = -\frac{1}{2}\log({y}) \approx -\frac{1}{2}\texttt{i}}$
+</center>
+
+<p>Wait, but we have a division in there! On quite the contrary, it&#39;s a division by 2, and since <code>i</code> is a <code>long</code>, we can just bit shift to the right 1 to divide by 2! That&#39;s precisely what <code>i &gt;&gt; 1</code> does: it bit shifts <code>i</code> once to the right.</p>
+<p>But what is the deal with that <code>0x5f3759df</code>? Well, remember that <code>i</code> is only an approximation for the $\log(y)$ up to some constants. So, we have to account for those constants <em>somehow</em>. Let&#39;s go back to $\alpha$. We know that</p>
+<center>
+$\large{ \log(\alpha) = -\frac{1}{2}\log({y})}$
+</center>
+
+<p>In terms of <code>float</code>s…</p>
+<center>
+$\large{ \log({(1 + \frac{\color{red}{M_{\alpha}}}{2^{23}}) \cdot 2^{\color{red}{E_{\alpha}}-127}}) = -\frac{1}{2}\log({(1 + \frac{\color{blue}{M_{y}}}{2^{23}}) \cdot 2^{\color{blue}{E_{y}}-127}})}$
+</center>
+
+<p>Fortunately we already know how to expand this from before.</p>
+<center>
+$\frac{1}{2^{23}}(\color{red}{E_\alpha \cdot 2^{23}} + \color{red}{M_\alpha}) + \delta - 127 = -\frac{1}{2}[\frac{1}{2^{23}}(\color{blue}{E_y \cdot 2^{23}} + \color{blue}{M_y}) + \delta - 127]$
+</center>
+
+<p>This looks pretty bad, but after some simplifying and rearranging…</p>
+<center>
+$\color{red}{E_\alpha \cdot 2^{23}} + \color{red}{M_\alpha} = \frac{3}{2}2^{23}(127 - \delta) - \frac{1}{2}(\color{blue}{E_y \cdot 2^{23}} + \color{blue}{M_y})$
+</center>
+
+<p>We know that anything of the form $E\cdot 2^{23} + M$ is just the bit representation of the number, and we know the bits of $y$ is just <code>i</code>, so</p>
+<center>
+$\color{red}{\alpha}_{\texttt{bits}} = \frac{3}{2}2^{23}(127 - \delta) - \frac{1}{2}\texttt{i}$
+</center>
+
+<p>That magic constant <code>0x5f3759df</code> is the hexadecimal (not totally sure why there is so many changes of bases) approximation of that constant $\frac{3}{2}2^{23}(127 - \delta)$. So what we do in this line of code is we bit shift <code>i</code> once to the right to halve it, and take that result and subtract it from <code>0x5f3759df</code> to correct for all the constants that came with our approximations of $\log(y)$. Not totally sure why the developers felt the need to write a variable for <code>threehalfs</code> and not this number, but what can we do.</p>
+<p>But now note we are storing this value in <code>i</code>. So, from here on <code>i</code> no longer refers to the bits of $y$, but the bits of $\alpha$, our desired number. The bits, though, aren&#39;t particularly helpful since we want the <code>float</code> and decimal representation of $\alpha$, so we do just that:</p>
+<div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">      y  <span style="color: #666666">=</span> <span style="color: #666666">*</span> ( <span style="color: #B00040">float</span> <span style="color: #666666">*</span> ) <span style="color: #666666">&amp;</span>i;
+</pre></div>
+
+<p>Just like how we casted the bits of a <code>float</code> $y$ into a <code>long i</code>, we now do the reverse and cast the bits of <code>i</code> into a <code>float</code> $y$.</p>
+<p>At this point, we&#39;re technically done: $y$ currently stores an approximation of $\frac{1}{\sqrt{\texttt{number}}}$, using 0 steps of slow division! But we can do better for a marginal amount of extra computation.</p>
+<h2 id="1st-iteration">1st Iteration</h2>
+<p>Say we wanted to solve for the zeroes of the function</p>
+<center>
+$\large{f(y) = \frac{1}{y^2} - C}$
+</center>
+
+<p>where $C$ is any arbitrary constant. Solving for $y$…</p>
+<center>
+$\large{0 = \frac{1}{y^2} + C \rightarrow y = \frac{1}{\sqrt{C}}}$
+</center>
+
+<p>If we could find a way to approximate the roots of this function, we&#39;d then in turn have a way to approximate the inverse square root of any number!</p>
+<p>In a <a href="https://xperimex.com/blog/fixed-points/#newton-raphson-method">previous post</a>, we discussed a technique to precisely do that: the Newton-Raphson Method (sometimes just called Newton&#39;s Method).</p>
+<p>Let&#39;s say we have a random function $g(x)$. To find a solution, what can we do? Well, not a good idea, but <i>an</i> idea, we could just guess a random number $x_0$ as a solution. If $x_0$ is a solution, then obviously $g(x_0)=0$.</p>
+<p><img src="/img/fast-sqrt/newton0.png"></p>
+<center style="color: #666;">
+<p>A pretty bad first guess.</p>
+</center>
+
+<p>As you&#39;d imagine, the chances of guessing a root of $g(x)$ immediately is slim. So, the next step in Newton&#39;s Method tells us to draw the <i>tangent line</i> at our first guess $(x_0, g(x_0))$ to get our next guess $x_1$.</p>
+<p><img src="/img/fast-sqrt/newton1.png"></p>
+<center style="color: #666;">
+<p>A better, but still not ideal, approximation.</p>
+</center>
+
+<p><em>Now</em> we&#39;re getting pretty close. That&#39;s the whole premise of the Newton-Raphson Method:</p>
+<ol>
+<li>Pick an initial guess $x_n$</li>
+<li>Draw the tangent line at $(x_n, g(x_n))$ and find where it intersects the $x$-axis</li>
+<li>Use that as your new guess $x_{n+1}$</li>
+<li>Repeat steps 1–3 as needed</li>
+</ol>
+<p>So, if we do another iteration of our example above…</p>
+<p><img src="/img/fast-sqrt/newton2.png"></p>
+<center style="color: #666;">
+<p>Now we&#39;re getting to a reasonable estimation.</p>
+</center>
+
+<p>There are some edge cases though where this obviously won&#39;t work, such as if our guess happens to hit an extremum.</p>
+<p><img src="/img/fast-sqrt/newtontangent.png"></p>
+<center style="color: #666;">
+<p>In this case, there&#39;s no additional guess since our tangent line is parallel to the axis.</p>
+</center>
+
+<p>We could even get loops where we just continuously bounce back and forth between two guesses. Fortunately, we don&#39;t have to worry about that. If our first guess is already really accurate and near the actual solution, then our graph $g(x)$ begins to look like this:</p>
+<p><img src="/img/fast-sqrt/localLine.png"></p>
+<center style="color: #666;">
+<p>Up close, smooth, continuous graphs look linear.</p>
+</center>
+
+<p>$g(x)$ starts to look like a line! And when a function locally looks like a line, it also locally looks like its <em>tangent line</em>.</p>
+<p><img src="/img/fast-sqrt/newtonFinal.png"></p>
+<center style="color: #666;">
+<p>Can&#39;t really beat that now.</p>
+</center>
+
+<p>This is important to us since we already have a good estimate from all of our bit manipulation from earlier, so we do one iteration of Newton&#39;s method to get an even <em>better</em> approximation.</p>
+<p>To put this in terms of some equations to compute, we want to estimate the root of</p>
+<center>
+$\large{f(y) = \frac{1}{y^2} - C}$
+</center>
+
+<p>Given an initial guess $y_n$, our next guess $y_{n+1}$ is the solution to</p>
+<center>
+$\large{f&#39;(y_n)(y-y_n) + f(y_n) = 0}$
+</center>
+
+<p>since this describes where our tangent line generates our next solution. Solving for $y$ we get that</p>
+<center>
+$\large{y = y_{n+1} = y_n - \frac{f(y_n)}{f&#39;(y_n)}}$
+</center>
+
+<p>Now it&#39;s just a matter of plugging everything in.</p>
+<center>
+$\begin{align}
+y_{n+1} &amp; = y_n - \frac{f(y_n)}{f&#39;(y_n)} \
+\newline
+&amp; = y_n - \frac{\frac{1}{y_{n}^2} - C}{-\frac{2}{y_{n}^3}} \
+\newline
+&amp; = \frac{3y_n - Cy_{n}^3}{2} \
+\newline
+&amp; = y_n(\frac{3}{2} - \frac{C}{2}y_{n}^2)
+\end{align}$
+</center>
+
+<p>With a small substitution of $x_2 = \frac{C}{2}$,</p>
+<center>
+$\large{ y_{n+1} = y_n(\frac{3}{2} - x_{2}y_{n}^2) }$
+</center>
+
+<p>If we look at the line of code that entails this &quot;1st iteration&quot;,</p>
+<div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">      y  <span style="color: #666666">=</span> y <span style="color: #666666">*</span> ( threehalfs <span style="color: #666666">-</span> ( x2 <span style="color: #666666">*</span> y <span style="color: #666666">*</span> y ) );
+</pre></div>
+
+<p>That&#39;s precisely the formula they have right there. You might wonder if that $\frac{3}{2}$ poses an issue at all in terms of division, but it is of no concern since we know its decimal expansion to be 1.5 so we can just use floating point arithmetic from the start; division becomes an increasingly hard problem when we <em>don&#39;t</em> know what the decimal representation of the quotient in question is.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Let&#39;s quickly recap what we&#39;ve learned about the fast inverse square root algorithm and how it works:</p>
+<div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em; font-size: 12px"><pre style="margin: 0; line-height: 125%"><span style="color: #B00040">float</span> <span style="color: #0000FF">Q_rsqrt</span>( <span style="color: #B00040">float</span> number )
+{
+      <span style="color: #B00040">long</span> i;
+      <span style="color: #B00040">float</span> x2, y;
+      <span style="color: #008000; font-weight: bold">const</span> <span style="color: #B00040">float</span> threehalfs <span style="color: #666666">=</span> <span style="color: #666666">1.5F</span>;
+
+      x2 <span style="color: #666666">=</span> number <span style="color: #666666">*</span> <span style="color: #666666">0.5F</span>;
+      y  <span style="color: #666666">=</span> number;
+      i  <span style="color: #666666">=</span> <span style="color: #666666">*</span> ( <span style="color: #B00040">long</span> <span style="color: #666666">*</span> ) <span style="color: #666666">&amp;</span>y;                     <span style="color: #408080; font-style: italic">// evil floating point bit level hacking</span>
+      i  <span style="color: #666666">=</span> <span style="color: #666666">0x5f3759df</span> <span style="color: #666666">-</span> ( i <span style="color: #666666">&gt;&gt;</span> <span style="color: #666666">1</span> );             <span style="color: #408080; font-style: italic">// what the fuck? </span>
+      y  <span style="color: #666666">=</span> <span style="color: #666666">*</span> ( <span style="color: #B00040">float</span> <span style="color: #666666">*</span> ) <span style="color: #666666">&amp;</span>i;
+      y  <span style="color: #666666">=</span> y <span style="color: #666666">*</span> ( threehalfs <span style="color: #666666">-</span> ( x2 <span style="color: #666666">*</span> y <span style="color: #666666">*</span> y ) ); <span style="color: #408080; font-style: italic">// 1st iteration</span>
+<span style="color: #408080; font-style: italic">//    y  = y * ( threehalfs - ( x2 * y * y ) ); // 2nd iteration, this can be removed</span>
+
+      <span style="color: #008000; font-weight: bold">return</span> y;
+}
+</pre></div>
+
+
+<ol>
+<li>We first take our number as a <code>float</code> $y$ and store its bits in a <code>long i</code>.</li>
+<li>Noting that $\log_2(y) \approx \texttt{i}$, we approximate $\frac{1}{\sqrt{y}}$ using bit shifting and the magic number 0x5f3759df.</li>
+<li>We then perform one iteration of Newton&#39;s method to get an even better approximation.</li>
+</ol>
+<p>These three steps required a fair bit of knowledge to properly unpack, but it&#39;s incredibly insightful when thinking about the lenghts programmers go to optimize their code. Remember: this is all to avoid using any division! What we consider such a simple operation is almost never such for a computer, and when it comes to teaching computers to do these things, they are as blind as a bat. But it&#39;s this difficulty and blank slate of a circuit board that makes computers be able to teach us, just as much as we teach them.</p>
+]]></description>
+         <link>http://xperimex.github.io/blog/fast-sqrt</link>
+         <guid isPermaLink="true">http://xperimex.github.io/blog/fast-sqrt</guid>
          <dc:creator><![CDATA[Adi Mittal]]></dc:creator>
       </item>
    </channel>
