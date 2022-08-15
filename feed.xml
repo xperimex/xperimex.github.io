@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Mon, 15 Aug 2022 20:26:27 GMT</lastBuildDate>
+      <lastBuildDate>Mon, 15 Aug 2022 20:27:44 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -3995,7 +3995,7 @@ dx + ey + f &amp; = (gx + hy + 1)y&#39;
 <p><img src="/img/panorama-homography/firstPanoOutline.jpg"></p>
 <p>With some simple masking and basic filtering, suddenly it really begins to look clean.</p>
 <p><img src="/img/panorama-homography/panorama.jpg"></p>
-<p>While this is cool, it does reveal another unfortunate downside of our choice of mosaic: we lose lots of data for a uniform picture. </p>
+<p>While this is cool, it does reveal another unfortunate downside of our choice of mosaic: if we want a uniform picture, we have to sacrifice a lot of data. </p>
 <p><img src="/img/panorama-homography/panoramaCrop.jpg"></p>
 <p>Even so, it doesn&#39;t even look that bad. All in all, though, not a bad first attempt at building a panorama.</p>
 <h2 id="what-next-">What Next?</h2>
