@@ -323,7 +323,7 @@ With some simple masking and basic filtering, suddenly it really begins to look 
 
 <img src="/img/panorama-homography/panorama.jpg">
 
-While this is cool, it does reveal another unfortunate downside of our choice of mosaic: we lose lots of data for a uniform picture. 
+While this is cool, it does reveal another unfortunate downside of our choice of mosaic: if we want a uniform picture, we have to sacrifice a lot of data. 
 
 <img src="/img/panorama-homography/panoramaCrop.jpg">
 
