@@ -172,9 +172,14 @@ y' \\\
 $
 </center>
 
-These projections with homogeneous coordinates are known as **homographies**. When we take one picture, and reproject it according to a matrix like this but _keeping the same camera center_ (like the origin), we call it a homography. 
+These projections with homogeneous coordinates are known as **homographies**. When we take one picture, and reproject it according to a matrix like this but _keeping the same camera center_ (like the origin), we call it a homography. Again, like homogeneous coordinates, people have been leveraging homographies artistically for a while now. That weird, perspective stree art you might have seen before? That's the most manual you can get to using homographies—literally warping images with the angle you look at them to make them appear at a normal proportion.
 
-What we're doing is computing a homography to build a **mosaic**. Just like te decorative tile art, we are taking tiles of photos we transform and stitching them into one, broader image.
+<img src="/img/panorama-homography/manual-homography.jpeg">
+<center style="color: #666;">
+<p>Street artists have used the power of perspective for a long time.</p>
+</center>
+
+What we're doing is computing a homography to build a **mosaic**. Just like the decorative tile art, we are taking tiles of photos that we transform to overlap, and them stitching them all together into one, broader image.
 
 Moreover, our homographies have a really funny interpretation to them. Since we are reprojecting pictures, what it geometrically looks like is that we're taking two photos which should be rotated in space (as you would spin taking the panorama), and _taking a photo of the two photos_. Photo-ception.
 

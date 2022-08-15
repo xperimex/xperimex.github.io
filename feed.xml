@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Mon, 15 Aug 2022 06:49:58 GMT</lastBuildDate>
+      <lastBuildDate>Mon, 15 Aug 2022 20:26:27 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -3876,8 +3876,13 @@ y&#39; \\
 $
 </center>
 
-<p>These projections with homogeneous coordinates are known as <strong>homographies</strong>. When we take one picture, and reproject it according to a matrix like this but <em>keeping the same camera center</em> (like the origin), we call it a homography. </p>
-<p>What we&#39;re doing is computing a homography to build a <strong>mosaic</strong>. Just like te decorative tile art, we are taking tiles of photos we transform and stitching them into one, broader image.</p>
+<p>These projections with homogeneous coordinates are known as <strong>homographies</strong>. When we take one picture, and reproject it according to a matrix like this but <em>keeping the same camera center</em> (like the origin), we call it a homography. Again, like homogeneous coordinates, people have been leveraging homographies artistically for a while now. That weird, perspective stree art you might have seen before? That&#39;s the most manual you can get to using homographies—literally warping images with the angle you look at them to make them appear at a normal proportion.</p>
+<p><img src="/img/panorama-homography/manual-homography.jpeg"></p>
+<center style="color: #666;">
+<p>Street artists have used the power of perspective for a long time.</p>
+</center>
+
+<p>What we&#39;re doing is computing a homography to build a <strong>mosaic</strong>. Just like the decorative tile art, we are taking tiles of photos that we transform to overlap, and them stitching them all together into one, broader image.</p>
 <p>Moreover, our homographies have a really funny interpretation to them. Since we are reprojecting pictures, what it geometrically looks like is that we&#39;re taking two photos which should be rotated in space (as you would spin taking the panorama), and <em>taking a photo of the two photos</em>. Photo-ception.</p>
 <p><img src="/img/panorama-homography/photoception.png"></p>
 <center style="color: #666;">
