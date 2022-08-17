@@ -349,7 +349,7 @@ Also, since we are manually constructing our panorama, we can stitch and blend p
 <p>Going from a well-lit to a dark photo makes for some artsy renditions (even more if you blend it a little nicer).</p>
 </center>
 
-We never really touched on our homographies, either. When we decided 10 initial points $p$ and 10 warped points $p'$, our $p'$ was decided as a result of lining up 2 photos. What if we didn't want to line up multiple photos, but rather just creatively warp a single photos? 
+We never really touched on our homographies, either. When we decided 10 initial points $p$ and 10 warped points $p'$, our $p'$ was decided as a result of lining up 2 photos. What if we didn't want to line up multiple photos, but rather just creatively warp a single photo? 
 
 <img src="/img/panorama-homography/rectification.jpeg">
 <center style="color: #666;">

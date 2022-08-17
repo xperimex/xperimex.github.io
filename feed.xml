@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Wed, 17 Aug 2022 19:22:57 GMT</lastBuildDate>
+      <lastBuildDate>Wed, 17 Aug 2022 23:14:00 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -4014,7 +4014,7 @@ dx + ey + f &amp; = (gx + hy + 1)y&#39;
 <p>Going from a well-lit to a dark photo makes for some artsy renditions (even more if you blend it a little nicer).</p>
 </center>
 
-<p>We never really touched on our homographies, either. When we decided 10 initial points $p$ and 10 warped points $p&#39;$, our $p&#39;$ was decided as a result of lining up 2 photos. What if we didn&#39;t want to line up multiple photos, but rather just creatively warp a single photos? </p>
+<p>We never really touched on our homographies, either. When we decided 10 initial points $p$ and 10 warped points $p&#39;$, our $p&#39;$ was decided as a result of lining up 2 photos. What if we didn&#39;t want to line up multiple photos, but rather just creatively warp a single photo? </p>
 <p><img src="/img/panorama-homography/rectification.jpeg"></p>
 <center style="color: #666;">
 <p>Something not quite lined up? A simple homography can fix that for us.</p>
