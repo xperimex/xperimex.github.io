@@ -561,7 +561,7 @@ y'
 $
 </center>
 
-Wait, we turned our original matrix equation into another one? As awful as that may look, this is much more useful than our original equation since now, all of our unknowns are in a vector; it really is no different than our previous least-squares examples, and we're still solving for the vector $x$ in
+Wait, we turned our original matrix equation into another one? As awful as that may look, this is much more useful than our original equation since now, all of our unknowns are in a vector instead of a matrix; it really is no different than our previous least-squares examples, and we're still solving for the vector $x$ in
 
 <center>
 $Ax = b$
