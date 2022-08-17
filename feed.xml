@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Wed, 17 Aug 2022 18:24:06 GMT</lastBuildDate>
+      <lastBuildDate>Wed, 17 Aug 2022 18:26:57 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -3806,7 +3806,7 @@ $\large{ y_{n+1} = y_n(\frac{3}{2} - x_{2}y_{n}^2) }$
 <p>In the above coordiante space choice, we might say the point is at $(3,2)$. But what exactly do we <em>mean</em> by the point being at $(3,2)$? What this really implies is that the point is 3 steps to the right of the origin, and 2 steps above the origin.</p>
 <p><img src="/img/panorama-homography/basis.png"></p>
 <p>So, instead of thinking of this point in terms of separate coordinates, we can think of it in terms of these two <strong>basis vectors</strong>. Let&#39;s use $\color{blue}{i}$ to represent the blue, horizontal vector, and $\color{red}{j}$ to represent the red, vertical vector. So, our point is really the combination of $\color{blue}{3i}$ and $\color{red}{2j}$, or simply, $\color{blue}{3i} + \color{red}{2j}$, which itself repsents another vector (the one pointing from the origin to the point $(3,2)$).</p>
-<p>This might seem extra and unnecessary, since we just rewrote a vector as the sum of its horizontal and vertical components, which is what coordinates literally do in the first place. But the useful insight here is that there is nothing says our basis vectors have to be in the unit directions! We can now rewrite points in multiple ways depending on our choice of $\color{blue}{i}$ and $\color{red}{j}$.</p>
+<p>This might seem extra and unnecessary, since we just rewrote a vector as the sum of its horizontal and vertical components, which is what coordinates literally do in the first place. But the useful insight here is that there is nothing that says our basis vectors have to be in the unit directions! We can now rewrite points in multiple ways depending on our choice of $\color{blue}{i}$ and $\color{red}{j}$.</p>
 <p><img src="/img/panorama-homography/basisNew.png"></p>
 <center style="color: #666;">
 <p>A new, quirky choice of basis vectors.</p>

@@ -85,7 +85,7 @@ In the above coordiante space choice, we might say the point is at $(3,2)$. But 
 
 So, instead of thinking of this point in terms of separate coordinates, we can think of it in terms of these two **basis vectors**. Let's use $\color{blue}{i}$ to represent the blue, horizontal vector, and $\color{red}{j}$ to represent the red, vertical vector. So, our point is really the combination of $\color{blue}{3i}$ and $\color{red}{2j}$, or simply, $\color{blue}{3i} + \color{red}{2j}$, which itself repsents another vector (the one pointing from the origin to the point $(3,2)$).
 
-This might seem extra and unnecessary, since we just rewrote a vector as the sum of its horizontal and vertical components, which is what coordinates literally do in the first place. But the useful insight here is that there is nothing says our basis vectors have to be in the unit directions! We can now rewrite points in multiple ways depending on our choice of $\color{blue}{i}$ and $\color{red}{j}$.
+This might seem extra and unnecessary, since we just rewrote a vector as the sum of its horizontal and vertical components, which is what coordinates literally do in the first place. But the useful insight here is that there is nothing that says our basis vectors have to be in the unit directions! We can now rewrite points in multiple ways depending on our choice of $\color{blue}{i}$ and $\color{red}{j}$.
 
 <img src="/img/panorama-homography/basisNew.png">
 <center style="color: #666;">
