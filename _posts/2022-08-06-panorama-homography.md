@@ -98,7 +98,7 @@ But look at that! We've basically accomplished our goal of warping points! We've
 
 This is what linear algebra and matrices encode geometrically. If we write our basis vectors $\color{blue}{i}$ and $\color{red}{j}$ in a matrix and multiply that by the vector representing our initial point, we will get a new point representing our transformation (a.k.a., our warp). How do we write our basis vectors in a matrix? Each vector implicitly has coordinates associated with themselves! In the above picture, $\color{blue}{i}$ points at $(1,-1)$, since from its tail to its tip it moves one step to the right and one step down. $\color{red}{j}$, on the other hand, points at $(1,3)$, and these are precisely the vectors we see in our matrix.
 
-For the unit basis vectors that point at $(1,0)$ and $(0,1)$, we call them $\color{blue}{\hat{\imath}}$ and $\color{red}{\hat{\jmath}}$, and their respective matrix the _identity matrix_.
+For the unit basis vectors that point at $(1,0)$ and $(0,1)$, to differentiate them from any old pair of basis vectors, we call them $\color{blue}{\hat{\imath}}$ and $\color{red}{\hat{\jmath}}$ wearing a little hat, and their respective matrix the _identity matrix_.
 
 <img src="/img/panorama-homography/matrixMult.png">
 <center style="color: #666;">
