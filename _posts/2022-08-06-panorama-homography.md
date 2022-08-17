@@ -270,7 +270,7 @@ $
 
 Remember, we're working in homogeneous coordinates, so $p'$ might not land on the plane $z=1$, and we account for that with $w$ here. I also set $i=1$, since a) that corresponds with a certain scaling and is not necessarily unique vector, but more importantly b) gives us one less variable to solve for.
 
-Here, we will need to actually do the matrix-vector multiplication. Carrying it out nets a system of linear equations! (I know I said you won't need to know the mechanics of these operations, but it's hard to avoid it now. If you can accept this fact, that's great, but I'd recommend looking [here](https://youtu.be/XkY2DOUCWMU) if you are unfamiliar.) 
+Here, we will need to actually do the matrix-vector multiplication, and carrying it out nets a system of linear equations! (I know I said you won't need to know the mechanics of these operations, but it's hard to avoid it now. If you can accept this fact, that's great, but I'd recommend looking [here](https://youtu.be/XkY2DOUCWMU) if you are unfamiliar.) 
 
 <center>
 $\begin{align}
