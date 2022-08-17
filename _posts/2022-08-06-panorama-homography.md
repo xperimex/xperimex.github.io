@@ -109,7 +109,7 @@ These $2 \times 2$ matrices represent _linear transformations_. They're transfor
 
 ## Warping Images
 
-So why should we care? Why is this helpful in any way? If we think of each pixel on our images as a coordinate, we can just apply our transformation to all pixels on that image and generate a new image. Let's take this picture as an example.
+So why should we care? Why is this helpful in any way? If we think of each pixel on our images as a coordinate, we can just apply our transformation to all pixels on that image, find where they land and color them, and generate a new image. Let's take this picture as an example.
 
 <img src="/img/panorama-homography/canyon.jpg">
 
