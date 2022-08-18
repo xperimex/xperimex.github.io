@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Wed, 17 Aug 2022 23:14:00 GMT</lastBuildDate>
+      <lastBuildDate>Thu, 18 Aug 2022 00:54:45 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -3783,7 +3783,7 @@ $\large{ y_{n+1} = y_n(\frac{3}{2} - x_{2}y_{n}^2) }$
 <img src="/img/panorama-homography/desk2Corner.jpg"></p>
 <p>In our panorama, these two points should overlap, since we obviously recognize these to be the same object in the real world. But to the two pictures, they are wildly different! In the first picture, the corner of my monitor is closer to the left side of the frame, while in the second picture, it is almost on the top-right edge of the image. So, if we try to manually align these two corners so that they overlap, we get:</p>
 <p><img src="/img/panorama-homography/firstPanoAttempt.jpg"></p>
-<p>While our single corner of the monitor is aligned between the two images, but I don&#39;t think I have to try very hard to convince you this isn&#39;t a great panorama. I mean, just look at the rest of the overlap.</p>
+<p>While our single corner of the monitor is aligned between the two images, I don&#39;t think I have to try very hard to convince you that this isn&#39;t a great panorama. I mean, just look at the rest of the overlap.</p>
 <p><img src="/img/panorama-homography/firstOverlap.jpg"></p>
 <p>The skew angles of the resting laptop and the monitor itself don&#39;t align at all, and while my cable management is bad, it&#39;s not <em>that</em> bad. This is the real challenge at the heart of making panoramas: images are <em>flat</em>, while the motion of a panorama is <em>cylindrical</em>. Ideally we would take a &quot;cylindrical&quot; photo and unwrap that into a rectangle, but we can&#39;t. Undoubtedly, we will have to warp our images somehow to align.</p>
 <p>How do we find the right way to warp our image? The first thing we will need to do is get more data! Having one point line up between the photos is not great, but, say, 10 different data points might not be bad.</p>
