@@ -50,7 +50,7 @@ In our panorama, these two points should overlap, since we obviously recognize t
 
 <img src="/img/panorama-homography/firstPanoAttempt.jpg">
 
-While our single corner of the monitor is aligned between the two images, but I don't think I have to try very hard to convince you this isn't a great panorama. I mean, just look at the rest of the overlap.
+While our single corner of the monitor is aligned between the two images, I don't think I have to try very hard to convince you that this isn't a great panorama. I mean, just look at the rest of the overlap.
 
 <img src="/img/panorama-homography/firstOverlap.jpg">
 
