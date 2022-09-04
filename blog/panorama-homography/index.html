@@ -171,7 +171,7 @@ $
 <p>If you take a photo of two existing photos, you get one photo that unites the two together. If we can find out the right way to take the photo such that the overlap is correct, we get a panorama.</p>
 </center>
 
-<p>There are other ways to reproject images to make other mosaics with the own benefits and downsides, but this is what we&#39;ll use for now. Benefits with this type of mosaics? They are (relatively) easy and fast(er) to compute. Downsides? We can only take panoramas up to 180° wide.</p>
+<p>There are other ways to reproject images to make other mosaics with the own benefits and downsides, but this is what we&#39;ll use for now. Benefits with this type of mosaics? They are (relatively) easy and fast(er) to compute. Downsides? Since we are projecting onto a plane like this, we can only take panoramas up to 180° wide (can you see why?).</p>
 <h2 id="one-slight-issue-">One Slight Issue…</h2>
 <p>While it&#39;s great that we are able to transform points with matrices, let me remind us what our goal is.</p>
 <p><img src="/img/panorama-homography/desk1labels.jpg">
@@ -281,7 +281,7 @@ dx + ey + f &amp; = (gx + hy + 1)y&#39;
 <p><img src="/img/panorama-homography/panoramaCrop.jpg"></p>
 <p>Even so, it doesn&#39;t even look that bad. All in all, though, not a bad first attempt at building a panorama.</p>
 <h2 id="what-next-">What Next?</h2>
-<p>While we have a working prototype, we can do signficantly better. For one, I used only 10 labelled points to compute our homography, but if you use even more, it&#39;s not hard to get a better, and closer fit. With algortihms like <a href="https://zju3dv.github.io/loftr/">LoFTR</a>, finding lots of corresponding labelled points is quick and easy.</p>
+<p>While we have a working prototype, we can do signficantly better. For one, I used only 10 labelled points to compute our homography, but if you use even more, it&#39;s not hard to get a better, and closer fit. With algortihms like <a href="https://zju3dv.github.io/loftr/">LoFTR</a>, finding lots of corresponding labelled points between multiple images is quick and easy.</p>
 <center>
 <video width="85%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
       <source src="/img/panorama-homography/loftr-homepage-demo.mp4" type="video/mp4">

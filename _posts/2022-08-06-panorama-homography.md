@@ -188,7 +188,7 @@ Moreover, our homographies have a really funny interpretation to them. Since we 
 <p>If you take a photo of two existing photos, you get one photo that unites the two together. If we can find out the right way to take the photo such that the overlap is correct, we get a panorama.</p>
 </center>
 
-There are other ways to reproject images to make other mosaics with the own benefits and downsides, but this is what we'll use for now. Benefits with this type of mosaics? They are (relatively) easy and fast(er) to compute. Downsides? We can only take panoramas up to 180° wide.
+There are other ways to reproject images to make other mosaics with the own benefits and downsides, but this is what we'll use for now. Benefits with this type of mosaics? They are (relatively) easy and fast(er) to compute. Downsides? Since we are projecting onto a plane like this, we can only take panoramas up to 180° wide (can you see why?).
 
 ## One Slight Issue…
 
@@ -332,7 +332,7 @@ Even so, it doesn't even look that bad. All in all, though, not a bad first atte
 
 ## What Next?
 
-While we have a working prototype, we can do signficantly better. For one, I used only 10 labelled points to compute our homography, but if you use even more, it's not hard to get a better, and closer fit. With algortihms like [LoFTR](https://zju3dv.github.io/loftr/), finding lots of corresponding labelled points is quick and easy.
+While we have a working prototype, we can do signficantly better. For one, I used only 10 labelled points to compute our homography, but if you use even more, it's not hard to get a better, and closer fit. With algortihms like [LoFTR](https://zju3dv.github.io/loftr/), finding lots of corresponding labelled points between multiple images is quick and easy.
 
 <center>
 <video width="85%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
