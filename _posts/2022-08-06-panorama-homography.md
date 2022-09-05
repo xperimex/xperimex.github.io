@@ -319,7 +319,7 @@ Sure, the blending isn't great, and it didn't _completely_ fix the overlap issue
 
 <img src="/img/panorama-homography/firstPanoOutline.jpg">
 
-With some simple masking and basic filtering, suddenly it really begins to look clean.
+With some simple masking and basic filtering (basically averaging every pixel's color with the pixels around it), suddenly it really begins to look clean.
 
 <img src="/img/panorama-homography/panorama.jpg">
 

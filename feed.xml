@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Sun, 04 Sep 2022 21:29:15 GMT</lastBuildDate>
+      <lastBuildDate>Mon, 05 Sep 2022 08:13:02 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -3993,7 +3993,7 @@ dx + ey + f &amp; = (gx + hy + 1)y&#39;
 <p><img src="/img/panorama-homography/firstPano.jpg"></p>
 <p>Sure, the blending isn&#39;t great, and it didn&#39;t <em>completely</em> fix the overlap issue, but the seams and photo stitching definitely is much nicer! And honestly, it&#39;s pretty cool seeing how the image was transformed and finding the outline of the images cross like that.</p>
 <p><img src="/img/panorama-homography/firstPanoOutline.jpg"></p>
-<p>With some simple masking and basic filtering, suddenly it really begins to look clean.</p>
+<p>With some simple masking and basic filtering (basically averaging every pixel&#39;s color with the pixels around it), suddenly it really begins to look clean.</p>
 <p><img src="/img/panorama-homography/panorama.jpg"></p>
 <p>While this is cool, it does reveal another unfortunate downside of our choice of mosaic: if we want a uniform picture, we have to sacrifice a lot of data. </p>
 <p><img src="/img/panorama-homography/panoramaCrop.jpg"></p>
