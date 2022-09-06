@@ -37,7 +37,7 @@
               <div id="headline">
                 Pleasing Panormas and Matrix Multiplication
               </div>
-              <div class="date" style="margin-left:0px!important;">By <a href="/">Adi Mittal</a> &#183; August 6, 2022 &#183; 24 min read</div>
+              <div class="date" style="margin-left:0px!important;">By <a href="/">Adi Mittal</a> &#183; August 6, 2022 &#183; 25 min read</div>
             </div>
             <div class="articleBody firstcharacter">
               <p>Out of all the apps on my phone, the camera is one that I can&#39;t see myself without anymore. Between being out with friends, or travelling with family, the camera rarely remains idle as I capture memories forever. Though, there is one particular feature of mobile photography I&#39;ve come to especially love: the panorama.</p>
@@ -391,10 +391,33 @@ b
 
 <p>We know that there&#39;s a good chance our four points don&#39;t all lie on the same line. So it&#39;s unlikely that $Ax - b = 0$. We want to get a line that gets <em>as close</em> to being a perfect fit. So our goal is to </p>
 <center>
-$\min||Ax-b||^2$
+$\min||Ax-b||^2_2$
 </center>
 
-<p>Also, now that $A$ is no longer a square matrix, so we can&#39;t simply take its inverse to solve our equation anymore, since it doesn&#39;t have an inverse. However, we can use the following facts to easily deduce a solution. I&#39;ll let <a href="https://textbooks.math.gatech.edu/ila/least-squares.html">Georgia Tech</a> explain the conditions and proof succinctly:</p>
+<p>We know $A$ and $b$ with $x$ as our unknown—this sort of looks like a parabola-y equation! When we minimize a single variable function, we do so with the derivative. We can do the same thing here except with the multivariable equivalent: the gradient. So, we know the minimum occurs where the gradient of this function is 0.</p>
+<center>
+$\nabla_{x}||Ax-b||^2_2 = 0$
+</center>
+
+<p>Even if you&#39;re not familiar with multivariable calculus, much of the following should still look vaguely familiar to the chain and power rules of single-variable calculus.</p>
+<center>
+$\begin{align}
+\nabla_{x}||Ax-b||^2_2 &amp; = 0 \
+\newline
+2A^T(Ax-b) &amp; = 0 \
+\newline
+2A^TAx - 2A^Tb &amp; = 0 \
+\newline
+A^TAx &amp; = A^Tb
+\end{align}$
+</center>
+
+<p>All finally simplifying to the very nice formula of</p>
+<center>
+$x = (A^TA)^{-1}A^Tb$
+</center>
+
+<p>I like this approach for it&#39;s intuitive roots from the geometry of single-variable calculus, but if you want a more strictly linear algebra approach, here&#39;s this excerpt from I&#39;ll let <a href="https://textbooks.math.gatech.edu/ila/least-squares.html">Georgia Tech</a> explain the another proof for the same formula:</p>
 <hr>
 <p><strong>Theorem.</strong> Let $A$ be a $m \times n$ matrix and let $b$ be a vector in $\mathbb{R}^m$. The following are equivalent:</p>
 <ol>

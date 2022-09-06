@@ -465,10 +465,36 @@ b
 We know that there's a good chance our four points don't all lie on the same line. So it's unlikely that $Ax - b = 0$. We want to get a line that gets _as close_ to being a perfect fit. So our goal is to 
 
 <center>
-$\min||Ax-b||^2$
+$\min||Ax-b||^2_2$
 </center>
 
-Also, now that $A$ is no longer a square matrix, so we can't simply take its inverse to solve our equation anymore, since it doesn't have an inverse. However, we can use the following facts to easily deduce a solution. I'll let [Georgia Tech](https://textbooks.math.gatech.edu/ila/least-squares.html) explain the conditions and proof succinctly:
+We know $A$ and $b$ with $x$ as our unknown—this sort of looks like a parabola-y equation! When we minimize a single variable function, we do so with the derivative. We can do the same thing here except with the multivariable equivalent: the gradient. So, we know the minimum occurs where the gradient of this function is 0.
+
+<center>
+$\nabla_{x}||Ax-b||^2_2 = 0$
+</center>
+
+Even if you're not familiar with multivariable calculus, much of the following should still look vaguely familiar to the chain and power rules of single-variable calculus.
+
+<center>
+$\begin{align}
+\nabla_{x}||Ax-b||^2_2 & = 0 \\
+\newline
+2A^T(Ax-b) & = 0 \\
+\newline
+2A^TAx - 2A^Tb & = 0 \\
+\newline
+A^TAx & = A^Tb
+\end{align}$
+</center>
+
+All finally simplifying to the very nice formula of
+
+<center>
+$x = (A^TA)^{-1}A^Tb$
+</center>
+
+I like this approach for it's intuitive roots from the geometry of single-variable calculus, but if you want a more strictly linear algebra approach, here's this excerpt from I'll let [Georgia Tech](https://textbooks.math.gatech.edu/ila/least-squares.html) explain the another proof for the same formula:
 
 ----------
 
