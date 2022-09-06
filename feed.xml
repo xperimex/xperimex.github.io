@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Mon, 05 Sep 2022 08:13:02 GMT</lastBuildDate>
+      <lastBuildDate>Tue, 06 Sep 2022 04:15:48 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -4134,9 +4134,9 @@ Ax &amp; = b \
 \newline
 A^TAx &amp; = A^Tb \
 \newline
-(A^TA)^{-1}A^TAx &amp; = (A^TA)^{-1}A^TAb \
+(A^TA)^{-1}A^TAx &amp; = (A^TA)^{-1}A^Tb \
 \newline
-x &amp; = (A^TA)^{-1}A^TAb
+x &amp; = (A^TA)^{-1}A^Tb
 \end{align}$
 </center>
 

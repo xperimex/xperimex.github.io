@@ -496,9 +496,9 @@ Ax & = b \\
 \newline
 A^TAx & = A^Tb \\
 \newline
-(A^TA)^{-1}A^TAx & = (A^TA)^{-1}A^TAb \\
+(A^TA)^{-1}A^TAx & = (A^TA)^{-1}A^Tb \\
 \newline
-x & = (A^TA)^{-1}A^TAb
+x & = (A^TA)^{-1}A^Tb
 \end{align}$
 </center>
 
