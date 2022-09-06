@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Tue, 06 Sep 2022 20:13:19 GMT</lastBuildDate>
+      <lastBuildDate>Tue, 06 Sep 2022 20:14:24 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -4163,6 +4163,7 @@ x &amp; = (A^TA)^{-1}A^Tb
 \end{align}$
 </center>
 
+<p>Netting precisely the same formula as before.</p>
 <p>Now, let&#39;s recall the our matrix equation from before of the homography we wanted to solve. </p>
 <center>
 $

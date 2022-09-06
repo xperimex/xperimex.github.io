@@ -528,6 +528,8 @@ x & = (A^TA)^{-1}A^Tb
 \end{align}$
 </center>
 
+Netting precisely the same formula as before.
+
 Now, let's recall the our matrix equation from before of the homography we wanted to solve. 
 
 <center>
