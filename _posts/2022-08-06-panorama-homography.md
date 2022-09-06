@@ -172,7 +172,7 @@ y' \\\
 $
 </center>
 
-(Notice how our matrix is now a $3 \times 3$ matrix as we are working with with 3D coordinates now) These projections with homogeneous coordinates are known as **homographies**. When we take one picture, and reproject it according to a matrix like this but _keeping the same camera center_ (like the origin), we call it a homography. Again, like homogeneous coordinates, people have been leveraging homographies artistically for a while now. That weird, perspective stree art you might have seen before? That's the most manual you can get to using homographies—literally warping images with the angle you look at them to make them appear at a normal proportion.
+(Notice how $M$ is now a $3 \times 3$ matrix as we are working with 3D coordinates now) These projections with homogeneous coordinates are known as **homographies**. When we take one picture, and reproject it according to a matrix like this but _keeping the same camera center_ (like the origin), we call it a homography. Again, like homogeneous coordinates, people have been leveraging homographies artistically for a while now. That weird, perspective stree art you might have seen before? That's the most manual you can get to using homographies—literally warping images with the angle you look at them to make them appear at a normal proportion.
 
 <img src="/img/panorama-homography/manual-homography.jpeg">
 <center style="color: #666;">
