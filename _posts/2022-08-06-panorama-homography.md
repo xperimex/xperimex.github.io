@@ -462,7 +462,7 @@ b
 \end{bmatrix}$
 </center>
 
-We know that there's a good chance our four points don't all lie on the same line. So it's unlikely that $Ax - b = 0$. We want to get a line that gets _as close_ to 0 (a.k.a. being a perfect fit). So our goal is to 
+We know that there's a good chance our four points don't all lie on the same line. So it's unlikely that $Ax - b = 0$. Moreover, now that our matrix $A$ isn't square, we can't just use inverses to solve for $x$. So instead, we want to get a line that gets _as close_ to 0 (a.k.a. being a perfect fit). So our goal is to 
 
 <center>
 $\min||Ax-b||^2_2$
