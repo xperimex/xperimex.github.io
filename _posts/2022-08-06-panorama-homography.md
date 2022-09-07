@@ -61,7 +61,7 @@ How do we find the right way to warp our image? The first thing we will need to 
 <img src="/img/panorama-homography/desk1labels.jpg">
 <img src="/img/panorama-homography/desk2labels.jpg">
 
-So, our final panorama would like the same numbered red and blue points to overlap. With data to use, the second thing we will need is a way to actually warp our image; how do we actually make our point between photos line up? For that, we turn to linear algebra.
+So, our final panorama would like the same numbered red and blue points to overlap. With data to use, the second thing we will need is a way to actually warp our image; how do we actually make our points between photos line up? For that, we turn to linear algebra.
 
 ## Rethinking Coordinates
 

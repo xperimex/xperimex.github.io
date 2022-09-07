@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Tue, 06 Sep 2022 20:45:15 GMT</lastBuildDate>
+      <lastBuildDate>Wed, 07 Sep 2022 07:12:47 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -3789,7 +3789,7 @@ $\large{ y_{n+1} = y_n(\frac{3}{2} - x_{2}y_{n}^2) }$
 <p>How do we find the right way to warp our image? The first thing we will need to do is get more data! Having one point line up between the photos is not great, but, say, 10 different data points might not be bad.</p>
 <p><img src="/img/panorama-homography/desk1labels.jpg">
 <img src="/img/panorama-homography/desk2labels.jpg"></p>
-<p>So, our final panorama would like the same numbered red and blue points to overlap. With data to use, the second thing we will need is a way to actually warp our image; how do we actually make our point between photos line up? For that, we turn to linear algebra.</p>
+<p>So, our final panorama would like the same numbered red and blue points to overlap. With data to use, the second thing we will need is a way to actually warp our image; how do we actually make our points between photos line up? For that, we turn to linear algebra.</p>
 <h2 id="rethinking-coordinates">Rethinking Coordinates</h2>
 <p>If you had a random ordinary point, how might you describe its position to someone?</p>
 <p><img src="/img/panorama-homography/point.png"></p>
