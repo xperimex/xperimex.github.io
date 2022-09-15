@@ -131,6 +131,8 @@ Ok, but why does this even work? I mean, yeah, it produces concentric circles, b
 
 So, we have two lines that intersect that need to be orthogonal to two other circles. What configuration allows this? The only way that a pair of lines can be orthogonal to a circle is if those lines are the radial line of the circle! So, both circles must share the same center of the intersection of the lines which ensure the lines become radial, and by definition of sharing a center, they must be concentric! Isn't that neat?
 
+Also, this explains why our black intersection points of the orthogonal circles are invariant: regardless of what pair of orthogonal circles we use, there is precisely one center of inversion that maps both circles to have the same center (two, technically, but that just flips what circle is on the outside).
+
 One thing worth noting, though, is that we get a solution even when the two circles are _not_ contained within one another. If the two circles are non-intersecting and are completely separated from one another, we can still follow our procedure from before: we can find a radical axis of the two circles, which leads to our two purple orthogonal circles, that finally intersect at the center of our inversion circle. However, we now get a reversed solution with the red circle becoming the outer concentric circle instead of the inner one (this only happens as a result of the choice of intersection point of our orthogonal circles).
 
 ## Conclusion
