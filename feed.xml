@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Thu, 22 Sep 2022 20:04:10 GMT</lastBuildDate>
+      <lastBuildDate>Thu, 22 Sep 2022 20:06:39 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -3877,7 +3877,7 @@ y&#39; \\
 $
 </center>
 
-<p>(Notice how $M$ is now a $3 \times 3$ matrix as we are working with 3D coordinates now) These projections with homogeneous coordinates are known as <strong>homographies</strong>. When we take one picture, and reproject it according to a matrix like this but <em>keeping the same camera center</em> (like the origin), we call it a homography. Again, like homogeneous coordinates, people have been leveraging homographies artistically for a while now. That weird, perspective stree art you might have seen before? That&#39;s the most manual you can get to using homographies—literally warping images with the angle you look at them to make them appear at a normal proportion.</p>
+<p>(Notice how $M$ is now a $3 \times 3$ matrix as we are working with 3D coordinates now) These projections with homogeneous coordinates are known as <strong>homographies</strong>. When we take one picture, and reproject it according to a matrix like this but <em>keeping the same camera center</em> (like the origin), we call it a homography. Again, like homogeneous coordinates, people have been leveraging homographies artistically for a while now. That weird, perspective street art you might have seen before? That&#39;s the most manual you can get to using homographies—literally warping images with the angle you look at them to make them appear at a normal proportion.</p>
 <p><img src="/img/panorama-homography/manual-homography.jpeg"></p>
 <center style="color: #666;">
 <p>Street artists have used the power of perspective for a long time.</p>
