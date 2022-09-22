@@ -100,10 +100,6 @@ This is what linear algebra and matrices encode geometrically. If we write our b
 
 For the unit basis vectors that point at $(1,0)$ and $(0,1)$, to differentiate them from any old pair of basis vectors, we call them $\color{blue}{\hat{\imath}}$ and $\color{red}{\hat{\jmath}}$ wearing a little hat, and their respective matrix the _identity matrix_, since it leaves vectors unchanged after multiplication.
 
-<center>
-$a$
-</center>
-
 <img src="/img/panorama-homography/matrixMult.png">
 <center style="color: #666;">
 <p>The underlying idea of linear transformations.</p>
