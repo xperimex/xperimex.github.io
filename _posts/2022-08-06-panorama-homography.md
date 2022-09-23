@@ -105,7 +105,7 @@ For the unit basis vectors that point at $(1,0)$ and $(0,1)$, to differentiate t
 <p>The underlying idea of linear transformations.</p>
 </center>
 
-These $2 \times 2$ matrices represent _linear transformations_. They're transformations in they way that they transform points from one coordinate to another, and they are linear in the sense that keep all grid lines parallel, evenly spaced and, well, linear after the transformation. This is best seen through [video](https://youtu.be/kYB8IZa5AuE?t=227) and not stills. For this post you don't need to understand the mechanics of matrix-vector multiplication, but just understand that it represents some transformation on a point.
+These $2 \times 2$ matrices represent _linear transformations_. They're transformations in they way that they transform points from one coordinate to another (well, [most of them at least](https://brilliant.org/wiki/eigenvalues-and-eigenvectors/)), and they are linear in the sense that keep all grid lines parallel, evenly spaced and, well, linear after the transformation. This is best seen through [video](https://youtu.be/kYB8IZa5AuE?t=227) and not stills. For this post you don't need to understand the mechanics of matrix-vector multiplication, but just understand that it represents some transformation on a point.
 
 ## Warping Images
 
@@ -268,7 +268,7 @@ w \\\
 $
 </center>
 
-Remember, we're working in homogeneous coordinates, so $p'$ might not land on the plane $z=1$, and we account for that with $w$ here. I also set $i=1$, since a) that corresponds with a certain scaling and is not necessarily unique vector, but more importantly b) gives us one less variable to solve for.
+Remember, we're working in homogeneous coordinates, so $p'$ might not land on the plane $z=1$, and we account for that with $w$ here. I also set $i=1$, since a) that corresponds with a certain scaling and is not necessarily unique vector in the land of homogeneous coordinates, and as a result, more importantly b) gives us one less variable to solve for.
 
 Here, we will need to actually do the matrix-vector multiplication, and carrying it out nets a system of linear equations! (I know I said you won't need to know the mechanics of these operations, but it's hard to avoid it now. If you can accept this fact, that's great, but I'd recommend looking [here](https://youtu.be/XkY2DOUCWMU) if you are unfamiliar.) 
 

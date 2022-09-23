@@ -103,7 +103,7 @@
 <p>The underlying idea of linear transformations.</p>
 </center>
 
-<p>These $2 \times 2$ matrices represent <em>linear transformations</em>. They&#39;re transformations in they way that they transform points from one coordinate to another, and they are linear in the sense that keep all grid lines parallel, evenly spaced and, well, linear after the transformation. This is best seen through <a href="https://youtu.be/kYB8IZa5AuE?t=227">video</a> and not stills. For this post you don&#39;t need to understand the mechanics of matrix-vector multiplication, but just understand that it represents some transformation on a point.</p>
+<p>These $2 \times 2$ matrices represent <em>linear transformations</em>. They&#39;re transformations in they way that they transform points from one coordinate to another (well, <a href="https://brilliant.org/wiki/eigenvalues-and-eigenvectors/">most of them at least</a>), and they are linear in the sense that keep all grid lines parallel, evenly spaced and, well, linear after the transformation. This is best seen through <a href="https://youtu.be/kYB8IZa5AuE?t=227">video</a> and not stills. For this post you don&#39;t need to understand the mechanics of matrix-vector multiplication, but just understand that it represents some transformation on a point.</p>
 <h2 id="warping-images">Warping Images</h2>
 <p>So why should we care? Why is this helpful in any way? If we think of each pixel on our images as a coordinate, we can just apply our transformation to all pixels on that image, find where they land and color them, and generate a new image. Let&#39;s take this picture as an example.</p>
 <p><img src="/img/panorama-homography/canyon.jpg"></p>
@@ -237,7 +237,7 @@ w \\
 $
 </center>
 
-<p>Remember, we&#39;re working in homogeneous coordinates, so $p&#39;$ might not land on the plane $z=1$, and we account for that with $w$ here. I also set $i=1$, since a) that corresponds with a certain scaling and is not necessarily unique vector, but more importantly b) gives us one less variable to solve for.</p>
+<p>Remember, we&#39;re working in homogeneous coordinates, so $p&#39;$ might not land on the plane $z=1$, and we account for that with $w$ here. I also set $i=1$, since a) that corresponds with a certain scaling and is not necessarily unique vector in the land of homogeneous coordinates, and as a result, more importantly b) gives us one less variable to solve for.</p>
 <p>Here, we will need to actually do the matrix-vector multiplication, and carrying it out nets a system of linear equations! (I know I said you won&#39;t need to know the mechanics of these operations, but it&#39;s hard to avoid it now. If you can accept this fact, that&#39;s great, but I&#39;d recommend looking <a href="https://youtu.be/XkY2DOUCWMU">here</a> if you are unfamiliar.) </p>
 <center>
 $\begin{align}
