@@ -374,7 +374,7 @@ If you're interested, here's a link to a [Python notebook](https://colab.researc
 
 ## Aside: Least-Squares with Linear Algebra
 
-Okay, this previous section is really hard to describe without already knowing a fair amount of linear algebra, and it felt a little flat without having a more methodical procedure of solving a least-squares regression. I wasn't planning on including this section, but it felt incomplete otherwise. For those interested, feel free to peer over it, but this is not necessary within the scope of this post; all you need to understand is what our regression is accomplishing, thinking of that "line of best fit" idea.
+Okay, this previous section is really hard to describe without already knowing a fair amount of linear algebra, and it felt a little flat without having a more methodical procedure of solving a least-squares regression. I wasn't planning on including this section, but it felt incomplete otherwise. For those interested, feel free to peer over it, but this is not necessary within the scope of this post; all you need to understand is what our regression is accomplishing, thinking of that "line of best fit" idea giving rise to optimal coefficients in a overfitted system of linear equations.
 
 Let's go back to when we were trying to find a line between two points. If you have 2 points, $(p_1, p_1')$ and $(p_2, p_2')$ being fit to the line $y=mx+b$, we have a system of linear equations like before.
 
