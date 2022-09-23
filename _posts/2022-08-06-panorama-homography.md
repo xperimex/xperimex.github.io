@@ -405,7 +405,7 @@ b
 \end{bmatrix}$
 </center>
 
-In a sense, that's what a matrix is: a system of linear equations, and you can freely go between either a system of linear equations or a matrix via matrix multiplication. (I know I said you won't need to know the mechanics of these operations, but it's hard to avoid it now. If you can accept this fact, that's great, but I'd recommend looking [here](https://youtu.be/XkY2DOUCWMU) if you are unfamiliar.)
+In a sense, that's what a matrix is: a system of linear equations, and you can freely go between either a system of linear equations or a matrix via matrix multiplication. (I know I said you won't need to know the mechanics of these operations, but it's hard to avoid it now. If you can accept this fact, that's great, but I'd recommend looking [here](https://youtu.be/XkY2DOUCWMU) for more details.)
 
 If we write this in general terms, we are basically solving the equation
 
