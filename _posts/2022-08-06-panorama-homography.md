@@ -419,7 +419,7 @@ where $A$ is a matrix, and $b$ and $x$ are vectors, and we are solving for the l
 $Ax - b = 0$
 </center>
 
-Since $Ax$ is _exactly_ equal to $b$; $Ax$ is the same vector as to $b$. We were able to find a unique line with $m$ and $b$ through them, no? Just as we were able to solve the system of linear equations before, we can easily solve this with matrix inverses:
+Since $Ax$ is _exactly_ equal to $b$ in the 2-point case, we can solve this matrix equation fairly directly; when there's a unique, perfect solution $Ax$ is the same vector as to $b$. We were able to find a unique line with $m$ and $b$ through them, no? Just as we were able to solve the system of linear equations before, we can easily solve this with matrix inverses:
 
 <center>
 $A^{-1}b = x$
