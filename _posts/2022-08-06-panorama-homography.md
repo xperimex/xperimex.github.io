@@ -18,7 +18,7 @@ Out of all the apps on my phone, the camera is one that I can't see myself witho
 <p>Even this struggles to capture how well the Grand Canyon lives up to its name.</p>
 </center>
 
-If you have an Android phone, you can get even more incredible types of otherwise impossible photos with Google's staple Photo Spheres:
+Something about the extreme wide angle capturing more than what your eye can behold all at once makes it truly magical. And, if you have an Android phone, you can get even more incredible types of otherwise impossible photos with Google's staple Photo Spheres:
 
 <img src="/img/panorama-homography/PHOTOSPHERE.jpg">
 <center style="color: #666;">
