@@ -130,7 +130,7 @@ This might seem arbitrary, but what we're doing here is not too different than o
 
 <img src="/img/panorama-homography/homogeneousCoords.png">
 <center style="color: #666;">
-<p>The geometry of projecting points onto $z=1$ is equivalent to finding drawing line through the origin and the point, and finding where it intersects that plane.</p> 
+<p>The geometry of projecting points onto $z=1$ is equivalent to drawing a line through the origin and the point, and finding where it intersects that plane.</p> 
 </center>
 
 In fact, many of you are already familiar with **homogeneous coordinates** (representing 2D points with a 3rd scalar coordinate) and **projective planes**! When you take a photo on your phone, how does the camera know what's drawn in its frame? How does it take a 3-dimensional world and put it into a 2-dimensional picture? The many light rays that enter the camera lens (the origin) will intersect a plane ($z=1$) based on its focal length, and colors the pixel based on the projection.
