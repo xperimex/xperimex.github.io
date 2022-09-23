@@ -494,7 +494,7 @@ All finally simplifying to the very nice formula of
 $x = (A^TA)^{-1}A^Tb$
 </center>
 
-I like this approach for it's intuitive roots from the geometry of single-variable calculus, but if you want a more strictly linear algebra approach, here's this excerpt from [Georgia Tech](https://textbooks.math.gatech.edu/ila/least-squares.html) that explains another proof for the same formula:
+I like this approach for it's intuitive roots in the geometry of single-variable calculus, but if you want a more strictly linear algebra approach, here's this excerpt from [Georgia Tech](https://textbooks.math.gatech.edu/ila/least-squares.html) that explains another proof for the same formula:
 
 ----------
 

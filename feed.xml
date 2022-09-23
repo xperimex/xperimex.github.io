@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Fri, 23 Sep 2022 00:27:38 GMT</lastBuildDate>
+      <lastBuildDate>Fri, 23 Sep 2022 00:28:40 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -4136,7 +4136,7 @@ A^TAx &amp; = A^Tb
 $x = (A^TA)^{-1}A^Tb$
 </center>
 
-<p>I like this approach for it&#39;s intuitive roots from the geometry of single-variable calculus, but if you want a more strictly linear algebra approach, here&#39;s this excerpt from <a href="https://textbooks.math.gatech.edu/ila/least-squares.html">Georgia Tech</a> that explains another proof for the same formula:</p>
+<p>I like this approach for it&#39;s intuitive roots in the geometry of single-variable calculus, but if you want a more strictly linear algebra approach, here&#39;s this excerpt from <a href="https://textbooks.math.gatech.edu/ila/least-squares.html">Georgia Tech</a> that explains another proof for the same formula:</p>
 <hr>
 <p><strong>Theorem.</strong> Let $A$ be a $m \times n$ matrix and let $b$ be a vector in $\mathbb{R}^m$. The following are equivalent:</p>
 <ol>
