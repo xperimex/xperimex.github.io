@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Sat, 24 Sep 2022 22:44:34 GMT</lastBuildDate>
+      <lastBuildDate>Sat, 24 Sep 2022 22:47:41 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -4117,7 +4117,7 @@ b
 $\min||Ax-b||^2_2$
 </center>
 
-<p>We know $A$ and $b$ with $x$ as our unknown—this sort of looks like a parabola-y equation! When we minimize a single variable function, we do so with the derivative. We can do the same thing here except with the multivariable equivalent: the gradient. So, we know the minimum occurs where the gradient of this function is 0.</p>
+<p>Here, the $||x||_2$ means we&#39;re looking at the Euclidean distance (a.k.a. straight line distance) as our error for our line of best fit, and we&#39;re squaring it to get a tighter fit since small errors are kept relatively small, while large errors are weighed heavier. We know $A$ and $b$ with $x$ as our unknown—this sort of looks like a parabola-y equation! When we minimize a single variable function, we do so with the derivative. We can do the same thing here except with the multivariable equivalent: the gradient. So, we know the minimum occurs where the gradient of this function is 0.</p>
 <center>
 $\nabla_{x}||Ax-b||^2_2 = 0$
 </center>

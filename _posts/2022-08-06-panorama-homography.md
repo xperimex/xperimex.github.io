@@ -475,7 +475,7 @@ We know that there's a good chance our four points don't all lie on the same lin
 $\min||Ax-b||^2_2$
 </center>
 
-We know $A$ and $b$ with $x$ as our unknown—this sort of looks like a parabola-y equation! When we minimize a single variable function, we do so with the derivative. We can do the same thing here except with the multivariable equivalent: the gradient. So, we know the minimum occurs where the gradient of this function is 0.
+Here, the $||x||_2$ means we're looking at the Euclidean distance (a.k.a. straight line distance) as our error for our line of best fit, and we're squaring it to get a tighter fit since small errors are kept relatively small, while large errors are weighed heavier. We know $A$ and $b$ with $x$ as our unknown—this sort of looks like a parabola-y equation! When we minimize a single variable function, we do so with the derivative. We can do the same thing here except with the multivariable equivalent: the gradient. So, we know the minimum occurs where the gradient of this function is 0.
 
 <center>
 $\nabla_{x}||Ax-b||^2_2 = 0$
