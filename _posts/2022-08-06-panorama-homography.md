@@ -393,7 +393,7 @@ p_2' & = m(p_2) + b
 \end{align}$
 </center>
 
-We can solve this just like we did before to find $m$ and $b$, but there's a secret matrix equation embedded into this system. 
+We can solve this just like we did before to find $m$ and $b$, but there's another, sly way we can approach this. If we look carefully at the structure of these equations, there's actually a secret matrix relationship embedded into this system. 
 
 <center>
 $

@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Sat, 24 Sep 2022 22:43:23 GMT</lastBuildDate>
+      <lastBuildDate>Sat, 24 Sep 2022 22:44:34 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -4043,7 +4043,7 @@ p_2&#39; &amp; = m(p_2) + b
 \end{align}$
 </center>
 
-<p>We can solve this just like we did before to find $m$ and $b$, but there&#39;s a secret matrix equation embedded into this system. </p>
+<p>We can solve this just like we did before to find $m$ and $b$, but there&#39;s another, sly way we can approach this. If we look carefully at the structure of these equations, there&#39;s actually a secret matrix relationship embedded into this system. </p>
 <center>
 $
 \begin{bmatrix}
