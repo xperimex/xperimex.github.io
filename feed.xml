@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Sat, 24 Sep 2022 20:33:40 GMT</lastBuildDate>
+      <lastBuildDate>Sat, 24 Sep 2022 22:43:23 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -4001,7 +4001,7 @@ dx + ey + f &amp; = (gx + hy + 1)y&#39;
 <p><img src="/img/panorama-homography/panoramaCrop.jpg"></p>
 <p>Even so, it doesn&#39;t even look that bad. All in all, though, not a bad first attempt at building a panorama.</p>
 <h2 id="what-next-">What Next?</h2>
-<p>While we have a working prototype, we can do signficantly better. For one, I used only 10 labelled points to compute our homography, but if you use even more, it&#39;s not hard to get a better, and closer fit. With algortihms like <a href="https://zju3dv.github.io/loftr/">LoFTR</a>, finding lots of corresponding labelled points between multiple images is quick and easy.</p>
+<p>While we have a working prototype, we can do signficantly better. For one, I used only 10 labelled points to compute our homography, but if you use even more, it&#39;s not hard to get a better, and closer fit. With algorithms like <a href="https://zju3dv.github.io/loftr/">LoFTR</a>, finding lots of corresponding labelled points between multiple images is quick and easy.</p>
 <center>
 <video width="85%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
       <source src="/img/panorama-homography/loftr-homepage-demo.mp4" type="video/mp4">
@@ -4016,6 +4016,7 @@ dx + ey + f &amp; = (gx + hy + 1)y&#39;
 <p>Going from a well-lit to a dark photo makes for some artsy renditions (even more if you blend it a little nicer).</p>
 </center>
 
+<p>In a similar manner, we only conjoined two photos together, but we can easily extend this to as many photos as we want (but I can&#39;t say how well the photos towards the end will necessarily stretch).</p>
 <p>We never really touched on our homographies, either. When we decided 10 initial points $p$ and 10 warped points $p&#39;$, our $p&#39;$ was decided as a result of lining up 2 photos. What if we didn&#39;t want to line up multiple photos, but rather just creatively warp a single photo? </p>
 <p><img src="/img/panorama-homography/rectification.jpeg"></p>
 <center style="color: #666;">

@@ -334,7 +334,7 @@ Even so, it doesn't even look that bad. All in all, though, not a bad first atte
 
 ## What Next?
 
-While we have a working prototype, we can do signficantly better. For one, I used only 10 labelled points to compute our homography, but if you use even more, it's not hard to get a better, and closer fit. With algortihms like [LoFTR](https://zju3dv.github.io/loftr/), finding lots of corresponding labelled points between multiple images is quick and easy.
+While we have a working prototype, we can do signficantly better. For one, I used only 10 labelled points to compute our homography, but if you use even more, it's not hard to get a better, and closer fit. With algorithms like [LoFTR](https://zju3dv.github.io/loftr/), finding lots of corresponding labelled points between multiple images is quick and easy.
 
 <center>
 <video width="85%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
@@ -350,6 +350,8 @@ Also, since we are manually constructing our panorama, we can stitch and blend p
 <center style="color: #666;">
 <p>Going from a well-lit to a dark photo makes for some artsy renditions (even more if you blend it a little nicer).</p>
 </center>
+
+In a similar manner, we only conjoined two photos together, but we can easily extend this to as many photos as we want (but I can't say how well the photos towards the end will necessarily stretch).
 
 We never really touched on our homographies, either. When we decided 10 initial points $p$ and 10 warped points $p'$, our $p'$ was decided as a result of lining up 2 photos. What if we didn't want to line up multiple photos, but rather just creatively warp a single photo? 
 
