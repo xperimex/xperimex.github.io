@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Sat, 24 Sep 2022 05:17:34 GMT</lastBuildDate>
+      <lastBuildDate>Sat, 24 Sep 2022 20:22:00 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -3826,7 +3826,7 @@ $\large{ y_{n+1} = y_n(\frac{3}{2} - x_{2}y_{n}^2) }$
 <h2 id="warping-images">Warping Images</h2>
 <p>So why should we care? Why is this helpful in any way? If we think of each pixel on our images as a coordinate, we can just apply our transformation to all pixels on that image, find where they land and color them, and generate a new image. Let&#39;s take this picture as an example.</p>
 <p><img src="/img/panorama-homography/canyon.jpg"></p>
-<p>We can scale it, rotate it, or even shear it by applying the same transformation matrix to every pixel.</p>
+<p>We can scale it, rotate it, or even shear it by applying the same transformation matrix to every pixel by changing $\color{blue}{i}$ and $\color{red}{j}$ like before.</p>
 <p><img src="/img/panorama-homography/warpImage.jpg"></p>
 <center style="color: #666;">
 <p>An example transformation acting on our image.</p>

@@ -113,7 +113,7 @@ So why should we care? Why is this helpful in any way? If we think of each pixel
 
 <img src="/img/panorama-homography/canyon.jpg">
 
-We can scale it, rotate it, or even shear it by applying the same transformation matrix to every pixel.
+We can scale it, rotate it, or even shear it by applying the same transformation matrix to every pixel by changing $\color{blue}{i}$ and $\color{red}{j}$ like before.
 
 <img src="/img/panorama-homography/warpImage.jpg">
 <center style="color: #666;">
