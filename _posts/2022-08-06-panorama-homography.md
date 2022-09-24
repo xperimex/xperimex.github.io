@@ -25,7 +25,7 @@ Something about the extreme wide angle capturing more than what your eye can beh
 <p>An "unwrapped" Photo Sphere; normally this would be an interactive literal sphere of the environment.</p>
 </center>
 
-While these are cool, it does beg the question: how are these made? How does your phone unite multiple images into a single cohesive one? We'll explore a little bit of linear algebra to manipulate our photos exactly how we want to.
+While these are cool, it does beg the question: how are these made? It's not like your phone is able to take them in a single snapshot; usually you have to spin or take multiple photos. How is your phone able to tie multiple images together into a single cohesive one? We'll explore a little bit of linear algebra to manipulate our photos exactly how we want to, and indulge in stylistic photos your others can only dream of.
 
 ## The Problem
 
