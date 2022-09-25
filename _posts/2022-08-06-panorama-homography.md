@@ -294,7 +294,7 @@ dx + ey + f & = (gx + hy + 1)y'
 \end{align}$
 </center>
 
-Just like before, we can solve for $a$, $b$, $c$, $d$, $e$, $f$, $g$, and $h$ with a least-squares regression! Since we have 8 variables, at minimum we need 8 equations or 4 pairs of $p$ and $p'$ (since each pair contains two equations: one for $x'$ and one for $y'$). Though, just like we have 10 points, generally it is better to have more data and overfit than less (we'd rather have an overall average fit, than just 4 points be _exatly_ where we want them to be). It's weird to think of this geometrically, since what we're doing here is not finding the line between one independent variable and one dependent variable, but rather _two_ independent variables $(x,y)$ with _two_ corresponding dependent variables $(x',y')$; our regression exists in 4-dimensions!
+Just like before, we can solve for $a$, $b$, $c$, $d$, $e$, $f$, $g$, and $h$ with a least-squares regression! Since we have 8 variables, at minimum we need 8 equations, or 4 pairs of $p$ and $p'$ (since each pair contains two equations: one for $x'$ and one for $y'$). Though, just like we have 10 points, generally it is better to have more data and overfit than less (we'd rather have an overall average fit, than just 4 points be _exatly_ where we want them to be). It's weird to think of this geometrically, since what we're doing here is not finding the line between one independent variable and one dependent variable, but rather _two_ independent variables $(x,y)$ with _two_ corresponding dependent variables $(x',y')$; our regression exists in 4-dimensions!
 
 ## Putting It All Together
 
