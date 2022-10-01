@@ -1,6 +1,6 @@
 ---START_METADATA---
 {
-  "title": "Pleasing Panormas and Matrix Multiplication",
+  "title": "Pleasing Panoramas and Matrix Multiplication",
   "author": "Adi Mittal",
   "summary": "Capture the world as it (almost) is",
   "tags":[
