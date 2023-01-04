@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Wed, 04 Jan 2023 01:54:02 GMT</lastBuildDate>
+      <lastBuildDate>Wed, 04 Jan 2023 03:20:23 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -4334,7 +4334,7 @@ $\large{\bigg |\sqrt{2} - \frac{m}{n} \bigg | \geq \frac{1}{3n^2} }$
 
 <p>This means for any rational number with denominator $n$, $\sqrt{2}$ is at least a distance $\frac{1}{3n^2}$ away from that rational! Therefore, $|\sqrt{2} - \frac{m}{n}|$ can never equal 0, and we have thus proved our claim and that $\sqrt{2}$ is irrational.</p>
 <h2 id="conclusion">Conclusion</h2>
-<p>A lot of this can seem like nitpicking definitions and being overly pedantic, and to a certain extent I agree. I mean, even in the proof above we sort of implicitly assume $\sqrt{2}$ is irrational at (*)! When we said $2n^2 \neq m^2$, you could rearrange that to get $\sqrt{2} \neq \frac{m}{n}$. In our definition above, this would only constitute as being &quot;not rational&quot; as opposed to &quot;irrational&quot;, but the differences in practicality seem so minute for this to be helpful. We even turned to the definition of rationality to come up with a &quot;better&quot; definition of irrationality. </p>
+<p>A lot of this can seem like nitpicking definitions and being overly pedantic, and to a certain extent I agree. I mean, even in the proof above we sort of implicitly assume $\sqrt{2}$ is irrational at (*)! When we said $2n^2 \neq m^2$, you could rearrange that to get $\sqrt{2} \neq \frac{m}{n}$. In our definition above, this would only constitute as being &quot;not rational&quot; as opposed to &quot;irrational&quot;, but we are so subtely tweaking our interpretation of this fact to make it useful. When differences between proofs are this minute in terms of what we are saying, it seems hard to take any of what we talked about today as practical. We even turned to the definition of rationality to come up with a &quot;better&quot; definition of irrationality, so what&#39;s even the point in trying to discern minutiae of our constructs. </p>
 <p>Even so, it&#39;s a good exercise in thinking about how we arrive at &quot;facts&quot; or &quot;knowledge&quot;. When can we prove something by contradiction, and even if we can, is there a more convincing argument? Are there possible cases we might be leaving out and forgetting? Are there some things that we cam <em>only</em> prove directly or indirectly (answer is <a href="https://math.stackexchange.com/questions/243770/can-every-proof-by-contradiction-also-be-shown-without-contradiction">yes</a>)?</p>
 <p>These questions are what underpin so much that we naturally gravitate towards, and there&#39;s a reason why they&#39;ve been examined so harshly. These questions literally <a href="https://en.wikipedia.org/wiki/Russell%27s_paradox">uprooted math</a> and led to some of the most famous, mind-blowing results the <a href="https://en.wikipedia.org/wiki/G%C3%B6del%27s_incompleteness_theorems">field has ever seen</a>. So always ask yourself, &quot;What can I )<em>assume</em>, and what do I <em>know</em>?&quot;</p>
 ]]></description>
