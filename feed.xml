@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Sat, 01 Oct 2022 19:55:05 GMT</lastBuildDate>
+      <lastBuildDate>Wed, 04 Jan 2023 01:34:52 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -3878,7 +3878,8 @@ $
 </center>
 
 <p>(Notice how $M$ is now a $3 \times 3$ matrix as we are working with 3D coordinates now) If our matrix-vector product results in a $w$ value not equal to 1, then we just divide everything by $w$ to make it so, and get our coordinate in terms of our 2D plane.</p>
-<p>These projections with homogeneous coordinates are known as <strong>homographies</strong>. When we take one picture, and reproject it according to a matrix like this but <em>keeping the same camera center</em> (like the origin), we call it a homography. Again, like homogeneous coordinates, people have been leveraging homographies artistically for a while now. That weird, perspective street art you might have seen before? That&#39;s the most manual you can get to using homographies—literally warping images with the angle you look at them to make them appear at a normal proportion.</p>
+<p>These projections with homogeneous coordinates are known as <strong>homographies</strong>. When we take one picture, and reproject it according to a matrix like this but <em>keeping the same camera center</em> (like the origin), we call it a homography. Again, like homogeneous coordinates, people have been leveraging homographies for a while now. You know how on roads, whenever there&#39;s text written like, &quot;STOP AHEAD&quot;, it&#39;s always a bit vertically stretched? That&#39;s because when you read it at the angle of a driver in a car, it looks more regular and readable. At least, that&#39;s my theory.</p>
+<p>More creatively, that weird, perspective street art you might have seen before? That&#39;s the most manual you can get to using homographies—literally warping images with the angle you look at them to make them appear at a normal proportion.</p>
 <p><img src="/img/panorama-homography/manual-homography.jpeg"></p>
 <center style="color: #666;">
 <p>Street artists have used the power of perspective for a long time.</p>
@@ -4239,6 +4240,106 @@ $x = (A^{T}A)^{-1}A^{T}b$
 ]]></description>
          <link>http://xperimex.github.io/blog/panorama-homography</link>
          <guid isPermaLink="true">http://xperimex.github.io/blog/panorama-homography</guid>
+         <dc:creator><![CDATA[Adi Mittal]]></dc:creator>
+      </item>
+      <item>
+         <title><![CDATA[Constructive Proofs and Careful Practices]]></title>
+         <description><![CDATA[Is this really math anymore? 
+
+ <p>Many who have dipped their toes in math for even a little bit will know that $\sqrt{2}$ is irrational. Like many other well known mathematical constants like $\pi$ and $e$, $\sqrt{2}$ can&#39;t be written out as a fraction, and its decimal expansion goes on forever without repeating. It&#39;s a novel fact, and comes with a fairly simple proof too.</p>
+<p><strong>Claim: $\sqrt{2}$ is irrational.</strong></p>
+<p><strong>Proof:</strong> Suppose that $\sqrt{2}$ is not irrational. Therefore it is rational, and can be written as $\sqrt{2} = \frac{p}{q}$ where $p$ and $q$ are distinct coprime numbers (i.e. they don&#39;t share any factors in common; this is a way of sayiing that there is a unique way of writing $\sqrt{2}$ as a fraction in <em>lowest terms</em>). Squaring both sides and moving terms around, this equation becomes $2q^2 = p^2$. Therefore, $p^2$ is even, since it will always have a factor of 2 according to the lefthand-side of the equation. If $p^2$ is even, then $p$ is also even (if you&#39;re unsure of this fact, try some test cases and proving it!). Since $p$ is even, then let&#39;s rewrite it as $p=2n$. Plugging this into our equation yields: $2q^2 = p^2 = (2n)^2 = 4n^2$. Dividing both sides by 2 gives us $q^2 = 2n^2$. Similar to before, the equation implies that $q^2$ and hence $q$ is even due to that factor of 2 on the righthand-side. But this is a contradiction! $p$ and $q$ cannot simultaneously both be coprime and even (share a factor of 2). Hence, our initial assumption that the $\sqrt{2}$ is rational is wrong, and allows us to conclude that $\sqrt{2}$ is irrational. $\blacksquare$</p>
+<p>It&#39;s not a long proof at all, and in the grand scheme of the history of math, pretty important, too. Supposedly, this was the first instance of irrationality being proven as a possible quality. More specifically, <a href="https://mathworld.wolfram.com/PythagorassConstant.html">legend</a> has it that Hippasus of Metapontum was credited with showing that the $\sqrt{2}$ is <em>not rational</em> (note the word choice) in the 5th century BCE while at sea, and upon sharing his amazing discovery, was instantly thrown overboard and left to drown. </p>
+<p>Arguably of more significance, the proof highlights a general technique we use not just in math, but everyday logic and reasoning: <strong>proof by contradiction</strong>. </p>
+<h2 id="proof-by-contradiction">Proof by Contradiction</h2>
+<p>I&#39;m sure you have all heard someone say, &quot;For the sake of argument…,&quot; at some point in your life before. The idea is to disprove any hypothetical argument by showing it leads to an impossibility. </p>
+<p>Let&#39;s say someone was arguing that Euclid was still alive today. Instead of remaining in utter shock at such a claim, here&#39;s a simple reply to show otherwise. For the sake of argument, let&#39;s assume Euclid <i>is</i> still alive. It is generall agreed that Euclid lived around 300 BCE, so if he is alive now, that would make him around 2300 years old now, which is crazy! Only a handful of people live past 100, let alone 1000 years. So it is safe to say, it is not the case that Euclid is still alive today.</p>
+<p>In fact, the Latin phrase that describes proof by contradiction, &quot;Reductio ad absurdum,&quot; literally means, &quot;Reduced to the absurd/impossible&quot;.</p>
+<p>Even if you haven&#39;t realized it before, you&#39;ve probably used this same principle a lot in school. When taking a test, process of elimination can be an immensely helpful tactic to find the right answer to a question: if you can eliminate what you definitely know to be <em>false</em>, the rest of the options must include the <em>truth</em>.</p>
+<p>At its core, we&#39;re using double negatives to prove a &quot;positive&quot; statement; we assume something to be false, show that it can&#39;t be, and therefore conclude, it&#39;s true since something that is not false must be true. If a number is not rational, it&#39;s irrational. If someone is not alive, they&#39;re dead. If someone&#39;s not guilty, they&#39;re innocent.</p>
+<p>That last one feels weird, right? Just because there&#39;s no evidence to show someone is involved in a crime does not mean we always feel them to have been completely removed, right? In the previous examples, there&#39;s a strong sense of <strong>complements</strong>. &quot;Rational&quot; means &quot;not irrational&quot;, so &quot;not not irrational&quot; is the same as &quot;irrational&quot;. &quot;Alive&quot; and &quot;not dead&quot; are the same, so &quot;not alive&quot; is &quot;not not dead&quot; is &quot;dead&quot;. But is &quot;not guilty&quot; really the same as &quot;innocent&quot;? Semantically, that&#39;s what it means. If you Google it, that&#39;s what you get. </p>
+<p><img src="/img/constructive-proofs/notGuilty.png"></p>
+<center style="color: #666;">
+<p>Of course, Google never lies.</p>
+</center>
+
+<p>From a casual, conversational point, it might, but from a legal standpoint, there&#39;s a reason why we make a distinction. We don&#39;t live in a binary world. So, it&#39;s not totally clear that we can say &quot;not guilty&quot; is the same as &quot;innocent&quot;, <em>even if that&#39;s what their definitions may mean</em>. Even if two things are definitionally polar opposites, we, as the humans behind the words&#39; significance to begin with, add subtlety and nuance. </p>
+<p>&quot;Not guilty&quot; still insinuates that there&#39;s a feeling that there&#39;s something missing; we think they are guilty, but are unable to prove it. So even if we define &quot;guilty&quot; to be &quot;not innocent&quot;, we might not want to say &quot;not guilty&quot; is the same as &quot;innocent&quot;.</p>
+<p>Which should come with a weird realization: if &quot;guilty&quot; is &quot;not innocent&quot;, then &quot;not guilty&quot; is &quot;not not innocent&quot;, which we said to not be equal to &quot;innocent&quot;. <strong>Double negatives don&#39;t always cancel out.</strong></p>
+<p>Maybe our original definitions are wrong then? But it would be hard to define either &quot;guilty&quot; or &quot;innocent&quot; external to each other.</p>
+<p>This may just seem like nitpicking, but it&#39;s important to consider this, since it puts into doubt such an intuitive, clear cut idea. If we can&#39;t use double negatives in one place, who&#39;s to say where else we can&#39;t use it? It might seem obvious at first that &quot;not alive&quot; must mean &quot;dead&quot;, but have we really <em>shown</em> that? Just because it&#39;s absurd to think about Euclid being alive right now, does our proof really <em>guarantee</em> that? Is there something more to rational and irrational numbers that we might be missing? Just like with differentiating &quot;not guilty&quot; and &quot;innocent&quot;, just because we have not been able to show someone guilty does not mean that they aren&#39;t.</p>
+<p>Yet, <strong>this is precisely the concept that proof by contradiction relies on</strong>. We assume the opposite of what we actually want to prove, show it is impossible, then negate it to get to our original statement. But we don&#39;t <em>actually</em> show anything directly about our claim, only that it is impossible that it <em>can&#39;t</em> be true. If that&#39;s not valid—like it is the case between &quot;guilty&quot; and &quot;innocent&quot;—this no longer becomes a valid proof technique! </p>
+<p>Above, we&#39;ve only demonstrated that $\sqrt{2}$ is not rational, when we wanted to show that it is irrational. Did we really do that?</p>
+<h2 id="the-law-of-excluded-middle">The Law of Excluded Middle</h2>
+<p>The easy answer to that is yes. We state a strict definition, and we can pretty clearly figure out when something is binary and when something has wiggle room. We can define a number to either strictly be rational or irrational. If it&#39;s not one, it has to be the other.</p>
+<p>Technically, fine, yeah, we can do that. But that&#39;s kind of unsatisfying. But, there&#39;s a more fundamental question we should ask, since we&#39;re not just concerned with a number being rational or not, or someone&#39;s mortality, but proofs in general; we want to know if we can use proof by contradiction consistently. In general, we&#39;re trying to prove the <em>truth</em> of claims, so what we really care about is the following question: if something is not true, is it false (and vice versa)?</p>
+<p>Again, obviously yeah, right? What else could it be? All <strong>declarative sentences</strong> (sentences make a claim about something, i.e. not questions) have to be true or false. It&#39;s that simple. It either is or it isn&#39;t. &quot;Cats are animals,&quot; is true, and, &quot;The Earth is flat,&quot; is false. Easy. </p>
+<p>This is known as the <strong>Law of Excluded Middle</strong>, for, well, we exclude any type of middle value in between true or false. For those who like their logical formalities, if $\Phi$ is our claim about the world, then we say $(\Phi \lor \neg \Phi)$ is a <strong>tautology</strong> (that is, something that is always true). In natural language, this literally means &quot;either our claim of the world is true or our claim of the world is not true&quot;, which just makes sense. </p>
+<hr>
+<p>This forms one of the, and I can&#39;t make this up, <strong>Three Laws of Thought</strong> upon which &quot;reasonable arguments&quot; are based off of. These principles include:</p>
+<ol>
+<li>The Law of Excluded Middle: every claim or its negation is true.</li>
+<li>The Law of Non-Contradiction: nothing can simultaneously be true and false.</li>
+<li>The Law of Identity: everything is identical to itself.</li>
+</ol>
+<p>These three are usually taken as &quot;common sense&quot; axioms, and along with a few other assumptions build the basis of inference and deduction. Some might note that the first two laws might mirror each other through <a href="https://brilliant.org/wiki/de-morgans-laws/">De Morgan&#39;s laws</a>, but remember these don&#39;t actually explicitly state De Morgan&#39;s laws and we have no way of inferring that with these three principles alone. These three laws come up in many contexts, and have been refomalized many times over across history. Even the last Law of Identity, which seems almost pointless, has been taken by none other than Leibniz (yes, the same one from calculus) and been turned into <a href="https://plato.stanford.edu/entries/identity-indiscernible/">two laws</a>. That&#39;s for another day, though, and we will continue to only focus on the first law.</p>
+<hr>
+<p>Ok, then how about the following claim?</p>
+<center>
+<p style="font-size: 30px"><i>This sentence is false.</i></p>
+</center>
+
+<p>Is this true or false? If it&#39;s true, then it declares itself to be false. If it&#39;s false, then it must be giving the wrong information, and therefore it actually is declaring itself to be true. And if it&#39;s true…</p>
+<p>Suddenly binary truth values don&#39;t seem to be as reliable as they first seemed. This sentence doesn&#39;t neatly fit into one cateogry. If you consider one side, it flips to the other. It&#39;s been aptly named the Liar&#39;s paradox for its deceptive nature, and there are many <a href="https://en.wikipedia.org/wiki/Liar_paradox#Possible_resolutions">attempted solutions</a>, of my favorites being the <a href="https://plato.stanford.edu/entries/logic-fuzzy/">fuzzy logic</a> answer for its clarity and funny name. The number of attempts at resolving such an annoying sentence, though, should highlight that binary truth values are not always the right approach.</p>
+<!-- Talk about law of excluded middle -->
+<p>At this point, it&#39;s time we might have to reconsider the Law of Excluded Middle. Maybe this is just a dumb paradox that should be ignored as an edge case, but if you leave it as it is, then are we really going to be happy with what we have, knowing that there are some problems out there we just can&#39;t address?</p>
+<h2 id="intuitionism">Intuitionism</h2>
+<p>Perhaps, we don&#39;t have to reject the Law of Excluded Middle, but instead come up with a <em>stronger</em> type of reasoning. As we saw, the Law of Excluded Middle lines up pretty well with most things we observe in general, so we shouldn&#39;t discount it for that. Though, we might find a way that can avoid this issue we ran into with &quot;not guilty&quot; versus &quot;innocent&quot; altogether, and that would be foolproof from the start. </p>
+<p>Our proof by contradiction is known as a <strong>non-constructive proof</strong>, in that it reasons about a claim without ever <em>demonstrating</em> the claim itself; there&#39;s no actual evidence presented for the thing we want to show true, since we try to make it appear &quot;obvious&quot; that there is no other way for such a claim to exist. </p>
+<hr>
+<p>Our proof by contradiction for $\sqrt{2}$ being irrational is one example, but here&#39;s another one of my favorites.</p>
+<p><strong>Claim: There exists irrational numbers $a$ and $b$ such that $a^b$ is rational.</strong></p>
+<p><strong>Proof:</strong> We know (and continue later to show) that $\sqrt{2}$ is irrational, so consider the number $\sqrt{2}^\sqrt{2}$. If this is rational, we&#39;re done. If this is irrational, then consider the number $(\sqrt{2}^\sqrt{2})^\sqrt{2} = \sqrt{2}^2 = 2$, which is rational, and hence we are done.</p>
+<p>Never once did we actually deduce the rationality of $\sqrt{2}^\sqrt{2}$, but by exhausting the possible cases, it doesn&#39;t matter since every possibility leads to a conclusion that proves our claim.</p>
+<hr>
+<p>If we can find a <strong>constructive proof</strong> and actually manifest our claim in some way, then we don&#39;t have to worry about double negatives or anything like that since we directly showed what we wanted to.</p>
+<p>We&#39;re now dabbling along lines of <strong>intuitionistic logic</strong> where, ironically, we are breaking our natural sense of double negation and relying solely on these constructive proofs to validate truths. Since, in a way, non-constructive proofs are just left in abstraction and are no more than just a construct of our mind. Intuitionism tries to separate ourselves in the proof by showing an objective way of realizing a truth.</p>
+<p>Let&#39;s go back to our original proof by contradiction above:</p>
+<p><strong>Claim: $\sqrt{2}$ is irrational.</strong></p>
+<p>Remember, we don&#39;t trust double negatives, so we want to avoid saying &quot;irrational&quot; is the same as &quot;not rational&quot;. What does it really mean for a number to be irrational?</p>
+<p>Well, even though we don&#39;t want to say &quot;irrational&quot; is &quot;not rational&quot;, we can draw inspiration from what the latter to find a better definition. We say a number $x$ is rational if it can be written in the form $x=\frac{m}{n}$ where $m$ and $n$ are integers. Or, equivalently, $x$ is rational if there exists integers $m$ and $n$ such that $x - \frac{m}{n} = 0$. Since we&#39;re using subtraction here, there&#39;s a natural way to think of rationality in terms of distance; a number is rational if it is distance 0 away from some integer fraction. This gives us a nice way to think of irrationality.</p>
+<p><strong>Definition:</strong> A number $x$ <strong>irrational</strong> if for all integers $m$ and $n$, $|x-\frac{m}{n}| \neq 0$. In other words, a number $x$ is irrational if it is some distance away from every rational number.</p>
+<p>We add the asbolute value signs since we&#39;re quanitifying distance, and we don&#39;t care if a number is less than or greater than any rational number, just that it is not exactly equal to one of them.</p>
+<hr>
+<p>Some of you may be skeptical of what I&#39;ve just laid out, since if you&#39;re familiar with mathematical quantifiers, it does look like there is some negation work that is not explicit has been used under the cover of my words. Even so, the point is we have arrived at a distinct, specific definition of the property we set out to prove, allowing us to try and prove a <em>positive</em> claim as opposed to a negative one (like in proof by contradiction).</p>
+<h2 id="the-new-proof">The New Proof</h2>
+<p>We can rewrite our claim now as such:</p>
+<p><strong>Claim: $\forall m,n \in \mathbb{Z}, \ |\sqrt{2} - \frac{m}{n}| \neq 0$</strong></p>
+<p>That first part just means $m$ and $n$ are integers. We can now do our proof fairly quickly.</p>
+<p><strong>Proof:</strong> Note that $1&lt;2&lt;\frac{9}{4}$, therefore $1&lt;\sqrt{2}&lt;3/2$. So the only rationals we care about comparing $\sqrt{2}$ are the ones in between $1$ and $\frac{3}{2}$, since it&#39;s apparent that any number outside this range will have a non-zero distance away from $\sqrt{2}$. Therefore, let&#39;s take our integers $m$ and $n$ such that they are positive, and $1&lt;\frac{m}{n}&lt;\frac{3}{2}$. Let&#39;s also take a second to note we can add these inequalities, giving us that $\sqrt{2} + \frac{m}{n} &lt; 3 \rightarrow n\sqrt{2} + m &lt; 3n$.</p>
+<p>Now we can do some simple algebra on our claim to show it true.</p>
+<center>
+$\large{\bigg |\sqrt{2} - \frac{m}{n} \bigg | = \frac{|n\sqrt{2} - m|}{n} \cdot \frac{n\sqrt{2} + m}{n\sqrt{2} + m} = \bigg |\frac{2n^2 - m^2}{n(n\sqrt{2} + m)} \bigg |}$
+</center>
+
+<p>Let&#39;s examine the numerator. Every integer, $x$, has some number of factors of 2 in its prime factorization i.e. $x = 2^\alpha \cdot C$ where C is the rest of its factors. When you square that integer, the number of 2s in the denominator doubles $x^2 = 2^{2\alpha}\cdot C^2$. So, we can write $2n^2 = 2 \cdot 2^{2\alpha} \cdot C_1^2 = 2^{2\alpha + 1} \cdot C_1^2$. Similarly, $m^2 = 2^{2\beta} \cdot C_2^2$. The key detail here is that $2n^2$ has an <em>odd number</em> of factors of 2, while $m^2$ has an <em>even number</em> of factors of 2, and therefore cannot be the same number! And since they are integers, then $|2n^2 - m^2| \geq 1$.* Continuing on,</p>
+<center>
+$\large{\bigg |\sqrt{2} - \frac{m}{n} \bigg | = \bigg |\frac{2n^2 - m^2}{n(n\sqrt{2} + m)} \bigg | \geq \frac{1}{n(3n)} = \frac{1}{3n^2} }$
+</center>
+
+<p>We simplified the denominator with the inequality we found at the start. But look at what we have here!</p>
+<center>
+$\large{\bigg |\sqrt{2} - \frac{m}{n} \bigg | \geq \frac{1}{3n^2} }$
+</center>
+
+<p>This means for any rational number with denominator $n$, $\sqrt{2}$ is at least a distance $\frac{1}{3n^2}$ away from that rational! Therefore, $|\sqrt{2} - \frac{m}{n}|$ can never equal 0, and we have thus proved our claim and that $\sqrt{2}$ is irrational.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>A lot of this can seem like nitpicking definitions and being overly pedantic, and to a certain extent I agree. I mean, even in the proof above we sort of implicitly assume $\sqrt{2}$ is irrational at (*)! When we said $2n^2 \neq m^2$, you could rearrange that to get $\sqrt{2} \neq \frac{m}{n}$. In our definition above, this would only constitute as being &quot;not rational&quot; as opposed to &quot;irrational&quot;, but the differences in practicality seem so minute for this to be helpful. We even turned to the definition of rationality to come up with a &quot;better&quot; definition of irrationality. </p>
+<p>Even so, it&#39;s a good exercise in thinking about how we arrive at &quot;facts&quot; or &quot;knowledge&quot;. When can we prove something by contradiction, and even if we can, is there a more convincing argument? Are there possible cases we might be leaving out and forgetting? Are there some things that we cam <em>only</em> prove directly or indirectly (answer is <a href="https://math.stackexchange.com/questions/243770/can-every-proof-by-contradiction-also-be-shown-without-contradiction">yes</a>)?</p>
+<p>These questions are what underpin so much that we naturally gravitate towards, and there&#39;s a reason why they&#39;ve been examined so harshly. These questions literally <a href="https://en.wikipedia.org/wiki/Russell%27s_paradox">uprooted math</a> and led to some of the most famous, mind-blowing results the <a href="https://en.wikipedia.org/wiki/G%C3%B6del%27s_incompleteness_theorems">field has ever seen</a>. So always ask yourself, &quot;What can I )<em>assume</em>, and what do I <em>know</em>?&quot;</p>
+]]></description>
+         <link>http://xperimex.github.io/blog/constructive-proofs</link>
+         <guid isPermaLink="true">http://xperimex.github.io/blog/constructive-proofs</guid>
          <dc:creator><![CDATA[Adi Mittal]]></dc:creator>
       </item>
    </channel>
