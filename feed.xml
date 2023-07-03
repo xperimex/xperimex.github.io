@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Mon, 03 Jul 2023 16:11:44 GMT</lastBuildDate>
+      <lastBuildDate>Mon, 03 Jul 2023 16:12:54 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -4551,8 +4551,21 @@ $
 <p>It&#39;s worth taking a second to make sure you can get behind that these formalizations are reasonable. I won&#39;t go through all of them as we did with &quot;…and…&quot;, but there are some things to take note of that do differ a bit in English.</p>
 <ul>
 <li>$\vee$ is specifically the truth table of <strong>inclusive or</strong>. In English, if one says &quot;I&#39;ll either buy a pair of sneakers or sandals,&quot; we expect that person to usually just buy one option or the other, not both. $\vee$ allows the option for both, but does not require it to be true.</li>
-<li>$\rightarrow$ is technically different from &quot;If…then…&quot;, even though I put them in the same row in the table. When we say, &quot;If a butterfly lands in North America, then there will be a earthquake in Australia tomorrow&quot;, we can definitely say that is false if the butterfly does land in North America and no earthquake occurs, since they are definitely not causally related then. But if the butterfly does NOT land in North America, then we are in no position to say whether or not there is a relationship then since we have nothing to observe. Similarly, if an earthquake happens, we can&#39;t say if that was because of the butterfly or not regardless of what happens since correlation and causation are different.</li>
+<li>$\rightarrow$ is technically different from &quot;If…then…&quot;, even though I put them in the same row in the table. When we say, &quot;If a butterfly lands in North America, then there will be a earthquake in Australia tomorrow&quot;, we can definitely say that is false if the butterfly does land in North America and no earthquake occurs, since they are definitely not causally related then. But if the butterfly does NOT land in North America, then we are in no position to say whether or not there is a relationship then since we have nothing to observe. Similarly, if an earthquake happens, we can&#39;t say if that was because of the butterfly or not regardless of what happens since correlation and causation are different. So really, the truth table for &quot;If…then…&quot; is</li>
 </ul>
+<center>
+$
+\begin{array}{c|c|c}
+P &amp; Q &amp; \textrm{If} \ P \ \textrm{then} \ Q) \\ \hline
+T &amp; T &amp; ?  \\
+T &amp; F &amp; F  \\
+F &amp; T &amp; ?  \\
+F &amp; F &amp; ?  \\
+\end{array}
+$
+</center>
+
+
 <!-- "The baker offered cake or coffee and cookies to their customers" -->
 <p>So what makes the above a good argument? Well, if we assume the premises $P$ and &quot;If $P$, then $Q$,&quot; as true, there is no real way to interpret the conclusion $Q$ as false. The premises seem to necessitate the conclusion. And that&#39;s more or less what you want a good claim to be. If something follows from a series of facts, then there can be no universe or subjective interpretation where those facts are true and the conclusion is not, since if that were the case, you would have no good reason to assumue they are linked in any way.</p>
 <p>We can formalize this a little bit:</p>
