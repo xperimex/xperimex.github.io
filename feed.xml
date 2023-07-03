@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Mon, 03 Jul 2023 05:28:55 GMT</lastBuildDate>
+      <lastBuildDate>Mon, 03 Jul 2023 16:11:44 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -4424,6 +4424,142 @@ $(xy&#39; - zx&#39;)^2 = (x^2 + z^2)(y&#39;^2 + x&#39;^2)$
 ]]></description>
          <link>http://xperimex.github.io/blog/area-perimeter</link>
          <guid isPermaLink="true">http://xperimex.github.io/blog/area-perimeter</guid>
+         <dc:creator><![CDATA[Adi Mittal]]></dc:creator>
+      </item>
+      <item>
+         <title><![CDATA[The Language of Logic and Metatheoretic Magic]]></title>
+         <description><![CDATA[Why even mathematicians should care about history 
+
+ <!-- 
+1. L1
+  1a. ND1
+2. L2
+  2a. ND2
+3. L=
+  ND=
+
+This is basically all of math: symbol manipulation. We don't check every right triangle to verify the Pythagorean theorem, we instead use rules that are sound.
+
+1. metatheorems
+2. soundness
+3. completeness
+4. compactness -->
+<blockquote>
+<blockquote>
+<p><strong>Pythagorean Theorem</strong>: the sum of the squares of the length of the legs of a right triangle is equal to the square of the hypotenuse.</p>
+</blockquote>
+</blockquote>
+<p>The Pythagorean theorem is perhaps the most famous statement in all of mathematics. $a^2 + b^2 = c^2$ is practically drilled into the minds of everyone that went through any form of secondary school education. </p>
+<p>But let me ask you: how do you <em>know</em> it is true? There are many, many proofs of the Pythagorean theorem, but what makes you know that those fancy symbol manipulation is really legit? This might seem like an inane question, for math follows strict, rigorous, logical argument. But what makes this logical argument <em>valid</em>? Why do we trust logic so readily? There are many ideas that are intuitive that are false, and unintutive that are true, yet logic seems to get a pass from everyone? Why?</p>
+<hr>
+<p>Over the past year, I took my university&#39;s introductory sequence for logic, which was probably the most enlightening class I took all year. It forced me to reflect on not only what mathematics meant to me, but also what knowledge and deduction as a whole does too. This post is a summary collecting the highlights of the courses, so to act as a reference guide for the future when I explore some of the most powerful ideas that have eluded me in what feels like a forgotten field of study.</p>
+<p>As this will be a bit of a longer post, the table of contents below will guide each section in the sequence they should be read, and all context needed for one section will be given in anything before it. I&#39;ll be following the conventions and terminology as per V. Halbach&#39;s <a href="https://users.ox.ac.uk/~logicman/"><em>The Logic Manual</em></a> and A. Eagle&#39;s <a href="https://ora.ox.ac.uk/objects/uuid:269144a3-6ca2-434b-90fe-75dd579cdbc1/download_file?file_format=application/pdf&amp;safe_filename=elements.pdf&amp;type_of_work=Book"><em>Elements of Deductive Logic</em></a>.</p>
+<ol>
+<li><a href="#what-even-is-logic">What even is logic?</a></li>
+<li>$\mathcal{L}_1$: A First Attempt</li>
+<li>$\mathcal{L}_2$: Quantifiers Broaden Our View</li>
+<li>$\mathcal{L}_=$: Now We Are Closer to Math</li>
+<li>Principle of Mathematical Induction and Metatheorems<ol>
+<li>Duality</li>
+<li>Expressive Adequacy and Functional Completeness</li>
+</ol>
+</li>
+<li>Revisiting Proof Systems<ol>
+<li>Soundness</li>
+<li>Completeness</li>
+</ol>
+</li>
+<li>Compactness</li>
+<li>Grice, natural language, and the flaws of formalisms</li>
+</ol>
+<h2 id="what-even-is-logic-">What Even is Logic?</h2>
+<!-- This seems like a broad question to open with, but it's an important one to make clear. -->
+<p>English is bad. Notoriously so. Try interpreting the following sentence: &quot;The old man the boat.&quot; This might not even read as a correct sentence to some of you. The <strong>lexical ambiguity</strong> in that &quot;man&quot; is being used as a verb, even if it is more commonly a noun, is what makes this sentence lead one astray. Or, what about, &quot;The professor said there would be an exam on Monday.&quot; Does the professor mean there will be an exam to be taken on the upcoming Monday, or was it that this past Monday he claimed there would be an exam in the indeterminate future? The <strong>structural ambiguity</strong> inherent to what &quot;on Monday&quot; qualifies makes the sentence on its own unclear.</p>
+<p>English—and <strong>natural language</strong> as a whole—relies on expectations being met by both the speaker and listener for effective communication. We&#39;ll touch on this more later, but the inherent vagueness of our language, while gives it the nuance that we praise in art and literature, makes it really hard to analyze the truth of what people claim when they talk, especially in writing. Inflection and tone may give cues to what is precisely being said, but sometimes we want the content of our statement to be independent of any necessary human interpretation or judgement.</p>
+<p>Take the following claim: &quot;If Socrates is a man, then he is mortal. Socrates is a man. Therefore, Socrates is mortal.&quot; Few would dispute this argument, but there is very little content we needed to be okay with this argument. We don&#39;t care who Socrates is, or what it means to be a mortal or a man; there is something embedded into the nature of the argument that makes it good. &quot;The Earth is flat if 2+2=5. 2+2=5. Thus the Earth is flat,&quot; is a perfectly good argument <em>assuming</em> that 2+2=5, so while it might not be true, it certainly is still a good inference given those facts. &quot;If $P$, then $Q$. $P$. Therefore, $Q$,&quot; seems to always be a sound claim.  </p>
+<p><strong>Logic, in this way, is the study of valid arguments.</strong> Given a set of <strong>premises</strong>, what <strong>conclusions</strong> can we deduce?</p>
+<h2 id="-mathcal-l-_1-a-first-attempt">$\mathcal{L}_1$: A First Attempt</h2>
+<p>Above we already were able to begin generalizing a little bit. We came up with the general form, &quot;If $P$, then $Q$. $P$. Therefore, $Q$.&quot; $P$ and $Q$ could be <em>almost</em> any sentence, and that argument would always hold. Almost any sentence, in that our sentences have to be <strong>truth evaluable</strong>; parsing questions or exclamations does not elicit any new information for our claims, so it does not really make sense to consider them. Even if we do not know if $P$ and $Q$ are actually true or false, we can still consider the different cases to check our argument structure. </p>
+<p>Here we have the beginning of our first formal language: the logic of $\mathcal{L}_1$. We have already been able to characterize sentences in the form of <strong>sentence letters</strong> i.e. $P$ and $Q$, but if we need more we can add $R$, $P_2$, $Q_{3984}$, and others if we need more basic sentences. But this is a bit primitive. </p>
+<h3 id="connectives">Connectives</h3>
+<p>What makes arguments in English interesting is not the basic sentences, but how we are able to link them together via &quot;If… then…&quot;, &quot;…and…&quot;, &quot;…or…&quot;, and other conjunctions. Can we formalize these in any way?</p>
+<p>Let&#39;s think about a simple one: &quot;…and…&quot;. Just like before, we can only care about sentences that are true or false, so a natural question will be when is &quot; $P$ and $Q$ &quot; true or false? &quot;…and…&quot; unifies two disparate sentences, so if the whole sentence was true, we would expect what ever is on either side of the &quot;and&quot; to also be true. To say that, &quot;Grass is green and the Earth is flat,&quot; is a true sentence seems to ignore what the sentence is claiming. &quot;…and…&quot; states both subsentences &quot;Grass is green&quot; and &quot;The Earth is flat&quot; together at once, so if we think it is true, then both necessarily seem to have to be true, too. We can represent this as a <strong>truth table</strong>. </p>
+<center>
+$
+\begin{array}{c|c|c}
+P &amp; Q &amp; (P \wedge Q) \\ \hline
+T &amp; T &amp; T  \\
+T &amp; F &amp; F  \\
+F &amp; T &amp; F  \\
+F &amp; F &amp; F  \\
+\end{array}
+$
+</center>
+
+<p>where $T$ means the sentence is true and $F$ false. Whenever $P$ and $Q$ are not both true, there conjunction is not either. As seen in the table above, we don&#39;t write &quot;…and…&quot; in $\mathcal{L}_1$, but rather use the symbol $\wedge$. </p>
+<p>We call $\wedge$ a <em>connective</em>, for it connects two sentence letters together. Below are some other commonly used English connectives formalized in $\mathcal{L}_1$ with their corresponding truth tables.</p>
+<center>
+$
+\begin{array}{c|c|c}
+\textrm{English} &amp; \mathcal{L}_1 &amp; \textrm{Truth Table} \\ \hline
+\textrm{…and…}             &amp; \wedge &amp;<br>          \begin{array}{c|c|c}
+          P &amp; Q &amp; (P \wedge Q) \\ \hline
+          T &amp; T &amp; T  \\
+          T &amp; F &amp; F  \\
+          F &amp; T &amp; F  \\
+          F &amp; F &amp; F  \\
+          \end{array} 
+  \\ 
+\hline
+\textrm{…or…}              &amp; \vee &amp;<br>          \begin{array}{c|c|c}
+          P &amp; Q &amp; (P \vee Q) \\ \hline
+          T &amp; T &amp; T  \\
+          T &amp; F &amp; T  \\
+          F &amp; T &amp; T  \\
+          F &amp; F &amp; F  \\
+          \end{array}
+  \\
+\hline
+\textrm{It is not the case that…}          &amp; \neg &amp;<br>          \begin{array}{c|c}
+          P &amp; \neg P \\ \hline
+          T &amp; F \\
+          F &amp; T  \\
+          \end{array}
+\\
+\hline
+\textrm{If…then…}          &amp; \rightarrow &amp;<br>          \begin{array}{c|c|c}
+          P &amp; Q &amp; (P \rightarrow Q) \\ \hline
+          T &amp; T &amp; T  \\
+          T &amp; F &amp; F  \\
+          F &amp; T &amp; T  \\
+          F &amp; F &amp; T  \\
+          \end{array}
+\\
+\hline
+\textrm{…if and only if…}  &amp; \leftrightarrow &amp;<br>          \begin{array}{c|c|c}
+          P &amp; Q &amp; (P \leftrightarrow Q) \\ \hline
+          T &amp; T &amp; F  \\
+          T &amp; F &amp; T  \\
+          F &amp; T &amp; T  \\
+          F &amp; F &amp; F  \\
+          \end{array}
+\\
+\end{array}
+$
+</center>
+
+<p>It&#39;s worth taking a second to make sure you can get behind that these formalizations are reasonable. I won&#39;t go through all of them as we did with &quot;…and…&quot;, but there are some things to take note of that do differ a bit in English.</p>
+<ul>
+<li>$\vee$ is specifically the truth table of <strong>inclusive or</strong>. In English, if one says &quot;I&#39;ll either buy a pair of sneakers or sandals,&quot; we expect that person to usually just buy one option or the other, not both. $\vee$ allows the option for both, but does not require it to be true.</li>
+<li>$\rightarrow$ is technically different from &quot;If…then…&quot;, even though I put them in the same row in the table. When we say, &quot;If a butterfly lands in North America, then there will be a earthquake in Australia tomorrow&quot;, we can definitely say that is false if the butterfly does land in North America and no earthquake occurs, since they are definitely not causally related then. But if the butterfly does NOT land in North America, then we are in no position to say whether or not there is a relationship then since we have nothing to observe. Similarly, if an earthquake happens, we can&#39;t say if that was because of the butterfly or not regardless of what happens since correlation and causation are different.</li>
+</ul>
+<!-- "The baker offered cake or coffee and cookies to their customers" -->
+<p>So what makes the above a good argument? Well, if we assume the premises $P$ and &quot;If $P$, then $Q$,&quot; as true, there is no real way to interpret the conclusion $Q$ as false. The premises seem to necessitate the conclusion. And that&#39;s more or less what you want a good claim to be. If something follows from a series of facts, then there can be no universe or subjective interpretation where those facts are true and the conclusion is not, since if that were the case, you would have no good reason to assumue they are linked in any way.</p>
+<p>We can formalize this a little bit:</p>
+<p>Given a set of sentences $\Gamma = \{P, Q, R,…\}$ and a conclusion $C$, we say that $\Gamma$ <strong>entails</strong> $C$ if and only if  </p>
+]]></description>
+         <link>http://xperimex.github.io/blog/intro-logic</link>
+         <guid isPermaLink="true">http://xperimex.github.io/blog/intro-logic</guid>
          <dc:creator><![CDATA[Adi Mittal]]></dc:creator>
       </item>
    </channel>
