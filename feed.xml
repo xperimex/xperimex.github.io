@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Thu, 06 Jul 2023 05:33:09 GMT</lastBuildDate>
+      <lastBuildDate>Thu, 06 Jul 2023 05:36:29 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -4908,7 +4908,7 @@ $
 <p>$\mathcal{L}_2$ gets us most of the way for what we want but there&#39;s one slight inconvenience: we don&#39;t have a notion of identity. Say we have a constant $a$  with semantic value $|a|_A = \textrm{Socrates}$. Then, if we have another constant $b$ such that $|b|_A = \textrm{Socrates}$, we have no good way of showing these constants are really &quot;the same&quot;; they might look different, but they function in the same way as both standing in for Socrates.</p>
 <p>And in a philosophical, sense, the identity is an important concept in ontologies and metaphysics, so it&#39;s worthwhile having a notion of it we can refer to when formalizing arguments.</p>
 <p>We could just specify the predicate, &quot;…is identical to…&quot; as a binary predicate letter in $\mathcal{L}_2$, but that means that the predicate might receive arbitrary meanings in different structures, and identity seems like a pretty unshakeable concept. It also might mean that we use different predicate letters in different formalizations, and we want this to be consistent for it to be useful.</p>
-<p>This is what $\mathcal{L}<em>{=} $ is for. $\mathcal{L}</em>{=} $</p>
+<p>This is what $\mathcal{L}<em>=$ is for. $\mathcal{L}</em>=$</p>
 <!-- is _exactly_ like $\mathcal{L}_2$ in terms of structures and truth, but it has the one difference of having an extra predicate of $=$ to refer to identity. -->
 ]]></description>
          <link>http://xperimex.github.io/blog/intro-logic</link>
