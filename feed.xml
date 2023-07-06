@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Mon, 03 Jul 2023 16:12:54 GMT</lastBuildDate>
+      <lastBuildDate>Thu, 06 Jul 2023 05:33:09 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -4452,8 +4452,8 @@ This is basically all of math: symbol manipulation. We don't check every right t
 <p>The Pythagorean theorem is perhaps the most famous statement in all of mathematics. $a^2 + b^2 = c^2$ is practically drilled into the minds of everyone that went through any form of secondary school education. </p>
 <p>But let me ask you: how do you <em>know</em> it is true? There are many, many proofs of the Pythagorean theorem, but what makes you know that those fancy symbol manipulation is really legit? This might seem like an inane question, for math follows strict, rigorous, logical argument. But what makes this logical argument <em>valid</em>? Why do we trust logic so readily? There are many ideas that are intuitive that are false, and unintutive that are true, yet logic seems to get a pass from everyone? Why?</p>
 <hr>
-<p>Over the past year, I took my university&#39;s introductory sequence for logic, which was probably the most enlightening class I took all year. It forced me to reflect on not only what mathematics meant to me, but also what knowledge and deduction as a whole does too. This post is a summary collecting the highlights of the courses, so to act as a reference guide for the future when I explore some of the most powerful ideas that have eluded me in what feels like a forgotten field of study.</p>
-<p>As this will be a bit of a longer post, the table of contents below will guide each section in the sequence they should be read, and all context needed for one section will be given in anything before it. I&#39;ll be following the conventions and terminology as per V. Halbach&#39;s <a href="https://users.ox.ac.uk/~logicman/"><em>The Logic Manual</em></a> and A. Eagle&#39;s <a href="https://ora.ox.ac.uk/objects/uuid:269144a3-6ca2-434b-90fe-75dd579cdbc1/download_file?file_format=application/pdf&amp;safe_filename=elements.pdf&amp;type_of_work=Book"><em>Elements of Deductive Logic</em></a>.</p>
+<p>Over the past year, I took my university&#39;s introductory sequence for logic, which was probably the most enlightening class I took all year. It forced me to reflect on not only what mathematics meant to me, but also what knowledge and deduction as a whole does too. This post is a summary collecting the highlights of the courses, so to act as a checkpoint to refer back to from future posts when I explore some of the most powerful ideas that have eluded me in what feels like a forgotten field of study.</p>
+<p>As this will be a bit of a longer post, the table of contents below will guide each section in the sequence they should be read, and all context needed for one section will be given in anything before it. I&#39;ll be following the conventions and terminology as per V. Halbach&#39;s <a href="https://users.ox.ac.uk/~logicman/"><em>The Logic Manual</em></a> and A. Eagle&#39;s <a href="https://ora.ox.ac.uk/objects/uuid:269144a3-6ca2-434b-90fe-75dd579cdbc1/download_file?file_format=application/pdf&amp;safe_filename=elements.pdf&amp;type_of_work=Book"><em>Elements of Deductive Logic</em></a>. Brief examples will be given, but for more examples and exercises, see the texts above.</p>
 <ol>
 <li><a href="#what-even-is-logic">What even is logic?</a></li>
 <li>$\mathcal{L}_1$: A First Attempt</li>
@@ -4501,7 +4501,7 @@ $
 <center>
 $
 \begin{array}{c|c|c}
-\textrm{English} &amp; \mathcal{L}_1 &amp; \textrm{Truth Table} \\ \hline
+\textbf{English} &amp; \mathcal{L}_1 &amp; \textbf{Truth Table} \\ \hline
 \textrm{…and…}             &amp; \wedge &amp;<br>          \begin{array}{c|c|c}
           P &amp; Q &amp; (P \wedge Q) \\ \hline
           T &amp; T &amp; T  \\
@@ -4511,7 +4511,7 @@ $
           \end{array} 
   \\ 
 \hline
-\textrm{…or…}              &amp; \vee &amp;<br>          \begin{array}{c|c|c}
+\textrm{…or…}              &amp; \ \vee \ \ &amp;<br>          \begin{array}{c|c|c}
           P &amp; Q &amp; (P \vee Q) \\ \hline
           T &amp; T &amp; T  \\
           T &amp; F &amp; T  \\
@@ -4551,12 +4551,11 @@ $
 <p>It&#39;s worth taking a second to make sure you can get behind that these formalizations are reasonable. I won&#39;t go through all of them as we did with &quot;…and…&quot;, but there are some things to take note of that do differ a bit in English.</p>
 <ul>
 <li>$\vee$ is specifically the truth table of <strong>inclusive or</strong>. In English, if one says &quot;I&#39;ll either buy a pair of sneakers or sandals,&quot; we expect that person to usually just buy one option or the other, not both. $\vee$ allows the option for both, but does not require it to be true.</li>
-<li>$\rightarrow$ is technically different from &quot;If…then…&quot;, even though I put them in the same row in the table. When we say, &quot;If a butterfly lands in North America, then there will be a earthquake in Australia tomorrow&quot;, we can definitely say that is false if the butterfly does land in North America and no earthquake occurs, since they are definitely not causally related then. But if the butterfly does NOT land in North America, then we are in no position to say whether or not there is a relationship then since we have nothing to observe. Similarly, if an earthquake happens, we can&#39;t say if that was because of the butterfly or not regardless of what happens since correlation and causation are different. So really, the truth table for &quot;If…then…&quot; is</li>
-</ul>
+<li>$\rightarrow$ is technically different from &quot;If…then…&quot;, even though I put them in the same row in the table. When we say, &quot;If a butterfly lands in North America, then there will be a earthquake in Australia tomorrow&quot;, we can definitely say that is false if the butterfly does land in North America and no earthquake occurs, since they are definitely not causally related then. But if the butterfly does NOT land in North America, then we are in no position to say whether or not there is a relationship then since we have nothing to observe. Similarly, if an earthquake happens, we can&#39;t say if that was because of the butterfly or not regardless of what happens since correlation and causation are different. So really, the truth table for &quot;If…then…&quot; is
 <center>
 $
 \begin{array}{c|c|c}
-P &amp; Q &amp; \textrm{If} \ P \ \textrm{then} \ Q) \\ \hline
+P &amp; Q &amp; \textrm{If} \ P \ \textrm{then} \ Q \\ \hline
 T &amp; T &amp; ?  \\
 T &amp; F &amp; F  \\
 F &amp; T &amp; ?  \\
@@ -4564,12 +4563,353 @@ F &amp; F &amp; ?  \\
 \end{array}
 $
 </center>
+We say it is not <strong>truth functional</strong> for those question marks there since we cannot evaluate whether that sentence is true or not, but for the sake of convenience, we use $\rightarrow$ with the completed table.</li>
+</ul>
+<!-- Talk about material implication vs. counterfactual later -->
+<h3 id="the-syntax-of-mathcal-l-_1-">The Syntax of $\mathcal{L}_1$</h3>
+<p>Now, we can upgrade from sentence letters to complex sentences in our logic. We will define a sentence in $\mathcal{L}_1$ as follows:</p>
+<ol type="i">
+<li> All sentence letters $P, Q, R, P_1,…$ are sentences. </li>
+<li> If $\Phi$ and $\Psi$ are sentences, then $\neg\Phi$, $(\Phi \wedge \Psi)$, $(\Phi \vee \Psi)$, $(\Phi \rightarrow \Psi)$, and $(\Phi \leftrightarrow \Psi)$ are sentences. </li>
+<li> Nothing else is a sentence. </li>
+</ol>
 
+<p>Note the use of parantheses to bracket the sentences. This is our way to remove all structural ambiguity; there is no question that $(P \wedge (Q \vee R))$ is different from $((P \wedge Q) \vee R)$ as the parantheses explicitly denote the <strong>scope</strong> of the connectives to what subsentences they are linking together. There are conventions to remove these brackets for convenience, which I may default to later, but as a whole, are not important. </p>
+<p>The last detail we are missing are <strong>interpretations</strong>. Before, we were talking about how logic does not care about human judgement, but we can consider the judgement of the <em>universe</em>. What is the truth value of the sentence $\neg(P \wedge Q \rightarrow P \vee R)$? We could make a truth table, but clearly the truth of the sentence depends on the truth values of $P$, $Q$, and $R$. So under an <strong>$\mathcal{L}_1$-interpretation</strong> or <strong>$\mathcal{L}_1$-structure</strong> that assigns a truth value to every sentence letter, we can assign truth values to sentences. For example, if we let a structure $A$ be such that $|P|_A = T$, $|Q|_A = T$, and $|R|_A = F$, then $|\neg(P \wedge Q \rightarrow P \vee R)|_A = F$ by its truth table. The idea of a structure is that it is a <strong>model of a universe</strong>, where we designate certain sentences/facts to be true or false, and see how the rest of the other complex facts (that are linked by connectives) change in accordance to that possible universe.</p>
+<p><strong>Notation:</strong> $|\cdot|_A$ will stnad for the <strong>meaning</strong> or <strong>semantics</strong> under a structure $A$.</p>
+<p>Now most logical sentences one encounters will be true sometimes, and false sometimes depending on the structure its evaluated in. But consider the sentence $(P \vee \neg P)$. Looking at its truth table,</p>
+<center>
+$
+\begin{array}{c|c}
+P &amp; P \vee \neg P \\ \hline
+T &amp; T \\
+F &amp; T  \\
+\end{array}
+$
+</center>
 
-<!-- "The baker offered cake or coffee and cookies to their customers" -->
-<p>So what makes the above a good argument? Well, if we assume the premises $P$ and &quot;If $P$, then $Q$,&quot; as true, there is no real way to interpret the conclusion $Q$ as false. The premises seem to necessitate the conclusion. And that&#39;s more or less what you want a good claim to be. If something follows from a series of facts, then there can be no universe or subjective interpretation where those facts are true and the conclusion is not, since if that were the case, you would have no good reason to assumue they are linked in any way.</p>
-<p>We can formalize this a little bit:</p>
-<p>Given a set of sentences $\Gamma = \{P, Q, R,…\}$ and a conclusion $C$, we say that $\Gamma$ <strong>entails</strong> $C$ if and only if  </p>
+<p>Every structure assigns a truth value to every sentence letter, so $P$ must be true or false in every structure, but regardless, $(P \vee \neg P)$ is always true. <strong>Tautologies</strong> or <strong>logical truths</strong> are in a sense, facts of nature, for no matter what universe we are looking at, &quot;Either the sky is blue or it is not&quot; will be true. <a href="http://xperimex.com/blog/constructive-proofs/">At least, usually</a>.</p>
+<p>On the other hand, <strong>contradictions</strong> like  $(P \wedge \neg P)$ are false in every structure.</p>
+<p>For future reference, the following notation will be helpful. For a given structure $A$ and sentences $\Phi$ and $\Psi$ :</p>
+<ul>
+<li>If $|\Phi|_A = T$, we say $A$ <strong>satisfies</strong> $\Phi$, written $A \vDash \Phi$</li>
+<li>If $|\Phi|_A = F$, we say $A$ <em>does not satisfy</em> $\Phi$, written $A \nvDash \Phi$</li>
+<li>If $\Phi$ is a tautology, i.e. $A \vDash \Phi$ for all structures $A$, we just write $\vDash \Phi$</li>
+<li>If $\Phi$ is a contradiction, i.e. $A \nvDash \Phi$ for all structures $A$, we just write $\Phi \vDash$</li>
+<li>If $|\Phi|_A = |\Psi|_A$ for all strucutres $A$, we say $\Phi$ and $\Psi$ are <strong>logically equivalent</strong>, written $\Phi \equiv \Psi$</li>
+</ul>
+<p>The last bullet point is just to say that there are lots of sentences that express the exact same truth value despite being written differently. For example, $P \wedge Q \equiv \neg(\neg P \vee \neg Q)$, so it&#39;s useful to say when to sentences are actually essentially the same.</p>
+<h3 id="sets-of-sentences">Sets of Sentences</h3>
+<p>In addition to the semantics of individual sentences, we can discuss <em>sets of sentences</em> too. Consider $\Gamma = \{\Phi, \Psi,…\}$. </p>
+<ul>
+<li>A structure $A$ satisfies $\Gamma$ if and only if $|\gamma|_A = T \ \ \ \forall \gamma \in \Gamma$, written $A \vDash \Gamma$</li>
+<li>We say $\Gamma$ is <strong>consistent</strong> if and only if there is a structure $A$ such that $A \vDash \Gamma$.</li>
+</ul>
+<h3 id="validity">Validity</h3>
+<p>We are finally in a position to start talking concretely and specifically what makes a good argument. </p>
+<p>When someone has argued a claim (conclusion) from a series of facts and assumptions (premises), we want there to be a substantive connection between their premises and the conclusion. Just like with our truth table for &quot;If…then…&quot;, we know there is no connection if there is a scenario in which our premises are true and our conclusion isn&#39;t. <strong>So if an argument is valid, then whenever the premises are true, the conclusion must also be true</strong>.</p>
+<p>We can formalize this a little bit with the notion of semantic entailment:</p>
+<p><strong>Definition:</strong> Given a set of sentences (premises) $\Gamma = \{\Phi, \Psi,…\}$ and a single sentence $\varphi$ (conclusion), we say that $\Gamma$ <strong>semantically entails</strong> $\varphi$ if and only if for all structures $A$, if $A \vDash \Gamma$, then $A \vDash \varphi$.</p>
+<p>In other words, whenever all of our premises are true, our conclusion is true.</p>
+<p>When $\Gamma$ semantically entails a sentence $\varphi$, denoted $\Gamma \vDash \varphi$, then $\varphi$ is a valid conclusion from premises $\Gamma$. It&#39;s called semantic entailment since we are working with the semantics of the individual sentences, namely their truth values. In the language of consistency, we can also say that $\Gamma \vDash \varphi$ if and only if $\Gamma \cup \{\neg \varphi\}$ is inconsistent.</p>
+<p><strong>PROOF:</strong> Suppose that $\Gamma \vDash \varphi$. Say that $A$ is a structure that satisfies $\Gamma$ i.e. $|\gamma|_A = T \ \ \ \forall \gamma \in \Gamma$. Then by our assumption, $|\varphi|_A = T$. By the rules for $\neg$, then $|\neg \varphi|_A = F$. For any structure $B$ that does not satisfy $\Gamma$, $\exists \gamma \in \Gamma \ \ \ |\gamma|_B = F$. So, for all structures, at least one sentence in $\Gamma \cup \{\neg \varphi\}$ is false, so it is inconsistent.</p>
+<p>It&#39;s worth pointing out that we have two uses for the symbol $\vDash$, one relating structures to sentences, and another relating sentences to other sentences. The context will specify which use we mean, but it is useful to keep in mind that we might double up on symbols when their related meanings are so similar.</p>
+<p>Let&#39;s look at the example we&#39;ve been holding this whole time: &quot;If $P$, then $Q$. $P$. Therefore, $Q$.&quot; If this is a valid argument, then the formalization would say that $P \rightarrow Q, P \vDash Q$ is correct. We can verify this just by truth tables:</p>
+<center>
+$
+\begin{array}{c|c||c}
+(P \rightarrow Q) &amp; P &amp; \vDash &amp; Q \\ \hline
+\color{blue}{T} &amp; \color{blue}{T} &amp; &amp; \color{blue}{T}  \\
+F &amp; T &amp; &amp; F  \\
+T &amp; F &amp; &amp; T  \\
+T &amp; F &amp; &amp; F  \\
+\end{array}
+$
+</center>
+
+<p>Whenever the premises are true, so is the conclusion. While technically an okay way to check, it is inefficient, since for every additional sentence letter in our premises, it doubles the number of rows in our truth table to check. Instead, we can show it just as easily with a proof by contradiction. Suppose our argument is invalid i.e. there is a structure where our premises are true and our conclusion is false.</p>
+<center>
+$
+\begin{array}{c|c||c}
+(P \rightarrow Q) &amp; P &amp; \vDash &amp; Q \\ \hline
+T &amp; T &amp; &amp; F  \\
+\end{array}
+$
+</center>
+
+<p>But, if $P$ is true and $Q$ is false, then by the rules for $\rightarrow$, $P\rightarrow Q$ is false.</p>
+<center>
+$
+\begin{array}{c|c||c}
+(P \rightarrow Q) &amp; P &amp; \vDash &amp; Q \\ \hline
+T &amp; T &amp; &amp; F  \\
+F &amp;   &amp; &amp; 
+\end{array}
+$
+</center>
+
+<p>That contradicts our assumption that $P\rightarrow Q$ was true as a premise. So, it can&#39;t be the case that our argument is invalid.</p>
+<h4 id="quicks-of-validity">Quicks of Validity</h4>
+<p>Keep in mind our definition of a valid argument: $\Gamma \vDash \varphi$ if and only if whenever $\Gamma$ is satisfied, so is $\varphi$. Now consider the argument $P \wedge \neg P \vDash Q$. Is this valid? Even though the premises have nothing to do with the conclusion, surprisingly, <strong>this is valid</strong>. $P \wedge \neg P$ technically satisfies the condition that whenever it <i>is</i> true (never), so is $Q$; it never has the chance to fail our definition. For this we can write $P \wedge \neg P \vDash$ since it will entail everything by our definition, and anything can go on the right hand side of the turnstile, and this is why we shorten all contradicitions accordingly.</p>
+<p>Similarly, we can do the same for tautologies, $\vDash P \vee \neg P$ since they will always be true, so certainly whenever whatever on the left is true, so is the tautology.</p>
+<p>So we can have weird technically valid arguments like, &quot;The sky is blue and not blue, therefore the Earth is flat,&quot; or similarly that &quot;Squares have 5 corners, so either it will rain today or it won&#39;t.&quot; These both read as absurd, but they are technnically valid with our definition. These might seem like a flaw for our definition, but for the convenience of all the other arguments, I think it is worth accepting as an oddity of the system. You can also think of them as just sort of fact-of-the-matter statements; tautologies are entailed by everything since they don&#39;t care what makes you think they are true, they just are. Similarly with contradictions, your starting set of premises are just inconsistent, and it is just a bad argument; if you&#39;re willing to accept bad premises, you can deduce bad conclusions.</p>
+<h2 id="proof-systems-and-natural-deduction">Proof Systems and Natural Deduction</h2>
+<p>We have established quite a bit already in $\mathcal{L}_1$, but it is still not that elegant of a system. We now have a way to formalize English arguments, but our ways to validate them are still unwieldy. The only two ways we really have to verify statements is, in essence, brute force checking $\mathcal{L}_1$-structures to see if the argument fails anywhere. This is no better than checking every right-angled triangle to see if it satisfies the Pythagorean theorem. We want a systematic way to go about our arguments.</p>
+<p>We want a <strong>proof system</strong>: given a set of premises $\Gamma$, we want to be able to manipulate them in some way to conclude $\varphi$. </p>
+<p>For example, consider the argument $P \wedge Q, R \vDash P \wedge R$. Without checking any structures and evaluating truth tables, this argument should make sense. If we know $P \wedge Q$, i.e. $P$ <em>and</em> $Q$, we certainly know both $P$ and $Q$ are true individually, so we know $P$. Since we also know $R$ is true, then again it seems obvious we know $P$ <em>and</em> $R$ is also true together i.e. $P \wedge R$. We did not touch any semantics at all of our premises or conclusion (I used the word &quot;true&quot; as a means for accepting a premise), but rather just moved our sentence letters around in a sensible way to get the conclusion.</p>
+<p>We just found two rules that make sense to have in our proof system: $\wedge$-Introduction and $\wedge$-Elimination.</p>
+<center>
+$
+\begin{array}{ccc}
+&amp; \wedge\textrm{-Intro} &amp; \\
+\Phi &amp;   &amp; \Psi \\ \hline 
+ &amp; \Phi \wedge \Psi &amp;   \\ 
+\end{array}
+\ \ \ \
+\begin{array}{c}
+\wedge\textrm{-Elim1} \\
+\Phi \wedge \Psi   \\ \hline 
+ \Phi  \\ 
+\end{array}
+\ \ \ \
+\begin{array}{c}
+\wedge\textrm{-Elim2} \\
+\Phi \wedge \Psi   \\ \hline 
+ \Psi  \\ 
+\end{array}
+$
+</center>
+
+<p>So our above proof of $P \wedge Q, R \vdash P \wedge R$ would look like</p>
+<center>
+$
+\begin{array}{ccc}
+\underline{P \wedge Q} &amp;   &amp;  \\
+P &amp;  &amp; R  \\ \hline
+  &amp; P \wedge R &amp;   \\ 
+\end{array}
+$
+</center>
+
+<p>Thinking through what the other connectives mean can give some intuitive rules for them too:</p>
+<center>
+$
+\begin{array}{c|c|c}
+\textbf{Connective} &amp; \textbf{Introduction} &amp; \textbf{Elimination} \\ \hline
+\wedge &amp;  \begin{array}{c}
+          \begin{array}{cc}
+          \Phi &amp; \Psi \\
+          \end{array} \\ \hline
+          \Phi \wedge \Psi
+          \end{array}<br>        &amp; \begin{array}{c}
+          \Phi \wedge \Psi   \\ \hline 
+          \Phi  \\ 
+          \end{array}
+          \ \ \ \
+          \begin{array}{c}
+          \Phi \wedge \Psi   \\ \hline 
+          \Psi  \\ 
+          \end{array}          \\  \hline
+\vee &amp;  \begin{array}{c}
+          \Phi   \\ \hline 
+          \Phi \vee \Psi  \\ 
+          \end{array}
+          \ \ \ \
+          \begin{array}{c}
+          \Psi   \\ \hline 
+          \Phi \vee \Psi  \\ 
+          \end{array}
+          &amp;   \begin{array}{c}
+        \begin{array}{ccc}
+                      &amp; [\Phi] &amp; [\Psi] \\
+                      &amp; \vdots &amp; \vdots \\
+        \Phi \vee \Psi &amp; \Delta &amp; \Delta \\
+        \end{array} \\ \hline
+        \Delta
+        \end{array}  \\  \hline
+\neg &amp;  \begin{array}{c}
+        \begin{array}{cc}
+        [\Phi] &amp; [\Phi] \\
+        \vdots &amp; \vdots \\
+        \Psi &amp; \neg\Psi \\
+        \end{array} \\ \hline
+        \neg \Phi
+        \end{array}<br>     &amp;  \begin{array}{c}
+        \begin{array}{cc}
+        [\neg\Phi] &amp; [\neg\Phi] \\
+        \vdots &amp; \vdots \\
+        \Psi &amp; \neg\Psi \\
+        \end{array} \\ \hline
+        \Phi
+        \end{array}  \\  \hline
+\rightarrow &amp;   \begin{array}{c}
+                [\Phi] \\
+                \vdots \\
+                \Psi   \\ \hline 
+                \Phi \rightarrow \Psi  \\ 
+          \end{array}<br>            &amp;  \begin{array}{c}
+                \begin{array}{cc}
+                \Phi &amp; \Phi\rightarrow\Psi \\
+                \end{array} \\ \hline
+                \Psi
+                \end{array}   \\  \hline
+\leftrightarrow &amp;  \begin{array}{c}
+                    \begin{array}{cc}
+                    [\Psi] &amp; [\Phi] \\
+                    \vdots &amp; \vdots \\
+                    \Phi &amp; \Psi \\
+                    \end{array} \\ \hline
+                    \Phi\leftrightarrow\Psi
+                    \end{array}<br>                 &amp;  \begin{array}{c}
+                    \begin{array}{cc}
+                    \Phi &amp; \Phi\leftrightarrow\Psi \\
+                    \end{array} \\ \hline
+                    \Psi
+                    \end{array}<br>                    \ \ \ \
+                    \begin{array}{c}
+                    \begin{array}{cc}
+                    \Psi &amp; \Phi\leftrightarrow\Psi \\
+                    \end{array} \\ \hline
+                    \Phi
+                    \end{array} 
+                     \\ 
+\end{array}
+$
+</center>
+
+<p>The square brackets are <em>assumed premises</em>. They are not explicitly given, but, for the sake of argument, you can take a &quot;fake&quot; premise to demonstrate a rule, and discard that assumption after you&#39;ve shown your rule. Some other comments on the rules:</p>
+<ul>
+<li>$\vee$-Intro basically says if you know one sentence, appending any other sentence via $\vee$ is certainly fine since you already have a known fact. $\vee$-Elim says if you know one or the other (or both) of $\Phi$ and $\Psi$ is true, but do not know which, you can deduce a new sentence $\Delta$ if it follows from either of the sentences.</li>
+<li>$\neg$-Rules are basically proofs by contradiction. If $\Phi$ results in both $\Psi$ and $\neg\Psi$, $\Phi$ can&#39;t be held true since it would prove a contradiction. Similarly with assuming $\neg\Phi$.</li>
+<li>$\rightarrow$-Intro follows in line with for-the-sake-of-argument. If we <em>assume</em> $\Phi$, and can deduce $\Psi$, then regardless if we know $\Phi$ or not, we can say that it would logically imply $\Psi$ as well. </li>
+</ul>
+<p>This specific proof system is known as <strong>natural deduction</strong>. These proof trees give us a direct way to interact with our premises in a way that we might normally do in English. However, some of these proofs do become huge quite quickly. Consider the proof of $P\rightarrow (Q\leftrightarrow R) \vdash P \wedge Q \leftrightarrow P \wedge R$:</p>
+<p><img src="/img/intro-logic/sample_proof.png"></p>
+<p>Some of you might have noticed a small change in notation; I&#39;ve been using $\vdash$ as opposed to $\vDash$. In proofs, since we are not considering structures and the truth values of our sentences, semantic entailment does not seem like the right way to describe the relationship between our premises and the conclusion. We now say $\Gamma \vdash \varphi$ if $\Gamma$ <strong>syntactically entails</strong>, or simply <strong>proves</strong> via our proof system, $\varphi$, since we are strictly only concerned with the symbols and the actual writing of the sentence as opposed to its truth.</p>
+<p>But we should not forget our original goal of logic: to demonstrate arguments are valid, which involves $\Gamma \vDash \varphi$, which seems to have a very different meaning to $\Gamma \vdash \varphi$. It happens that our choice of rules above was not random. As we will see later, natural deduction is a <strong>sound system</strong>:</p>
+<p><strong>Soundness Theorem:</strong> If $\Gamma \vdash \varphi$, then $\Gamma \vDash \varphi$.</p>
+<p>Soundness can be thought of as the quality of <em>preserving truth</em>; we can rely on our proofs to deduce meaningful, accurate sentences in our formal language. Given our rules, we would hope that these are sound, since they are based on how people typically argue in real life, too. You might come across other proof systems, but I can guarantee you, they are designed to be sound and useful. </p>
+<!-- ### Completeness
+
+It's worth noting the direction that the Soundness Theorem argues: if something is provable, then it makes a valid argument. -->
+<h2 id="-mathcal-l-_2-the-logical-quantifiers">$\mathcal{L}_2$: The Logical Quantifiers</h2>
+<p>Let&#39;s go back to our very first argument we discussed: &quot;If Socrates is a man, then he is mortal. Socrates is a man. Therefore, Socrates is mortal.&quot; We were able to show it is valid in $\mathcal{L}_1$ by formalizing it, and either checking its truth table or with our proof system. Let&#39;s look at a very similar argument. &quot;All men are mortal. Socrates is a man. Therefore, Socrates is mortal.&quot; Perfectly reasonable. If we formalize this with our current logic, though, we end up with $P, Q \vDash R$, where $P$ is &quot;All men are mortal,&quot; $Q$ is &quot;Socrates is a man&quot;, and $R$ is &quot;Socrates is mortal&quot;. Clearly this is not a logical argument in $\mathcal{L}_1$, since we can just specify a structure where $|P|_A = |Q|_A = T$ and $|R|_A = F$ since they are separate sentence letters.</p>
+<h3 id="predicates-and-constants">Predicates and Constants</h3>
+<p>$\mathcal{L}_1$ is good for keeping sentences simple, but it lacks the nuance of the <strong>predicates</strong> English has; we will never be able to show the relation of men and mortality, as we can&#39;t express &quot;…are mortal&quot; nicely; relations between simpler sentences are covered by connectives, but relations between objects are not. We need something to convey <strong>properties</strong> somehow. Ideally, we want to be able to say Socrates is mortal, by first saying he is a man, and to further show that anything that <em>has the property of being a man</em> also <em>has the property of being mortal</em>.</p>
+<p>To formalize &quot;Socrates is a man&quot;, we can introduce predicates kind of like connectives. Let&#39;s have $P^1$ stand for &quot;…is a man&quot;, and for convenience, we&#39;ll let the letter $|a|_A$ stand for the <strong>constant</strong> Socrates (remember, $|\cdot|_A$ denotes meaning). Then $P^1a$ is a nice compact way to write out &quot;Socrates is a man&quot;.</p>
+<p>Now how do we formalize that this is a true sentence? We don&#39;t want to have to explicitly say $|P^1a|_A = T$, since then we would have to specify that for <em>everything</em> that is a man, there is a constant associated with that human and that when put together with $P^1$ forms a true statement.</p>
+<p>Let&#39;s take a step back for a moment. If you had to explain to an alien precisely what a human is, how would you do it? You might describe some key traits for them, but the easiest way, in a universal sense, is just to show them by example. Give them a list of humans and have them extrapolate on their own. So perhaps a good semantics for predicates is to exactly that: we will let $|P^1|_A = \{\textrm{Socrates}, \textrm{Feynman}, \textrm{Noether},…\}$.</p>
+<p>Then a natural way of defining truth would be that $|P^1a|_A = T$ if and only if $|a|_A \in |P^1|_A$. That sentence makes sense, since $|a|_A$ is an object/noun, and $|P^1|_A$ is a set of objects, so we can evaluate that, and since $|P^1|_A$ explicitly states all the objects that have that property, seeing if something has that property (like being a man) is a matter of being in the list of objects said to have it. &quot;Socrates is a man&quot; is true iff &quot;Socrates&quot; has the property &quot;is a man&quot; iff Socrates is in the set of all men.</p>
+<p>I&#39;ve been putting a small superscript in our predicate $P^{\color{red}{1}}$. This is the <span style="color:red">arity index</span>, and basically says how many objects the predicate takes as an input. So, naturally we can have indices greater than 1 as well.</p>
+<p>The predicate &quot;…like…&quot; is a perfectly good predicate, but it now qualifies <em>two</em> objects and relates them to each other. So if Alice likes Bob, we can write this as $P^2ab$ with the relevant meanings for $P^2$ as &quot;…likes…&quot; and the constants referring to Alice and Bob respectively. But note here, <strong>order matters</strong>. Just because Alice likes Bob, that does not necessarily mean Bob likes Alice and so for some structures it might be the case that $|P^2ab|_A \neq |P^2ba|_A$.</p>
+<p>Just as arity 1 predicates had a set of objects as its semantics, arity 2 has a set of <strong>ordered pairs</strong> i.e. $|P^2|_A = \{\langle \textrm{Alice}, \textrm{Bob}\rangle, \langle \textrm{Davis}, \textrm{Edward} \rangle, \langle \textrm{Jack}, \textrm{Jack} \rangle \}$ would be a reasonable way to denote the predicate. And similarly, we say $|P^2ab|_A = T$ if and only if $\langle |a|_A, |b|_A \rangle \in |P^2|_A$. So 2-ary predicates define <strong>binary relations</strong>. </p>
+<center>
+$
+\begin{array}{c|c|c}
+\textbf{Expression} &amp; \textbf{Formalization} &amp; \textbf{Semantic Value} \\ \hline
+\textrm{constants} &amp; a,b,c,… &amp; \textrm{objects}   \\ 
+\textrm{sentence letter} &amp; P,Q,R,… &amp; \textrm{truth value} \ (T,F)  \\ 
+\textrm{unary predicate} &amp; P^1,Q^1,R^1,… &amp; \textrm{set of objects}  \\ 
+\textrm{binary predicate} &amp; P^2,Q^2,R^2,… &amp; \textrm{set of ordered pairs}  \\ 
+\textrm{ternary predicate} &amp; P^3,Q^3,R^3,… &amp; \textrm{set of ordered triples} \\ 
+\textrm{n-ary predicate} &amp; P^n,Q^n,R^n,… &amp; \textrm{set of n-tuples} \\ 
+\end{array}
+$
+</center>
+
+<p>In practice, the arity index usually doesn&#39;t need to be written, as it will be implied by the number of constants attached to the predicate i.e. $Pabc$ is clearly a ternary predicate, as if it wasn&#39;t, it would either be incomplete (&quot;a hates b and c, but likes ?&quot;), or it would accept too many arguments (&quot;If a then b&quot;; where does c go?). So in sentences like $Pa \wedge Pab$, each $P$ stands for a different predicate as implied by their arity.</p>
+<p>This is the start of the more robust logic $\mathcal{L}_2$. Just for the formalities, here are some things we need to keep in mind over $\mathcal{L}_1$.</p>
+<ul>
+<li>Sentence letters are the same as 0-ary predicates; they accept no arguments.</li>
+<li>In an $\mathcal{L_2}$-structure, we assign semantics to every predicate (either truth values or sets to predicates), as well as an object to every constant</li>
+<li>Connectives work the same as they have done before</li>
+<li>Truth for predicates are equivalent to membership of a set</li>
+</ul>
+<h3 id="quantifiers">Quantifiers</h3>
+<p>So we now have a good way of storing properties of objects via the predicates they satisfy, so we have a good way of saying &quot;Socrates is a man&quot;. But now we need a way of saying, &quot;All men are mortal&quot;. It&#39;s that &quot;all&quot; that makes this difficult, since it does not refer to a specific man, but a <em>generic</em> one. </p>
+<p>Let&#39;s generalize the sentence a bit more. What it really is saying, &quot;If one is a man, then they are mortal.&quot; Now we have this nice &quot;one&quot; acting a <strong>placeholder</strong> name for our generic man. Actually, for a generic <em>anything</em>. If we are talking about a turtle, we cannot say if they are mortal by this sentence since they have nothing to do with that claim. </p>
+<p>In an even more mathematical way of looking at the sentence, it could read as, &quot;For all $x$: if $x$ is a man, then $x$ is mortal.&quot; That &quot;for all&quot; appears enough, we have formalize it as $\forall$, the <strong>universal quantifier</strong>. You might have seen this appear in math, and if not, I&#39;ve already been abusing its convenience in some previous proofs on this post.</p>
+<p>So our sentence would look like $\forall x(Px \rightarrow Qx)$ where $P$ and $Q$ are predicates for being a person and mortal respectively.</p>
+<p>$x$ is clearly not a constant, since, well, it is not constant; it does not have a fixed meaning. We then aptly call it a <strong>variable</strong>. But clearly, variables <em>can</em> take on certain meanings, so we also have <strong>variable assignments</strong> $\alpha, \beta,…$ that allow us to arbitrarily assign variables meanings in a formal way. For example, if we let $x$ mean Socrates in our structures, i.e. $|x|_A^\alpha = \textrm{Socrates} = |a|_A$, then our argument works by the truth rules for $\rightarrow$.</p>
+<p>The &quot;opposite&quot; of the universal quantifier is the <strong>existential quantifier</strong> $\exists$, which instead of saying our sentence applies to all possible objects, $\exists x \Phi$ only claims that there is at least one object that satisfies the sentence $\Phi$. </p>
+<hr>
+<p>The duality of the quantifiers can be found even in natural language. &quot;Everything is not a cow,&quot; as in $\forall x \neg Px$, is the same as saying, &quot;There does not exist a cow&quot;, or $\neg \exists x Px$. Similarly, &quot;There is something that is not a cow,&quot; or $\exists x \neg Px$, is equivalent to saying &quot;Not everything is a cow&quot; or $\forall x \neg Px$.</p>
+<hr>
+<p>However, not every <strong>formula</strong> with variables and quantifiers make a sentence. Consider $\forall x \exists y(Px \vee \neg Qxy \rightarrow Rz)$. This doesn&#39;t make that much sense since $z$ is just hanging out as a <strong>free variable</strong> as there is no quantifier claiming anything about $z$. And since $z$ is a variable, it&#39;s not like it has any semantic meaning, either. So we wouldn&#39;t call this a sentence, but a formula. Variables that are not free are <strong>bound</strong>.</p>
+<p><strong>Definition:</strong> A formula is a sentence if and only if it has no free variables.</p>
+<p>Similarly, $\forall y Qy \rightarrow Py$ wouldn&#39;t be called a sentence either, as depite how it looks, there is a free variable in $Py$ even though there is a $\forall y$ in the formula. You usually need parantheses to specify what the quantifiers bind. $\forall y(Qy \rightarrow Py)$ is a sentence, while the previous expression is not.</p>
+<h3 id="domains">Domains</h3>
+<p>The final extra detail we need is to specify <em>what</em> meanings our variables are allowed to be assigned. So in an $\mathcal{L}_2$-structure, we also specify a <strong>domain</strong> that specifies all the possible objects in the &quot;universe&quot; that we are discussing. All constants are assigned meanings from the domain, and our quantifiers use variable assignments that range over the domain.</p>
+<h3 id="satisfaction-and-truth-in-mathcal-l-_2-">Satisfaction and Truth in $\mathcal{L}_2$</h3>
+<p>Suppose $\Phi$ and $\Psi$ are $\mathcal{L}_2$ formulas, $v$ is a variable, $A$ is a structure, and $\alpha$ is a variable assignment. We say <strong>$\alpha$ satisfies $\varphi$ under $A$</strong>, or $|\varphi|_A^\alpha = T$, in the following way: </p>
+<ul>
+<li>$|\Phi v_1v_2…v_n|_A^\alpha = T$ iff $\langle |v_1|_A^\alpha, |v_2|_A^\alpha,…, |v_n|_A^\alpha  \rangle \in |\Phi|_A^\alpha$ where $\Phi$ is an n-ary predicate and each $v_i$ is a variable or constant</li>
+<li>$|\neg\Phi|_A^\alpha = T$ iff $|\Phi|_A^\alpha = F$</li>
+<li>$|\Phi \wedge \Psi|_A^\alpha = T$ iff $|\Phi|_A^\alpha = T$ and $|\Psi|_A^\alpha = T$</li>
+<li>$|\Phi \vee \Psi|_A^\alpha = T$ iff $|\Phi|_A^\alpha = T$ or $|\Psi|_A^\alpha = T$</li>
+<li>$|\Phi \rightarrow \Psi|_A^\alpha = T$ iff $|\Phi|_A^\alpha = F$ or $|\Psi|_A^\alpha = T$</li>
+<li>$|\Phi \leftrightarrow \Psi|_A^\alpha = T$ iff $|\Phi|_A^\alpha = |\Psi|_A^\alpha$</li>
+<li>$|\forall v \Phi|_A^\alpha = T$ iff for every variable assignment $\beta$ that differs from $\alpha$ in at most $v$, $|\Phi|_A^\beta = T$; in other words, $|\forall v \Phi|_A^\alpha = T$ iff $\Phi$ is satisfied when every thing except $v$ is fixed</li>
+<li>$|\exists v \Phi|_A^\alpha = T$ iff there is at least one variable assignment $\beta$ that differs from $\alpha$ in at most $v$ where $|\Phi|_A^\beta = T$; in other words, $|\exists v \Phi|_A^\alpha = T$ iff $\Phi$ is satisfied for some value of $v$</li>
+</ul>
+<p>The normal connective satisfaction come from the standard truth tables we did before, and the quantifiers are exactly what you would imagine them to mean, just formalized in the new terminology we have to make it precise.</p>
+<p>The truth of an $\mathcal{L}_2$ sentence is now easy given the above satisfaction rules:</p>
+<p><strong>Definition:</strong> An $\mathcal{L}_2$ sentence $\varphi$ is true $|\varphi|_A = T$ iff $|\varphi|_A^\alpha = T$ for every variable assignment $\alpha$ over $A$.</p>
+<p>Validity remains the same in $\mathcal{L}_2$, just with our updated definitions for structures and truth:</p>
+<p><strong>Definition:</strong> Given a set of $\mathcal{L}_2$ sentences $\Gamma = \{\Phi, \Psi,…\}$ and a single sentence $\varphi$, we say that $\Gamma$ semantically entails $\varphi$ if and only if for all $\mathcal{L}_2$-structures $A$, if $A \vDash \Gamma$, then $A \vDash \varphi$.</p>
+<h2 id="natural-deduction-2-0">Natural Deduction 2.0</h2>
+<p>Rules for our original connectives $\wedge, \vee, \neg, \rightarrow, \leftrightarrow$ remain the same. We only need to add the rules for $\forall$ and $\exists$. It will be easier to write them out then explain them afterwards.</p>
+<center>
+$
+\begin{array}{c|c|c}
+\textbf{} &amp; \textbf{Introduction} &amp; \textbf{Elimination} \\ \hline
+\forall &amp;   \begin{array}{c}
+              \Phi[t/v]   \\ \hline 
+              \forall v \Phi  \\ 
+              \end{array} \ 
+            { \textrm{for generic constant} \ t}
+      &amp;  \begin{array}{c}
+          \forall v \Phi   \\ \hline 
+          \Phi[t/v]  \\ 
+          \end{array}  \\  \hline
+\exists &amp;  \begin{array}{c}
+          \Phi[t/v]   \\ \hline 
+          \exists v \Phi  \\ 
+          \end{array}
+          &amp;   \begin{array}{c}
+        \begin{array}{cc}
+                      &amp; [\Phi[t/v]] \\
+                      &amp; \vdots \\
+        \exists v \Phi &amp; \Psi \\
+        \end{array} \\ \hline
+        \Psi
+        \end{array}  \ 
+            { \textrm{for generic constant} \ t} \\
+\end{array}
+$
+</center>
+
+<p>The notation of $\Phi[t/v]$ is to highlight <strong>substitution</strong>: $\Phi[t/v]$ is the formula $\Phi$ with all occurrences of $v$ in it replaced with $t$. For example, if $\Phi = Px \wedge \forall y (Qxy \rightarrow Rx)$, then $\Phi[t/x] = Pt \wedge \forall y (Qty \rightarrow Rt)$.</p>
+<p>Here is the intuition behind the new rules:</p>
+<ul>
+<li>$\forall$-Intro basically says if $t$ is a constant that does not appear anywhere else in our proof, it is in practice a &quot;dummy variable&quot;, and allows us to introduce a proper variable bound by $\forall$.</li>
+<li>$\forall$-Elim says we if we know $\Phi$ is satisfied by possible $v$, it is certainly true if $v$ is replaced by $t$; if all men are mortal, certainly Socrates is mortal too</li>
+<li>$\exists$-Intro is the formal way of saying if we see an occurence of $\Phi$, then there is some $v$ that satisfies $\Phi$; if you see a cow, you know there is at least one animal</li>
+<li>$\exists$-Elim is a for-the-sake-of-argument style proof. While we may not know exactly <em>what</em> satisfies $\exists v \Phi$, if we can deduce some claim independent of the specific thing that satisfies it, we know that claim must also be true as it only relies on the existence of something. If we know there is at least one plant-eating animal—call it Bob—we can conclude that there are plants, since Bob eats plants, and that&#39;s true for all &quot;Bob&quot;s (a.k.a. plant-eating animals).</li>
+</ul>
+<p>With these added rules, we can now prove a lot of the things we already knew, such as:</p>
+<ul>
+<li>The mortality argument of $\forall x(Px \rightarrow Qx), Pa \vdash Qa$</li>
+<li>The quantifier interplay $\neg \forall x Px \dashv\vdash \exists x \neg Px$</li>
+<li>Standard tautologies and contradictions; $\vdash \forall x Px \vee \neg \forall x Px$, and $\forall x Px \wedge \neg \forall x Px \vdash$</li>
+</ul>
+<p>Similarly, we will see that these rules are also sound.</p>
+<h2 id="-mathcal-l-_-identity-and-definite-descriptions">$\mathcal{L}_=$: Identity and Definite Descriptions</h2>
+<p>$\mathcal{L}_2$ gets us most of the way for what we want but there&#39;s one slight inconvenience: we don&#39;t have a notion of identity. Say we have a constant $a$  with semantic value $|a|_A = \textrm{Socrates}$. Then, if we have another constant $b$ such that $|b|_A = \textrm{Socrates}$, we have no good way of showing these constants are really &quot;the same&quot;; they might look different, but they function in the same way as both standing in for Socrates.</p>
+<p>And in a philosophical, sense, the identity is an important concept in ontologies and metaphysics, so it&#39;s worthwhile having a notion of it we can refer to when formalizing arguments.</p>
+<p>We could just specify the predicate, &quot;…is identical to…&quot; as a binary predicate letter in $\mathcal{L}_2$, but that means that the predicate might receive arbitrary meanings in different structures, and identity seems like a pretty unshakeable concept. It also might mean that we use different predicate letters in different formalizations, and we want this to be consistent for it to be useful.</p>
+<p>This is what $\mathcal{L}<em>{=} $ is for. $\mathcal{L}</em>{=} $</p>
+<!-- is _exactly_ like $\mathcal{L}_2$ in terms of structures and truth, but it has the one difference of having an extra predicate of $=$ to refer to identity. -->
 ]]></description>
          <link>http://xperimex.github.io/blog/intro-logic</link>
          <guid isPermaLink="true">http://xperimex.github.io/blog/intro-logic</guid>
