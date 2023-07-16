@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Sun, 16 Jul 2023 21:13:05 GMT</lastBuildDate>
+      <lastBuildDate>Sun, 16 Jul 2023 21:13:44 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -5686,7 +5686,7 @@ $\begin{array}{cc|cc}
 </ul>
 <p>The proofs found can be found in <em>Elements of Deductive Logic</em> (which only hold in <a href="#higher-order-logics">first-order logic</a>!), but there&#39;s an interesting paradox that comes along with it:</p>
 <p><strong>Skolem&#39;s Paradox:</strong> The Löwenheim-Skolem Theorem says that no first-order theory can limit what the size of the structures that satisfy it. Set theory is a first-order theory, so the theorem would say that there is a countable structure that satisfies set theory. But set theory entails that there are <em>uncountable sets</em> as well. How can a structure with only countably many elements satisfy something that is uncountable? </p>
-<p>I&#39;ll leave you to think about that, but the resolution to this dilemma (is also in <em>Eagle</em>) leads to what is now known as the <a href = "https://en.wikipedia.org/wiki/Absoluteness_(logic)"> non-absoluteness </a> of set theory; a set may be uncountable <em>relative</em> to one structure, but countable to another.</p>
+<p>I&#39;ll leave you to think about that, but the resolution to this dilemma (also in <em>Eagle</em>) leads to what is now known as the <a href = "https://en.wikipedia.org/wiki/Absoluteness_(logic)"> non-absoluteness </a> of set theory; a set may be uncountable <em>relative</em> to one structure, but countable to another.</p>
 <h3 id="lindstr-m-s-theorem">Lindström&#39;s Theorem</h3>
 <p>We&#39;ve looked at different ways logic can be limited in some math-y ways, like with expressive adequacy. The previous two theorems above give some more implicit restrictions on what a first-order logic can do. Compactness says that $\mathcal{L}_=$ can&#39;t discern finite sets from &quot;pseudo-finite&quot; (infinite sets whose finite subsets are satisfiable), and Löwenheim-Skolem says that it can&#39;t differentiate cardinalities of a structure. However, <strong>Lindström&#39;s theorem</strong> tells us that given these two restrictions of satisfying Compactness and (specifically the downward) Löwenheim-Skolem theorem, first-order logic is actually <strong>the strongest logic</strong> with these restrictions. Different definitions can yield different results, but analyzing the relative strength of logics is an area to still explore. Lindström uses the idea of overlapping &quot;good structures&quot; between two logics to determine their relative strengths.</p>
 <h2 id="natural-language-and-grice-s-maxims">Natural Language and Grice&#39;s Maxims</h2>

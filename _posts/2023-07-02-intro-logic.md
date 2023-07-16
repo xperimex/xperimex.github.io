@@ -1632,7 +1632,7 @@ The proofs found can be found in _Elements of Deductive Logic_ (which only hold 
 
 **Skolem's Paradox:** The Löwenheim-Skolem Theorem says that no first-order theory can limit what the size of the structures that satisfy it. Set theory is a first-order theory, so the theorem would say that there is a countable structure that satisfies set theory. But set theory entails that there are _uncountable sets_ as well. How can a structure with only countably many elements satisfy something that is uncountable? 
 
-I'll leave you to think about that, but the resolution to this dilemma (is also in _Eagle_) leads to what is now known as the <a href = "https://en.wikipedia.org/wiki/Absoluteness_(logic)"> non-absoluteness </a> of set theory; a set may be uncountable _relative_ to one structure, but countable to another.
+I'll leave you to think about that, but the resolution to this dilemma (also in _Eagle_) leads to what is now known as the <a href = "https://en.wikipedia.org/wiki/Absoluteness_(logic)"> non-absoluteness </a> of set theory; a set may be uncountable _relative_ to one structure, but countable to another.
 
 ### Lindström's Theorem
 
