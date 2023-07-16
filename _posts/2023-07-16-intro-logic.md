@@ -268,7 +268,13 @@ In other words, whenever all of our premises are true, our conclusion is true.
 
 When $\Gamma$ semantically entails a sentence $\varphi$, denoted $\Gamma \vDash \varphi$, then $\varphi$ is a valid conclusion from premises $\Gamma$. It's called semantic entailment since we are working with the semantics of the individual sentences, namely their truth values. In the language of consistency, we can also say that <span id = "valid-inconsistency">$\Gamma \vDash \varphi$ if and only if $\Gamma \cup \\{\neg \varphi\\}$ is inconsistent</span>.
 
-**PROOF:** Suppose that $\Gamma \vDash \varphi$. Say that $A$ is a structure that satisfies $\Gamma$ i.e. $|\gamma|_A = T \ \ \ \forall \gamma \in \Gamma$. Then by our assumption, $|\varphi|_A = T$. By the rules for $\neg$, then $|\neg \varphi|_A = F$. For any structure $B$ that does not satisfy $\Gamma$, $\exists \gamma \in \Gamma \ \ \ |\gamma|_B = F$. So, for all structures, at least one sentence in $\Gamma \cup \\{\neg \varphi\\}$ is false, so it is inconsistent.
+-------------
+
+**<span id = "valid-inconsistency">Claim:</span>** $\Gamma \vDash \varphi$ if and only if $\Gamma \cup \\{\neg \varphi\\}$ is inconsistent.
+
+**Proof:** Suppose that $\Gamma \vDash \varphi$. Say that $A$ is a structure that satisfies $\Gamma$ i.e. $|\gamma|_A = T \ \ \ \forall \gamma \in \Gamma$. Then by our assumption, $|\varphi|_A = T$. By the rules for $\neg$, then $|\neg \varphi|_A = F$. For any structure $B$ that does not satisfy $\Gamma$, $\exists \gamma \in \Gamma \ \ \ |\gamma|_B = F$. So, for all structures, at least one sentence in $\Gamma \cup \\{\neg \varphi\\}$ is false, so it is inconsistent. $ \ \blacksquare$
+
+-------------
 
 It's worth pointing out that we have two uses for the symbol $\vDash$, one relating structures to sentences, and another relating sentences to other sentences. The context will specify which use we mean, but it is useful to keep in mind that we might double up on symbols when their related meanings are so similar.
 
