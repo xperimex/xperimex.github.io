@@ -1592,7 +1592,7 @@ One particularly strong result that deserves its own post is the **Compactness T
 
 **Compactness Theorem:** If every finite subset of a set of sentences $\Gamma$ is satisfiable, then the whole set $\Gamma$ is satisfiable.
 
-We've considered finite sets of sentences a lot already (as that's what proofs required of us), and the Compactness Theorem trivially holds since if $\Gamma$ is finite, then $\Gamma \subseteq \Gamma$ is a finite subset of itself. But for infinite sets of sentences, it's entirely clear when they are satisfiable or not. 
+We've considered finite sets of sentences a lot already (as that's what proofs required of us), and the Compactness Theorem trivially holds for them since if $\Gamma$ is finite, then $\Gamma \subseteq \Gamma$ is a finite subset of itself. But for infinite sets of sentences, it's entirely clear when they are satisfiable or not. 
 
 The contrapositive gives us the equivalent formulation:
 
