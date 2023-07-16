@@ -1628,7 +1628,7 @@ There are more ways to prove and apply Compactness, but that's for another day.
 * (Upward) $\Gamma$ has a structure of every cardinality $\omega' > \omega$
 * (Downward) $\Gamma$ has a countable structure
 
-The proofs found can be found in _Elements of Deductive Logic_ (and the only hold in [first-order logic](#higher-order-logics)!), but there's an interesting paradox that comes along with it:
+The proofs found can be found in _Elements of Deductive Logic_ (which only hold in [first-order logic](#higher-order-logics)!), but there's an interesting paradox that comes along with it:
 
 **Skolem's Paradox:** The Löwenheim-Skolem Theorem says that no first-order theory can limit what the size of the structures that satisfy it. Set theory is a first-order theory, so the theorem would say that there is a countable structure that satisfies set theory. But set theory entails that there are _uncountable sets_ as well. How can a structure with only countably many elements satisfy something that is uncountable? 
 
