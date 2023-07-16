@@ -657,7 +657,7 @@ We could just specify the predicate, "…is identical to…" as a binary predica
 This is what $\mathcal{L}\_=$ is for. $\mathcal{L}\_=$ is _exactly_ like $\mathcal{L}_2$ in terms of structures and truth, but it has the one difference of having an extra predicate of $=$ to refer to identity. Some quick notes:
 
 * As $=$ is a binary predicate, it relates two terms that are constants or variables (not formulas or sentences!)
-* By convention, we write $a=b$ as per the norm of math; we don't write $=ab$ as we would for a normal predicates/predicate letters
+* By convention, we write $a=b$ as per the norm of math; we don't write $=ab$ as we would for a normal predicate/predicate letter
 * For variables/constants $s$ and $t$, $|s=t|_A^\alpha = T$ iff $|s|_A^\alpha=|t|_A^\alpha$ i.e. they share the same semantic value and represent the same object 
 
 ### Natural Deduction 2.5
