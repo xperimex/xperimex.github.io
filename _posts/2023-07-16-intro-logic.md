@@ -1760,7 +1760,7 @@ The tautology $P \vee \neg P$ is quite a natural one. "Either it is or it is not
 
 But I've alluded throughout the post that some people do not always accept this as a given. **Intuitionistic**, or **constructive logic**, rejects the law of excluded middle, and argues that $\neg \neg P \nvDash P$, which come as standard inference rules that we can derive. The name comes from the fact that this doctrine encourages literal demonstrations of proof: if you have a proof of $P \wedge Q$, you literally have a proof of both $P$ and $Q$; a proof of $P \vee Q$ means one has a proof of $P$, or has a proof of $Q$.
 
-Even more (ironically) unintuitive, [we lose the ability to use proof by contradiction](xperimex.com/blog/constructive-proofs), as that relies on the ability to claim that if an assumption is wrong, its negation is true. So for classic proofs like the irrationality of $\sqrt{2}$, intuitionists would claim that all that's been proven is that $\sqrt{2}$ is _not rational_, not necessarily irrational.
+Even more (ironically) unintuitive, [we lose the ability to use proof by contradiction](xperimex.com/blog/constructive-proofs), as that relies on the ability to claim that if an assumption is wrong, its negation is true. So for classic proofs like the irrationality of $\sqrt{2}$, intuitionists would claim that all that's been proven is that $\sqrt{2}$ is _not rational_, not necessarily that it is irrational.
 
 Picking and choosing what axioms, entailments, or laws one accepts of course changes what meaning and truth will look like to them, and can lead to some interesting, tenable persepctives that hold real weight and become the focus of entire areas of philosophy.
 
