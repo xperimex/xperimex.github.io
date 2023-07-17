@@ -1608,7 +1608,7 @@ And this is _guaranteed_ to hold for infinite sets, while it isn't for finite! C
 
 **Alternate Form of Compactness:** If $\Gamma \vDash \Phi$, then $\Gamma^{\textrm{fin}} \vDash \Phi$.
 
-**Proof:** If $\Gamma$ is finite already, then the claim holds as it is. So consider $\Gamma$ to be infinite. Recall that [$\Gamma \vDash \Phi$ iff $\Gamma \cup \\{\neg \Phi\\}$ is inconsistent](#valid-inconsistency). Then by Compactness, there is a finite subset $\Gamma^{\textrm{fin}} \cup \\{\neg\Phi \\}$ that is inconsistent. $\neg\Phi$ must be in this set as $\Gamma$ is satisfiable by assumption of $\Gamma \vDash \Phi$, so $\Gamma^{\textrm{fin}}$ is always satisfiable. Since $\Gamma^{\textrm{fin}} \cup \\{\neg\Phi \\}$ is inconsistent, then $\Gamma^{\textrm{fin}} \vDash \Phi$. $ \ \blacksquare$
+**Proof:** If $\Gamma$ is finite already, then the claim holds as it is. So consider $\Gamma$ to be infinite. Recall that [$\Gamma \vDash \Phi$ iff $\Gamma \cup \\{\neg \Phi\\}$ is inconsistent](#valid-inconsistency). Then by Compactness, there is a finite subset $\Gamma^{\textrm{fin}} \cup \\{\neg\Phi \\}$ that is inconsistent. $\neg\Phi$ must be in this set as $\Gamma$ is satisfiable by assumption of $\Gamma \vDash \Phi$, so $\Gamma^{\textrm{fin}}$ is always satisfiable (if $\Gamma$ is unsatisfiable, then it entails everything, and then by Compactness there's a finite susbet that's also unsatisfiable that entails everything). Since $\Gamma^{\textrm{fin}} \cup \\{\neg\Phi \\}$ is inconsistent, then $\Gamma^{\textrm{fin}} \vDash \Phi$. $ \ \blacksquare$
 
 Finally, it's worth noting that Compactness quickly follows from _any_ logic that is both sound and complete:
 
