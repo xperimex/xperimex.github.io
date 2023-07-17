@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Mon, 17 Jul 2023 20:23:41 GMT</lastBuildDate>
+      <lastBuildDate>Mon, 17 Jul 2023 22:04:24 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -5193,9 +5193,9 @@ $
 <p>Earlier we discussed substitution briefly in the context of constants and variables with $\forall$ and $\exists$ and their proof rules. We can generalize substitution even further:</p>
 <p><strong>Definition</strong>: For a set of sentences $\Gamma$, $\Gamma[\varphi/S]$ is the uniform subsitution of the sentence $\varphi$ for the sentence letter $S$ in every sentence in $\Gamma$. If $S$ does not occur at all in $\Gamma$, then $\Gamma[\varphi/S] = \Gamma$.</p>
 <p>For example, if we have the sentence $\Phi = P \rightarrow (Q \vee R) \wedge P$, then with substitution, $\Phi[(R \leftrightarrow \neg Q) / P] = (R \leftrightarrow \neg Q) \rightarrow (Q \vee R) \wedge (R \leftrightarrow \neg Q)$. This applies for sets of sentences as described above.</p>
-<p>We then have the following, somewhat surprising theorem:</p>
+<p>We then have the following theorem:</p>
 <p><strong>Substitution Theorem:</strong> If $\Gamma \vDash \Phi$, then $\Gamma[\varphi/S] \vDash \Phi[\varphi/S]$.</p>
-<p>We&#39;ll first prove a helpful lemma:</p>
+<p>Which should sort of make sense; we&#39;ve been focusing on the validity of argument as something intrinsic to the <em>structure</em> of the argument, as opposed to having anything to do with the specific sentences. We&#39;ll first prove a helpful lemma:</p>
 <hr>
 <p><strong>Substitution Lemma:</strong> For a sentence $\Psi$, sentence letter $X$, and a structure $A$, we define a new substitution structure $A_{\Psi/X}$ as follows:</p>
 <center>

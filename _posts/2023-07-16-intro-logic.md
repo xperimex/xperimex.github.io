@@ -969,11 +969,11 @@ Earlier we discussed substitution briefly in the context of constants and variab
 
 For example, if we have the sentence $\Phi = P \rightarrow (Q \vee R) \wedge P$, then with substitution, $\Phi[(R \leftrightarrow \neg Q) / P] = (R \leftrightarrow \neg Q) \rightarrow (Q \vee R) \wedge (R \leftrightarrow \neg Q)$. This applies for sets of sentences as described above.
 
-We then have the following, somewhat surprising theorem:
+We then have the following theorem:
 
 **Substitution Theorem:** If $\Gamma \vDash \Phi$, then $\Gamma[\varphi/S] \vDash \Phi[\varphi/S]$.
 
-We'll first prove a helpful lemma:
+Which should sort of make sense; we've been focusing on the validity of argument as something intrinsic to the _structure_ of the argument, as opposed to having anything to do with the specific sentences. We'll first prove a helpful lemma:
 
 ------------------
 
