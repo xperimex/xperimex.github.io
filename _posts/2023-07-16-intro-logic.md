@@ -1237,7 +1237,7 @@ Connective duals are the heart of this topic, so with that solidified, we are no
 **Definition (Generalized Duality):**
 
 * The **dual of a sentence** is given recursively: if $\Phi$ is a sentence letter, then $\Phi^{\*} = \Phi$, and if $\Phi = c(\varphi_1, \cdots, \varphi_n)$, then $\Phi^{\*} = (c(\varphi_1, \cdots, \varphi_n))^{\*} = c^{\*}(\varphi_1^{\*}, \cdots, \varphi_n^{\*})$
-* Let $T^\* = F$ and $F^\* = T$. The **dual of a structure** $A^{\*}$ is defined by flipping the truth values of all sentence letters in A, i.e. $|\alpha|_{A^\*} = (|\alpha|_A)^\* = 1 - |\alpha|_A$ for all sentence letters $\alpha$ 
+* Let $T^\* = F$ and $F^\* = T$. The **dual of a structure** $A^{\*}$ is defined by flipping the truth values of all sentence letters in $A$, i.e. $|\alpha|_{A^\*} = (|\alpha|_A)^\* = 1 - |\alpha|_A$ for all sentence letters $\alpha$ 
 
 We can now prove another adjacent lemma as before.
 
