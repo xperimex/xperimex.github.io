@@ -973,7 +973,7 @@ We then have the following theorem:
 
 **Substitution Theorem:** If $\Gamma \vDash \Phi$, then $\Gamma[\varphi/S] \vDash \Phi[\varphi/S]$.
 
-Which should sort of make sense; we've been focusing on the validity of argument as something intrinsic to the _structure_ of the argument, as opposed to having anything to do with the specific sentences. We'll first prove a helpful lemma:
+Which should sort of make sense; we've been focusing on the validity of argument as something intrinsic to the _structure_ of the argument, as opposed to having anything to do with the specific sentences. So exchanging sentences with another in an argument should be no issue, even if the sentences are more complicated. We'll first prove a helpful lemma:
 
 ------------------
 
