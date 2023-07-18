@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Tue, 18 Jul 2023 05:58:11 GMT</lastBuildDate>
+      <lastBuildDate>Tue, 18 Jul 2023 08:02:23 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -5656,7 +5656,7 @@ $\blacksquare$
 <h1 id="part-4-what-s-next-">Part 4: What&#39;s Next?</h1>
 <p>This is where my logic sequence ended this year. But of course that does not mean that this is where logic as a field stops, too.</p>
 <h2 id="more-to-be-studied-">More To Be Studied!</h2>
-<p>Even before considering other logics or flaws within our current one, there is still many results, extremely important results to be studied within $\mathcal{L}_1$, $\mathcal{L}_2$, and $\mathcal{L}_=$. </p>
+<p>Even before considering other logics or flaws within our current one, there is still many, extremely important results to be studied within $\mathcal{L}_1$, $\mathcal{L}_2$, and $\mathcal{L}_=$. </p>
 <h3 id="compactness">Compactness</h3>
 <p>One particularly strong result that deserves its own post is the <strong>Compactness Theorem:</strong></p>
 <p><strong>Compactness Theorem:</strong> If every finite subset of a set of sentences $\Gamma$ is satisfiable, then the whole set $\Gamma$ is satisfiable.</p>

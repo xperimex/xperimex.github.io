@@ -1590,7 +1590,7 @@ This is where my logic sequence ended this year. But of course that does not mea
 
 ## More To Be Studied!
 
-Even before considering other logics or flaws within our current one, there is still many results, extremely important results to be studied within $\mathcal{L}\_1$, $\mathcal{L}\_2$, and $\mathcal{L}\_=$. 
+Even before considering other logics or flaws within our current one, there is still many, extremely important results to be studied within $\mathcal{L}\_1$, $\mathcal{L}\_2$, and $\mathcal{L}\_=$. 
 
 ### Compactness
 
