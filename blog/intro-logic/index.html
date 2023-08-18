@@ -256,7 +256,7 @@ $
 <li>If $\Phi$ is a contradiction, i.e. $A \nvDash \Phi$ for all structures $A$, we just write $\Phi \vDash$</li>
 <li>If $|\Phi|_A = |\Psi|_A$ for all strucutres $A$, we say $\Phi$ and $\Psi$ are <strong>logically equivalent</strong>, written $\Phi \equiv \Psi$</li>
 </ul>
-<p>The last bullet point is just to say that there are lots of sentences that express the exact same truth value despite being written differently. For example, $P \rightarrow Q \equiv \neg P \vee Q$, so it&#39;s useful to say when to sentences are actually essentially the same.</p>
+<p>The last bullet point is just to say that there are lots of sentences that express the exact same truth table despite being written differently. For example, $P \rightarrow Q \equiv \neg P \vee Q$, so it&#39;s useful to say when to sentences are actually essentially the same.</p>
 <h3 id="sets-of-sentences">Sets of Sentences</h3>
 <p>In addition to the semantics of individual sentences, we can discuss <em>sets of sentences</em> too. Consider $\Gamma = \{\Phi, \Psi,…\}$. </p>
 <ul>
@@ -456,6 +456,8 @@ $
 <!-- ### Completeness
 
 It's worth noting the direction that the Soundness Theorem argues: if something is provable, then it makes a valid argument. -->
+<hr>
+<p>This concludes our discussion of $\mathcal{L}_1$. The system and rules we&#39;ve outlined above is sometimes also referred to as <strong>propositional logic</strong>.</p>
 <h2 id="-mathcal-l-_2-the-logical-quantifiers">$\mathcal{L}_2$: The Logical Quantifiers</h2>
 <p>Let&#39;s go back to our very first argument we discussed: &quot;If Socrates is a man, then he is mortal. Socrates is a man. Therefore, Socrates is mortal.&quot; We were able to show it is valid in $\mathcal{L}_1$ by formalizing it, and either checking its truth table or with our proof system. Let&#39;s look at a very similar argument. &quot;All men are mortal. Socrates is a man. Therefore, Socrates is mortal.&quot; Perfectly reasonable. If we formalize this with our current logic, though, we end up with $P, Q \vDash R$, where $P$ is &quot;All men are mortal,&quot; $Q$ is &quot;Socrates is a man&quot;, and $R$ is &quot;Socrates is mortal&quot;. Clearly this is not a logical argument in $\mathcal{L}_1$, since we can just specify a structure where $|P|_A = |Q|_A = T$ and $|R|_A = F$ since they are separate sentence letters.</p>
 <h3 id="predicates-and-constants">Predicates and Constants</h3>
@@ -1274,7 +1276,7 @@ $\blacksquare$
 <p>The contrapositive gives us the equivalent formulation:</p>
 <p><strong>Compactness Theorem:</strong> If $\Gamma$ is unsatisfiable, then there is a finite subset $\Gamma^{\textrm{fin}} \subseteq \Gamma$ that is unsatisfiable.</p>
 <p>And this is <em>guaranteed</em> to hold for infinite sets, while it isn&#39;t for finite! Consider the unsatisfiable set $\{P, \neg P\} \vDash$ with clearly having its subsets (except itself) satisfiable. This has the immediate consequence that <em>every</em> argument $\Gamma \vDash \Phi$ can be captured in a <em>finite argument</em>.</p>
-<p><strong>Alternate Form of Compactness:</strong> If $\Gamma \vDash \Phi$, then $\Gamma^{\textrm{fin}} \vDash \Phi$.</p>
+<p><strong><span id = "alternatecompact">Alternate Form of Compactness</span>:</strong> If $\Gamma \vDash \Phi$, then $\Gamma^{\textrm{fin}} \vDash \Phi$.</p>
 <p><strong>Proof:</strong> If $\Gamma$ is finite already, then the claim holds as it is. So consider $\Gamma$ to be infinite. Recall that <a href="#valid-inconsistency">$\Gamma \vDash \Phi$ iff $\Gamma \cup \{\neg \Phi\}$ is inconsistent</a>. Then by Compactness, there is a finite subset $\Gamma^{\textrm{fin}} \cup \{\neg\Phi \}$ that is inconsistent. $\neg\Phi$ must be in this set as $\Gamma$ is satisfiable by assumption of $\Gamma \vDash \Phi$, so $\Gamma^{\textrm{fin}}$ is always satisfiable (if $\Gamma$ is unsatisfiable, then it entails everything, and then by Compactness there&#39;s a finite susbet that&#39;s also unsatisfiable that entails everything). Since $\Gamma^{\textrm{fin}} \cup \{\neg\Phi \}$ is inconsistent, then $\Gamma^{\textrm{fin}} \vDash \Phi$. $ \ \blacksquare$</p>
 <p>Finally, it&#39;s worth noting that Compactness quickly follows from <em>any</em> logic that is both sound and complete:</p>
 <p><strong>Proof of Compactness:</strong></p>

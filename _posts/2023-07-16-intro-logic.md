@@ -243,7 +243,7 @@ For future reference, the following notation will be helpful. For a given struct
 * If $\Phi$ is a contradiction, i.e. $A \nvDash \Phi$ for all structures $A$, we just write $\Phi \vDash$
 * If $|\Phi|_A = |\Psi|_A$ for all strucutres $A$, we say $\Phi$ and $\Psi$ are **logically equivalent**, written $\Phi \equiv \Psi$
 
-The last bullet point is just to say that there are lots of sentences that express the exact same truth value despite being written differently. For example, $P \rightarrow Q \equiv \neg P \vee Q$, so it's useful to say when to sentences are actually essentially the same.
+The last bullet point is just to say that there are lots of sentences that express the exact same truth table despite being written differently. For example, $P \rightarrow Q \equiv \neg P \vee Q$, so it's useful to say when to sentences are actually essentially the same.
 
 
 ### Sets of Sentences
@@ -490,6 +490,11 @@ Fortunately enough for us, ND-consistency is equivalent to semantic consistency,
 <!-- ### Completeness
 
 It's worth noting the direction that the Soundness Theorem argues: if something is provable, then it makes a valid argument. -->
+
+------------------
+
+This concludes our discussion of $\mathcal{L}_1$. The system and rules we've outlined above is sometimes also referred to as **propositional logic**.
+
 
 ## $\mathcal{L}_2$: The Logical Quantifiers
 
@@ -1606,7 +1611,7 @@ The contrapositive gives us the equivalent formulation:
 
 And this is _guaranteed_ to hold for infinite sets, while it isn't for finite! Consider the unsatisfiable set $\\{P, \neg P\\} \vDash$ with clearly having its subsets (except itself) satisfiable. This has the immediate consequence that _every_ argument $\Gamma \vDash \Phi$ can be captured in a _finite argument_.
 
-**Alternate Form of Compactness:** If $\Gamma \vDash \Phi$, then $\Gamma^{\textrm{fin}} \vDash \Phi$.
+**<span id = "alternatecompact">Alternate Form of Compactness</span>:** If $\Gamma \vDash \Phi$, then $\Gamma^{\textrm{fin}} \vDash \Phi$.
 
 **Proof:** If $\Gamma$ is finite already, then the claim holds as it is. So consider $\Gamma$ to be infinite. Recall that [$\Gamma \vDash \Phi$ iff $\Gamma \cup \\{\neg \Phi\\}$ is inconsistent](#valid-inconsistency). Then by Compactness, there is a finite subset $\Gamma^{\textrm{fin}} \cup \\{\neg\Phi \\}$ that is inconsistent. $\neg\Phi$ must be in this set as $\Gamma$ is satisfiable by assumption of $\Gamma \vDash \Phi$, so $\Gamma^{\textrm{fin}}$ is always satisfiable (if $\Gamma$ is unsatisfiable, then it entails everything, and then by Compactness there's a finite susbet that's also unsatisfiable that entails everything). Since $\Gamma^{\textrm{fin}} \cup \\{\neg\Phi \\}$ is inconsistent, then $\Gamma^{\textrm{fin}} \vDash \Phi$. $ \ \blacksquare$
 
