@@ -24,7 +24,7 @@ The usual idea of induction is proof by "climbing a ladder", or "knocking over m
 * (PMI 1) $\Phi(0)$ is true
 * (PMI 2) $\forall k \geq 0$, if $\Phi(k)$ is true, then $\Phi(k+1)$ is true
 
-Then you can conclude that $\Phi(n)$ is true for all natural numbers $n \geq 0$. The idea is that in property (PMI 2), the theorem $\Phi$ is self-fulfilling; there is an inherent quality to our theorem $\Phi$ that has it proves many cases for itself. If we know $\Phi(0)$ is true, then by (PMI 2) we know $\Phi(1)$ is true. Similarly, we then know $\Phi(2)$ is true, and then $\Phi(3)$ and so on. We climb the mathematical ladder starting with a simple case $\Phi(0)$ we know for a fact is true.
+Then you can conclude that $\Phi(n)$ is true for all natural numbers $n \geq 0$. The idea is that in property (PMI 2), the theorem $\Phi$ is self-fulfilling; there is an inherent quality to our theorem $\Phi$ that has it proves many cases for itself. If we know $\Phi(0)$ is true, then by (PMI 2) we know $\Phi(1)$ is true. Similarly, from $\Phi(1)$ we then know $\Phi(2)$ is true, and then from $\Phi(2)$ we know $\Phi(3)$ and so on. We climb the mathematical ladder starting with a simple case $\Phi(0)$ we know for a fact is true.
 
 This is best seen with an example. 
 

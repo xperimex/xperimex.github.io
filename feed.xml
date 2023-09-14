@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Thu, 14 Sep 2023 07:03:40 GMT</lastBuildDate>
+      <lastBuildDate>Thu, 14 Sep 2023 07:04:57 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -6194,7 +6194,7 @@ $\blacksquare$
 <li>(PMI 1) $\Phi(0)$ is true</li>
 <li>(PMI 2) $\forall k \geq 0$, if $\Phi(k)$ is true, then $\Phi(k+1)$ is true</li>
 </ul>
-<p>Then you can conclude that $\Phi(n)$ is true for all natural numbers $n \geq 0$. The idea is that in property (PMI 2), the theorem $\Phi$ is self-fulfilling; there is an inherent quality to our theorem $\Phi$ that has it proves many cases for itself. If we know $\Phi(0)$ is true, then by (PMI 2) we know $\Phi(1)$ is true. Similarly, we then know $\Phi(2)$ is true, and then $\Phi(3)$ and so on. We climb the mathematical ladder starting with a simple case $\Phi(0)$ we know for a fact is true.</p>
+<p>Then you can conclude that $\Phi(n)$ is true for all natural numbers $n \geq 0$. The idea is that in property (PMI 2), the theorem $\Phi$ is self-fulfilling; there is an inherent quality to our theorem $\Phi$ that has it proves many cases for itself. If we know $\Phi(0)$ is true, then by (PMI 2) we know $\Phi(1)$ is true. Similarly, from $\Phi(1)$ we then know $\Phi(2)$ is true, and then from $\Phi(2)$ we know $\Phi(3)$ and so on. We climb the mathematical ladder starting with a simple case $\Phi(0)$ we know for a fact is true.</p>
 <p>This is best seen with an example. </p>
 <hr>
 <p>We will show the formula for the sum of the first $n$ integers is $\sum_{k=1}^n k = \frac{n(n+1)}{2}$.</p>
