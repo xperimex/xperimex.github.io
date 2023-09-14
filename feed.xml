@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Fri, 18 Aug 2023 22:46:54 GMT</lastBuildDate>
+      <lastBuildDate>Thu, 14 Sep 2023 07:03:40 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -5172,7 +5172,7 @@ $\neg (\varphi_1 \vee \varphi_2 \vee \cdots \vee \varphi_n) \equiv \neg \varphi_
 <center>
 $
 \begin{align}
-\neg (\varphi_1 \wedge \cdots \wedge \varphi_n \wedge \varphi_{n+1}) = \neg ((\varphi_1 \wedge \cdots \wedge \varphi_n) \wedge \varphi_{n+1}) &amp; \equiv \neg(\varphi_1 \wedge \cdots \wedge \varphi_n) \vee \neg \varphi_n \\
+\neg (\varphi_1 \wedge \cdots \wedge \varphi_n \wedge \varphi_{n+1}) = \neg ((\varphi_1 \wedge \cdots \wedge \varphi_n) \wedge \varphi_{n+1}) &amp; \equiv \neg(\varphi_1 \wedge \cdots \wedge \varphi_n) \vee \neg \varphi_{n+1} \\
 &amp; \equiv \neg \varphi_1 \vee \cdots \vee \neg \varphi_n \vee \neg \varphi_{n+1}
 \end{align}
 $
@@ -6177,6 +6177,840 @@ $\blacksquare$
 ]]></description>
          <link>http://xperimex.github.io/blog/compactness</link>
          <guid isPermaLink="true">http://xperimex.github.io/blog/compactness</guid>
+         <dc:creator><![CDATA[Adi Mittal]]></dc:creator>
+      </item>
+      <item>
+         <title><![CDATA[Your Induction to Induction]]></title>
+         <description><![CDATA[Everything you need for discrete and continuous induction. 
+
+ <script src='https://cdnjs.cloudflare.com/ajax/libs/g9/1.0.16/g9.js'></script>
+<script src="https://unpkg.com/mathjs/lib/browser/math.js"></script>
+
+
+<p>I&#39;ve been on a kick for mathematical foundations recently. Maybe it&#39;s all that <a href="http://xperimex.com/blog/compactness/">logic I&#39;ve been looking at</a>. One of those key ideas that finds its way into math is the <strong>Principle of Mathematical Induction</strong>. It&#39;s likely even if you&#39;ve only taken high school math classes, you&#39;ve encountered induction in one way or another. The importance of induction stems all the way back to the all-important, characterizing Peano axioms of arithmetic. In fact, any formal system that can perform induction is a critical indicator of not just the strength, but flaws of the system, as induction is the &quot;simplest&quot; cause of a logical system being incomplete (as in <a href="https://en.wikipedia.org/wiki/G%C3%B6del%27s_incompleteness_theorems">Gödel&#39;s incompleteness theorems</a>).</p>
+<h1 id="principle-of-mathematical-induction">Principle of Mathematical Induction</h1>
+<p>The usual idea of induction is proof by &quot;climbing a ladder&quot;, or &quot;knocking over mathematical dominoes&quot;. Let&#39;s have $\Phi(n)$ stand for &quot;the theorem $\Phi$ for the case of natural number $$n$$&quot;. Then if you can show that</p>
+<ul>
+<li>(PMI 1) $\Phi(0)$ is true</li>
+<li>(PMI 2) $\forall k \geq 0$, if $\Phi(k)$ is true, then $\Phi(k+1)$ is true</li>
+</ul>
+<p>Then you can conclude that $\Phi(n)$ is true for all natural numbers $n \geq 0$. The idea is that in property (PMI 2), the theorem $\Phi$ is self-fulfilling; there is an inherent quality to our theorem $\Phi$ that has it proves many cases for itself. If we know $\Phi(0)$ is true, then by (PMI 2) we know $\Phi(1)$ is true. Similarly, we then know $\Phi(2)$ is true, and then $\Phi(3)$ and so on. We climb the mathematical ladder starting with a simple case $\Phi(0)$ we know for a fact is true.</p>
+<p>This is best seen with an example. </p>
+<hr>
+<p>We will show the formula for the sum of the first $n$ integers is $\sum_{k=1}^n k = \frac{n(n+1)}{2}$.</p>
+<p><strong>Base Case (PMI 1):</strong> The formula holds for $n=1$ since $\sum_{k=1}^1 k = 1 = \frac{1(1+1)}{2}$.</p>
+<p><strong>Inductive Hypothesis (PMI 2):</strong> Let&#39;s assume our formula works for the first $n$ integers. We want to show that it holds for case $n+1$: $\sum_{k=1}^{n+1} k = \frac{(n+1)(n+2)}{2}$. We will show this by first rewriting our sum: $\sum_{k=1}^{n+1} k = \sum_{k=1}^{n} k + (n+1)$. By our assumption, we can reduce this to $\frac{n(n+1)}{2} + n+1$. Simplifying further, </p>
+<center>
+$
+\begin{align}
+\frac{n(n+1)}{2} + n+1 &amp; = \frac{n(n+1) + 2(n+1)}{2}
+\newline
+&amp; = \frac{(n+1)(n+2)}{2}
+\end{align}
+$
+</center>
+
+<p>Which is precisely the formula our hypothesis predicted. So by the PMI, for all $n$, $\sum_{k=1}^n k = \frac{n(n+1)}{2}$.</p>
+<center>
+$\blacksquare$
+</center>
+
+<hr>
+<p>Here, we took a statement that can naturally be indexed by the natural numbers—in this case, a formula—and using the <strong>method</strong> of induction, proved our claim that the statement held. Note here that we didn&#39;t show $\Phi(0)$ is true, but rather $\Phi(1)$. This minor change isn&#39;t a big deal, since what we really want to show is a <strong>base case</strong> to build our inductive claim off of; we don&#39;t care where our ladder starts, so long as we can show there is <em>some</em> ground for it to stand on.</p>
+<p>Induction is a very strong tool, as it does can usually be applied to any claim that can be indexed by the integers; if there is a natural way to &quot;count&quot; the cases of your hypothesis, odds are induction could be useful.</p>
+<p>However, note that induction didn&#39;t give us the arithmetic sum formula to begin with, but rather only a method to verify it. Some amount of intuition or case work needs to be done beforehand to get a hypothesis to follow through with induction.</p>
+<p>Let&#39;s do a few more examples. Here&#39;s a simple one from set theory.</p>
+<hr>
+<p><strong>De Morgan&#39;s Laws:</strong> For sets $A_1, A_2, \cdots, A_n$, we have</p>
+<center>
+$(A_1 \cap A_2 \cap \cdots \cap A_n)^c = A_1^c \cup A_2^c \cup \cdots \cup A_n^c$
+$(A_1 \cup A_2 \cup \cdots \cup A_n)^c = A_1^c \cap A_2^c \cap \cdots \cap A_n^c$
+</center>
+
+<p>Just as a reminder, for sets $A$ and $B$,</p>
+<ul>
+<li>$A \cup B = \{x \ | \ x \in A \textrm{ or } x \in B\}$ </li>
+<li>$A \cap B = \{x \ | \ x \in A \textrm{ and } x \in B\}$ </li>
+<li>$A^c = \{x \ | \ x \notin A\}$</li>
+</ul>
+<p>Notice how we&#39;re not working with integers directly, but rather integer amounts of sets. So, we&#39;ll then induct on the number of sets as our natural division of cases.</p>
+<p><strong>Base Case:</strong> We&#39;ll show this for $n = 2$. Let $x \in (A \cap B)^c$ be an arbitrary element. Then $x \notin A \cap B$, so we have either $x \notin A$ or $x \notin B$ by the rules for $\cap$. Equivalently, $x \in A^c$ or $x \in B^c$, so regardless of which set $x$ is in, it must be the case that $x \in A^c \cup B^c$. Hence, since every element of $(A \cap B)^c$ is an element of $A^c \cup B^c$, so $(A \cap B)^c \subseteq A^c \cup B^c$. To summarize,</p>
+<center>
+$\begin{array}{ccc|cc}
+&amp; x \in (A \cap B)^c &amp; &amp; &amp; \textrm{Assumption} \
+\newline
+&amp; x \notin A \cap B &amp; &amp; &amp; \textrm{Definition of set complement} \
+\newline
+&amp; x \notin A \textrm{ or } x \notin B &amp; &amp; &amp; \textrm{Rules for } \cap \
+\newline
+&amp; x \in A^c \textrm{ or } x \in B^c &amp; &amp; &amp; \textrm{Definition of set complement} \
+\newline
+&amp; x \in A^c \cup B^c &amp; &amp; &amp; \textrm{Rules for } \cup \
+\newline \hline
+\therefore &amp; (A \cap B)^c \subseteq A^c \cup B^c &amp; &amp; &amp; \textrm{Definition of subset}
+\end{array}$
+</center>
+
+<p>Going the other way, suppose we have an arbitrary element $x \in A^c \cup B^c$. For the sake of contradiction, assume $x \notin (A \cap B)^c$. The rest of the proof is very similar to above.</p>
+<center>
+$\begin{array}{ccc|cc}
+&amp; x \in A^c \cup B^c &amp; &amp; &amp; \textrm{Assumption} \
+\newline
+&amp; x \notin (A \cap B)^c &amp; &amp; &amp; \textrm{Assumption} \
+\newline
+&amp; x \in A \cap B &amp; &amp; &amp; \textrm{Definition of set complement} \
+\newline
+&amp; x \in A \textrm{ and } x \in B &amp; &amp; &amp; \textrm{Rules for } \cap \
+\newline
+&amp; x \notin A^c \textrm{ and } x \notin B^c &amp; &amp; &amp; \textrm{Definition of set complement} \
+\newline
+&amp; x \notin A^c \cup B^c &amp; &amp; &amp; \textrm{Rules for } \cup \
+\newline
+&amp; x \in (A \cap B)^c &amp; &amp; &amp; \textrm{Proof by contradiction} \
+\newline \hline
+\therefore &amp; A^c \cup B^c \subseteq (A \cap B)^c &amp; &amp; &amp; \textrm{Definition of subset}
+\end{array}$
+</center>
+
+<p>The only way to sets can both be subsets of each other is if there equal to each other. So by <strong>double containment</strong>, $(A \cap B)^c = A^c \cup B^c$.</p>
+<p><strong>Inductive Hypothesis:</strong> Let&#39;s assume our formula works for some number of $n$ sets. We want to show this works for $n+1$ sets. Fortunately most of our work was already done in the base case.</p>
+<center>
+$
+\begin{align}
+(A_1 \cap \cdots \cap A_n \cap A_{n+1})^c = ((A_1 \cap \cdots \cap A_n) \cap A_{n+1})^c &amp; = (A_1 \cap \cdots \cap A_n)^c \cup A_{n+1}^c \\
+&amp; = A_1^c \cup \cdots \cup A_n^c \cup A_{n+1}^c
+\end{align}
+$
+</center>
+
+<p>Since $(A_1 \cap \cdots \cap A_n)$ is just another set, we can first use the case for 2 sets in the 2nd equality, and the case for $n$ sets in the last equality.</p>
+<p>The proof for the second of De Morgan&#39;s Law is proved almost identically. </p>
+<center>
+$\blacksquare$
+</center>
+
+<hr>
+<p>Let&#39;s pull one final example from linear algebra.</p>
+<hr>
+<p><strong>Claim:</strong> Let $A$ be a square matrix. The eigenvectors of distinct eigenvalues of $A$ are linearly independent. </p>
+<p>As a reminder:</p>
+<ul>
+<li>An <strong>eigenvector</strong> is a non-zero vector $\textbf{v}$ with corresponding <strong>eigenvalue</strong> $\lambda$ of matrix $A$ such that $A \textbf{v} = \lambda v$</li>
+<li>We call  set of vectors $\{\textbf{v}_1, \cdots, \textbf{v}_k \}$ <strong>linearly independent</strong> when $a_1 \textbf{v}_1 + \cdots + a_k \textbf{v}_k = 0$ if and only if $a_1 = a_2 = \cdots = a_k = 0$ for scalars $a_1, \cdots, a_k$</li>
+</ul>
+<p>We&#39;ll induct on the number of eigenvectors.</p>
+<p><strong>Base Case:</strong> For one eigenvector, it&#39;s clearly true, as $\textbf{v}_1 \neq 0$ by definition. So $a_1 \textbf{v}_1 = 0$ if and only if $a_1 = 0$.</p>
+<p><strong>Inductive Hypothesis:</strong> Now suppose that the claim is true for fewer than $n$ eigenvectors of distinct eigenvalues. So suppose that</p>
+<center>
+$a_1 \textbf{v}_1 + a_2 \textbf{v}_2 + \cdots + a_n \textbf{v}_n = 0 \ \ \ \ (*)$
+</center>
+
+<p>We want to show $a_1 = a_2 = \cdots = a_n = 0$. Let&#39;s apply $A$ to both sides of $(*)$:</p>
+<center>
+$\begin{align}
+A(a_1 \textbf{v}_1 + a_2 \textbf{v}_2 + \cdots + a_n \textbf{v}_n) &amp; = A(0) \\
+a_1 \lambda_1 \textbf{v}_1 + a_2 \lambda_2 \textbf{v}_2 + \cdots + a_n \lambda_n \textbf{v}_n &amp; = 0 \ \ \ \ (1)
+\end{align}$
+</center>
+
+<p>where each $\lambda_i$ are the associated eigenvalues. Now let&#39;s also multiply $(*)$ by $\lambda_1$:</p>
+<center>
+$a_1 \lambda_1 \textbf{v}_1 + a_2 \lambda_1 \textbf{v}_2 + \cdots + a_n \lambda_1 \textbf{v}_n = 0 \ \ \ \ (2)$
+</center>
+
+<p>Now let&#39;s subtract equation (2) from (1).</p>
+<center>
+$
+\begin{array}{ccccccccc}
+  &amp; a_1 \lambda_1 \textbf{v}_1 &amp; + &amp; a_2 \lambda_2 \textbf{v}_2 &amp; + &amp; \cdots &amp; + &amp; a_n \lambda_n \textbf{v}_n &amp; = 0 \\ 
+- &amp; a_1 \lambda_1 \textbf{v}_1 &amp; + &amp; a_2 \lambda_1 \textbf{v}_2 &amp; + &amp; \cdots &amp; + &amp; a_n \lambda_1 \textbf{v}_n &amp; = 0 \\ \hline
+  &amp; &amp; &amp; a_2(\lambda_2 - \lambda_1)\textbf{v}_2 &amp; + &amp; \cdots &amp; + &amp; a_n(\lambda_n - \lambda_1)\textbf{v}_n &amp; = 0 
+\end{array}
+$
+</center>
+
+<p>By the inductive hypothesis, we know the $n-1$ eigenvectors $\textbf{v}_2,\textbf{v}_3,\cdots,\textbf{v}_n$ are linearly independent, so all the coefficients $a_i(\lambda_i - \lambda_1) = 0$. But also remember, each $\lambda_i$ are distinct eigenvalues, so $\lambda_i - \lambda_1 \neq 0$ for $i=2,\cdots,n$. So the only way $a_i(\lambda_i - \lambda_1) = 0$ is if $a_i = 0$ for $i = 2,\cdots, n$. Plugging this back into $(*)$, we get that $a_1 \textbf{v}_1 = 0$, and since $\textbf{v}_1 \neq 0$, it must be that $a_1 = 0$. </p>
+<p>Thus, all coefficients $a_1 = a_2 = \cdots = a_n = 0$, so the eigenvectors are linearly independent, having proven the inductive hypothesis.</p>
+<center>
+$\blacksquare$
+</center>
+
+
+<h2 id="choosing-a-base-case">Choosing a Base Case</h2>
+<p>In our formulation of induction, we said in particular:</p>
+<ul>
+<li>(PMI 1) $\Phi(0)$ is true</li>
+</ul>
+<p>We specified our base case to be $n=0$. But if you look at our example proofs, we used $n=1$ and $n=2$ as base cases sometimes, such as in the proof of De Morgan&#39;s Laws. Usually the base case doesn&#39;t matter, as induction would just say that for a base case $k$, a claim holds for all $n \geq k$. But we have to be careful of our choice of base case. For example, here&#39;s a <em>false</em> inductive proof.</p>
+<p><strong>Claim:</strong> All horses are the same color.</p>
+<p><strong>Base Case:</strong> For $n=1$, obviously a horse is the same color as itself.</p>
+<p><strong>Inductive Hypothesis:</strong> Suppose all sets of $n$ horses are the same color. Suppose we have $n+1$ horses, enumerated in some way (we assign each horse a number $1$ through $n+1$ to identify them). By the inductive hypothesis, the horses $1$ through $n$ are the same color. By the same inductive hypothesis again, horses $2$ through $n+1$ are the same color too. So all the horses are the same color as horses $2$ through $n$, thus showing that all $n+1$ horses are the same color. $\ \blacksquare$</p>
+<p>Clearly this proof is wrong. Clearly some horses are brown, some are black, some are white, and some are patterned. Yet our &quot;proof&quot; would suggest otherwise. The issue lies in our base case, since it cannot be used to prove the case for $n=2$ horses. The key idea in the &quot;proof&quot; was to use the set of &quot;intermediary&quot; horses $2$ through $n$ to give some way of comparing horse $1$ with horse $n+1$ indirectly. But if there are only 2 horses, there is no middle horse to compare them to. If you want to prove that all horses are the same color in this way, you&#39;d have to show it initially for 2 horses to have any chance of a real argument (which of course, isn&#39;t true).</p>
+<h2 id="weak-induction-vs-strong-induction">Weak Induction vs. Strong Induction</h2>
+<p>There&#39;s something else weird in our inductive proof of De Morgan&#39;s Laws. Again, let&#39;s look at our specific outline of induction:</p>
+<ul>
+<li>(PMI 2) $\forall k \geq 0$, if $\Phi(k)$ is true, then $\Phi(k+1)$ is true</li>
+</ul>
+<p>The inductive step says to show $\Phi(k)$ implies $\Phi(k+1)$. Yet, if you look at our proof of De Morgan&#39;s Laws, we had to use not only the case that $\Phi(k)$ was true, but also $\Phi(2)$ was true; we needed to assume that the law holds for not only $n$ sets, but for 2 sets as well. I mean, clearly if we assume that $\Phi(k)$ is true and $k \geq 2$, then $\Phi(2)$ should be true, but that&#39;s not what we explicitly allowed in our Principle of Mathematical Induction.</p>
+<p>This is an instance of <strong>strong induction</strong>. The formulation of mathematical induction we gave before was <strong>weak induction</strong>, but the difference between them is minimal. If you can show that a theorem $\Phi$ holds for:</p>
+<ul>
+<li>(SPMI 1) $\Phi(0)$ is true</li>
+<li>(SPMI 2) $\forall k \geq 0$, if $\Phi(0)\wedge\Phi(1)\wedge\cdots\wedge\Phi(k)$ is true, then $\Phi(k+1)$ is true</li>
+</ul>
+<p>then you can conclude that $\Phi(n)$ is true for all $n$. The difference between strong induction and weak induction is just that strong induction allows you to use multiple cases in your proof, while weak induction only specifies the previous case. </p>
+<p>Here&#39;s a nice example of strong induction:</p>
+<hr>
+<p><strong>Claim:</strong> A country has $n$ cities. Suppose that any two cities are connected by a one-way road. Then there is a route that passes through every city.</p>
+<p><strong>Base Case:</strong> Clearly it is true for $n=2$: just take the one-way road that leads out from one city and into the other.</p>
+<p><strong>Inductive Hypothesis:</strong> Now suppose this holds up to and for $n$ cities. We want to show this holds for $n+1$ cities. Let&#39;s take the $(n+1)^{\textrm{th}}$ city, and divide the remaining cities into two groups: cities that have a road <em>into</em> city $n+1$ (call this group $A$) and cities that have roads <em>coming out of</em> city $n+1$ (group $B$). </p>
+<p>Now obviously group $A$ has $n$ or fewer cities, so by the inductive hypothesis, there is a route that passes through all of the cities in group $A$. Similarly, for the same reason, there is a route that passes through all the cities in group $B$.</p>
+<p>Now, take a route that passes through all the cities in $A$, then stop at the $(n+1)^{\textrm{th}}$ city, then finally go to a city in $B$ and complete a route that passes through all those cities. We can do that since every city in $A$ has a road to $n+1$, and every city in $B$ has a road from $n+1$. </p>
+<p>Hence, the inductive hypothesis holds, and proves our claim. $\ \blacksquare$</p>
+<hr>
+<p>We needed strong induction above since we have no idea how many cities are in groups $A$ and $B$, so we need the claim to hold for <em>all</em> values up to $n$, not just $n$ itself, in the inductive hypothesis. The renewed inductive hypothesis given in strong induction is—obviously so—much more applicable than its weaker counterpart, just by sheer introduction of additional inductive instances. </p>
+<!-- For example, recall that the Fibonacci numbers are defined by $F_{n+2} = F_{n+1} + F_n$ with $F_0 = 0$ and $F_1 = 1$. We can then prove that all Fibonacci numbers satisfy the explicit formula:
+
+<center>
+
+$\large{F_n = \frac{1}{\sqrt{5}} \left( \left(\frac{1+\sqrt{5}}{2} \right)^n - \left(\frac{1-\sqrt{5}}{2} \right)^n \right)}$
+
+</center>
+
+You could prove this with a modified induction principle: 
+
+* Showing it holds for $n=0,1$, and then
+* For all $k \geq 0$, if the formula holds for both $n$ and $n+1$, it will hold for $n+2$ -->
+<p>Despite the naming, though, they are actually <strong>equal in strength</strong>; anything you can prove with weak induction you can prove with strong induction, and anything you can prove with strong induction you can prove with weak induction. </p>
+<hr>
+<p><strong>Strong Induction Implies Weak Induction:</strong> It shouldn&#39;t be much of a surprise that if strong induction holds, then weak induction also holds, since weak induction is just like strong induction but looser requirements. Let&#39;s prove it anyway. Suppose that strong induction is a valid proof technique. We want to show that weak induction is also valid. That is, from assumptions</p>
+<ul>
+<li>(WPMI 1) for some base case $k$ we know $\Phi(k)$ is true, and</li>
+<li>(WPMI 2) $\forall m \geq k$, $\Phi(m)$ is true $\Rightarrow$ $\Phi(m+1)$ is true,</li>
+</ul>
+<p>we want to show that $\Phi(n)$ is true for all $n \geq k$. Obviously, whenever (WPMI 1) is true, then so is (SPMI 1) since they are both the same clause. However, let&#39;s also note that whenever (WPMI 2) is true, so is (SPMI 2). To see this, let&#39;s suppose (WPMI 1) is true. For any $m \geq k$, if $\Phi(k)\wedge\Phi(k+1)\wedge\cdots\wedge\Phi(m)$ is true, then certainly $\Phi(m)$ alone is true. By (WPMI 2), then we also know $\Phi(m+1)$, thus showing (SPMI 2) holds.</p>
+<p>Having this fact in hand, we can complete the proof. Let&#39;s assume strong induction holds. Then, if the assumptions (WPMI 1) and (WPMI 2) for weak induction are true, we also know the assumptions (SPMI 1) and (SPMI 2) for strong induction are also true. Then by the conclusion for strong induction, we know $\Phi(n)$ holds for all $n$. But this is the exact same conclusion that we would get from weak induction. Hence weak induction holds whenever strong induction does. </p>
+<center>
+$\blacksquare$
+</center>
+
+<p>Again, this shouldn&#39;t be that surprising, as every instance of weak induction is just an instance of strong induction with weaker hypotheses.</p>
+<p><strong>Weak Induction Implies Strong Induction:</strong> This direction will require a bit more work. Let&#39;s assume that weak induction is a valid proof technique. We want to show that strong induction is valid. That is, from the assumptions </p>
+<ul>
+<li>(SPMI 1) for some base case $k$ we know $\Phi(k)$ is true, and </li>
+<li>(SPMI 2) $\forall m \geq k$, $\Phi(k)\wedge\Phi(k+1)\wedge\cdots\wedge\Phi(m)$ is true $\Rightarrow$ $\Phi(m+1)$ is true, </li>
+</ul>
+<p>we want to show that $\Phi(n)$ is true for all $n \geq k$. What we will do is <em>induct on a meta-statement</em> of $\Phi$. Let $S(m)$ be the statement &quot;$$\Phi(n)$$ is true for all $$k \leq n \leq m$$&quot;. If we can show $S(n)$ is true for all $n$ (with regular induction), then we would also show $\Phi(n)$ is true for all $n$ as well.</p>
+<p>From (SPMI 1), we get $\Phi(k)$ is true, and thus $S(k)$ is also true (this will be our base case). From (SPMI 2), we get that for all $m \geq k$, if $S(m)$ is true, then $\Phi(m+1)$ is true (since $S(m)$ is equivalent to the hypothesis of the conditional). But, if $\Phi(m+1)$ is true and $S(m)$ is true, then we also get that $S(m+1)$ is true by definition. Combining these two conditionals, we get that if $S(m)$ is true, then $S(m+1)$ is true (this is our inductive step).</p>
+<p>Combining our base case and inductive hypothesis for $S(n)$, we can deduce via weak induction, that $S(n)$ is true for all $n \geq k$. And as described before, it must be the case that $\Phi(n)$ is also true for all $n \geq k$, which is precisely the conclusion that strong induction wants.</p>
+<p>Here&#39;s a more <a href="https://math.stackexchange.com/questions/1184541/what-exactly-is-the-difference-between-weak-and-strong-induction">intuitive version of this proof</a>, but relies on knowing some basic logic to justify a direct argument. The idea is the same, but the above is more &quot;contained&quot; in my opinion, while the link is more readily understandable.</p>
+<center>
+$\blacksquare$
+</center>
+
+<hr>
+<p>So whenever, one proof looks like it requires strong induction, it could also be done with weak induction. For example, with De Morgan&#39;s Laws, you could imagine having shown the case for $n=2$, you could use weak induction to show $n=3$. Similarly, </p>
+<p>So, perhaps a more appropriate name would just to say &quot;mathematical induction&quot;, for weak and strong induction are both cut from the same cloth.</p>
+<h2 id="proving-induction">&quot;Proving&quot; Induction</h2>
+<p>We showed that weak and strong induction are equivalent, meaning if one holds so does the other. But, we never showed that either form of <em>induction actually holds</em>. Intuitively, I think the analogy of dominos or climbing a ladder makes induction only seem natural, but with all things in math, we do need to justify using induction rigorously somehow. Fortunately, a lot of the work in the proof is given by the axioms that define the natural numbers. We&#39;ll first prove weak induction.</p>
+<p><strong>Weak Induction:</strong> Let $S$ be a set of natural numbers with the following properties:</p>
+<ol>
+<li>$0 \in S$</li>
+<li>If $k \in S$, then $k+1 \in S$</li>
+</ol>
+<p>Then $S$ is the set of all natural numbers.</p>
+<p>If you wanted to apply this to our above applications of induction, you could define it such that $S = \{ n \in \mathbb{N} \ | \ \Phi(n) \textrm{ is true} \}$.</p>
+<p><strong>Proof:</strong> We will <a href="https://xperimex.com/blog/constructive-proofs/">prove this by contradiction</a>. So suppose that there are some set of natural numbers $T \neq \varnothing$ that are not in $S$. By the <a href="https://en.wikipedia.org/wiki/Well-ordering_principle"><strong>well-ordering principle</strong></a>, $T$ has a smallest element—any two distinct natural numbers  has a lesser one among them two. Let&#39;s call this least element $\alpha$.</p>
+<ul>
+<li>Since $0 \in S$ by $(1)$, we have $0 &lt; \alpha \notin S$</li>
+<li>By (the contrapositive) of $(2)$, we also have $\alpha - 1 \notin S$</li>
+<li>Since $\alpha$ is the least element of $T$, we have $\alpha - 1 \notin T$, or in other words, $\alpha - 1 \in S$</li>
+<li>This is a contradiction!</li>
+</ul>
+<p>So, our initial assumption that such a non-empty set $T$ exists must be false, and thus it must be that $S$ contains all natural numbers. $ \ \blacksquare$</p>
+<p>Even though we&#39;ve proven the equivalence of weak and strong induction already, we can also prove the validity of strong strong induction independently in an almost identical fashion.</p>
+<p><strong>Strong Induction:</strong> Let $S$ be a set of natural numbers with the following properties:</p>
+<ol>
+<li>$0 \in S$</li>
+<li>If $0,1,\cdots,k \in S$, then $k+1 \in S$</li>
+</ol>
+<p>Then $S$ is the set of all natural numbers.</p>
+<p><strong>Proof:</strong> We&#39;ll also prove this by contradiction. Suppose $T$ is the set of integers not in $S$, so $T$—by well-ordering—must have a least element $\alpha$.</p>
+<ul>
+<li>Since $0 \in S$ by $(1)$, we have $0 &lt; \alpha \notin S$.</li>
+<li>By $(2)$, we have $0,1,\cdots,\alpha -1 \notin S$</li>
+<li>But since $\alpha$ is the least element, $0,1,\cdots,\alpha -1 \in T$ and so $0,1,\cdots,\alpha -1 \in S$</li>
+<li>Contradiction!</li>
+</ul>
+<p>Since the only assumption we made was $T$ was non-empty, it must be wrong, and thus $S$ is the set of all natural numbers. $ \ \blacksquare$</p>
+<h3 id="well-ordering-principle">Well-Ordering Principle</h3>
+<p>In both proofs, we relied on the <strong>well-ordering of the natural numbers</strong>. A well-order is a relation $\leq$ on a set $X$ with the following properties:</p>
+<ol>
+<li><strong>Reflexivity:</strong> $\forall x \in X \ x \leq x$</li>
+<li><strong>Antisymmetry:</strong> $\forall x,y \in X \ (x \leq y \wedge y \leq x \Rightarrow x = y)$</li>
+<li><strong>Transitivity:</strong> $\forall x,y \in X \ (x \leq y \wedge y \leq z \Rightarrow x \leq z)$</li>
+<li><strong>Connectedness:</strong> $\forall x,y \in X \ (x \leq y \vee y \leq x)$</li>
+<li><strong>Minimums:</strong> Every non-empty subset $\varnothing \neq S \subseteq X$ contains a least element, i.e., $\exists \alpha \in S$ such that $\forall x \in X \ \alpha \leq x$</li>
+</ol>
+<p>The set of natural numbers $\mathbb{N}$ is well-ordered under the relation &quot;less than&quot; $\leq$. This is something that is just an intuitive fact that we take for granted when working with the natural numbers, but it is a very special property given by the axioms of the natural numbers, and it will become important to us later on. This simple fact, though, is actually <strong>equivalent to the principle of mathematical induction</strong> itself!</p>
+<p><strong>Induction Implies Well-Ordering:</strong> Suppose for contradiction that $\mathbb{N}$ is not well-ordered. That is, there is a subset $\varnothing \neq S \subseteq \mathbb{N}$ with no least element. Then $0 \notin S$ as it would be then be minimal. Then $1 \notin S$ as $1$ would be minimal as $0 \notin S$. Suppose $0,1,\cdots,n \notin S$. Then $n+1 \notin S$ as it would be minimal. By induction, $\forall n \in \mathbb{N} \ n \notin S$. That is, $S = \varnothing$, which is a contradiction. Thus $\mathbb{N}$ is well-ordered. $ \ \blacksquare$</p>
+<p><strong>Well-Ordering Implies Induction:</strong> Assume $\mathbb{N}$ is well-ordered. We want to show that if a subset $S\subseteq \mathbb{N}$ with the properties that</p>
+<ol>
+<li>$0 \in S$</li>
+<li>If $k \in S$, then $k+1 \in S$</li>
+</ol>
+<p>then $S = \mathbb{N}$. </p>
+<p>So for a contradiction, suppose $S \neq \mathbb{N}$. That is, there is a set of natural numbers $\varnothing \notin T \subseteq \mathbb{N}$ not in $S$. By well-ordering, $T$ has a least element $\alpha$. From assumption $(1)$, we&#39;re saying $0 \in S$, so $0 \notin T$. Therefore, $\alpha = k + 1$ for some $k \in \mathbb{N}$. But if $\alpha = k + 1 \in T$, $k + 1 \notin S$. And by assumption $(2)$, if $k + 1 \notin S$, then $k \notin S$ and further $k \in T$. But $k &lt; k+1 = \alpha$, contradicting the minimality of $\alpha$. </p>
+<p>So if $T \neq \varnothing$, it contains no minimal element, contradicting the well-ordering of $\mathbb{N}$. Therefore, it must be that $T = \varnothing$, or in other words, $S = \mathbb{N}$, validating induction. $ \ \blacksquare$</p>
+<hr>
+<p>That&#39;s enough metatheory. Let&#39;s get back to some applications.</p>
+<h1 id="variations-on-induction">Variations on Induction</h1>
+<p>The simple idea of induction is far more flexible than our statement of it may seem. With some clever combinations of inductive arguments, we can prove many things in much simpler ways than typical induction may suggest.</p>
+<h2 id="forward-backward-induction">Forward-Backward Induction</h2>
+<p>Induction hopefully should clearly work in an &quot;forward&quot; direction at this point; we can climb the integer ladder up and up so long as we have one rung to start on. Similarly we can have a &quot;backward&quot; inductive (BI) argument: if you can show that for some claim $\Phi$ that</p>
+<ul>
+<li>(BI 1) For some base case $k$ we know $\Phi(k)$ is true</li>
+<li>(BI 2) $\forall m \geq k$, $\Phi(m)$ is true $\Rightarrow$ $\Phi(m-1)$ is true</li>
+</ul>
+<p>then, naturally, we should be able to conclude that $\Phi(n)$ is true for all $n \leq k$. But we can use this idea in tandem with our normal form of induction to get a nice combined approach with <strong>forward-backward induction</strong>. If you can show that</p>
+<ul>
+<li>(F-B 1) $\Phi(n)$ is true for infinitely many $n$</li>
+<li>(F-B 2) For all $k$, if $\Phi(k)$ is true, then $\Phi(k-1)$ is true</li>
+</ul>
+<p>then you can conclude that $\Phi(n)$ is true for all positive $n$. The idea is that you only need to show that $\Phi$ is true for an infinite amount of $n$, not necessarily <em>all</em> $n$. Then using (F-B 2), we can fill in the gaps between our infinite $\Phi(n)$ by working backwards from the proven cases in (F-B 1). Here&#39;s a more specific, but common example of forward-backward induction.</p>
+<ul>
+<li>For some base case $k$ we know $\Phi(k)$ is true</li>
+<li>$\forall m \geq k$, $\Phi(m)$ is true $\Rightarrow$ $\Phi(2m)$ is true</li>
+<li>$\forall m \geq k$, $\Phi(m)$ is true $\Rightarrow$ $\Phi(m-1)$ is true</li>
+</ul>
+<p>Here we show that all the powers of 2 (scaled by our base case) satisfy $\Phi(n)$, and then fill in all the gaps with our third condition that works backwards.</p>
+<p>So really, forward-backward induction is just two inductive arguments being put together, which is more common than it may seem. For example, if you can show that </p>
+<ul>
+<li>$\Phi(0)$ and $\Phi(1)$ are true</li>
+<li>For all $k \geq 0$, $\Phi(k)$ is true $\Rightarrow$ $\Phi(k+2)$ is true</li>
+</ul>
+<p>then $\Phi(n)$ is true for all $n$ as we just showed that $\Phi(n)$ is true for all even numbers and odd numbers separately; $\Phi(0)$ with the inductive step gets you the evens, while $\Phi(1)$ gets the odds. Forward-backward induction is the same idea, only combining two other inductive proofs to &quot;fill in the gaps&quot;.</p>
+<p>Let&#39;s put it to practice.</p>
+<hr>
+<p><strong>Arithmetic Mean-Geometric Mean (AM-GM) Inequality:</strong> For non-negative real numbers $a_1,a_2,\cdots,a_n$,</p>
+<center>
+
+$\sqrt[n]{a_1 a_2 \cdots a_n} \leq \large{\frac{a_1 + a_2 + \cdots + a_n}{n}}$
+
+</center>
+
+<p>with equality given if and only if $a_1 = a_2 = \cdots = a_n$.</p>
+<p><strong>Base Case:</strong> Clearly $n=1$ holds, so we&#39;ll also show it for $n=2$. Note that $\left(\sqrt{a_1} - \sqrt{a_2} \right)^2 \geq 0$. So by simple algebra,</p>
+<center>
+$
+\begin{align}
+\left(\sqrt{a_1} - \sqrt{a_2} \right)^2 &amp; \geq 0
+\newline
+a_1 - 2\sqrt{a_1 a_2} + a_2 &amp; \geq 0
+\newline
+a_1 + a_2 &amp; \geq 2\sqrt{a_1 a_2}
+\newline
+\frac{1}{2}(a_1 + a_2) &amp; \geq \sqrt{a_1 a_2}
+\end{align}
+$
+</center>
+
+<p><strong>Forward-Inductive Hypothesis:</strong> Let&#39;s assume the AM-GM inequality holds for some $n$. We&#39;ll show it also holds for $2n$.</p>
+<center>
+$
+\begin{align}
+\frac{a_1 + a_2 + \cdots + a_{2n}}{2n} &amp; = \frac{\frac{a_1 + a_2 + \cdots + a_{n}}{n} + \frac{a_{n+1} + a_{n+2} + \cdots + a_{2n}}{n}}{2}
+\newline
+ &amp; \geq \frac{\sqrt[k]{a_1 a_2 \cdots a_n} + \sqrt[k]{a_{n+1} a_{n+2} \cdots a_{2n}}}{2}
+\newline
+ &amp; \geq \sqrt{\sqrt[k]{a_1 a_2 \cdots a_n} \sqrt[k]{a_{n+1} a_{n+2} \cdots a_{2n}}}
+\newline
+ &amp; = \sqrt[2k]{a_1 a_2 \cdots a_n a_{n+1} a_{n+2} \cdots a_{2n}}
+\end{align}
+$
+</center>
+
+<p>Hence proving the forward inductive claim using cases for $2$ and $n$ non-negative numbers.</p>
+<p><strong>Backward-Inductive Hypothesis:</strong> Again we suppose AM-GM inequality holds for $n$ numbers. We will show it holds for $n-1$ numbers. First, though, since AM-GM holds for $n$ numbers, it will also hold when we let $a_n = \frac{a_1 + \cdots + a_{n-1}}{n-1}$ the average of the previous $n-1$ numbers.</p>
+<center>
+$
+\begin{align}
+\frac{a_1 + a_2 + \cdots + a_{n}}{n} &amp; \geq \sqrt[n]{a_1 a_2 \cdots a_n}
+\newline
+\frac{a_1 + a_2 + \cdots + \frac{a_1 + a_2 + \cdots + a_{n-1}}{n-1}}{n} &amp; \geq \sqrt[n]{a_1 a_2 \cdots a_{n-1} \frac{a_1 + a_2 + \cdots + a_{n-1}}{n-1}}
+\newline
+\frac{a_1 + a_2 + \cdots + a_{n-1}}{n-1} &amp; \geq \sqrt[n]{a_1 a_2 \cdots a_{n-1} \frac{a_1 + a_2 + \cdots + a_{n-1}}{n-1}}
+\newline
+\left(\frac{a_1 + a_2 + \cdots + a_{n-1}}{n-1} \right)^n &amp; \geq a_1 a_2 \cdots a_{n-1} \frac{a_1 + a_2 + \cdots + a_{n-1}}{n-1}
+\newline
+\left(\frac{a_1 + a_2 + \cdots + a_{n-1}}{n-1} \right)^{n-1} &amp; \geq a_1 a_2 \cdots a_{n-1}
+\newline
+\frac{a_1 + a_2 + \cdots + a_{n-1}}{n-1} &amp; \geq \sqrt[n-1]{a_1 a_2 \cdots a_{n-1}}
+\end{align}
+$
+</center>
+
+<p>Thus proving the backward-inductive hypothesis.</p>
+<p>By forward-backward induction, we&#39;ve shown that AM-GM holds any number of non-negative real numbers. </p>
+<center>
+$\blacksquare$
+</center>
+
+<h2 id="proof-by-infinite-descent">Proof by Infinite Descent</h2>
+<p>Building on this idea of using backwards induction, Fermat used backward induction in a very neat way. Because, well, there&#39;s something weird going on in our forward-backward induction, notably the backwards step:</p>
+<ul>
+<li>(F-B 2) For all $k$, if $\Phi(k)$ is true, then $\Phi(k-1)$ is true</li>
+</ul>
+<p>This doesn&#39;t seem all that problematic, but while the natural numbers are unbounded upwards, they are bounded <em>downwards</em> by 0. From $\Phi(k)$, we get $\Phi(k-1)$, then further $\Phi(k-2)$, and so on until we get $\Phi(0)$. But from $\Phi(0)$ can we conclude $\Phi(-1)$? The backwards inductive step would certainly suggest so, but that&#39;s not how natural numbers work. In the AM-GM inequality above, what would it mean for it to hold for &quot;-1 numbers&quot;? It just doesn&#39;t make sense.</p>
+<p>The difference here is that we _do_ have an understanding that backwards induction terminates eventually at 0. In particular, what our backwards inductive statement really <em>should</em> say is that</p>
+<ul>
+<li>(F-B 2) For all $k$, if $\Phi(k+1)$ is true, then $\Phi(k)$ is true</li>
+</ul>
+<p>We first assume that $k \in \mathbb{N}$ before we apply it to our claim we&#39;re proving. But what if we didn&#39;t assume that?</p>
+<p><strong>Proof by infinite descent</strong> exploits this assumption to make a very nice proof by contradiction. If we remove this condition assuming that one of our numbers is already a natural number, we could prove things by contradiction by showing that is a consequence. That is,</p>
+<ul>
+<li>(Suppose for contradiction that) $\Phi$ is true</li>
+<li>If $m \in \mathbb{N}$ and $\Psi(m)$ is true, then $m-1 \in \mathbb{N}$ and $\Psi(m-1)$ is true </li>
+</ul>
+<p>Then you could conclude that $\Phi(n)$ <strong>is false</strong> for all $n \in \mathbb{N}$ since there is no infinitely descending sequence of natural numbers. $\Psi(n)$ here could be any consequence that would imply an infinitely decreasing sequence of natural numbers.</p>
+<p>This is best done with an example.</p>
+<hr>
+<p><strong>Claim:</strong> If $\sqrt{k}$ is not an integer, then it is irrational.</p>
+<p><strong>Proof:</strong> Suppose for a contradiction that there is a positive integer $k$ such that $\sqrt{k}$ is not an integer and not irrational, i.e. $\sqrt{k}$ is rational. So there are natural numbers $m,n \in \mathbb{N}$ such that $\sqrt{k} = \frac{m}{n}$. Now we can do some algebra on this expression:</p>
+<center>
+$
+\begin{align}
+\sqrt{k} &amp; = \frac{m}{n}
+\newline
+&amp; = \frac{m(\sqrt{k} - \lfloor \sqrt{k} \rfloor)}{n(\sqrt{k} - \lfloor \sqrt{k} \rfloor)}
+\newline
+&amp; = \frac{m\sqrt{k} - m\lfloor \sqrt{k} \rfloor}{n\sqrt{k} - n\lfloor \sqrt{k} \rfloor}
+\newline
+&amp; = \frac{(n\sqrt{k})\sqrt{k} - m\lfloor \sqrt{k} \rfloor}{n(\frac{m}{n}) - n\lfloor \sqrt{k} \rfloor}
+\newline
+\sqrt{k} &amp; = \frac{nk - m\lfloor \sqrt{k} \rfloor}{m - n\lfloor \sqrt{k} \rfloor}
+\end{align}
+$
+</center>
+
+<p>By multiplying by $\frac{\sqrt{k} - \lfloor \sqrt{k} \rfloor}{\sqrt{k} - \lfloor \sqrt{k} \rfloor} = 1$, we ended up with a new rational expression for $\sqrt{k}$. But notice, by definition of the floor function $\lfloor \cdot \rfloor$, we multiplied the numerator and denominator by $\sqrt{k} - \lfloor \sqrt{k} \rfloor &lt; 1$. So $m &gt; m(\sqrt{k} - \lfloor \sqrt{k} \rfloor) = nk - m\lfloor \sqrt{k} \rfloor$ and similarly for the denominator. But the numerator and denominator are both still natural numbers, since $m$, $n$, $k$, and $\lfloor k \rfloor$ are all natural numbers, so their sums and products are too!</p>
+<p>So we from a rational expression for $\sqrt{k} = \frac{m}{n}$, we found another equivalent rational expression with a strictly smaller numerator and denominator. So we could repeat this process again multiplying through by $\frac{\sqrt{k} - \lfloor \sqrt{k} \rfloor}{\sqrt{k} - \lfloor \sqrt{k} \rfloor}$ to find another smaller rational expression <em>ad infinitum</em>. But there are no infinitely decreasing sequences of natural numbers for the numerator and denominator to be a part of, giving us a contradiction.</p>
+<p>So it must be that our initial assumption was wrong that there is a $\sqrt{k}$ that is neither and integer nor irrational. In other words, it for all natural numbers $k$, either $\sqrt{k}$ is an integer or it is irrational.</p>
+<center>
+$\blacksquare$
+</center>
+
+<p>Here&#39;s a <a href="http://xperimex.com/blog/grid-polygons/">geometric application of infinite descent</a> applied not to natural numbers directly, but rather integral multiples of a length of a line.</p>
+<h2 id="multi-induction">Multi-Induction</h2>
+<p>Let&#39;s revisit the very first inductive proof we gave. We showed that the formula for the sum of the first $n$ natural numbers is </p>
+<center>
+
+$\sum_{i=1}^n i = \large{\frac{n(n+1)}{2}}$
+
+</center>
+
+<p>There&#39;s a similar formula for a related double sum:</p>
+<center>
+
+$\sum_{j=1}^m \sum_{i=1}^n (i + j) = \large{\frac{mn(m+n+2)}{2}}$
+
+</center>
+
+<p>You might try to prove this with induction, but there&#39;s a sizeable difference between our original problems and this one: it&#39;s a formula of <strong>multiple variables</strong>.</p>
+<p>As such, there is also a natural extension to what we&#39;ve been doing in <strong>multi-induction</strong>. A way to think of it is like the &quot;product&quot; of inductive arguments; if we were &quot;inducting linearly&quot; before, we&#39;ll now &quot;induct in a grid&quot;.</p>
+<p>For our case of double induction, we&#39;ll represent our formula is true with $\Phi(m,n)$—just like what we did before with one variable. We&#39;ll then use the following formulation for double induction (DI): we&#39;ll show that</p>
+<ul>
+<li>(DI 1) $\Phi(1,1)$ is true</li>
+<li>(DI 2) For all $m \geq 1$, show $\Phi(m,1)$ is true</li>
+<li>(DI 3) For each fixed $m_0$ and for all $n \geq 1$, show that $\Phi(m_0, n)$ is true</li>
+</ul>
+<p>to prove that $\Phi(m,n)$ is true for all integers $m,n \geq 1$. If you think of $(m,n)$ as coordinates in space, (DI 2) is the &quot;horizontal&quot; induction, proving the claim along the $x$-axis and giving us the base cases for (DI 3), which fills in the columns along the $y$-axis.</p>
+<p>And as you can probably guess, we&#39;ll show (DI 2) and (DI 3) with induction.</p>
+<hr>
+<p><strong>Claim:</strong> $\sum_{j=1}^m \sum_{i=1}^n (i + j) = \large{\frac{mn(m+n+2)}{2}}$</p>
+<p><strong>Base Case:</strong> We&#39;ll check it for the case $m = n = 1$. $\sum_{j=1}^1 \sum_{i=1}^1 (i + j) = 2 = \frac{1 \cdot 1(1+1+2)}{2}$.</p>
+<p><strong>Horizontal Inductive Hypothesis:</strong> We&#39;ll induct on $m$ and prove that the formula holds for all $m \geq 1$ while fixing $n=1$. So suppose the formula holds for some $m$, that is, $\sum_{j=1}^{m} \sum_{i=1}^1 (i + j) = \frac{m(m+3)}{2}$. We&#39;ll show that it also holds for $m+1$:</p>
+<center>
+$
+\begin{align}
+\sum_{j=1}^{m+1} \sum_{i=1}^1 (i + j) = \sum_{j=1}^{m+1} (1 + j) &amp; = \sum_{j=1}^{m} (1 + j) + (1 + m + 1)
+\newline
+&amp; = \frac{m(m+3)}{2} + (m + 2)
+\newline
+&amp; = \frac{m^2 + 5m + 4}{2}
+\newline
+&amp; = \frac{(m+1)(m+4)}{2}
+\newline
+&amp; = \frac{(m+1)((m+1) + 3)}{2}
+\end{align}
+$
+</center>
+
+<p>Since $\Phi(m,1) \Rightarrow \Phi(m+1,1)$, by induction, $\Phi(m,1)$ is true for all $m \geq 1$.</p>
+<p><strong>Vertical Inductive Hypothesis:</strong> Horizontal induction now gives us the base cases we need to induct on $n$. We now know that for a fixed $m_0$, $\Phi(m_0, 1)$ is true, so that will act as our base case. Now assume that $\Phi(m_0,n)$ is true for some $n$. That is,</p>
+<center>
+
+$\sum_{j=1}^{m_0} \sum_{i=1}^n (i + j) = \large{\frac{m_{0} n(m_0+n+2)}{2}}$
+
+</center>
+
+<p>We will show that $\Phi(m_0, n+1)$ is also true. </p>
+<center>
+$
+\begin{align}
+\sum_{j=1}^{m_0} \sum_{i=1}^{n+1} (i + j) &amp; = \sum_{j=1}^{m_0}  \left( \sum_{i=1}^{n} (i + j) + (n+1 + j) \right)
+\newline
+&amp; = \sum_{j=1}^{m_0}  \sum_{i=1}^{n} (i + j) + \sum_{j=1}^{m_0} (n+1 + j)
+\newline
+&amp; = \frac{m_{0} n(m_0+n+2)}{2} + \sum_{j=1}^{m_0} (n+1 + j)
+\newline
+&amp; = \frac{m_{0} n(m_0+n+2)}{2} + \frac{m_0(m_0 + 1)}{2} + m_0(n+1)
+\newline
+&amp; = \frac{m_{0}(m_0 n + n^2 + 2n)}{2} + \frac{m_0(m_0 + 1 + 2(n + 1))}{2}
+\newline
+&amp; = \frac{m_{0}(m_0 n + n^2 + 2n + m_0 + 1 + 2(n + 1))}{2}
+\newline
+&amp; = \frac{m_0 (n + 1)(m_0 + (n+1) + 2)}{2}
+\end{align}
+$
+</center>
+
+<p>We get the 3rd line equality by the inductive hypothesis, the 4th line is just an arithmetic series, and the rest follow from algebra. Thus, $\Phi(m_0, n) \Rightarrow \Phi(m_0, n+1)$, and by induction, $\Phi(m_0,n)$ is true for a fixed $m_0$ and all $n \geq 1$.</p>
+<p>But $m_0$ was arbitrary. So $\Phi(m,n)$ is true for all $m,n \geq 1$. In other words, for all $m,n \geq 1$,</p>
+<center>
+
+$\sum_{j=1}^m \sum_{i=1}^n (i + j) = \large{\frac{mn(m+n+2)}{2}}$
+
+</br></br>
+
+$\blacksquare$
+
+</center>
+
+<h2 id="transfinite-induction">Transfinite Induction</h2>
+<p>In our original proofs of weak and strong induction, we relied primarily on the well-ordering of the natural numbers. Actually, that&#39;s really about all we cared about. Let&#39;s look again at our statement of (strong) induction from that proof:</p>
+<hr>
+<p><strong>Strong Induction:</strong> Let $S$ be a set of natural numbers with the following properties:</p>
+<ol>
+<li>$0 \in S$</li>
+<li>If $0,1,\cdots,k \in S$, then $k+1 \in S$</li>
+</ol>
+<p>Then $S$ is the set of all natural numbers.</p>
+<hr>
+<p>Let&#39;s rewrite this with a bit more notation.</p>
+<hr>
+<p><strong>Strong Induction Again:</strong> Let $S \subseteq \mathbb{N}$ be a subset with the following properties:</p>
+<ol>
+<li>$0 \in S$</li>
+<li>If $\forall m \leq k \ \ m \in S$, then $k+1 \in S$</li>
+</ol>
+<p>Then $S = \mathbb{N}$.</p>
+<hr>
+<p>If all that really mattered was the idea of $\mathbb{N}$ being well-ordered—this idea that there&#39;s a lesser element, or a &quot;next&quot; element in the set—what&#39;s stopping us from changing $\mathbb{N}$ with <em>any</em> set $A$ that is well-ordered under a relation $\leq$ (that is not necessarily &quot;less than or equal&quot;)? There is one issue though, that comes in the second clause for strong induction:</p>
+<ol>
+<li>If $\forall m \leq k \ \ m \in S$, then $k+1 \in S$</li>
+</ol>
+<p>Sometimes we can have well-ordered sets–that is have this concept of a &quot;next&quot; element—but have it such that there is no &quot;good&quot; definition of having a next, or $+1$ element. I know this sounds contradictory, but this will help if we talk it out from the start. So far we&#39;ve been working with the natural numbers, so that seems like a good place to work out of. But first, we need to understand what the natural numbers <em>are</em>. </p>
+<h3 id="finite-ordinals">Finite Ordinals</h3>
+<p>In general, we use the the natural numbers to <em>count</em> things, like the sizes of sets. So oftentimes, we do just that! Let&#39;s look at a construction of the natural numbers via sets that do exactly that (due to von Neumann):</p>
+<p><strong>von Neumann&#39;s Construction of $\mathbb{N}$:</strong> We will define them recursively. </p>
+<ul>
+<li>$0 = \varnothing$</li>
+<li>$n+1 = n \cup \{n\}$ (this is the <strong>successor</strong> of a number)</li>
+</ul>
+<p>So the first few natural numbers with this definition would be</p>
+<center>
+$
+\begin{align}
+0 &amp; = \varnothing
+\newline
+1 &amp; = 0 \cup \{0\} = \varnothing \cup \{\varnothing\} = \{\varnothing\}
+\newline
+2 &amp; = 1 \cup \{1\} = \{\varnothing\} \cup \{\{\varnothing\}\} = \{\varnothing, \{\varnothing\}\}
+\newline
+3 &amp; = 2 \cup \{2\} = \{\varnothing, \{\varnothing\}\} \cup \{\{\varnothing, \{\varnothing\}\}\} = \{\varnothing, \{\varnothing\}, \{\varnothing, \{\varnothing\}\} \}
+\end{align}
+$
+</center>
+
+<p>If it&#39;s easier, you can also think of each number being defined as the set of all previous numbers, meaning that $n+1 = \{0, 1, \cdots, n\}$. So the number, say $4$, could be thought of as how many numbers are in the set $\{0,1,2,3\}$. If you&#39;re interested, you can look into how to do all the <a href="https://math.stackexchange.com/questions/1135354/how-to-perform-arithmetic-4-functions-on-von-neumann-numbers">standard arithmetic with these set operations</a>, but the only point that we care about is how we can compare them. </p>
+<p>Since we&#39;re working with sets, the idea of &quot;less than or equal&quot; doesn&#39;t really make sense, but fortunately, we built into our definition a nice counterpart to represent &quot;less than or equal&quot;. Our well-ordering relation is &quot;contains&quot; $\in$: for two numbers, if $a \in b$, then we have $a &lt; b$. This can be seen easiest with the second definition of a number being the set of all previous numbers. We call these numbers that relate to each other in this set-theoretic way as <strong>ordinals</strong>. In particular,</p>
+<ul>
+<li>Ordinals are well-ordered under the relation $\in$, and</li>
+<li>Ordinals also have the property that whenever $x \in S$, it&#39;s also the case that $x \subseteq S$ as well. </li>
+</ul>
+<p>Ordinals generalize the way we would normally count things to infinite sizes. The natural numbers are also known as the <strong>finite ordinals</strong>.</p>
+<p>So every natural number can be identified with the set of all natural numbers before it. And the set of all these finite ordinals are well-ordered, and we can do induction on them like we have been doing before. Great!</p>
+<h3 id="infinite-ordinals">Infinite Ordinals</h3>
+<p>But look at our definition of an ordinal. We&#39;re defining them in this recursive manner, but there&#39;s nothing saying that they have to be of finite size. So what happens if we just make an infinite ordinal? So far all of our ordinals have been of finite natural numbers, what&#39;s stopping us from extending one of these sets to infinity?</p>
+<p>Well, suppose we did take the limit of the set of natural numbers. That is the set, let&#39;s call $\omega$, defined as</p>
+<center>
+
+$\omega = \{0,1,2,3,4,\cdots\}$
+
+</center>
+
+<p>This set is certainly greater than any other natural number under the relation $\in$—in fact, it is the <strong>supremum</strong> of the natural numbers, being the smallest ordinal greater than all of the natural numbers. Also, certainly by the way we defined the natural numbers, every element of $\omega$ is also a subset of $\omega$, so $\omega$ fits the definition of an ordinal too.</p>
+<p>But think about that for a second. If we take the set of all natural numbers alongside this <strong>infinite ordinal</strong> in the set $\mathbb{N} \cup \{\omega\}$, we definitely have a well-ordered set, but how could we ever do induction on this set? Because $\omega$ is greater than all natural numbers, it definitely does not have the form of $k+1$ for some natural number $k$. Yet, according to our definition of induction</p>
+<ul>
+<li>(SPMI 2) If $\forall m \leq k \ \ m \in S$, then $k+1 \in S$</li>
+</ul>
+<p>those are the only statements we could build off of. No matter how long you let our induction go for, it will never be able to prove a statement is true for the ordinal $\omega$, while still being in a well-ordered set.</p>
+<p>This is the purpose of <strong>transfinite induction</strong>. When working to prove things for any well-ordered set, we can run into these <strong>limiting cases</strong> ($\omega$ is aptly called a <strong>limiting ordinal</strong>) that don&#39;t work completely well with the notion of having a &quot;next element&quot; at infinity; you can imagine labelling elements in a well-ordered set as with 0, 1, 2, etc. as we have been doing before, and then eventually running into $\omega$ to throw your induction off. It&#39;s always infinity that makes things a little more difficult.</p>
+<h3 id="the-principle-of-transfinite-induction">The Principle of Transfinite Induction</h3>
+<p>The principle of transfinite induction will look extremely familiar to what we&#39;ve already been doing.</p>
+<p><strong>Transfinite Induction:</strong> Let $A$ be a well-ordered set, and $\Phi(x)$ be a proposition that has domain $A$ with the following properties:</p>
+<ul>
+<li>(TI 1) $\Phi(0)$ is true</li>
+<li>(TI 2) $\Phi(b)$ is true for all $b &lt; a$, then $\Phi(a)$ is true</li>
+</ul>
+<p>Then you can conclude that $\Phi(x)$ is true $\forall x \in A$.</p>
+<p>$0$ just means the least element of $A$. The only real difference again is in the inductive step. In (TI 2), we replace the idea of having $k+1$ with just a notion of &quot;greater than&quot; as to deal with possible limiting cases. In fact, transfinite induction is presented <em>as normal induction</em> with an additional condition:</p>
+<hr>
+<p><strong>Transfinite Induction:</strong> Let $A$ be a well-ordered set, and $\Phi(x)$ be a proposition that has domain $A$ with the following properties:</p>
+<ul>
+<li>(TI 1: <strong>Base Case</strong>) $\Phi(0)$ is true</li>
+<li>(TI 2a: <strong>Successor Case</strong>) If $\Phi(\beta)$ is true for all $\beta \leq \alpha$, then $\Phi(\alpha+1)$ is true</li>
+<li>(TI 2b: <strong>Limiting Case</strong>) $\Phi(\beta)$ is true for all $\beta &lt; \alpha$, then $\Phi(\alpha)$ is true</li>
+</ul>
+<p>Then you can conclude that $\Phi(x)$ is true $\forall x \in A$.</p>
+<hr>
+<p>(TI 2a) is essentially just the normal form of induction we&#39;ve come to know and love, with the only difference being that we can have successor ordinals that are not natural numbers, like $\omega + 1$. So it really is just the limiting cases that can throw a wrench into our proofs.</p>
+<p>Let&#39;s now put it to work.</p>
+<h3 id="examples">Examples</h3>
+<p><a href="https://math.wvu.edu/~kciesiel/Other/ElectronicReprints/B2IntSetThe.pdf"><strong>Claim:</strong></a> There is a subset $A \subset \mathbb{R}^2$ that intersects <em>every</em> line in exactly two points.</p>
+<p>This is not clear to me at all. I mean, just by literally the sheer number of lines there are, it seems hard to make it so that you can nudge points around so that no three are ever collinear, while still somehow covering every line. We can uniquely identify every line with an equation $y = ax + b$, so we can identify every line with an ordered pair $(a,b)$. Thinking of this as coordinates, it should be clear that the number of lines is equivalent to the size of $\mathbb{R}^2$, which is more than the number of natural numbers. So if we want to prove this via induction, we&#39;ll need to do so with transfinite induction.</p>
+<p><strong>Proof:</strong> Let $\{ L_\alpha \}$ be a labelling of every line (i.e. assign every line an ordinal $\alpha$). We&#39;ll inductively construct a sequence $\{A_\alpha\}$ of subsets of $\mathbb{R}^2$ with the following properties for each $\alpha$:</p>
+<ul>
+<li>(Instantiation) $A_\alpha$ has at most two points</li>
+<li>(Preservation) $\bigcup_{\beta \leq \alpha} A_\beta$ contains no three points collinear</li>
+<li>(Diagonal) $\bigcup_{\beta \leq \alpha} A_\beta$ contains exactly two points of $L_\alpha$</li>
+</ul>
+<p>Then $A = \bigcup A_\alpha$ over all ordinals $\alpha$ will have the desired property. This is because the <em>preservation property</em> will ensure every line has at most two points in $A$, while the <em>diagonal property</em> will ensure that every line has at most two points in $A$.</p>
+<p><strong>Base Case:</strong> $\alpha = 0$. $L_0$ would be our first line, and all we need to do to satisfy those 3 properties above is let $A_0$ be any two points in $L_0$.</p>
+<p><strong>Successor Case:</strong> Suppose for any ordinal $\alpha$, the sequence $\{A_\beta\}_{\beta \leq \alpha}$ satisfies the 3 properties above. We&#39;ll show that we can construct a satisfactory $A_{\alpha + 1}$ to extend the sequence.</p>
+<p>Let $B = \bigcup_{\beta \leq \alpha} A_{\beta}$, and $C$ be the set of all lines that contain two points from $B$. By the inductive hypothesis, $B$ has the preservation property, so line $L_{\alpha + 1}$ has at most 2 points in $B$, i.e. $L_{\alpha + 1} \cap B$ has at most 2 points. Now we have two cases to consider.</p>
+<p><em>Case 1:</em> If $L_{\alpha + 1} \cap B$ has exactly 2 points, we just let $A_{\alpha+1} = \varnothing$ to immediately satisfy the 3 properties.</p>
+<p><em>Case 2:</em> If $L_{\alpha + 1} \cap B$ has less than 2 points, then line $L_{\alpha+1}$ intersects every line in $C$ in at most 1 point (if it intersected a line in more than 1 point, it would be that line itself), i.e. for all lines $L \in C \ \ |L_{\alpha+1} \cap L| \leq 1$. To satisfy the preservation and diagonal property, we obviously want to pick a point in $L_{\alpha + 1} \backslash \bigcup C$ (i.e. a point on our new line but not on any of the previous lines). We can do this for sure since we can show $L_{\alpha + 1} \backslash \bigcup C \neq \varnothing$.</p>
+<ul>
+<li>The set of all points in a line has equivalent cardinality to the reals (it&#39;s just a tilted number line, after all). So $|L_{\alpha + 1}| = |\mathbb{R}| = 2^{\aleph_0}$.</li>
+<li>Every line can be uniquely written as $y = ax+b$, and thus also be identified by the ordered pair $(a,b)$. So the number of lines is equivalent to $|\mathbb{R}^2| = 2^{\aleph_0}$</li>
+<li>$C$ is the set of all lines with two points from $B$, which by definition, does not include all lines yet. So $|C| &lt; 2^{\aleph_0}$</li>
+<li>Using the fact that for all lines $L \in C \ \ |L_{\alpha+1} \cap L| \leq 1$:<center>
+$|L_{\alpha + 1} \cap \bigcup C| = |\bigcup_{L \in C} L_{\alpha + 1} \cap L| \leq |C| &lt; 2^{\aleph_0}$
+</center></li>
+<li>So $L_{\alpha + 1}$ and $\bigcup C$ share fewer than $2^{\aleph_0}$ elements, together, meaning that $L_{\alpha + 1} \backslash \bigcup C \neq \varnothing$.</li>
+</ul>
+<p>Now we&#39;re free to pick a subset from $A_{\alpha + 1} \subset L_{\alpha + 1} \backslash \bigcup C$. If $L_{\alpha + 1} \cap B$ has one point, just pick 1 point for $A_{\alpha + 1}$, and if $L_{\alpha + 1} \cap B$ has no points, then let $A_{\alpha + 1}$ 2 points. This will satisfy our preservation and diagonal properties.</p>
+<p><strong>Limit Case:</strong> Suppose for any ordinal $\alpha$, and for all $\gamma &lt; \alpha$, the sequence $\{A_\gamma\}_{\beta \leq \gamma}$ satisfies the 3 properties above. We want to show that we can construct a $A_{\alpha}$ to extend the sequence. Notice in our successor argument, we never really needed the fact that we were proving it for $A_{\alpha + 1}$, but just the fact that we had a series of already constructed previous cases of $A_\beta$ with $\beta &lt; \alpha + 1$. This makes our limit case almost identical to the successor case. Here&#39;s the outline:</p>
+<ul>
+<li>Let $B = \bigcup_{\gamma &lt; \alpha} A_\gamma$, and $C$ be the set of all lines that contain two points from $B$</li>
+<li>Now consider the set $L_\alpha \cap B$</li>
+<li>$L_\alpha \cap B$ contains at most 2 points because $\{A_\gamma\}_{\beta \leq \gamma}$ has the preservation property</li>
+<li><em>Case 1:</em> If $L_\alpha \cap B$ contains 2 points, let $A_{\alpha} = \varnothing$</li>
+<li><em>Case 2:</em> If $L_\alpha \cap B$ contains less than 2 points, then $L_{\alpha}$ intersects with every line in $C$ at most once<ul>
+<li>By the same reasoning as before we can pick a subset $A_{\alpha} \subset L_{\alpha} \backslash \bigcup C \neq \varnothing$</li>
+<li>If $L_\alpha \cap B$ has 1 point, let $A_{\alpha}$ be 1 point</li>
+<li>If $L_\alpha \cap B$ has 0 points, let $A_{\alpha}$ be 2 points</li>
+</ul>
+</li>
+</ul>
+<p>Now again let $A = \bigcup A_\alpha$ over all ordinals $\alpha$. By transfinite induction, we&#39;ve shown there is a subset $A \subset \mathbb{R}^2$ that intersects every line exactly twice.</p>
+<center>
+$\blacksquare$
+</center>
+
+<p>Outside of set theory, because there are more reals than natural numbers, transfinite induction lends itself to these types of weird geometry problems.</p>
+<p>Though, I have to admit I did lie a little bit here. We technically used <strong>transfinite recursion</strong> as opposed to transfinite induction. We didn&#39;t necessarily prove a claim for all ordinals $\alpha$, but rather <strong>constructed</strong> something inductively/recursively over the ordinals that satisfied some properties. The difference is subtle, but they are technically different methods from one another. Maybe you could argue that we were proving the claim that <em>&quot;there is something constructible&quot;</em> for all ordinals, so I find the difference nitpicky.</p>
+<p>Examples of transfinite induction can be tedious (especially if uncomfortable with ordinals and working with infinities), but you can find some in <a href="https://math.wvu.edu/~kciesiel/Other/ElectronicReprints/B2IntSetThe.pdf">this book</a> for more. Some interesting examples include:</p>
+<ul>
+<li>There is a countable partition of $\mathbb{R^2}$ so that the distance between any two different points in the same set is irrational </li>
+<li>$\mathbb{R^2}$ <em>is not</em> a union of disjoint circles</li>
+<li>$\mathbb{R^3}$ <i>is</i> a union of disjoint circles</li>
+</ul>
+<h2 id="structural-induction">Structural Induction</h2>
+<p>The idea of well-ordering—a key idea in &quot;climbing a ladder&quot;—naturally led us to generalize induction to transfinite induction. But there&#39;s something else in our idea of induction that, to me at least, seems more characteristic to the proof technique: <strong>recursion</strong>.</p>
+<p>We&#39;ve already seen recursion a little bit, but this idea of <strong>defining things within themselves</strong> is what induction really screams to me. In that second clause of our principle,</p>
+<ul>
+<li>(PMI 2) $\forall k \geq 0$, if $\Phi(k)$ is true, then $\Phi(k+1)$ is true</li>
+</ul>
+<p>we rely on proving the validity of $\Phi(k+1)$ by already assuming the &quot;simpler&quot; idea $\Phi(k)$. How do we know $\Phi(k)$ is valid? We show it from the &quot;simpler&quot; $\Phi(k-1)$. And we keep going until we hit the simplest version of our claim with our base case $\Phi(0)$.</p>
+<p>Building up examples from a simplest case is what I think of when I use induction. But, there are many other times we build something from a base or simple case, too. <strong>Trees</strong>, in computer science and graph theory, follow this exact pattern of construction. </p>
+<p><div id="example_tree" style="flex: 2; position: relative;"></div></p>
+<script src="/js/compactness/example_tree.js"></script>
+
+<p>We have a <strong>root</strong> at the top that brances out into different leaves and paths. While we may not have a definite &quot;next&quot; element going down a tree, we certainly have this recursive nature where at each step going down a tree, we have a smaller, &quot;simpler&quot;, subtree. So perhaps, if we wanted to prove somthing about trees, there&#39;s a type of inductive argument we could use that modifies our original idea. For a propsition (like a property) $\Phi$ about a recursively defined structure like a tree, we could have somthing like</p>
+<ul>
+<li>Show $\Phi$ is true for the base case of the structure</li>
+<li>If $\Phi$ holds for all substructures, then $\Phi$ also holds for the recursively defined structure</li>
+</ul>
+<p>then we should be able to conclude that $\Phi$ holds for the entire structure. This type of <strong>structural induction</strong> is something that should make sense based on our previous, regular versions of induction, but it&#39;s something so general we&#39;ll have to adapt it to our structures.</p>
+<p>Here&#39;s a simple example building on trees. First, we need some definitions.</p>
+<ul>
+<li>A <strong>vertex</strong> is a dot in our tree.</li>
+<li>An <strong>edge</strong> is a line that connects two vertices</li>
+</ul>
+<p>We define a <strong>tree</strong> recursively:</p>
+<ul>
+<li>(Base Case) A tree has a root vertex with no edges, or</li>
+<li>(Recursive Definition) A tree has a root vertex with edges connecting to some number of other trees</li>
+</ul>
+<hr>
+<p><strong>Claim:</strong> For our tree, let $V$ be the set of vertices and $E$ the set of edges. Then $|V| = |E| + 1$.</p>
+<p><strong>Base Case:</strong> Our base case is a tree is a root vertex with no edges. So $|V| = 1$, and $|E| = 0$, so the claim holds.</p>
+<p><strong>Inductive Hypothesis:</strong> Suppose that we have a tree with $n$ subtrees, and the claim holds for all subtrees. We will use $V_i$ and $E_i$ to denote the set of vertices and edges respectively for tree $i=1,\cdots,n$.</p>
+<p>Then by definition, the number of vertices of the whole tree </p>
+<center>
+$|V| = 1 + |V_1| + |V_2| + \cdots + |V_n|$
+</center>
+
+<p>as the tree is built from a root vertex connected to the subtrees. Similarly, </p>
+<center>
+$|E| = n + |E_1| + |E_2| + \cdots + |E_n|$ 
+</center>
+
+<p>as the number of edges would be the sum of the edges of the subtrees plus the additional $n$ edges that connect the subtrees to the root. Now it&#39;s just a matter of algebra with the inductive hypothesis.</p>
+<center>
+$
+\begin{align}
+|V| &amp; = 1 + |V_1| + |V_2| + \cdots + |V_n|
+\newline
+&amp; = 1 + (|E_1| + 1) + (|E_2| + 1) + \cdots (|E_n| + 1)
+\newline
+&amp; = 1 + (n + |E_1| + |E_2| + \cdots + |E_n|)
+\newline
+&amp; = 1 + |E|
+\end{align}
+$
+</center>
+
+
+<center>
+$\blacksquare$
+</center>
+
+<hr>
+<p>Here&#39;s another one with recursively defined sets.</p>
+<p><strong>Claim:</strong> Define the set $S$ as follows:</p>
+<ul>
+<li>(Base) $6,21 \in S$</li>
+<li>(Recursive) If $x,y \in S$, then $x + y \in S$</li>
+</ul>
+<p>Show that every element in $S$ is a multiple of 3.</p>
+<p><strong>Base Case:</strong> Clearly $6 = 3 \cdot 2$ and $21 = 3 \cdot 7$ are both multiples of 3</p>
+<p><strong>Inductive Hypothesis:</strong> Assume that $x,y \in S$ and both are multiples of 3 i.e. $x = 3n$ and $y = 3m$ for integers $n,m \in \mathbb{Z}$. Then $x + y = 3(n + m)$ which is also a multiple of 3. So clearly all elements are multiples of 3. $\ \blacksquare$</p>
+<hr>
+<p>Finally, one more from <a href="http://xperimex.com/blog/intro-logic/#-mathcal-l-_1-a-first-attempt">propositional logic</a>. In propositional logic, we define sentences recursively with connectives. These and only these are sentences:</p>
+<ul>
+<li>(Base) Sentence letters $P, Q, R, \cdots$ are sentences</li>
+<li>(Recursive) If $\phi$ and $\psi$ are sentences then the following are also sentences:<ul>
+<li>$\neg \phi$ (negation)</li>
+<li>$(\phi \wedge \psi)$ (and)</li>
+<li>$(\phi \vee \psi)$ (or)</li>
+<li>$(\phi \rightarrow \psi)$ (material implication)</li>
+<li>$(\phi \leftrightarrow \psi)$ (biconditional)</li>
+</ul>
+</li>
+</ul>
+<p><strong>Claim:</strong> All sentences have an equal number of left and right parantheses.</p>
+<p><strong>Base Case:</strong> Sentence letters have no parantheses, and $0=0$, so they have an equal number of left and right parantheses.</p>
+<p><strong>Inductive Step:</strong> Suppose $\phi$ and $\psi$ are sentences with an equal number of left and right parantheses. We check the claim for each connective:</p>
+<ul>
+<li>$\neg \phi$: Since we add no new parantheses and $\phi$ has an equal amount of left and right, the claim holds.</li>
+<li>$(\phi \wedge \psi)$: If $\phi$ has $n$ left and right parantheses, and $\psi$ has $m$, then $\phi \wedge \psi$ has $n+m$ left and right parantheses, still being equal. Adding parantheses around it keeps the equality, just adding 1 to each side.</li>
+<li>The remaining connectives are identical to the $\wedge$ case</li>
+</ul>
+<center>
+$\blacksquare$
+</center>
+
+<hr>
+<p>Structural induction is a fairly straightforward adaptation of induction, and, as a proof technique, is helpful to formalize what might otherwise just be obvious facts (like the above). </p>
+<p>Induction was something we only limited to well-ordered sets. Structural induction allows us to use it on <strong>well-founded partial orderings</strong> too. Well-founded is similar to well-ordered, meaning that given a relation $R$ on a set $X$, every non-empty subset has a minimal element. A partial order is a relation $R$ on a set $X$ that relates elements in a set $X$ to one another, but without necessarily comparing all elements to each other. Going back to the example of trees, we can relate elements by being in the same chain of edges, so different branches would be uncomparable to one another.</p>
+<h1 id="continuous-induction">Continuous Induction</h1>
+<p>Up until now, we&#39;ve treated induction as an inherently <strong>discrete method</strong>. I mean, how can it not be? We started by first describing a method that is iterating over the natural numbers, and then further generalized them to any well-ordered set. But nonetheless, we only applied induction to inherently <em>discrete</em> casees. What would it even mean to climb a &quot;continuous&quot; ladder? What would a &quot;next step&quot; look like? For any real number $x$ and some incremental value $\delta$, there&#39;s always a number $y$ in between $x &lt; y &lt; x + \delta$, so the real numbers don&#39;t give us this nice &quot;next step&quot; to prove (with this, it shouldn&#39;t be hard to see that the real numbers aren&#39;t even well-ordered).</p>
+<p>Let&#39;s think about what we&#39;re doing when we use induction. It sort of feels like an almost constructive method, right? We first show there is at least one element in our set with our base case. Then from our base case, we <em>add</em> another element through the inductive step. From that new element, we <em>add</em> another element with another inductive step. And so on and so on. We treat induction like a <em>method</em> in which we add more and more elements to our set.</p>
+<p>This is inherently rooted in thinking in terms of an <strong>indexed</strong> claim $\Phi(n)$. If we want to continue this analogy, we really need a way of thinking that gives us a new &quot;next step&quot;. Let&#39;s revisit our definition of induction when we were proving it from well-ordering:</p>
+<hr>
+<p><strong>Principle of Mathematical Induction:</strong> Let $S \subseteq \mathbb{N}$ be a subset with the following properties:</p>
+<ol>
+<li>$0 \in S$</li>
+<li>If $k \in S$, then $k+1 \in S$</li>
+</ol>
+<p>Then $S = \mathbb{N}$.</p>
+<hr>
+<!-- Again, we could define $S = \\{ n \in \mathbb{N} \ | \ \Phi(n) \  \textrm{is true} \\}$, but the key point is to think in terms of these **properties**. If $S$ satisfies those two properties, then $S$ isn't a subset of $\mathbb{N}$, but rather $S = \mathbb{N}$. It's not that we're adding elements to $S$, but rather all those _elements were already in_ $S$, by having those properties. -->
+<p>Again, we could define $S = \{ n \in \mathbb{N} \ | \ \Phi(n) \  \textrm{is true} \}$, but the clear issue is still our inductive step. What will be our &quot;next step&quot;, or $k+1$? Well, if there&#39;s no good indexing of the reals and we can&#39;t include any particular one inductive step, why don&#39;t we just include a bunch? As in, why don&#39;t we just include a new <strong>subset</strong> of numbers at each inductive step? What could be wrong with that? Our induction then would be that if we can show that some number $x \in S$, then we can show that some <em>further interval</em> is also in $S$, as opposed to just a single other number. That way we can just keep adding more and more interval until we reach as many reals as we want!</p>
+<hr>
+<p><strong>Real Induction Attempt 1:</strong> Let $S \subseteq \mathbb{R}_{\geq 0}$ be a subset with the following properties:</p>
+<ol>
+<li>$0 \in S$</li>
+<li>For any $x \geq 0$, if $x \in S$ then $[x, z) \subseteq S$ for some $z &gt; x$</li>
+</ol>
+<p>Then $S = \mathbb{R}_{\geq 0}$.</p>
+<hr>
+<p>Instead of dominoes, our analogy would be like improvising a rope: so long as you have smaller threads that have some length, you can eventually tie a rope as long as you want.</p>
+<p>There is one problem with our formulation, though: it doesn&#39;t ensure a certain size for our intervals. So if our intervals are shrinking in length, they might converge onto only some smaller part of the real line. Say we start at 0, but at each step $n$ only add an interval of length $(\frac{1}{2})^n$. Then we&#39;ll only cover the reals from $[0,1)$. So we need at least one more requirement for this to work.</p>
+<p>And actually, we have run into this issue before. Recall for transfinite induction, we had limit ordinals that blocked our path, and had to prove the limiting cases in addition to the inductive step. We will do the same here.</p>
+<hr>
+<p><a href="https://arxiv.org/pdf/1208.0973.pdf"><strong>Real Induction:</strong></a> Let $S \subseteq \mathbb{R}_{\geq 0}$ be a subset with the following properties:</p>
+<ul>
+<li>(RI 1) $0 \in S$</li>
+<li>(RI 2) For any $x \geq 0$, if $[0,x] \subseteq S$ then $[x, z] \subseteq S$ for some $z &gt; x$</li>
+<li>(RI 3) For any $x \geq 0$, if $[0,x) \subseteq S$ then $x \in S$</li>
+</ul>
+<p>Then $S = \mathbb{R}_{\geq 0}$.</p>
+<hr>
+<p>So now if we run into a limit case like before, we say it must be in our set, and that gives us a new case to continue performing real induction on. One other thing to note is that I tweaked our second condition (RI 2) to be closer to the strong form of induction from before to highlight there is an equivalent analogy in real induction. I also changed (RI 2) to be a closed interval, as our new (RI 3) allows us to do that. If a set $S$ satisfies (RI 1–3), we say $S$ is <strong>inductive</strong>.</p>
+<p>So <strong>real induction isn&#39;t all that different from what we&#39;re used to already</strong>. Instead of natural numbers being our cases, intervals are. We start with a base case, and slowly show our claim holds on new intervals until we end up showing that from combining all those intervals, the claim actually holds for all real numbers.</p>
+<p>Earlier I pointed out how we might run into the &quot;issue&quot; of only proving a claim for the interval $[0,1)$, but sometimes that&#39;s exactly what we want as opposed to showing something for all reals. We can slightly modify our method of induction just by limiting our choices of possible elements:</p>
+<hr>
+<p><strong>Interval Induction:</strong> Let $S \subseteq [a,b]$ be a subset with the following properties:</p>
+<ul>
+<li>(RI 1) $a \in S$</li>
+<li>(RI 2) For any $a \leq x &lt; b$, if $[a,x] \subseteq S$ then $[x, z] \subseteq S$ for some $z &gt; x$</li>
+<li>(RI 3) For any $a &lt; x \leq b$, if $[a,x) \subseteq S$ then $x \in S$</li>
+</ul>
+<p>Then $S = [a,b]$.</p>
+<hr>
+<p>All we did is change our base case, and add a cap to our inductive step.</p>
+<p>While we&#39;re here, we might as well check beyond our intuition that this should work.</p>
+<p><strong>Proof of Real Induction:</strong> Suppose a set $S \subseteq [a,b]$ is inductive, and (RI 1–3) hold. We want to show that $S = [a,b]$. So—just like in our proof of regular induction—suppose for contradiction, $S \neq [a,b]$, so there is a non-empty set $T = [a,b] \backslash S \neq \varnothing$. Since $T$ is bounded, and by the completeness of the reals, $T$ has an infimum (greatest lower bound).</p>
+<ul>
+<li><strong>Case 1:</strong> $\mathbf{\inf (T) = a}$. By (RI 1), $a \in S$. By (RI 2), there is a $z &gt; a$ such that $[a,z] \subseteq S$. So $z$ is a lower bound for $T$ (the elements not in $S$). But $z &gt; a = \inf (T)$, contradicting the definition of an infimum.</li>
+<li><strong>Case 2:</strong> $\mathbf{a &lt; \inf(T) \in S}$. $\inf(T) \neq b$, since we declared $T$ non-empty. Then by (RI 2), there is a $z &gt; \inf(T)$ such that $[\inf(T), z] \subseteq S$. Like before, this would suggest $z &gt; \inf(T)$ is a lower bound for $T$, contradicting the definition of an infimum.</li>
+<li><strong>Case 3:</strong> $\mathbf{a &lt; \inf(T) \in T}$. Then by definition of $T$, we would have $[a,\inf(T)) \in S$. By (RI 3), then $\inf(T) \in S$, which is again a contradiction by definition of $T$.</li>
+</ul>
+<p>Since these 3 cases are exhaustive for the infimum of $T$, and all lead to a contradiction, it must be the case that our initial assumption is wrong. That is, that $S \neq [a,b]$. In other words, if (RI 1–3) hold on our desired interval, it must be that $S = [a,b]$.</p>
+<center>
+$\blacksquare$
+</center>
+
+<p>So now we have this method of showing a claim holds for more and more subintervals that build on each other, until it completes <em>the whole interval</em>, allowing us to prove theorems in a now more familar way than before.</p>
+<p>Here&#39;s a nice intuitive example.</p>
+<p><strong>Intermediate Value Theorem:</strong> Suppose $f:[a,b] \rightarrow \mathbb{R} \backslash \{0\}$ is continuous, and $f(a) &gt; 0$. Then $f(b) &gt; 0$.</p>
+<p>If $f(x)$ is continuous and only maps numbers to non-zero real numbers, then it should make sense that if we have a point $a$ where $f(a) &gt; 0$, then we should not have <em>any</em> number where $f(x) \leq 0$ without &quot;lifting up our pen&quot;; since $f(x) \neq 0$, we have this barrier where either our function is continuous and positive, or it is not continuous and negative too. </p>
+<p>The idea of this proof is to use continuity to inductively string together intervals that are positive on $f$ until we cover the whole length of $[a,b]$. Just for consistency, the set we&#39;re secretely working with (as from our statement of real induction) is $S = \{x \in [a,b] \ | \ f(x) &gt; 0\}$.</p>
+<p><strong>Base Case:</strong> From our assumption, we&#39;re already given that $f(a) &gt; 0$.</p>
+<p><strong>Inductive Hypothesis:</strong> Say that for some $a \leq x &lt; b$ that $f(t) &gt; 0$ for all $t \in [a,x]$. We want to show that there is a further interval $z &gt; x$ where $f(t) &gt; 0$ for all $t \in [x,z]$.</p>
+<p>Since $f$ is continuous at $x$, there is a small neighborhood centered at $x$ with also positive outputs i.e. $\exists \delta &gt; 0$ such that for all $t \in (x-\delta, x+\delta)$ we have $f(t)&gt;0$. You can just check this with the definition of continuity. A function $f:E \rightarrow \mathbb{R}$ is continuous at $x$ if:</p>
+<center>
+$\forall \epsilon &gt; 0 \ \exists \delta &gt; 0 \ \forall p \in E \ \ \left( |x-p| &lt; \delta \Rightarrow |f(x) - f(p)| &lt; \epsilon \right)$
+</center>
+
+<p>So if we let $\epsilon &lt; f(x)$, we get some corresponding $\delta$ so that $f(p)&gt;0$ for $p$ in that neighborhood. Thus, if we let $z = x + \delta$, we&#39;ve proven our inductive step that there is a number $z &gt; x$ such that $f(t) &gt; 0$ for all $t \in [x,z]$. It might be a small interval, but good enough nonetheless.</p>
+<p><strong>Limit Case:</strong> Now say for for some $a &lt; x \leq b$, we have that $f(t) &gt; 0$ for all $t \in [a,x)$. We need to show that $f(x) &gt; 0$ as well. Suppose it wasn&#39;t, i.e. $f(x) \leq 0$. By definition of our function, $f(x) \neq 0$, so the only remaining case is $f(x) &lt; 0$. But by continuity—like in the inductive step—there would be a neighborhood such that $f(t) &lt; 0$ for all $t \in (x - \delta, x + \delta)$. But that contradicts our assumption that $f(t) &gt; 0$ for all $t \in [a,x)$ as $x - \delta &lt; x$. So it must be the case that $f(x) &gt; 0$.</p>
+<p>By real induction, we have proven that if $f:[a,b] \rightarrow \mathbb{R} \backslash \{0\}$ is continuous and $f(a) &gt; 0$, then $f(x) &gt; 0$ for all $x \in [a,b]$. And in particular, $f(b) &gt; 0$. </p>
+<center>
+$\blacksquare$
+</center>
+
+<p>For more examples, I&#39;d read the <a href="https://arxiv.org/pdf/1208.0973.pdf">instructional paper</a> I linked above that goes quite in-depth in proving many famous theorems with real induction. Most of the proofs are relatively straightforward once you figure out how to state your set in a good way to induct on it.</p>
+<p>Real induction is one of those tools that just doesn&#39;t seem like it should work by the way we treat normal induction. It&#39;s not a method one would probably think of, and given how little it&#39;s used, it&#39;s not surprising it&#39;s not even that well-known.</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>Induction is one of the most fundamental tools in math. It&#39;s inextricably linked to our modern conception of the natural numbers, and in many ways, is what sets apart our contemporary understanding of math from other logical systems. So, I&#39;m not surprised it&#39;s as powerful a proof tool as it is, but there is so much more to it than the typical weak and strong induction that is primarily taught. How we apply induction gives us so many new and creative ways to prove claims, but more importantly how thinking inductively naturally guides our intuition for alternate approaches. We saw it first with transfinite induction, then real induction, but who knows what other powerful variations on induction there may be.</p>
+]]></description>
+         <link>http://xperimex.github.io/blog/real-induction</link>
+         <guid isPermaLink="true">http://xperimex.github.io/blog/real-induction</guid>
          <dc:creator><![CDATA[Adi Mittal]]></dc:creator>
       </item>
    </channel>

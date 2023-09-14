@@ -934,7 +934,7 @@ For those who are familiar with some set theory, these are identical to how set 
 <center>
 $
 \begin{align}
-\neg (\varphi_1 \wedge \cdots \wedge \varphi_n \wedge \varphi_{n+1}) = \neg ((\varphi_1 \wedge \cdots \wedge \varphi_n) \wedge \varphi_{n+1}) & \equiv \neg(\varphi_1 \wedge \cdots \wedge \varphi_n) \vee \neg \varphi_n \\\
+\neg (\varphi_1 \wedge \cdots \wedge \varphi_n \wedge \varphi_{n+1}) = \neg ((\varphi_1 \wedge \cdots \wedge \varphi_n) \wedge \varphi_{n+1}) & \equiv \neg(\varphi_1 \wedge \cdots \wedge \varphi_n) \vee \neg \varphi_{n+1} \\\
 & \equiv \neg \varphi_1 \vee \cdots \vee \neg \varphi_n \vee \neg \varphi_{n+1}
 \end{align}
 $
