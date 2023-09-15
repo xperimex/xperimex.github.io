@@ -496,7 +496,7 @@ Building on this idea of using backwards induction, Fermat used backward inducti
 
 This doesn't seem all that problematic, but while the natural numbers are unbounded upwards, they are bounded _downwards_ by 0. From $\Phi(k)$, we get $\Phi(k-1)$, then further $\Phi(k-2)$, and so on until we get $\Phi(0)$. But from $\Phi(0)$ can we conclude $\Phi(-1)$? The backwards inductive step would certainly suggest so, but that's not how natural numbers work. In the AM-GM inequality above, what would it mean for it to hold for "-1 numbers"? It just doesn't make sense.
 
-The difference here is that we _do_ have an understanding that backwards induction terminates eventually at 0. In particular, what our backwards inductive statement really _should_ say is that
+The difference here is that we <i>do</i> have an understanding that backwards induction terminates eventually at 0. In particular, what our backwards inductive statement really _should_ say is that
 
 * (F-B 2) For all $k$, if $\Phi(k+1)$ is true, then $\Phi(k)$ is true
 
