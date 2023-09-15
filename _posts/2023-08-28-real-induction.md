@@ -767,7 +767,7 @@ Then you can conclude that $\Phi(x)$ is true $\forall x \in A$.
 
 -----------------
 
-(TI 2a) is essentially just the normal form of induction we've come to know and love, with the only difference being that we can have successor ordinals that are not natural numbers, like $\omega + 1$. So it really is just the limiting cases that can throw a wrench into our proofs.
+(TI 2a) is essentially just the normal form of (strong) induction we've come to know and love, with the only difference being that we can have successor ordinals that are not natural numbers, like $\omega + 1$. So it really is just the limiting cases that can throw a wrench into our proofs.
 
 
 Let's now put it to work.

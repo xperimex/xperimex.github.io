@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Fri, 15 Sep 2023 02:30:22 GMT</lastBuildDate>
+      <lastBuildDate>Fri, 15 Sep 2023 02:31:13 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -6774,7 +6774,7 @@ $\omega = \{0,1,2,3,4,\cdots\}$
 </ul>
 <p>Then you can conclude that $\Phi(x)$ is true $\forall x \in A$.</p>
 <hr>
-<p>(TI 2a) is essentially just the normal form of induction we&#39;ve come to know and love, with the only difference being that we can have successor ordinals that are not natural numbers, like $\omega + 1$. So it really is just the limiting cases that can throw a wrench into our proofs.</p>
+<p>(TI 2a) is essentially just the normal form of (strong) induction we&#39;ve come to know and love, with the only difference being that we can have successor ordinals that are not natural numbers, like $\omega + 1$. So it really is just the limiting cases that can throw a wrench into our proofs.</p>
 <p>Let&#39;s now put it to work.</p>
 <h3 id="examples">Examples</h3>
 <p><a href="https://math.wvu.edu/~kciesiel/Other/ElectronicReprints/B2IntSetThe.pdf"><strong>Claim:</strong></a> There is a subset $A \subset \mathbb{R}^2$ that intersects <em>every</em> line in exactly two points.</p>
