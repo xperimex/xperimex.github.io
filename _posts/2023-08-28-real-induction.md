@@ -739,7 +739,7 @@ But think about that for a second. If we take the set of all natural numbers alo
 
 those are the only statements we could build off of. No matter how long you let our induction go for, it will never be able to prove a statement is true for the ordinal $\omega$, while still being in a well-ordered set.
 
-This is the purpose of **transfinite induction**. When working to prove things for any well-ordered set, we can run into these **limiting cases** ($\omega$ is aptly called a **limiting ordinal**) that don't work completely well with the notion of having a "next element" at infinity; you can imagine labelling elements in a well-ordered set as with 0, 1, 2, etc. as we have been doing before, and then eventually running into $\omega$ to throw your induction off. It's always infinity that makes things a little more difficult.
+This is the purpose of **transfinite induction**. When working to prove things for any well-ordered set, we can run into these **limiting cases** ($\omega$ is aptly called a **limiting ordinal**) that don't work completely well with the notion of having a "next element" at infinity; you can imagine labelling elements in a well-ordered set as with 0, 1, 2, etc. as we have been doing before, and then eventually running into an element $\omega$ to throw your induction off. It's always infinity that makes things a little more difficult.
 
 ### The Principle of Transfinite Induction
 
