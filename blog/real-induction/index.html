@@ -306,7 +306,7 @@ $\blacksquare$
 <li><strong>Antisymmetry:</strong> $\forall x,y \in X \ (x \leq y \wedge y \leq x \Rightarrow x = y)$</li>
 <li><strong>Transitivity:</strong> $\forall x,y \in X \ (x \leq y \wedge y \leq z \Rightarrow x \leq z)$</li>
 <li><strong>Connectedness:</strong> $\forall x,y \in X \ (x \leq y \vee y \leq x)$</li>
-<li><strong>Minimums:</strong> Every non-empty subset $\varnothing \neq S \subseteq X$ contains a least element, i.e., $\exists \alpha \in S$ such that $\forall x \in X \ \alpha \leq x$</li>
+<li><strong>Minimums:</strong> Every non-empty subset $\varnothing \neq S \subseteq X$ contains a least element, i.e., $\exists \alpha \in S$ such that $\forall x \in S \ \alpha \leq x$</li>
 </ol>
 <p>The set of natural numbers $\mathbb{N}$ is well-ordered under the relation &quot;less than&quot; $\leq$. This is something that is just an intuitive fact that we take for granted when working with the natural numbers, but it is a very special property given by the axioms of the natural numbers, and it will become important to us later on. This simple fact, though, is actually <strong>equivalent to the principle of mathematical induction</strong> itself!</p>
 <p><strong>Induction Implies Well-Ordering:</strong> Suppose for contradiction that $\mathbb{N}$ is not well-ordered. That is, there is a subset $\varnothing \neq S \subseteq \mathbb{N}$ with no least element. Then $0 \notin S$ as it would be then be minimal. Then $1 \notin S$ as $1$ would be minimal as $0 \notin S$. Suppose $0,1,\cdots,n \notin S$. Then $n+1 \notin S$ as it would be minimal. By induction, $\forall n \in \mathbb{N} \ n \notin S$. That is, $S = \varnothing$, which is a contradiction. Thus $\mathbb{N}$ is well-ordered. $ \ \blacksquare$</p>

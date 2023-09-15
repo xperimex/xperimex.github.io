@@ -355,7 +355,7 @@ In both proofs, we relied on the **well-ordering of the natural numbers**. A wel
 2. **Antisymmetry:** $\forall x,y \in X \ (x \leq y \wedge y \leq x \Rightarrow x = y)$
 3. **Transitivity:** $\forall x,y \in X \ (x \leq y \wedge y \leq z \Rightarrow x \leq z)$
 4. **Connectedness:** $\forall x,y \in X \ (x \leq y \vee y \leq x)$
-5. **Minimums:** Every non-empty subset $\varnothing \neq S \subseteq X$ contains a least element, i.e., $\exists \alpha \in S$ such that $\forall x \in X \ \alpha \leq x$
+5. **Minimums:** Every non-empty subset $\varnothing \neq S \subseteq X$ contains a least element, i.e., $\exists \alpha \in S$ such that $\forall x \in S \ \alpha \leq x$
 
 
 The set of natural numbers $\mathbb{N}$ is well-ordered under the relation "less than" $\leq$. This is something that is just an intuitive fact that we take for granted when working with the natural numbers, but it is a very special property given by the axioms of the natural numbers, and it will become important to us later on. This simple fact, though, is actually **equivalent to the principle of mathematical induction** itself!
