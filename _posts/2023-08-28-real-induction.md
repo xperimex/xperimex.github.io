@@ -371,7 +371,7 @@ The set of natural numbers $\mathbb{N}$ is well-ordered under the relation "less
 
 then $S = \mathbb{N}$. 
 
-So for a contradiction, suppose $S \neq \mathbb{N}$. That is, there is a set of natural numbers $\varnothing \notin T \subseteq \mathbb{N}$ not in $S$. By well-ordering, $T$ has a least element $\alpha$. From assumption $(1)$, we're saying $0 \in S$, so $0 \notin T$. Therefore, $\alpha = k + 1$ for some $k \in \mathbb{N}$. But if $\alpha = k + 1 \in T$, $k + 1 \notin S$. And by assumption $(2)$, if $k + 1 \notin S$, then $k \notin S$ and further $k \in T$. But $k < k+1 = \alpha$, contradicting the minimality of $\alpha$. 
+So for a contradiction, suppose $S \neq \mathbb{N}$. That is, there is a set of natural numbers $\varnothing \neq T \subseteq \mathbb{N}$ not in $S$. By well-ordering, $T$ has a least element $\alpha$. From assumption $(1)$, we're saying $0 \in S$, so $0 \notin T$. Therefore, $\alpha = k + 1$ for some $k \in \mathbb{N}$. But if $\alpha = k + 1 \in T$, $k + 1 \notin S$. And by assumption $(2)$, if $k + 1 \notin S$, then $k \notin S$ and further $k \in T$. But $k < k+1 = \alpha$, contradicting the minimality of $\alpha$. 
 
 So if $T \neq \varnothing$, it contains no minimal element, contradicting the well-ordering of $\mathbb{N}$. Therefore, it must be that $T = \varnothing$, or in other words, $S = \mathbb{N}$, validating induction. $ \ \blacksquare$
 
