@@ -341,8 +341,9 @@ Then $S$ is the set of all natural numbers.
 **Proof:** We'll also prove this by contradiction. Suppose $T$ is the set of integers not in $S$, so $T$—by well-ordering—must have a least element $\alpha$.
 
 * Since $0 \in S$ by $(1)$, we have $0 < \alpha \notin S$.
-* By $(2)$, we have $0,1,\cdots,\alpha -1 \notin S$
-* But since $\alpha$ is the least element, $0,1,\cdots,\alpha -1 \in T$ and so $0,1,\cdots,\alpha -1 \in S$
+* By $(2)$, we have at least one element of $\\{0,1,\cdots,\alpha -1\\}$ that's not in $S$
+* But since $\alpha$ is the least element, $0,1,\cdots,\alpha -1 \notin T$ and so $0,1,\cdots,\alpha -1 \in S$
+* But then there is at least one element from $\\{0,1,\cdots,\alpha -1\\}$ that is both in and not in $S$
 * Contradiction!
 
 Since the only assumption we made was $T$ was non-empty, it must be wrong, and thus $S$ is the set of all natural numbers. $ \ \blacksquare$

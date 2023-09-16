@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Sat, 16 Sep 2023 08:16:51 GMT</lastBuildDate>
+      <lastBuildDate>Sat, 16 Sep 2023 19:51:49 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -6437,8 +6437,9 @@ $\blacksquare$
 <p><strong>Proof:</strong> We&#39;ll also prove this by contradiction. Suppose $T$ is the set of integers not in $S$, so $T$—by well-ordering—must have a least element $\alpha$.</p>
 <ul>
 <li>Since $0 \in S$ by $(1)$, we have $0 &lt; \alpha \notin S$.</li>
-<li>By $(2)$, we have $0,1,\cdots,\alpha -1 \notin S$</li>
-<li>But since $\alpha$ is the least element, $0,1,\cdots,\alpha -1 \in T$ and so $0,1,\cdots,\alpha -1 \in S$</li>
+<li>By $(2)$, we have at least one element of $\{0,1,\cdots,\alpha -1\}$ that&#39;s not in $S$</li>
+<li>But since $\alpha$ is the least element, $0,1,\cdots,\alpha -1 \notin T$ and so $0,1,\cdots,\alpha -1 \in S$</li>
+<li>But then there is at least one element from $\{0,1,\cdots,\alpha -1\}$ that is both in and not in $S$</li>
 <li>Contradiction!</li>
 </ul>
 <p>Since the only assumption we made was $T$ was non-empty, it must be wrong, and thus $S$ is the set of all natural numbers. $ \ \blacksquare$</p>
