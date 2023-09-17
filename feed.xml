@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Sun, 17 Sep 2023 06:49:26 GMT</lastBuildDate>
+      <lastBuildDate>Sun, 17 Sep 2023 06:49:56 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -6419,7 +6419,7 @@ $\blacksquare$
 </ol>
 <p>Then $S$ is the set of all natural numbers.</p>
 <p>Although this looks different to our above applications of induction, all we need to do is define our set such that $S = \{ n \in \mathbb{N} \ | \ \Phi(n) \textrm{ is true} \}$. Hopefully this is clear to be equivalent to our previous uses.</p>
-<p><strong>Proof:</strong> We will <a href="https://xperimex.com/blog/constructive-proofs/">prove this by contradiction</a>. So suppose that there are some set of natural numbers $T \neq \varnothing$ that are not in $S$. By the <a href="https://en.wikipedia.org/wiki/Well-ordering_principle"><strong>well-ordering principle</strong></a>, $T$ has a smallest element—any two distinct natural numbers  has a lesser one among them two. Let&#39;s call this least element $\alpha$.</p>
+<p><strong>Proof:</strong> We will <a href="https://xperimex.com/blog/constructive-proofs/">prove this by contradiction</a>. So suppose that there is some set of natural numbers $T \neq \varnothing$ that are not in $S$. By the <a href="https://en.wikipedia.org/wiki/Well-ordering_principle"><strong>well-ordering principle</strong></a>, $T$ has a smallest element—any two distinct natural numbers  has a lesser one among them two. Let&#39;s call this least element $\alpha$.</p>
 <ul>
 <li>Since $0 \in S$ by $(1)$, we have $0 &lt; \alpha \notin S$</li>
 <li>By (the contrapositive) of $(2)$, we also have $\alpha - 1 \notin S$</li>

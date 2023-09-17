@@ -320,7 +320,7 @@ Then $S$ is the set of all natural numbers.
 
 Although this looks different to our above applications of induction, all we need to do is define our set such that $S = \\{ n \in \mathbb{N} \ | \ \Phi(n) \textrm{ is true} \\}$. Hopefully this is clear to be equivalent to our previous uses.
 
-**Proof:** We will [prove this by contradiction](https://xperimex.com/blog/constructive-proofs/). So suppose that there are some set of natural numbers $T \neq \varnothing$ that are not in $S$. By the [**well-ordering principle**](https://en.wikipedia.org/wiki/Well-ordering_principle), $T$ has a smallest element—any two distinct natural numbers  has a lesser one among them two. Let's call this least element $\alpha$.
+**Proof:** We will [prove this by contradiction](https://xperimex.com/blog/constructive-proofs/). So suppose that there is some set of natural numbers $T \neq \varnothing$ that are not in $S$. By the [**well-ordering principle**](https://en.wikipedia.org/wiki/Well-ordering_principle), $T$ has a smallest element—any two distinct natural numbers  has a lesser one among them two. Let's call this least element $\alpha$.
 
 * Since $0 \in S$ by $(1)$, we have $0 < \alpha \notin S$
 * By (the contrapositive) of $(2)$, we also have $\alpha - 1 \notin S$
