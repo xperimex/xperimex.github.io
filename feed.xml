@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Wed, 04 Oct 2023 07:23:40 GMT</lastBuildDate>
+      <lastBuildDate>Wed, 04 Oct 2023 22:11:25 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -7221,6 +7221,9 @@ $g^{f(x)} \bmod n = g^{x^2 - 3x + 2} \bmod n = (g^{x^2})^1 \cdot (g^x)^{-3} \cdo
 </center>
 
 <p>This type of encryption is known as <strong>homomorphic encryption</strong>, as our encryption method has a nice structure to it that allows us to do our arithmetic operations on them without having to decrypt it. In particular, if we let $E(s) = g^s \bmod n$ be our encryption as we have been, the structure we get is that $E(n + m) = E(n) \cdot E(m)$ by exponent rules.</p>
+<hr>
+<p>One issue, though, is that we <em>cannot</em> multiply two encrypted values together with this homomorphic encryption scheme. If you have two numbers $a,b$ that have been encrypted as $E(a) = g^a$ and $E(b) = g^b$, we can easily find $E(a + b) = E(a)E(b)$ as we stated above. But only given $E(a), E(b)$, you cannot find an expression for $E(ab)$. Similarly, we also can&#39;t find an expression for $E(a^b)$. We&#39;ll address this later.</p>
+<hr>
 <p>As we&#39;ve discussed, reverse engineering an exponent modulo a number is especially hard because of how the modulo operation cycles, leaving room for many options to satisfy the equation and thus making finding a specific solution hard. So we can update our protocol:</p>
 <p><strong>Protocol Attempt 2:</strong></p>
 <ol>
@@ -7243,7 +7246,7 @@ $g^{f(x)} \bmod n = g^{x^2 - 3x + 2} \bmod n = (g^{x^2})^1 \cdot (g^x)^{-3} \cdo
 <p>The first check the verifier does is to see the values match like before, and the second check is to make sure there was no cheating of polynomial types; the prover had to give a polynomial of degree $d$.</p>
 <h3 id="making-it-zero-knowledge">Making It Zero-Knowledge</h3>
 <p>So far, our protocol has gone under a few iterations—and to be fair it&#39;s actually pretty robust. But we kind of forgot about making it <em>zero-knowledge</em>. I mean, yes we&#39;ve encrypted the data to prevent any cheating from the prover, but the verifier can theoretically use the values the prover gives to brute force their way to finding the polynomial since they are the ones that generate the secret values $s$ and $\alpha$ from the beginning. For example, ideally our protocol should be secure for even a 1-degree polynomial, and even brute forcing that is just a matter of iterating through a series of numbers.</p>
-<p>This is easily enough done in the same way that we&#39;ve been doing before: we introduce a random parameter $\delta$ that obscures our data. </p>
+<p>This is easily enough done in the same way that we&#39;ve been doing before: we have the prover introduce a random parameter $\delta$ that obscures the data. </p>
 <p><strong>Zero-Knowledge Protocol:</strong></p>
 <ol>
 <li>The verifier picks random number $s$ and $\alpha$. They send the encrypted powers of $s$ and the shifts to the prover: $\{g^{s^0}, g^{s^1}, g^{s^2}, \cdots, g^{s^d}\}$ and $\{g^{\alpha s^0}, g^{\alpha s^1}, g^{\alpha s^2}, \cdots, g^{\alpha s^d}\}$.</li>
@@ -7251,7 +7254,9 @@ $g^{f(x)} \bmod n = g^{x^2 - 3x + 2} \bmod n = (g^{x^2})^1 \cdot (g^x)^{-3} \cdo
 <li>The verifier checks that $(g^{p(s)})^\delta = ((g^{h(s)})^\delta)^{t(s)} = g^{\delta \cdot h(s) \cdot t(s)}$, and that $((g^{p(s)})^\delta)^\alpha = (g^{\alpha p(s)})^\delta$.</li>
 </ol>
 <h3 id="making-it-non-interactive">Making it Non-Interactive</h3>
-<p>Our protocol is very similar to our discrete logarithm problem. I mean, we based it off of what we did there, only generalizing what we did with polynomials instead of specific numbers.</p>
+<p>Our protocol is very similar to our discrete logarithm problem. I mean, we based it off of what we did there, only generalizing what we did with polynomials instead of specific numbers. So this doesn&#39;t really show us anything we haven&#39;t already seen before. We want to try and make it non-interactive so our verifier doesn&#39;t have to constantly monitor our verification. And more importantly, so our protocol is <em>trustworthy</em>: due to the nature of the interactive parts, verifiers could collude with provers, making each protocol use a one-time check. Even better would be if we could make it also succinct, and have each call of the protocol takes a consistent amount of time. </p>
+<p>One way we can remove the need for interactivity is by, well,replacing the interactive parts with some constant, reliable parameters to always use as oppose to the ones suggested by the verifier. In this case, the verifier has to pick a value $t(s)$ (really the pick $s$ but the target polynomial is known so doesn&#39;t matter which) as well as a shift $\alpha$.</p>
+<p>We could just try encrypting these values like before by exponenitating modulo $n$ like before with $g^{t(s)}$ and $g^\alpha$. But the problem is, we&#39;ve also encrypted the other values like $p(s)$ and $h(s)$, and as we said, we can&#39;t multiply two encrypted values together which is exactly what the checks the verifier needs at the end of the protocol.</p>
 <h1 id="conclusion">Conclusion</h1>
 <p>There are a lot of uses that zero-knowledge proofs can find themselves in. Basically, whenever you want any level of privacy. From passwords, to <a href="https://www.nature.com/articles/ncomms12890">nuclear disarmament</a>.</p>
 ]]></description>

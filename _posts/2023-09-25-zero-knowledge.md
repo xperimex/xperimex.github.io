@@ -217,6 +217,11 @@ $g^{f(x)} \bmod n = g^{x^2 - 3x + 2} \bmod n = (g^{x^2})^1 \cdot (g^x)^{-3} \cdo
 
 This type of encryption is known as **homomorphic encryption**, as our encryption method has a nice structure to it that allows us to do our arithmetic operations on them without having to decrypt it. In particular, if we let $E(s) = g^s \bmod n$ be our encryption as we have been, the structure we get is that $E(n + m) = E(n) \cdot E(m)$ by exponent rules.
 
+---------------
+
+One issue, though, is that we _cannot_ multiply two encrypted values together with this homomorphic encryption scheme. If you have two numbers $a,b$ that have been encrypted as $E(a) = g^a$ and $E(b) = g^b$, we can easily find $E(a + b) = E(a)E(b)$ as we stated above. But only given $E(a), E(b)$, you cannot find an expression for $E(ab)$. Similarly, we also can't find an expression for $E(a^b)$. We'll address this later.
+
+---------------
 
 As we've discussed, reverse engineering an exponent modulo a number is especially hard because of how the modulo operation cycles, leaving room for many options to satisfy the equation and thus making finding a specific solution hard. So we can update our protocol:
 
@@ -246,7 +251,7 @@ The first check the verifier does is to see the values match like before, and th
 
 So far, our protocol has gone under a few iterations—and to be fair it's actually pretty robust. But we kind of forgot about making it _zero-knowledge_. I mean, yes we've encrypted the data to prevent any cheating from the prover, but the verifier can theoretically use the values the prover gives to brute force their way to finding the polynomial since they are the ones that generate the secret values $s$ and $\alpha$ from the beginning. For example, ideally our protocol should be secure for even a 1-degree polynomial, and even brute forcing that is just a matter of iterating through a series of numbers.
 
-This is easily enough done in the same way that we've been doing before: we introduce a random parameter $\delta$ that obscures our data. 
+This is easily enough done in the same way that we've been doing before: we have the prover introduce a random parameter $\delta$ that obscures the data. 
 
 **Zero-Knowledge Protocol:**
 1. The verifier picks random number $s$ and $\alpha$. They send the encrypted powers of $s$ and the shifts to the prover: $\\{g^{s^0}, g^{s^1}, g^{s^2}, \cdots, g^{s^d}\\}$ and $\\{g^{\alpha s^0}, g^{\alpha s^1}, g^{\alpha s^2}, \cdots, g^{\alpha s^d}\\}$.
@@ -256,7 +261,14 @@ This is easily enough done in the same way that we've been doing before: we intr
 
 ### Making it Non-Interactive
 
-Our protocol is very similar to our discrete logarithm problem. I mean, we based it off of what we did there, only generalizing what we did with polynomials instead of specific numbers. So this doesn't really show us anything we haven't already seen before. We want to try and make it non-interactive so our verifier doesn't have to constantly monitor our verification, and even better would be if it was succinct and takes a consistent amount of time.
+Our protocol is very similar to our discrete logarithm problem. I mean, we based it off of what we did there, only generalizing what we did with polynomials instead of specific numbers. So this doesn't really show us anything we haven't already seen before. We want to try and make it non-interactive so our verifier doesn't have to constantly monitor our verification. And more importantly, so our protocol is _trustworthy_: due to the nature of the interactive parts, verifiers could collude with provers, making each protocol use a one-time check. Even better would be if we could make it also succinct, and have each call of the protocol takes a consistent amount of time. 
+
+One way we can remove the need for interactivity is by, well,replacing the interactive parts with some constant, reliable parameters to always use as oppose to the ones suggested by the verifier. In this case, the verifier has to pick a value $t(s)$ (really the pick $s$ but the target polynomial is known so doesn't matter which) as well as a shift $\alpha$.
+
+We could just try encrypting these values like before by exponenitating modulo $n$ like before with $g^{t(s)}$ and $g^\alpha$. But the problem is, we've also encrypted the other values like $p(s)$ and $h(s)$, and as we said, we can't multiply two encrypted values together which is exactly what the checks the verifier needs at the end of the protocol.
+
+
+
 
 
 
