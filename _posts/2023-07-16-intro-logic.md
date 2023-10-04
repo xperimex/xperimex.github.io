@@ -832,7 +832,7 @@ We've already proven two useful theorems! Now, we will develop and practice usin
 
 ## Principle of Mathematical Induction
 
-The major tool we will need is induction. For a hypothesis $\Phi$, the **Principle of Mathematical Induction (PMI)** is usually stated as:
+The major tool we will need is induction. For a hypothesis $\Phi$, the [**Principle of Mathematical Induction (PMI)**](http://xperimex.com/blog/real-induction/) is usually stated as:
 
 <center>
 $

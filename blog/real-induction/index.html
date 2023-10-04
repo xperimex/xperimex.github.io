@@ -37,7 +37,7 @@
               <div id="headline">
                 Your Induction to Induction
               </div>
-              <div class="date" style="margin-left:0px!important;">By <a href="/">Adi Mittal</a> &#183; August 28, 2023 &#183; 57 min read</div>
+              <div class="date" style="margin-left:0px!important;">By <a href="/">Adi Mittal</a> &#183; August 28, 2023 &#183; 59 min read</div>
             </div>
             <div class="articleBody firstcharacter">
               <script src='https://cdnjs.cloudflare.com/ajax/libs/g9/1.0.16/g9.js'></script>
@@ -147,7 +147,7 @@ $\blacksquare$
 </center>
 
 <hr>
-<p>Let&#39;s pull one final example from linear algebra.</p>
+<p>Let&#39;s pull another example from linear algebra.</p>
 <hr>
 <p><strong>Claim:</strong> Let $A$ be a square matrix. The eigenvectors of distinct eigenvalues of $A$ are linearly independent. </p>
 <p>As a reminder:</p>
@@ -192,6 +192,49 @@ $
 $\blacksquare$
 </center>
 
+<hr>
+<p>Now induction doesn&#39;t always have to prove a positive claim. In fact, it can be combined with a proof by contradiction to prove a negative claim.</p>
+<p><strong>Claim:</strong> $\cos(1^{\circ})$ is irrational.</p>
+<p><strong>Proof:</strong> First, let&#39;s note the angle sum formula for cosine.</p>
+<center>
+
+$\cos(\alpha \pm \beta) = \cos(\alpha)\cos(\beta) \mp \sin(\alpha)\sin(\beta)$
+
+</center>
+
+<p>We can combine these to get the identity</p>
+<center>
+
+$\cos(\alpha + \beta) + \cos(\alpha - \beta) = 2\cos(\alpha)\cos(\beta)$
+
+</center>
+
+<p>Now let&#39;s assume for contradiction that $\cos(1^\circ)$ is rational. Now from our identity we just derived, let&#39;s note that</p>
+<center>
+
+$\cos(N + 1^\circ) + \cos(N - 1^\circ) = 2\cos(N)\cos(1^\circ)$
+
+</center>
+
+<p>Then, if we let $N = 1$, we can get an expression for $\cos(2^\circ)$.</p>
+<center>
+
+$\cos(2^\circ) = \cos(1^\circ + 1^\circ) = 2\cos(1^\circ)\cos(1^\circ) - \cos(1^\circ - 1^\circ) = 2\cos^2 (1^\circ) - 1$
+
+</center>
+
+<p>By our assumption that $\cos(1^\circ)$ is rational, $2\cos^2 (1^\circ) - 1$ is also rational, thus $\cos(2^\circ)$ is rational. Then using our identity </p>
+<center>
+
+$\cos(N + 1^\circ) = 2\cos(N)\cos(1^\circ) - \cos(N - 1^\circ)$
+
+</center>
+
+<p>We get $\cos(3^\circ)$ is rational by letting $N=2$. Then from that we get $\cos(4^\circ)$ is rational by letting $N=3$, and so on. Since we&#39;ve proven our base cases for $\cos(1^\circ)$ and $\cos(2^\circ)$ are rational, we get inductively that $\cos(n^\circ)$ is rational for all natural numbers $n$. </p>
+<p>In particular, then according to our induction, $\cos(30^\circ)$ is rational. But $\cos(30^\circ) = \frac{\sqrt{3}}{2}$, which is irrational. Contradiction! Thus, our initial assumption that $\cos(1^\circ)$ is rational must have been wrong, or in other words, it must be that $\cos(1^\circ)$ is irrational.</p>
+<center>
+$\blacksquare$
+</center>
 
 <h2 id="choosing-a-base-case">Choosing a Base Case</h2>
 <p>In our formulation of induction, we said in particular:</p>
@@ -203,6 +246,7 @@ $\blacksquare$
 <p><strong>Base Case:</strong> For $n=1$, obviously a horse is the same color as itself.</p>
 <p><strong>Inductive Hypothesis:</strong> Suppose all sets of $n$ horses are the same color. Suppose we have $n+1$ horses, enumerated in some way (we assign each horse a number $1$ through $n+1$ to identify them). By the inductive hypothesis, the horses $1$ through $n$ are the same color. By the same inductive hypothesis again, horses $2$ through $n+1$ are the same color too. So all the horses are the same color as horses $2$ through $n$, thus showing that all $n+1$ horses are the same color. $\ \blacksquare$</p>
 <p>Clearly this proof is wrong. Clearly some horses are brown, some are black, some are white, and some are patterned. Yet our &quot;proof&quot; would suggest otherwise. The issue lies in our base case, since it cannot be used to prove the case for $n=2$ horses. The key idea in the &quot;proof&quot; was to use the set of &quot;intermediary&quot; horses $2$ through $n$ to give some way of comparing horse $1$ with horse $n+1$ indirectly. But if there are only 2 horses, there is no middle horse to compare them to. If you want to prove that all horses are the same color in this way, you&#39;d have to show it initially for 2 horses to have any chance of a real argument (which of course, isn&#39;t true).</p>
+<p>But as we saw in our proof that $\cos(1^\circ)$ is irrational, choosing a faulty base case can be useful. There, we purposely picked a bad base case (i.e. by assuming $\cos(1^\circ)$ is rational) to get to an observable contradiction to then prove a negative claim. The point still stands, though, you must be careful with how you choose and apply your base cases.</p>
 <h2 id="weak-induction-vs-strong-induction">Weak Induction vs. Strong Induction</h2>
 <p>There&#39;s something else weird in our inductive proof of De Morgan&#39;s Laws. Again, let&#39;s look at our specific outline of induction:</p>
 <ul>
@@ -421,7 +465,7 @@ $\blacksquare$
 <p>This doesn&#39;t seem all that problematic, but while the natural numbers are unbounded upwards, they are bounded <em>downwards</em> by 0. From $\Phi(k)$, we get $\Phi(k-1)$, then further $\Phi(k-2)$, and so on until we get $\Phi(0)$. But from $\Phi(0)$ can we conclude $\Phi(-1)$? The backwards inductive step would certainly suggest so, but that&#39;s not how natural numbers work. In the AM-GM inequality above, what would it mean for it to hold for &quot;-1 numbers&quot;? It just doesn&#39;t make sense.</p>
 <p>The difference here is that we <i>do</i> have an understanding that backwards induction terminates eventually at 0. In particular, what our backwards inductive statement really <em>should</em> say is that</p>
 <ul>
-<li>(F-B 2) For all $k$, if $\Phi(k+1)$ is true, then $\Phi(k)$ is true</li>
+<li>(F-B 2) For all $k\in \mathbb{N}$, if $\Phi(k+1)$ is true, then $\Phi(k)$ is true</li>
 </ul>
 <p>We first assume that $k \in \mathbb{N}$ before we apply it to our claim we&#39;re proving. But what if we didn&#39;t assume that?</p>
 <p><strong>Proof by infinite descent</strong> exploits this assumption to make a very nice proof by contradiction. If we remove this condition assuming that one of our numbers is already a natural number, we could prove things by contradiction by showing that is a consequence. That is,</p>
@@ -696,6 +740,7 @@ $\blacksquare$
 <p><div id="example_tree" style="flex: 2; position: relative;"></div></p>
 <script src="/js/compactness/example_tree.js"></script>
 
+<!-- https://www.desmos.com/calculator/g6qtogsmbe -->
 <p>We have a <strong>root</strong> at the top that brances out into different leaves and paths. While we may not have a definite &quot;next&quot; element going down a tree, we certainly have this recursive nature where at each step going down a tree, we have a smaller, &quot;simpler&quot;, subtree. So perhaps, if we wanted to prove somthing about trees, there&#39;s a type of inductive argument we could use that modifies our original idea. For a propsition (like a property) $\Phi$ about a recursively defined structure like a tree, we could have somthing like</p>
 <ul>
 <li>Show $\Phi$ is true for the base case of the structure</li>
@@ -820,6 +865,7 @@ $\blacksquare$
 <hr>
 <p>So now if we run into a limit case like before, we say it must be in our set, and that gives us a new case to continue performing real induction on. One other thing to note is that I tweaked our second condition (RI 2) to be closer to the strong form of induction from before to highlight there is an equivalent analogy in real induction. I also changed (RI 2) to be a closed interval, as our new (RI 3) allows us to do that. If a set $S$ satisfies (RI 1–3), we say $S$ is <strong>inductive</strong>.</p>
 <p>So <strong>real induction isn&#39;t all that different from what we&#39;re used to already</strong>. Instead of natural numbers being our cases, intervals are. We start with a base case, and slowly show our claim holds on new intervals until we end up showing that from combining all those intervals, the claim actually holds for all real numbers.</p>
+<p>You might be wondering how this is at all useful. Particularly because of (RI 2): we no longer have a concrete $k+1$ we can work with in our proofs. Instead, we&#39;re stuck with this weird existence proof we have to find that doesn&#39;t seem tangible at all in practice. That&#39;s what I, at least, thought at first. Fortunately, much of real analysis has built into their definitions this same ambiguous existence-of-a-number that we can leverage (as you&#39;ll see).</p>
 <p>Earlier I pointed out how we might run into the &quot;issue&quot; of only proving a claim for the interval $[0,1)$, but sometimes that&#39;s exactly what we want as opposed to showing something for all reals. We can slightly modify our method of induction just by limiting our choices of possible elements:</p>
 <hr>
 <p><strong>Interval Induction:</strong> Let $S \subseteq [a,b]$ be a subset with the following properties:</p>

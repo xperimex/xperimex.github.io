@@ -142,7 +142,7 @@ $\blacksquare$
 
 ------------------
 
-Let's pull one final example from linear algebra.
+Let's pull another example from linear algebra.
 
 ------------------
 
@@ -198,6 +198,59 @@ Thus, all coefficients $a_1 = a_2 = \cdots = a_n = 0$, so the eigenvectors are l
 $\blacksquare$
 </center>
 
+----------------
+
+Now induction doesn't always have to prove a positive claim. In fact, it can be combined with a proof by contradiction to prove a negative claim.
+
+**Claim:** $\cos(1^{\circ})$ is irrational.
+
+**Proof:** First, let's note the angle sum formula for cosine.
+
+<center>
+
+$\cos(\alpha \pm \beta) = \cos(\alpha)\cos(\beta) \mp \sin(\alpha)\sin(\beta)$
+
+</center>
+
+We can combine these to get the identity
+
+<center>
+
+$\cos(\alpha + \beta) + \cos(\alpha - \beta) = 2\cos(\alpha)\cos(\beta)$
+
+</center>
+
+Now let's assume for contradiction that $\cos(1^\circ)$ is rational. Now from our identity we just derived, let's note that
+
+<center>
+
+$\cos(N + 1^\circ) + \cos(N - 1^\circ) = 2\cos(N)\cos(1^\circ)$
+
+</center>
+
+Then, if we let $N = 1$, we can get an expression for $\cos(2^\circ)$.
+
+<center>
+
+$\cos(2^\circ) = \cos(1^\circ + 1^\circ) = 2\cos(1^\circ)\cos(1^\circ) - \cos(1^\circ - 1^\circ) = 2\cos^2 (1^\circ) - 1$
+
+</center>
+
+By our assumption that $\cos(1^\circ)$ is rational, $2\cos^2 (1^\circ) - 1$ is also rational, thus $\cos(2^\circ)$ is rational. Then using our identity 
+
+<center>
+
+$\cos(N + 1^\circ) = 2\cos(N)\cos(1^\circ) - \cos(N - 1^\circ)$
+
+</center>
+
+We get $\cos(3^\circ)$ is rational by letting $N=2$. Then from that we get $\cos(4^\circ)$ is rational by letting $N=3$, and so on. Since we've proven our base cases for $\cos(1^\circ)$ and $\cos(2^\circ)$ are rational, we get inductively that $\cos(n^\circ)$ is rational for all natural numbers $n$. 
+
+In particular, then according to our induction, $\cos(30^\circ)$ is rational. But $\cos(30^\circ) = \frac{\sqrt{3}}{2}$, which is irrational. Contradiction! Thus, our initial assumption that $\cos(1^\circ)$ is rational must have been wrong, or in other words, it must be that $\cos(1^\circ)$ is irrational.
+
+<center>
+$\blacksquare$
+</center>
 
 ## Choosing a Base Case
 
@@ -214,6 +267,8 @@ We specified our base case to be $n=0$. But if you look at our example proofs, w
 **Inductive Hypothesis:** Suppose all sets of $n$ horses are the same color. Suppose we have $n+1$ horses, enumerated in some way (we assign each horse a number $1$ through $n+1$ to identify them). By the inductive hypothesis, the horses $1$ through $n$ are the same color. By the same inductive hypothesis again, horses $2$ through $n+1$ are the same color too. So all the horses are the same color as horses $2$ through $n$, thus showing that all $n+1$ horses are the same color. $\ \blacksquare$
 
 Clearly this proof is wrong. Clearly some horses are brown, some are black, some are white, and some are patterned. Yet our "proof" would suggest otherwise. The issue lies in our base case, since it cannot be used to prove the case for $n=2$ horses. The key idea in the "proof" was to use the set of "intermediary" horses $2$ through $n$ to give some way of comparing horse $1$ with horse $n+1$ indirectly. But if there are only 2 horses, there is no middle horse to compare them to. If you want to prove that all horses are the same color in this way, you'd have to show it initially for 2 horses to have any chance of a real argument (which of course, isn't true).
+
+But as we saw in our proof that $\cos(1^\circ)$ is irrational, choosing a faulty base case can be useful. There, we purposely picked a bad base case (i.e. by assuming $\cos(1^\circ)$ is rational) to get to an observable contradiction to then prove a negative claim. The point still stands, though, you must be careful with how you choose and apply your base cases.
 
 ## Weak Induction vs. Strong Induction
 
@@ -499,7 +554,7 @@ This doesn't seem all that problematic, but while the natural numbers are unboun
 
 The difference here is that we <i>do</i> have an understanding that backwards induction terminates eventually at 0. In particular, what our backwards inductive statement really _should_ say is that
 
-* (F-B 2) For all $k$, if $\Phi(k+1)$ is true, then $\Phi(k)$ is true
+* (F-B 2) For all $k\in \mathbb{N}$, if $\Phi(k+1)$ is true, then $\Phi(k)$ is true
 
 We first assume that $k \in \mathbb{N}$ before we apply it to our claim we're proving. But what if we didn't assume that?
 
@@ -852,6 +907,8 @@ Building up examples from a simplest case is what I think of when I use inductio
 <div id="example_tree" style="flex: 2; position: relative;"></div>
 <script src="/js/compactness/example_tree.js"></script>
 
+<!-- https://www.desmos.com/calculator/g6qtogsmbe -->
+
 We have a **root** at the top that brances out into different leaves and paths. While we may not have a definite "next" element going down a tree, we certainly have this recursive nature where at each step going down a tree, we have a smaller, "simpler", subtree. So perhaps, if we wanted to prove somthing about trees, there's a type of inductive argument we could use that modifies our original idea. For a propsition (like a property) $\Phi$ about a recursively defined structure like a tree, we could have somthing like
 
 * Show $\Phi$ is true for the base case of the structure
@@ -1016,6 +1073,8 @@ Then $S = \mathbb{R}\_{\geq 0}$.
 So now if we run into a limit case like before, we say it must be in our set, and that gives us a new case to continue performing real induction on. One other thing to note is that I tweaked our second condition (RI 2) to be closer to the strong form of induction from before to highlight there is an equivalent analogy in real induction. I also changed (RI 2) to be a closed interval, as our new (RI 3) allows us to do that. If a set $S$ satisfies (RI 1–3), we say $S$ is **inductive**.
 
 So **real induction isn't all that different from what we're used to already**. Instead of natural numbers being our cases, intervals are. We start with a base case, and slowly show our claim holds on new intervals until we end up showing that from combining all those intervals, the claim actually holds for all real numbers.
+
+You might be wondering how this is at all useful. Particularly because of (RI 2): we no longer have a concrete $k+1$ we can work with in our proofs. Instead, we're stuck with this weird existence proof we have to find that doesn't seem tangible at all in practice. That's what I, at least, thought at first. Fortunately, much of real analysis has built into their definitions this same ambiguous existence-of-a-number that we can leverage (as you'll see).
 
 Earlier I pointed out how we might run into the "issue" of only proving a claim for the interval $[0,1)$, but sometimes that's exactly what we want as opposed to showing something for all reals. We can slightly modify our method of induction just by limiting our choices of possible elements:
 
