@@ -83,7 +83,7 @@ One issue, for example, is that you could have multiple solutions to a modular a
 $3^{4 + 16k} \bmod 17 = 3^4 \cdot (3^{16})^k \bmod 17 = 13 \cdot 1^k \bmod 17 = 13 \bmod 17$
 </center>
 
-so finding even if you have a solution, it doesn't necessarily mean you found the particular solution that is our password.
+so even if you have a solution, it doesn't necessarily mean you found the particular solution that is our password.
 
 Finding $x$ given $A,B,p$ is known as the **discrete logarithm problem**, and due to the difficulty of brute forcing, can actually be used as a method of identification (like a password). An additional thing to note, to maximize the search space for people brute forcing your $x$ value, we choose $A$ to be a **generator**, meaning that for every value $m = 1,2,\cdots,p-1$, there is a value $n$ such that $m = A^{n} \bmod p$. You tell everyone your $A,B,p$, and no one but you ever has to know your $x$. But you can still confidently prove to people that you do know it, and that you are in fact _actually you_. 
 
@@ -133,7 +133,7 @@ This proof is also **zero-knowledge** since, well, we only worked with the publi
 $\blacksquare$
 </center>
 
-While this is a good proof of concept, it does require a lot of work in practice.
+While this is a good proof of concept, it does require a lot of work in practice. If you want to try and wrap your head around these types of proofs before moving on, here's another simple one about proving knowledge of coloring a graph that can be read about [here](https://resources.mpi-inf.mpg.de/departments/d1/teaching/ss13/gitcs/lecture9.pdf) or [here](https://www.cs.cmu.edu/~goyal/s18/15503/scribe_notes/lecture23.pdf) (and here's a nice little [demo to go with it](https://web.mit.edu/~ezyang/Public/graph/svg.html#:~:text=Zero%2Dknowledge%20proofs%20permit%20you,the%20game%20as%20a%20verifier.)). Interestingly, as an aside, we can since reduce any NP problem to the 3-coloring problem, this actually gives us a way of generating zero-knowledge proofs for any NP hard problem.
 
 
 # Non-Interactive Zero-Knowledge Proofs
@@ -162,6 +162,7 @@ So here's a super simple zk-SNARK:
 
 That's the idea of zk-SNARK, at least. We'll build up to a pretty surprising zk-SNARK by the end of this, but to get there, we'll have to cover some more ground.
 
+Now the remainder of this post will be pretty mathematically heavy in the worst way possible. The ideas are important and useful, and the overarching concept of a zero-knowledge proof is extremely interesting, but the mechanics behind them are fairly tedious—and that's just how it goes sometimes with cryptography. To ensure security, often times the best (and first thought about) ideas are to obscure the data with as many impossibly hard operations to undo. The notation might get dense, but hopefully we build up to it in a comprehensible manner.
 
 
 ## Honesty Checks
@@ -189,6 +190,12 @@ Now the reason why that's important, is that exponents give us all the methods w
 
 In other words, can we prove to a verifier that for some polynomial $h(x)$, we know that $p(x) = (x-r_1)(x-r_2)\cdots (x-r_n)\cdot h(x)$? For brevity and convenience, we'll call the **target polynomial** $t(x) = (x-r_1)(x-r_2)\cdots (x-r_n)$.
 
+----------------
+
+The reason why polynomials are interesting is because they are incredibly hard to cheat. Say the prover has a polynomial $f(x)$, and claims to know the _exact_ polynomial that the verifier has $g(x)$, that is the prover claims $f(x) \equiv g(x)$. If both polynomials are of degree $d$, then either $f(x)=g(x)$ has $d$ solutions by the Fundamental Theorem of Algebra, or has infinite solutions if and only if $f(x) \equiv g(x)$. So if the verifier picks a random value $s$ for the prover to evaluate, it is extremely unlikely that $f(s) = g(s)$ if they are not genuinely the same. If the prover does not know $g(x)$ and just guessed a random polynomial $f(x)$, if the verifier pick a random integer from the range $s \in [1,10000]$, there is _at most_ a $\frac{d}{10000}$ chance that $f(s) = g(s)$.
+
+----------------
+
 ### First Attempt
 
 Here's a naive way to prove to a verifier they know such a polynomial:
@@ -198,6 +205,8 @@ Here's a naive way to prove to a verifier they know such a polynomial:
 1. The verifier picks a random number $s$ and gives this to the prover along with $t(s)$.
 2. The prover calculates $h(s) = \frac{p(s)}{t(s)}$ and passes that along to the verifier with $p(s)$.
 3. The verifier checks that $h(s) \cdot t(s) = p(s)$.
+
+<!-- The idea is that polynomials can only share a finite number of points if they are not identical. That's because for two polynomials $f(x),g(x)$ of degree $d$, $f(x) = g(x)$ must either have less than $d$ solutions or infinite solutions. That's because $f(x)-g(x)$ is at most a polynomial of degree $d$, and by the Fundamental Theorem of Algebra, $f(x)-g(x) = 0$ can have at most $d$ solutions, unless $f(x) \equiv g(x)$. So if our prover does not have a polynomial  -->
 
 This, though, has the issues of:
 
@@ -228,14 +237,27 @@ As we've discussed, reverse engineering an exponent modulo a number is especiall
 **Protocol Attempt 2:**
 1. The verifier picks a random number $s$, and sends encrypted powers of $s$ to the prover $\\{g^{s^0}, g^{s^1}, g^{s^2}, \cdots, g^{s^d}\\}$.
 2. The prover calculates $h(x) = \frac{p(x)}{t(x)}$. With the encrypted values, they calculate and send to the verifier $g^{p(s)}$ and $g^{h(s)}$.
-  * i.e. $g^{p(s)} = g^{c_d s^d + \cdots c_1 s^1 + c_0 s^0} = (g^{s_d})^{c_d} \cdots (g^{s_1})^{c_1} \cdot (g^{s_0})^{c_0}$ for the coefficients $c_d, \cdots, c_0$
+  * i.e. $g^{p(s)} = g^{c_d s^d + \cdots c_1 s^1 + c_0 s^0} = (g^{s^d})^{c_d} \cdots (g^{s^1})^{c_1} \cdot (g^{s^0})^{c_0}$ for the coefficients $c_d, \cdots, c_0$
 3. The verifier checks that $g^{p(s)} = (g^{h(s)})^{t(s)} = g^{h(s) \cdot t(s)}$.
 
+Although I've left it out for convenience, remember that all these encrypted values $g^x$ are taken to mean $g^x \bmod n$. It's the discrete logarithm that is difficult, not the normal logarithm.
 
 So by encrypting $s$ and just not giving the value of $t(s)$, we've fixed our issues, right? 
 
+----------------
 
-The first two are in fact fixed, but we still need a way to enforce the degree requirement. 
+The first two are in fact fixed, but we still need a way to enforce the degree requirement. In a way, we already do have a type of restriction since the verifier only gives the prover powers of $s$ encrypted with $\\{g^{s^0}, g^{s^1}, g^{s^2}, \cdots, g^{s^d}\\}$. But this restriction is only in place if the prover uses these and only these values. There's nothing stopping the prover from just not using those encrypted values of $s$, and using their own constructed numbers to cheat. Here's a more concrete way of seeing this:
+
+What the verifier wants at the end of the day is for the equation $g^{p(s)} = (g^{h(s)})^{t(s)}$ to hold, and is trusting that $g^{p(s)}$ and $g^{h(s)}$ are provided truthfully by the prover. But if we have a prover that _does not know_ a polynomial, all they need to do to fool the verifier is to give values $z_p = g^{p(s)}$ and $z_h = g^{h(s)}$. In other words, the prover just needs to find a solution to $z_p = (z_h)^{t(s)}$. Which, unfortunately for our protocol, is quite easy.
+
+* Let $z_h = g^r$ for some chosen random $r$ 
+* Then we just need $z_p = (g^r)^{t(s)} = (g^{t(s)})^r$
+* Since the target polynomial $t(x)$ is public, the prover can solve $g^{t(s)}$ with the given values $\\{g^{s^0}, g^{s^1}, g^{s^2}, \cdots, g^{s^d}\\}$
+* So finding $z_p$ is done
+
+So finding a solution is no harder than essentially picking a random number. We want some way to ensure that the prover uses and only uses the values the verifier gives them from $\\{g^{s^0}, g^{s^1}, g^{s^2}, \cdots, g^{s^d}\\}$ in finding their $z_p,z_h$. If we can do that, the only way they'll be able to calculate $z_p,z_h$ is probably with a polynomial they have.
+
+----------------
 
 Readily enough, we have done this with our honesty checks above: we provide some arbitrary shift $\alpha$ only the verifier knows, to make sure the prover didn't leave anything out or cheat.
 
@@ -245,7 +267,11 @@ Readily enough, we have done this with our honesty checks above: we provide some
 2. The prover calculates $h(x) = \frac{p(x)}{t(x)}$. With the encrypted values, they calculate and send to the verifier $g^{p(s)}$, $g^{\alpha p(s)}$, and $g^{h(s)}$.
 3. The verifier checks that $g^{p(s)} = (g^{h(s)})^{t(s)} = g^{h(s) \cdot t(s)}$, and that $(g^{p(s)})^\alpha = g^{\alpha p(s)}$.
 
-The first check the verifier does is to see the values match like before, and the second check is to make sure there was no cheating of polynomial types; the prover had to give a polynomial of degree $d$.
+The first check the verifier does is to see the values match like before, and the second check is to make sure there was no cheating and only the encrypted values of $s$ were used; the prover had to give a polynomial of degree $d$ and had to evaluate it at the $s$ the verifier gives them, as that is the only way to preserve the $\alpha$ shift. 
+
+For example, if the prover claimed they knew a quadratic with $d=2$, they claim they have a polynomial looking like $p(x)=c_2x^2+c_1x^1 + c_0$. But if they were really trying to sneak in that they had a cubic or quartic or any polynomial of degree higher than 2, they would not be able to calculate the terms needing $x^3$ or $x^4$ since the encrypted and shifted values could not be calculated and thus preserved. But that is only true if the prover used values from $\\{g^{s^0},g^{s^1},g^{s^2}\\}$. Now by using the $\alpha$ shift, the prover has no choice but to use these values since any deviation from them will appear comparing to the $\alpha$ values.
+
+Further, we can do more than just ensure the degree of the polynomial we're checking, but also which _specific powers_ are used in the polynomial. If, say, the polynomial was claimed to be a cubic, but only used powers $x^3$ and $x^1$, the verifier can choose to only send in the encrypted and shifted values of $s^3$ and $s^1$. If the prover needed the other powers to evaluate their polynomial, they would be stuck since they can only evaluate the terms with power 3 and 1.
 
 ### Making It Zero-Knowledge
 
@@ -263,21 +289,76 @@ This is easily enough done in the same way that we've been doing before: we have
 
 Our protocol is very similar to our discrete logarithm problem. I mean, we based it off of what we did there, only generalizing what we did with polynomials instead of specific numbers. So this doesn't really show us anything we haven't already seen before. We want to try and make it non-interactive so our verifier doesn't have to constantly monitor our verification. And more importantly, so our protocol is _trustworthy_: due to the nature of the interactive parts, verifiers could collude with provers, making each protocol use a one-time check. Even better would be if we could make it also succinct, and have each call of the protocol takes a consistent amount of time. 
 
-One way we can remove the need for interactivity is by, well,replacing the interactive parts with some constant, reliable parameters to always use as oppose to the ones suggested by the verifier. In this case, the verifier has to pick a value $t(s)$ (really the pick $s$ but the target polynomial is known so doesn't matter which) as well as a shift $\alpha$.
+One way we can remove the need for interactivity is by, well, replacing the interactive parts with some constant, reliable parameters to always use as oppose to the ones suggested by the verifier. In this case, the verifier has to pick a value $t(s_0)$ (since the target polynomial $t(x)$ is known, really we just need to fix an $s_0$) as well as a fixed shift $\alpha_0$. But we need these to be trustworthy, and unable to be leaked.
 
-We could just try encrypting these values like before by exponenitating modulo $n$ like before with $g^{t(s)}$ and $g^\alpha$. But the problem is, we've also encrypted the other values like $p(s)$ and $h(s)$, and as we said, we can't multiply two encrypted values together which is exactly what the checks the verifier needs at the end of the protocol.
+We could just try encrypting these values like before by exponenitating modulo $n$ like before with $g^{t(s_0)}$ and $g^{\alpha_0}$. But the problem is, we've also encrypted the other values like $p(s_0)$ and $h(s_0)$, and as we said, we can't multiply two encrypted values together, which is exactly what the checks the verifier needs at the end of the protocol; with our encryption, if we have $E(\alpha_0)$ and $E(p(s_0))$, we have no way of getting $E(\alpha_0 p(s_0))$.
+
+There's one extra piece of machinery we'll need: **elliptic curves**. Elliptic curves are a class of implicit functions of the form $y^2 = x^3 + ax + b$ and their relation to the whole of cryptography is a bit too wide to encapsulate in this post, so perhaps we'll come back to them another day. The important thing about them though is that we can establish **cryptographic pairings** with these curves that can get around our multiplication issue.
+
+A **cryptographic pairing** is a function $e(\cdot, \cdot)$ that take two encrypted numbers, and outputs the product of those two numbers in a different representation (i.e. outputs the product of the numbers encrypted in a new way). Because the output space is a different "encryption scheme" from before, it makes it irreversible, and a "one-time operation"; you can't use the output of $e(\cdot, \cdot)$ in another cryptographic pairing in a meaningful way. The key properties of this pairing are:
+
+<center>
+$e(g^a, g^b) = e(g^b, g^a) = e(g^{ab}, g^1) = e(g^a, g^1)^b = e(g^1, g^b)^a = e(g^1,g^1)^{ab}$
+</center>
+
+I know this is a _very rough_ sketch as to how we are overcoming the problem of multiplying encrypted values, but for the sake of brevity, we'll come back to it sometime later (if you can't wait, [check this out](https://eprint.iacr.org/2004/064.pdf)). The important idea to keep in mind is that we have a way of multiplying encrypted values of $t(s)$ and $\alpha$ in a useable way.
+
+So now, to make our proof non-interactive, we fix our values $\alpha, t(s)$, and then encrypt them $g^\alpha, g^{t(s)}$. These values will be the ones used by every prover and verifier moving forward, and to carry out our operations, we will use our cryptographic pairing function, which we'll see below.
+
+----------------
+
+Also, as an aside, we no longer need multiplicative group generators like we have used before. $g^n$ can now mean adding the _generator of the elliptic curve_ $g$ to itself $n$ times. It's essentially the same (and acts the same for our purposes), but removes an extra component from our process.
+
+### The Final Protocol
+
+We are now ready to put together our final protocol for knowledge of a polynomial of degree $d$ with the same roots as $t(x)$. The keys below are the necessary elements each party needs on their side of the proof beforehand. 
+
+<!-- As before, encrypted values $g^x$ are taken to mean $g^x \bmod n$. -->
+
+**Set-Up:**
+* Fix random values $s$ and $\alpha$
+* Establish a cryptographic pairing $e(\cdot,\cdot)$ and a generator $g$
+* Find encryptions $g^\alpha$, $\\{g^{s^0}, g^{s^1}, g^{s^2}, \cdots, g^{s^d}\\}$, $\\{g^{\alpha s^0}, g^{\alpha s^1}, g^{\alpha s^2}, \cdots, g^{\alpha s^d}\\}$ 
+
+Now we distribute to the prover and verifier their respective information they are allowed to work with:
+
+* Proof key: $\left(\\{g^{s^0}, g^{s^1}, g^{s^2}, \cdots, g^{s^d}\\}, \\{g^{\alpha s^0}, g^{\alpha s^1}, g^{\alpha s^2}, \cdots, g^{\alpha s^d}\\}\right)$
+* Verification key: $(g^\alpha, g^{t(s)})$
+
+**Proof:**
+* Wants to prove knowledge of $p(x) = t(x) \cdot h(x) = c_d x^d + \cdots + c_0 x^0$
+* Let $h(x) = \frac{p(x)}{t(x)}$
+* Calculate $g^{p(s)}, g^{h(s)}$ using $\\{g^{s^0}, g^{s^1}, g^{s^2}, \cdots, g^{s^d}\\}$
+* Calculate $g^{\alpha p(s)}$ using shifted values $\\{g^{\alpha s^0}, g^{\alpha s^1}, g^{\alpha s^2}, \cdots, g^{\alpha s^d}\\}$
+* Pick a random shift $\delta$
+* Send to the verifier our proof $\pi = \left(g^{\delta p(s)}, g^{\delta h(s)}, g^{\delta \alpha p(s)} \right)$
+
+**Verification:**
+
+* With $\pi = \left(g^{\delta p(s)}, g^{\delta h(s)}, g^{\delta \alpha p(s)} \right)$, we do our two checks for satisfiability and degree of the polynomial
+* Does the polynomial work? Check that $e(g^{\delta p(s)}, g) = e(g^{t(s)}, g^{\delta h(s)})$
+* Did the prover cheat? Check that $e(g^{\delta \alpha p(s)}, g) = e(g^{\alpha}, g^{\delta p(s)})$
+
+And that's our protocol from start to finish. Without ever needing to reveal what $p(x)$, we can confirm with high probability that our prover's polynomial has the desired roots matching $t(x)$. We can add other requirements to the polynomial, like only including certain powers as we discussed, or others such as it must be a square polynomial.
 
 
+# General zk-SNARKs
 
+So far, we've spent roughly 6000 words talking about polynomials and homomorphic encryption, and that's with skipping explanations of elliptic curve cryptography thrown in there too. But in practice, when was the last time you saw someone work with a polynomial directly? If I had to think of when someone would want to prove knowledge of something in practice, it would probably be something less direct, like knowing the output of a program, or a secret input (like a password). Those don't seem related to polynomials at all. For example, if I had a computer program and a given output, I'd like to show I have the corresponding input without revealing that input.
 
+But of course, in the weirdest ways, polynomials are the current backbone of zk-SNARKs. And unfortunately, like with elliptic curves from before, require an already huge amount of literature to even crack the surface of how they work. Ultimately, the idea is that given any program, we can make the problem of proving knowledge-of-input into a question of knowledge-of-polynomial. Here are the rough steps (as outlined in this more in-depth [post](https://medium.com/@VitalikButerin/quadratic-arithmetic-programs-from-zero-to-hero-f6d558cea649)):
 
+1. **Computation:** The actual code for the program itself.
+2. **Flattening:** We turn the code into a combination involving expression only involving $=+,-,\times,\div$. These arithmetic operations essentially correspond to different types of gates in a circuit. This is probably the hardest, least obvious step, and even now it is not clear to me what are the restrictions for programs that can be converted to these _arithmetic circuits_. I'd recommend reading [this](https://people.cs.georgetown.edu/jthaler/firstcircuitlecture.pdf).
+3. **R1CS:** With the arithmetic circuit, we now convert it to a _rank-1 constraint system_. An R1CS is a set of groups of 3 vectors $(a,b,c)$, that has a solution $x$ such that $(a \cdot x) \times (b\cdot x) = c\cdot x$ where $\cdot$ is the standard dot product. Each group of these 3 vectors $(a,b,c)$ represents some kind of constraint on our solution. In our case, we will have a triple of vectors $(a,b,c)$ for each gate/operation we have in our arithmetic circuit. So if our arithmetic circuit has 4 steps in it, we'll have 4 triplets of vectors constraining our solution $x$ that it must all satisfy. The length of the vectors will be equivalent to the number of variables needed in the circuit. Here's an example conversion of [an arithmetic gate to R1CS constraint vectors](https://crypto.stackexchange.com/questions/55963/converting-to-rank-one-constraint-system-r1cs). 
+4. **QAP:** We do yet another conversion from R1CS to a _quadratic arithmetic program_. The idea is to encode our vector constraints in polynomials. If, for example, we had 5 constraints with vectors of length 7, we would have 5 pairs of $(a,b,c)$ constraints where $a,b,c$ are all length 7 vectors. Then, we could encode these in 3 groups of 7 polynomials (in this case, they would be of degree $5-1=4$). Each polynomial represents a coordinate in the vector, and each group represents whether that vector is the $a$, $b$, or $c$ vector in the constraint. Since we have 5 constraints, we then retrieve our each constraint vector by plugging in $x=1,2,3,4,5$ to each polynomial and read off the values by group and coordinate. We can create these polynomials via [Lagrange interpolation](https://en.wikipedia.org/wiki/Lagrange_polynomial), or your favorite way to fit polynomials to specific values. This is why the degree of the polynomials are 1 less than the number of constraints: you need exactly $d+1$ points to determine a polynomial of degree $d$.
 
+The point of putting our program into a QAP is that we can now do our R1CS verification a lot more compactly. Instead of checking all the dot products individually between our solution vector $x$ and the constraint vectors, we can dot product the solution once with our polynomials. Dot products are just combinations of addition and multiplication, so the result of $(x \cdot A(t)) \times (x \cdot B(t)) - x\cdot C(t) = F(t)$ will just be another polynomial in $t$. Our solution vector is genuine if $F(t) = 0$ for $t=1,2,3,4,5$ in our above example, since plugging in those values corresponds to checking a different R1CS constraint (that represents one of our arithmetic logic gates).
 
-
-
-
-
+But now, we're mostly at the point in which our zk-SNARK protocol for polynomials is starting to look like a more useable tool for general programs. There are a few additional steps outlined in some of the links above, but the core idea is here, of encoding the computation of the program in a polynomial that we later can check the knowledge of via a zk-SNARK.
 
 # Conclusion
 
-There are a lot of uses that zero-knowledge proofs can find themselves in. Basically, whenever you want any level of privacy. From passwords, to [nuclear disarmament](https://www.nature.com/articles/ncomms12890).
+There are a lot of uses that zero-knowledge proofs can find themselves in. Basically, whenever you want any level of privacy. From passwords, to graphs, to polynomials, or to [nuclear disarmament](https://www.nature.com/articles/ncomms12890). And its most popular use, blockchains and cryptocurrencies (good way of checking valid transactions without needing to reveal people's currency balances). The underlying theory of zero-knowledge proofs, though, is simultaneously easy to understand, and difficult to implement. The theory is rich, but dense, so pehaps one of these days we'll fill in the gaps of elliptic curves (which definitely deserves its own post) and fully fleshing out how we can convert computer programs to polynomials.
+
+For even more details on zk-SNARKs and zero-knowledge ideas on the whole, see [this article](https://arxiv.org/pdf/1906.07221.pdf%EF%BC%9B#:~:text=Zero%2Dknowledge%20succinct%20non%2Dinteractive,useful%20in%20the%20first%20place%3F) that informed much of this post.
