@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Wed, 13 Dec 2023 05:50:56 GMT</lastBuildDate>
+      <lastBuildDate>Wed, 13 Dec 2023 05:55:00 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -7161,7 +7161,7 @@ which would be match the swapped values the verifier would expect.</li>
 $\blacksquare$
 </center>
 
-<p>While this is a good proof of concept, it does require a lot of work in practice. If you want to try and wrap your head around these types of proofs before moving on, here&#39;s another simple one about <a href="https://decentralizedthoughts.github.io/2020-12-08-a-simple-and-succinct-zero-knowledge-proof/">proving knowledge of a vector</a>. It&#39;s an interactive proof with a focus on succinctness, and I found to be quite helpful to think about some of the related concepts in cryptography and zero-knowledge proofs.</p>
+<p>While this is a good proof of concept, it does require a lot of work in practice. If you want to try and wrap your head around these types of proofs before moving on, here&#39;s another simple one about <a href="https://decentralizedthoughts.github.io/2020-12-08-a-simple-and-succinct-zero-knowledge-proof/">proving knowledge of a vector</a>. It&#39;s an interactive proof with a focus on succinctness, and I found it to be quite helpful to think about some of the related concepts in cryptography and zero-knowledge proofs. The important concept to take away from this article and our above example with the discrete logarithm, randomness is an extremely useful way to instantly bound the error of our proofs; we don&#39;t need the proof to be 100% confident, we just need it to be confident <em>enough</em> such that the prover can&#39;t cheat if they tried.</p>
 <h1 id="non-interactive-zero-knowledge-proofs">Non-Interactive Zero-Knowledge Proofs</h1>
 <p>Before, in the example with the discrete logarithm problem and the colorblind man, we had this verifier act as an arbiter: they make a random decision that should prevent hacks (i.e. swapping the balls, sending $c=0$ or $c=1$), and after some arbitrary number of successes, they accept that the prover is genuine. Now imagine that <em>you</em> are the verifier, or are implementing this. Do you really want to sit through doing the <em>same</em> test over and over again, until you feel convinced? Do you really want to have to rely on some random mechanism every time that you carry out? Even if you make a computer to do this for you, imagine how annoying that must be to work with every time you want to log in with a password. Seems like a pain.</p>
 <p>What we would ideally use is a <strong>non-interactive</strong> protocol: something that removes our need to have to always make a random choice and carry it out until some subjective level of confidence. But again, we don&#39;t want to compromise on zero-knowledge; we like our privacy. Fortunately, others&#39; have come to the same issues and have come up with <strong>zero-knowledge succinct non-interactive arguments for knowledge (zk-SNARKs)</strong> to solve many of our qualms. To keep it clear, let&#39;s go over exactly what each part of this obscenely long name actually means:</p>

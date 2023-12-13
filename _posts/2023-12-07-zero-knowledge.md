@@ -133,7 +133,7 @@ This proof is also **zero-knowledge** since, well, we only worked with the publi
 $\blacksquare$
 </center>
 
-While this is a good proof of concept, it does require a lot of work in practice. If you want to try and wrap your head around these types of proofs before moving on, here's another simple one about [proving knowledge of a vector](https://decentralizedthoughts.github.io/2020-12-08-a-simple-and-succinct-zero-knowledge-proof/). It's an interactive proof with a focus on succinctness, and I found to be quite helpful to think about some of the related concepts in cryptography and zero-knowledge proofs.
+While this is a good proof of concept, it does require a lot of work in practice. If you want to try and wrap your head around these types of proofs before moving on, here's another simple one about [proving knowledge of a vector](https://decentralizedthoughts.github.io/2020-12-08-a-simple-and-succinct-zero-knowledge-proof/). It's an interactive proof with a focus on succinctness, and I found it to be quite helpful to think about some of the related concepts in cryptography and zero-knowledge proofs. The important concept to take away from this article and our above example with the discrete logarithm, randomness is an extremely useful way to instantly bound the error of our proofs; we don't need the proof to be 100% confident, we just need it to be confident _enough_ such that the prover can't cheat if they tried.
 
 
 # Non-Interactive Zero-Knowledge Proofs
