@@ -133,7 +133,7 @@ This proof is also **zero-knowledge** since, well, we only worked with the publi
 $\blacksquare$
 </center>
 
-While this is a good proof of concept, it does require a lot of work in practice. If you want to try and wrap your head around these types of proofs before moving on, here's another simple one about proving knowledge of coloring a graph that can be read about [here](https://resources.mpi-inf.mpg.de/departments/d1/teaching/ss13/gitcs/lecture9.pdf) or [here](https://www.cs.cmu.edu/~goyal/s18/15503/scribe_notes/lecture23.pdf) (and here's a nice little [demo to go with it](https://web.mit.edu/~ezyang/Public/graph/svg.html#:~:text=Zero%2Dknowledge%20proofs%20permit%20you,the%20game%20as%20a%20verifier.)). Interestingly, as an aside, we can since reduce any NP problem to the 3-coloring problem, this actually gives us a way of generating zero-knowledge proofs for any NP hard problem.
+While this is a good proof of concept, it does require a lot of work in practice. If you want to try and wrap your head around these types of proofs before moving on, here's another simple one about [proving knowledge of a vector](https://decentralizedthoughts.github.io/2020-12-08-a-simple-and-succinct-zero-knowledge-proof/). It's an interactive proof with a focus on succinctness, and I found to be quite helpful to think about some of the related concepts in cryptography and zero-knowledge proofs.
 
 
 # Non-Interactive Zero-Knowledge Proofs
@@ -360,5 +360,8 @@ But now, we're mostly at the point in which our zk-SNARK protocol for polynomial
 # Conclusion
 
 There are a lot of uses that zero-knowledge proofs can find themselves in. Basically, whenever you want any level of privacy. From passwords, to graphs, to polynomials, or to [nuclear disarmament](https://www.nature.com/articles/ncomms12890). And its most popular use, blockchains and cryptocurrencies (good way of checking valid transactions without needing to reveal people's currency balances). The underlying theory of zero-knowledge proofs, though, is simultaneously easy to understand, and difficult to implement. The theory is rich, but dense, so pehaps one of these days we'll fill in the gaps of elliptic curves (which definitely deserves its own post) and fully fleshing out how we can convert computer programs to polynomials.
+
+
+For more reading and types of proofs, here's a nice simple example for proving knowledge of coloring a graph that can be found [here](https://resources.mpi-inf.mpg.de/departments/d1/teaching/ss13/gitcs/lecture9.pdf) or [here](https://www.cs.cmu.edu/~goyal/s18/15503/scribe_notes/lecture23.pdf) (and a nice little [demo to go with it](https://web.mit.edu/~ezyang/Public/graph/svg.html#:~:text=Zero%2Dknowledge%20proofs%20permit%20you,the%20game%20as%20a%20verifier.)). Interestingly, as an aside, we can since reduce any NP problem to the 3-coloring problem, this actually gives us a way of generating zero-knowledge proofs for any NP hard problem.
 
 For even more details on zk-SNARKs and zero-knowledge ideas on the whole, see [this article](https://arxiv.org/pdf/1906.07221.pdf%EF%BC%9B#:~:text=Zero%2Dknowledge%20succinct%20non%2Dinteractive,useful%20in%20the%20first%20place%3F) that informed much of this post.
