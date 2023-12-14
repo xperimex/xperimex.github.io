@@ -2,7 +2,7 @@
 {
   "title": "Privacy Protection and Zero-Knowledge Proofs",
   "author": "Adi Mittal",
-  "summary": "Your password is probably protected perfectly, but it's good enough.",
+  "summary": "Your password is not protected perfectly, but it's good enough.",
   "tags":[
     "me"
   ]
