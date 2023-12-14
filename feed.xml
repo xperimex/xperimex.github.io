@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Thu, 14 Dec 2023 21:16:36 GMT</lastBuildDate>
+      <lastBuildDate>Thu, 14 Dec 2023 21:19:22 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -7062,7 +7062,7 @@ $\blacksquare$
       </item>
       <item>
          <title><![CDATA[Privacy Protection and Zero-Knowledge Proofs]]></title>
-         <description><![CDATA[Everything you need for discrete and continuous induction. 
+         <description><![CDATA[Your password is probably protected perfectly, but it's good enough. 
 
  <p>Proofs, to me, are the cornerstones of all science. What separates math, physics, chemistry, and all other fields of science is the level of rigor we expect for professionals to conduct themselves. We don&#39;t take anything for fact until we are convinced irrefutably to call it so. We can conjecture all we want, but it only holds so much sway until we can use it as a definitively true claim. Mathematics is even more strict in how it&#39;s a purely deductive field, where the notion of a proof accepts nothing but a direct chain of deductive, causal reasoning. Sure, even in math sometimes we use empirical data to guide our judgements, but <a href="https://math.stackexchange.com/questions/514/conjectures-that-have-been-disproved-with-extremely-large-counterexamples">&quot;proof by lack of a counterexample&quot; isn&#39;t all that helpful</a>.</p>
 <p>But in the day-to-day, we rarely care for such rigor. If the weather man says it&#39;s going to rain today, I&#39;m inclined to believe it since he&#39;s <em>mostly</em> been right before, and that&#39;s good enough for me. &quot;Proof&quot;, to most people, usually just refers to any kind of persuasive evidence, as opposed to air-tight arguments. You want to be <em>convinced</em> with proof—nothing more, nothing less. If someone tells me they&#39;re a Michelin star chef, I won&#39;t need to see the certificate, but rather I&#39;ll probably be convinced if they even make one meal for me up to that standard.</p>
