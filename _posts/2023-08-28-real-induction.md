@@ -270,6 +270,20 @@ Clearly this proof is wrong. Clearly some horses are brown, some are black, some
 
 But as we saw in our proof that $\cos(1^\circ)$ is irrational, choosing a faulty base case can be useful. There, we purposely picked a bad base case (i.e. by assuming $\cos(1^\circ)$ is rational) to get to an observable contradiction to then prove a negative claim. The point still stands, though, you must be careful with how you choose and apply your base cases.
 
+
+## 1954237295746 ≠ ∞
+
+Similar to the importance of choosing a base case, we must also be aware of what exactly induction is saying. The conclusion we get from an inductive argument is that $\Phi(n)$ is true for all natural numbers $n$. Note this doesn't mean it's true at a limit to $\infty$, it is only true for any arbitrarily large $n$. Consider the following faulty proof:
+
+**Claim:** $\pi$ is rational.
+
+**Base Case:** We'll induct on the number of decimal points in the expansion for $\pi$. For $n=0$, clearly $3$ is rational. 
+
+**Inductive Hypothesis:** Say the truncation of $\pi$ to the $n$th decimal place, call it $x_n$ is rational. Then $\pi$ to the $(n+1)$st decimal can be written as $x_{n+1} = x_n + \frac{m}{10^{n+1}}$ for $m \in {0,1,\cdots,9}$. So $x_{n+1}$ is rational. So all decimal expansions of $\pi$ are rational, so $\pi$ is rational. $\ \blacksquare$
+
+Clearly this is also wrong, and it's just by the misinterpretation we spelled out now: there is a difference between being true in the limit and true at each individual step to the limit.
+
+
 ## Weak Induction vs. Strong Induction
 
 There's something else weird in our inductive proof of De Morgan's Laws. Again, let's look at our specific outline of induction:

@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Thu, 14 Dec 2023 21:19:50 GMT</lastBuildDate>
+      <lastBuildDate>Mon, 11 Mar 2024 22:00:45 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -6390,6 +6390,12 @@ $\blacksquare$
 <p><strong>Inductive Hypothesis:</strong> Suppose all sets of $n$ horses are the same color. Suppose we have $n+1$ horses, enumerated in some way (we assign each horse a number $1$ through $n+1$ to identify them). By the inductive hypothesis, the horses $1$ through $n$ are the same color. By the same inductive hypothesis again, horses $2$ through $n+1$ are the same color too. So all the horses are the same color as horses $2$ through $n$, thus showing that all $n+1$ horses are the same color. $\ \blacksquare$</p>
 <p>Clearly this proof is wrong. Clearly some horses are brown, some are black, some are white, and some are patterned. Yet our &quot;proof&quot; would suggest otherwise. The issue lies in our base case, since it cannot be used to prove the case for $n=2$ horses. The key idea in the &quot;proof&quot; was to use the set of &quot;intermediary&quot; horses $2$ through $n$ to give some way of comparing horse $1$ with horse $n+1$ indirectly. But if there are only 2 horses, there is no middle horse to compare them to. If you want to prove that all horses are the same color in this way, you&#39;d have to show it initially for 2 horses to have any chance of a real argument (which of course, isn&#39;t true).</p>
 <p>But as we saw in our proof that $\cos(1^\circ)$ is irrational, choosing a faulty base case can be useful. There, we purposely picked a bad base case (i.e. by assuming $\cos(1^\circ)$ is rational) to get to an observable contradiction to then prove a negative claim. The point still stands, though, you must be careful with how you choose and apply your base cases.</p>
+<h2 id="1954237295746-">1954237295746 ≠ ∞</h2>
+<p>Similar to the importance of choosing a base case, we must also be aware of what exactly induction is saying. The conclusion we get from an inductive argument is that $\Phi(n)$ is true for all natural numbers $n$. Note this doesn&#39;t mean it&#39;s true at a limit to $\infty$, it is only true for any arbitrarily large $n$. Consider the following faulty proof:</p>
+<p><strong>Claim:</strong> $\pi$ is rational.</p>
+<p><strong>Base Case:</strong> We&#39;ll induct on the number of decimal points in the expansion for $\pi$. For $n=0$, clearly $3$ is rational. </p>
+<p><strong>Inductive Hypothesis:</strong> Say the truncation of $\pi$ to the $n$th decimal place, call it $x_n$ is rational. Then $\pi$ to the $(n+1)$st decimal can be written as $x_{n+1} = x_n + \frac{m}{10^{n+1}}$ for $m \in {0,1,\cdots,9}$. So $x_{n+1}$ is rational. So all decimal expansions of $\pi$ are rational, so $\pi$ is rational. $\ \blacksquare$</p>
+<p>Clearly this is also wrong, and it&#39;s just by the misinterpretation we spelled out now: there is a difference between being true in the limit and true at each individual step to the limit.</p>
 <h2 id="weak-induction-vs-strong-induction">Weak Induction vs. Strong Induction</h2>
 <p>There&#39;s something else weird in our inductive proof of De Morgan&#39;s Laws. Again, let&#39;s look at our specific outline of induction:</p>
 <ul>
