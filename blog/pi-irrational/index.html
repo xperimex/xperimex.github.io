@@ -1,0 +1,129 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Delta Thoughts - e, π, and Irrational Numbers</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#FFFFFF" />
+
+        <link rel="apple-touch-icon" href="/img/apple-touch-icon-precomposed.png">
+        <link rel="icon" type="image/png" href="/img/favicon.png">
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <hr id="starter" />
+
+        <div id="header">
+          <div class="row">
+            <div class="two columns"></div>
+            <div class="eight columns">
+              <h1><span id="goHome" onclick="javascript:location.href='/';">Delta Thoughts</span></h1>
+              <p class="lead" style="margin-top: -10px;">
+                "Pure mathematics is, in its way, the poetry of logical ideas." &mdash; Albert Einstein
+              </p>
+            </div>
+
+          </div>
+        </div>
+        <div class="content row">
+          <div class="two columns"></div>
+          <div class="eight columns">
+            <div class="mainIntro">
+              <div id="headline">
+                e, π, and Irrational Numbers
+              </div>
+              <div class="date" style="margin-left:0px!important;">By <a href="/">Adi Mittal</a> &#183; March 14, 2024 &#183; 5 min read</div>
+            </div>
+            <div class="articleBody firstcharacter">
+              <p>Irrational numbers are a bit strange to think about. In the sense, they were the first &quot;new&quot; type of number to really challenge early and young mathematicians. We have the natural numbers $\mathbb{N}$ like $\{0,1,2,3,\cdots\}$. From there, we then include the negative numbers $\{ \cdots,-2,-1,0,1,2,\cdots \}$ to have the integers $\mathbb{Z}$, that can be used to represent absences of quantities and additive inverses. From there, we can consider the in-between quantities of fractions, also known as the rationals $\mathbb{Q}$. For a while, this is what we thought all there was to numbers. Pythagoras and the Ancient Greeks famously thought there was no number that wasn&#39;t rational. They had this notion of increasing inclusion of numbers $\mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q}$, and that was the upper limit.</p>
+<p>As we now know, this clearly isn&#39;t the case. We&#39;ve talked about irrational numbers a little bit before, specifically on how <a href="http://xperimex.com/blog/constructive-proofs/">$\sqrt{2}$ is irrational</a>. It might be worthwhile going over the proof again:</p>
+<p><strong>Claim: $\sqrt{2}$ is irrational.</strong></p>
+<p><strong>Proof:</strong> Suppose that $\sqrt{2}$ is not irrational. Therefore it is rational, and can be written as $\sqrt{2} = \frac{p}{q}$ where $p$ and $q$ are distinct coprime numbers (i.e. they don&#39;t share any factors in common; this is a way of sayiing that there is a unique way of writing $\sqrt{2}$ as a fraction in <em>lowest terms</em>). Squaring both sides and moving terms around, this equation becomes $2q^2 = p^2$. Therefore, $p^2$ is even, since it will always have a factor of 2 according to the lefthand-side of the equation. If $p^2$ is even, then $p$ is also even (if you&#39;re unsure of this fact, try some test cases and proving it!). Since $p$ is even, then let&#39;s rewrite it as $p=2n$. Plugging this into our equation yields: $2q^2 = p^2 = (2n)^2 = 4n^2$. Dividing both sides by 2 gives us $q^2 = 2n^2$. Similar to before, the equation implies that $q^2$ and hence $q$ is even due to that factor of 2 on the righthand-side. But this is a contradiction! $p$ and $q$ cannot simultaneously both be coprime and even (share a factor of 2). Hence, our initial assumption that the $\sqrt{2}$ is rational is wrong, and allows us to conclude that $\sqrt{2}$ is irrational. $\blacksquare$</p>
+<p>The existence of irrational numbers actually implies a lot. For one, there are infinitely many more irrational numbers than rationals. With the classic diagonal argument, we can see that there are not any &quot;more&quot; rationals than integers or naturals. The irrationals are what make the real numbers uncountable. A way we can see that is through decimal expansions: all irrational numbers have non-repeating decimal expansions. So now if you imagine constructing a random number $0.142346\dots$ by picking a random number 0–9 at each digit, the chance of landing a repeating decimal is extremely unlikely.</p>
+<p><strong>Claim:</strong> A number is rational if and only if it has a terminating or repeating decimal expansion.</p>
+<p><strong>Proof:</strong> $(\Rightarrow)$ The easiest way to see this is through long division. If we have a rational number $\frac{p}{q}$ with $q \neq 0$, then at every step in the long division, we have $q$ possible remainders (being $0,1,2,\cdots,q-1$). If the remainder is 0 at any point, then we are done with the divison algorithm and the decimal expansion terminates (this it the case of 0 being the repeating portion of the decimal). If the remainder is never 0, after $q+1$ steps in the division algorithm, we will get a remainder we have already seen before, and so the division algorithm will keep producing the same digits in order we have seen before from that remainder. Hence the decimal expansion repeats. </p>
+<p>$(\Leftarrow)$ Say we have a number $x = a.d_{1}d_{2}\cdots d_{n} \overline{d_{n+1} \cdots d_{n+m}}$ that has integer part $a$, $n$ pre-repeating decimals (each $d_i$ is a digit of the number), and $m$ repeating decimals (indicated by the overline). Then we can left-shift the non-repeating number by multiplying by a power of 10:</p>
+<center>
+
+$10^n x = 10^n a + d_{1}d_{2}\cdots d_{n}.\overline{d_{n+1} \cdots d_{n+m}}  \ \ \ \ (1)$
+
+</center>
+
+<p>Since the decimals repeat after an additional $m$ digits, we can shift it further to get another similar looking number:</p>
+<center>
+
+$10^{n + m} x = 10^{n + m} a + d_{1}d_{2}\cdots d_{n}d_{n+1} \cdots d_{n+m}.\overline{d_{n+1} \cdots d_{n+m}}  \ \ \ \ (2)$
+
+</center>
+
+<p>Now we can subtract equation $(1)$ from $(2)$ to eliminate the repeating decimal portion:</p>
+<center>
+
+$10^{n + m} x - 10^n x = (10^{n + m} a + d_{1}d_{2}\cdots d_{n}d_{n+1} \cdots d_{n+m}) - (10^n a + d_{1}d_{2}\cdots d_{n})$
+
+</center>
+
+<p>Now, see that since we have removed the decimal/fractional part of the numbers in that subtraction, the righthand side of the equation is an integer, call it $N$. Then we can solve for $x$ and see that</p>
+<center>
+
+$x = \large{\frac{N}{10^{n+m} - 10^n}}$ $=$ $\large{\frac{N}{(10^m - 1)10^n}}$
+
+</center>
+
+<p>it is a quotient of two integers, and so rational.</p>
+<center> $\blacksquare$ </center>
+
+
+
+<p>So if we want to use real numbers with decimals as we normally do, we need our non-repeating decimals to correspond to something. These are our of course our irrationals. But let&#39;s be clear exactly what non-repeating means. It&#39;s frequently unjustifiably said that since $\pi$ is irrational, it contains every single string of numbers ever conceived, and hence contains exactly the time and date you were born, you will die, and a copy of every book ever written. This is <strong>unknown</strong>. Just consider the non-repeating decimal that only contains 0s and 1s</p>
+<center>
+
+$0.10110011100011110000\cdots \overset{\textrm{n times}}{\overline{111\cdots 1}}\overset{\textrm{n times}}{\overline{000\cdots 0}}$
+
+</center>
+
+<p>$\overset{a}{2}$</p>
+<p>In a sense, too</p>
+
+              <div id="disqus_thread"></div>
+            <script>
+                (function() {  // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+
+                    s.src = '//delta-thoughts.disqus.com/embed.js';
+
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            </div>
+          </div>
+          <div class="two columns"></div>
+        </div>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <script type="text/javascript">
+          window.MathJax = {
+            tex2jax: {
+              inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+              processEscapes: true
+            }
+          };
+        </script>
+        <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-101583586-1','auto');ga('send','pageview');
+        </script>
+    </body>
+</html>
