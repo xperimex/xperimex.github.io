@@ -56,7 +56,7 @@ $\blacksquare$
 
 Here, we took a statement that can naturally be indexed by the natural numbers—in this case, a formula—and using the **method** of induction, proved our claim that the statement held. Note here that we didn't show $\Phi(0)$ is true, but rather $\Phi(1)$. This minor change isn't a big deal, since what we really want to show is a **base case** to build our inductive claim off of; we don't care where our ladder starts, so long as we can show there is _some_ ground for it to stand on.
 
-Induction is a very strong tool, as it does can usually be applied to any claim that can be indexed by the integers; if there is a natural way to "count" the cases of your hypothesis, odds are induction could be useful.
+Induction is a very strong tool, as it does and can usually be applied to any claim that can be indexed by the integers; if there is a natural way to "count" the cases of your hypothesis, odds are induction could be useful.
 
 However, note that induction didn't give us the arithmetic sum formula to begin with, but rather **only a method to verify** it. Some amount of intuition or case work needs to be done beforehand to get a hypothesis to follow through with induction.
 
