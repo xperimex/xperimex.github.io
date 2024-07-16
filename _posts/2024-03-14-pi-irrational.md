@@ -76,7 +76,7 @@ So if we want to use real numbers with decimals as we normally do, we need our n
 
 <center>
 
-$0.10110011100011110000\cdots \overset{\textrm{n ones}}{111\cdots 1}\overset{\textrm{n zeroes}}{000\cdots 0}\cdots$
+$0.10110111011110\cdots \overset{\textrm{n ones}}{111\cdots 1} 0 \overset{\textrm{n+1 ones}}{111\cdots 1}0\cdots$
 
 </center>
 
