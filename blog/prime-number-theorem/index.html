@@ -1,0 +1,1512 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Delta Thoughts - The Prime Number Theorem and Similar Mysteries</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#FFFFFF" />
+
+        <link rel="apple-touch-icon" href="/img/apple-touch-icon-precomposed.png">
+        <link rel="icon" type="image/png" href="/img/favicon.png">
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <hr id="starter" />
+
+        <div id="header">
+          <div class="row">
+            <div class="two columns"></div>
+            <div class="eight columns">
+              <h1><span id="goHome" onclick="javascript:location.href='/';">Delta Thoughts</span></h1>
+              <p class="lead" style="margin-top: -10px;">
+                "Pure mathematics is, in its way, the poetry of logical ideas." &mdash; Albert Einstein
+              </p>
+            </div>
+
+          </div>
+        </div>
+        <div class="content row">
+          <div class="two columns"></div>
+          <div class="eight columns">
+            <div class="mainIntro">
+              <div id="headline">
+                The Prime Number Theorem and Similar Mysteries
+              </div>
+              <div class="date" style="margin-left:0px!important;">By <a href="/">Adi Mittal</a> &#183; August 12, 2024 &#183; 91 min read</div>
+            </div>
+            <div class="articleBody firstcharacter">
+              <p>It&#39;s not unfair to call prime numbers the foundation for not just number theory and mathematics, but many mathematicians careers. At an early age, around 7 years old in 1st-2nd grade in the US, kids learn multiplication and division. From there, we learn that we can break down numbers into smaller numbers, we call factors or divisors. For example,</p>
+<center>
+$2024 = 2 \cdot 2 \cdot 2 \cdot 11 \cdot 23$
+</center>
+
+<p>There is no &quot;simpler&quot; way to break down the number 2024. But then there&#39;s a very natural next question to ask upon learning about prime numbers for the first time: how do we know which numbers are prime? Unfortunately, there is not that a good of an answer to give to anyone, from the elementary school to college students. The only strategy you really have until college is just to try and divide the number in question, and see if there are any factors. You can make small optimizations by checking numbers less than $\sqrt{n}$, and skipping even numbers obviously, but at the end of the day, primes seem kind of random with little to no patterns available. This is one of the first real mysteries young mathematicians encounter.</p>
+<p>Though, math has come a long way, and now slowly but surely we are starting to unravel the primes, revealing much about the simple numbers we count with to much more.</p>
+<h2 id="what-is-a-prime-number-">What is a Prime Number?</h2>
+<p>This isn&#39;t a trick question. Primes are still exactly what you (probably) think they are:</p>
+<hr>
+<p><strong>Definition 1:</strong> A positive integer is said to be <strong>prime</strong> if it is not the product of two smaller natural numbers (excluding 1), i.e. $p \neq ab$ with both $a, b \neq 1$. </p>
+<hr>
+<p>We cannot factor primes. This is partly why finding primes is so tricky—we define them not by what they are, but what they are not. This also gives a nice reason for why we should not consider $1$ prime: it just cannot be factored into smaller numbers. </p>
+<p>It turns out, there is another, equivalent notion of being a prime number though.</p>
+<!-- Good reason why 1 isn't prime: 1 = 1*1 and 1 is not less than 1. -->
+<hr>
+<p><strong>Definition 2:</strong> A positive integer (excluding 1) $p$ is <strong>prime</strong> if when $p \mid ab$, then $p \mid a$ or $p \mid b$.</p>
+<hr>
+<p>Here we are using $x \mid y$ to mean $x$ divides $y$. This notion of primality is kind of similar to the definition we are already familiar with: it basically characterizes the idea of prime $p$ being unable to be &quot;split up&quot; into smaller parts that can be distributed between $a$ and $b$. The factor must have contributed wholly to either $a$ or $b$, and did not magically appear by multiplying the two.</p>
+<p><strong>Theorem:</strong> Definition 1 and Definition 2 are equivalent.</p>
+<p><strong>Proof:</strong> Although these definitions do look and feel similar, actually arguing the equivalence rigorously is kind of difficult (as it turns out for much of math). </p>
+<!-- idea: if p | a, then can factor out p and show that b * other factors = 1 -->
+<p><strong>(Definition 2 $\Rightarrow$ Definition 1):</strong> Let&#39;s say $p \in \mathbb{N}$ satisfies Definition 2. Now suppose for contradiction that $p = ab$ with $a, b \neq 1$. Then, since all numbers divide themselves, $p \mid p = ab$. By the property in Definition 2, $p \mid a$ or $p \mid b$. Let&#39;s say $p \mid a$, so $a = pn$ for some $n$. Combining our equalities, we get $p = ab = pnb$. Rearranging, $p(1-nb) = 0$. Since $p \neq 0$, we get $1 = nb$. The only way this can happen is if $n = b = 1$ since they have to be positive integers, giving us our contradiction. Therefore, it must be the case that $p$ also satisfies Definition 1. A similar argument can be used for when $p \mid b$.</p>
+<p><strong>(Definition 1 $\Rightarrow$ Definition 2):</strong> This is also known as <a href="https://en.wikipedia.org/wiki/Euclid%27s_lemma">Euclid&#39;s Lemma</a>. Say $p$ is prime according to Definition 1. Now suppose that $p \mid ab$, but $p \nmid a$. We&#39;ll show that $p \mid b$. The simplest proof I&#39;ve seen (without presupposing some results we&#39;ll later discuss) uses <a href="https://en.wikipedia.org/wiki/B%C3%A9zout%27s_identity">Bézout&#39;s Lemma</a>. Since $p \nmid a$ and $p$ has no factors itself, $\gcd(a,p) = 1$. By Bézout&#39;s, there are integers, $n$ and $m$ such that</p>
+<center>
+$np + ma = 1$
+</center>
+
+<p>Multiplying both sides by $b$, we get</p>
+<center>
+$npb + mab = b$
+</center>
+
+<p>Clearly, $p \mid npb$. By our assumption, $p \mid ab$ so $p \mid mab$. Therefore, $p \mid npb + mab = b$, giving us our conclusion.</p>
+<center>
+$\blacksquare$
+</center>
+
+<h2 id="some-foundational-results">Some Foundational Results</h2>
+<p>Even with just these definitions and basic results, we can already start to make some headway. The following of which, is probably the most important theorem regarding the integers.</p>
+<!-- need to prove: every number has a factorization -> unique factorization -> infinitely many primes -->
+<p><strong>The Fundamental Theorem of Arithmetic:</strong> Every integer has a unique* prime factorization.</p>
+<p><strong>Proof:</strong> We&#39;ll prove this in two steps.</p>
+<p><strong>(Existence)</strong> Showing every integer has a prime factorization is exactly as you&#39;d expect intuitively: we&#39;ll break up a number into its factors as many times as possible until we hit its prime factorization. We&#39;ll do this by induction. </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Base Case:</strong> $2 = 1\cdot 2$ has a trivial prime factorization being prime itself.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Inductive Step:</strong> Say every number greater than 1 and less than $n$ has a prime factorization. If $n$ is prime, we&#39;re done. If $n$ is not prime, then it is possible to write $n=ab$ with $1&lt;a\leq b&lt;n$. By the inductive hypothesis, </p>
+<center>
+$a = p_1 p_2 \cdots p_k$ 
+<br/>
+$b = q_1 q_2 \cdots q_\ell$ 
+</center>
+
+<p>have prime factorizations. Combining these, we see that</p>
+<center>
+$n = p_1 p_2 \cdots p_k q_1 q_2 \cdots q_\ell$ 
+</center>
+
+<p>is also a product of primes.</p>
+<p><strong>(Uniqueness)</strong> Say there are integers that don&#39;t have a unique prime factorization. Let </p>
+<center>
+$n = p_1 p_2 \cdots p_k = q_1 q_2 \cdots q_\ell$
+</center>
+
+<p>be the <em>least</em> integer with two such factorizations. Therefore, $p_1 \mid q_1 q_2 \cdots q_\ell$. By Definition 2 and Euclid&#39;s Lemma, that means $p_1 \mid q_i$ for some $i=1,\cdots,\ell$. Let&#39;s suppose (without loss for generality) that $p_1 \mid q_1$. Since $q_1$ is prime, we must have $p_1 = q_1$. That means we can divide both of these out and get that</p>
+<center>
+$m = p_2 \cdots p_k = q_2 \cdots q_\ell$
+</center>
+
+<p>But then we have found some integer $m &lt; n$ that has two distinct prime factorizations, contradicting the minimality of $n$.</p>
+<p><br/></p>
+<p>Proving factorization for the negative integers is essentially the same, just noting the extra inclusion of $-1$ as a factor.</p>
+<hr>
+<p>*the uniqueness of factorization seems like a proper fact now that we&#39;ve proved it, but there are a few hiccups we need to address. For one, this factorization is unique up to reordering of the primes; $10 = 2 \cdot 5 = 5 \cdot 2$. This is not that problematic, and can be pretty well understood since we&#39;re working with integers and know multiplication is commutative. However, only that we haven&#39;t fully explained one small bit away: we can include extra factors of $1$. This seems kind of redundant since we have already said $1$ isn&#39;t prime, and it&#39;s just kind of obvious to ignore the fact that $2 = 1\cdot 2 = 1\cdot 1 \cdot 2 = \cdots$. But this is an issue if we&#39;re going to allow $-1$ in the factorizations of negative numbers. After all, $6 = 2 \cdot 3 = (-2) \cdot (-3)$. So what we can do is combine and push to the front all these extra factors of $1$ and $-1$, and make that sign-determining factor included as a non-prime unique divisor. <strong>Let this reinforce that 1 is not a prime number</strong>.</p>
+<center>
+$\blacksquare$
+</center>
+
+<p><a href="https://xperimex.com/blog/pi-irrational/#completeness-and-the-variety-of-irrationals">Last post</a>, we discussed how the irrational numbers were the key to the real numbers; the irrationals are what give the distinguishing properties of the reals. Even if the names are suggestive, it really should be noted how important the irrationals are to separating the reals and the rationals. </p>
+<p>The prime numbers serve a similar purpose to the integers. In fact, because of the above theorem and unique factorization, primes are basically <em>all</em> you need to discuss results about the integers (and that is reflected in many theorems, which we&#39;ll mention later).</p>
+<p>From this we immediately get another major, fundamental result about the primes.</p>
+<p><strong>Theorem:</strong> There are infinitely many prime numbers.</p>
+<p><strong>Proof (Euclid):</strong> Say there were only finitely many primes $p_1, p_2, \cdots, p_n$. Consider the following number:</p>
+<center>
+$\begin{align} p_1 p_2 \cdots p_n = \prod_{i=1}^n p_i \end{align}$
+</center>
+
+<p>So all of our primes divide this number. Now consider the number $P = p_1 p_2 \cdots p_n + 1$. We know $P$ has a unique prime factorization by the above. Since all of our primes come from the list $p_1, p_2, \cdots, p_n$, some $p_i \mid P$. But then</p>
+<center>
+$p_i \mid P - p_1 p_2 \cdots p_n = 1$
+</center>
+
+<p>So $p_i = 1$, which is impossible given $p_i$ is prime. So in reality, $P$ must have a prime divisor <em>not</em> in our original list, giving us the contradiction that there were only finitely many primes.</p>
+<center>
+$\blacksquare$
+</center>
+
+<p>Note exactly what this proof is saying: this doesn&#39;t say that $p_1 p_2 \cdots p_n + 1$ is prime, it only says that it contains a <em>new</em> prime divisor not found in the list $\{p_1, p_2, \cdots, p_n \}$.</p>
+<p>This is a great result, but at the same time, this only widens the mystery and makes finding a pattern—if there is one—all the more unlikely. There is definitely something interesting to be said if there were only finitely many primes, but I think there being so many with such simple-to-state questions about them being unanswered kind of annoying.</p>
+<h2 id="don-t-take-these-for-granted">Don&#39;t Take These For Granted</h2>
+<p>Before delving further into common tools and patterns found in the primes, it is worth taking a second to note just how nice some of the properties they have—even though everyone likes to make they seem super mysterious.</p>
+<h3 id="rings-and-algebraic-abstractions">Rings and Algebraic Abstractions</h3>
+<p>The integers, in the broad perspective of higher math, is the simplest example of what is known as a <strong>ring</strong>.</p>
+<p><strong>Definition:</strong> A <strong>ring</strong> $(R,+,\times,0,1)$ is a set $R$ given the following structure:</p>
+<ul>
+<li>$(R,+)$ is an <em>abelian group</em> with identity 0. In other words, $(R,+)$ has the properties <ul>
+<li>Commutativity: $a+b = b+a$</li>
+<li>Associativity: $a + (b + c) = (a + b) + c$</li>
+<li>Identity: $ a + 0 = 0 + a = a$</li>
+<li>Inverses: $\forall a \ \exists b \ (a + b = 0)$</li>
+</ul>
+</li>
+<li>$\times: R\times R\rightarrow R$ has the following properties:<ul>
+<li>Associativity: $a \times (b \times c) = (a \times b) \times c$</li>
+<li>Identity: $a \times 1 = 1 \times a = a$</li>
+<li>(Left) Distributivity: $a\times (b+c) = (a\times b) + (a\times c)$ </li>
+<li>(Right) Distributivity: $(b+c) \times a = (b\times a) + (c\times a)$</li>
+</ul>
+</li>
+</ul>
+<p>This definition does look arbitrary and pretty complicated at first glance—and to be honest, it kind of is—but there&#39;s no denying its resemblance to the properties of addition and multiplication of the integers. In fact, you could just let $R = \mathbb{Z}$ and interpret $+$ and $\times$ as normal, and you would just get all of our normal arithmetic. As long as you keep those in mind, the definition should become more tractable. The hope is essentially to take some results and intuitions from the integers and extend them to other mathematical objects.</p>
+<p>It turns out, with such a broad definition, a lot of algebraic work gets done that has seemingly nothing to do with the &quot;structure of the integers&quot;. Some major theorems include:</p>
+<ul>
+<li>The Chinese Remainder Theorem: existence of unique solution to system of modulo remainders</li>
+<li>Eisenstein&#39;s Criterion: a sufficient condition on when integer polynomials can be factored</li>
+<li>The classification of finitely generated abelian groups</li>
+<li>Proving the existence of Jordan and Rational Canonical Forms for linear maps</li>
+</ul>
+<p>Rings are kind of magical in that way in that they are by far one of the least-obvious tools to employ, but when used correctly, the generality of the theory can lead to a lot. They are unsurprisingly the basis for lots of higher level algebra, especially number theory.</p>
+<h3 id="integral-domains-and-zero-divisors">Integral Domains and Zero-Divisors</h3>
+<p>But not all rings act as nicely as $\mathbb{Z}$. For example, we tend to overlook how convenient it is that $\mathbb{Z}$ is an <strong>integral domain</strong>. That is,</p>
+<center>
+$ab = 0 \Rightarrow a = 0 \ \textrm{or} \ b = 0$
+</center>
+
+<p>This is a trick we use when solving for roots of polynomials (which is another ring). If you wanted to solve the quadratic,</p>
+<center>
+
+$\begin{align}
+x^2 - 5x + 6 = 0 &amp; \Rightarrow \\
+(x-2)(x-3) = 0 &amp; \Rightarrow \\ \hline
+\end{align}$
+</br>
+$x-2 = 0 \ \textrm{or} \ x-3=0$
+</center>
+
+<p>That last step is only justified in integral domains. If you&#39;re working in the ring, say, the integers modulo 10 </p>
+<center>
+$\mathbb{Z}_{10} = \{\bar{0},\bar{1},\bar{2},\cdots,\bar{9}\}$
+</center>
+
+<p>then we can very much have <strong>zero divisors that break the integral domain property</strong>. </p>
+<center>
+$\bar{2} \times \bar{5} = \bar{10} = \bar{0}$
+</center>
+
+<p>If you look back at some of our proofs, like in showing the equivalence of Definitions 1 and 2 of prime numbers, having zero divisors would not allow us to conclude our results.</p>
+<h3 id="classifying-elements">Classifying Elements</h3>
+<p>In the same way we classify integers as prime or not, we can do a similar organization of ring elements:</p>
+<ul>
+<li><strong>Unit:</strong> $x \in R$ is a unit if it has a multiplicative inverse i.e. $\exists y \ \textrm{s.t.} \ xy=1$</li>
+<li><strong>Irreducible:</strong> A (non-unit) $x \in R$ is irreducible if it cannot be factored into non-units</li>
+<li><strong>Prime:</strong>  A (non-unit) $x \in R$ is prime if when $x \mid ab$, then $x \mid a$ or $x \mid b$</li>
+</ul>
+<p>This is partly why I said there were 2 definitions of prime numbers at the top of this post: they are <em>truly separate definitions</em> of two different types of elements in a general ring. It just happens that the notion of being prime and irreducible are the same in the integers. Even though we think of these notions as intertwined by our intuitions of the prime, they can turn out separate.</p>
+<p>If every element in the ring (except 0) is a unit, then we have a <strong>special type of ring called a field</strong>, which give us especially nice properties that we see most commonnly used for vector spaces. And although we haven&#39;t mentioned them yet by name, we&#39;ve run into units already in the form of $1$ and $-1$: they&#39;re the reason we need to clarify the Fundamental Theorem of Arithmetic, since <em>everything</em> is a multiple of a unit and made it unclear if we actually had unique prime factorization.</p>
+<p>In some rings, though, we <strong>might genuinely lose unique factorization</strong>. Consider the ring</p>
+<center>
+$\mathbb{Z}\left[ \sqrt{-5} \right] = \{a+b\sqrt{-5} \ | \ a,b \in \mathbb{{Z}} \}$
+</center>
+
+<p>Then, in this ring, we get that</p>
+<center>
+$6 = 2 \cdot 3 = (1 + \sqrt{-5})(1-\sqrt{-5})$
+</center>
+
+<p>As such, the integers are known as a <strong>unique factorization domain (UFD)</strong> since it doesn&#39;t suffer from such a problem.</p>
+<hr>
+<p>Those are some examples and a peak into abstract algebra. Hopefully it gives some appreciation for why the integers and primes numbers are special in their own way, but we&#39;ve covered enough ring theory for today and perhaps will revisit it later down the road.</p>
+<!-- maybe talk about field -> ED -> PID -> UFD ? -->
+<h2 id="some-simple-patterns-and-uses-of-the-primes">Some Simple Patterns and Uses of the Primes</h2>
+<p>To build up a bit more familiarity with the primes, its worth perusing some of the simple patterns and ways the primes can be leveraged. Here&#39;s a simple one that isn&#39;t too hard to notice.</p>
+<p><strong>Claim:</strong> Every prime is of the form $6n \pm 1$.</p>
+<p><strong>Proof:</strong> Just check the other cases:</p>
+<ul>
+<li>$6n \pm 2 = 2(6n \pm 1)$ so these can&#39;t be prime</li>
+<li>$6n \pm 3 = 3(6n \pm 1)$ so these can&#39;t be prime</li>
+</ul>
+<p>Another simple pattern.</p>
+<p><strong>Claim:</strong> For $p &gt; 2$ prime, $24 \mid p^2 - 1$.</p>
+<p><strong>Proof:</strong> $p^2 - 1 = (p-1)(p+1)$. Now $p$ is odd, so $(p-1)$ and $(p+1)$ are even. Moreover, these are consecutive even numbers, so while one is only divisble by 2 the other is actually divisble by 4. Finally, $p$ being prime means it isn&#39;t a multiple of 3, but $(p-1),p,(p+1)$ are 3 consecutive numbers. So again, one of $(p-1)$ and $(p+1)$ is divisible by 3. All together, we have collected that $p^2 - 1 = (p-1)(p+1)$ has at least the factors of $2 \cdot 4 \cdot 3 = 24$. $\blacksquare$</p>
+<p>Here&#39;s a much more famous one.</p>
+<p><strong>Fermat&#39;s Little Theorem:</strong> For any integer $a$ and $p$ prime, $a^{p} \equiv a \bmod p$.</p>
+<p><strong>Proof:</strong> Note if $a \equiv 0 \bmod p$, then the result follows. So we just need to show $a^{p-1} \equiv 1 \bmod p$ for $a \neq kp$. Consider the set of numbers $\{a,2a,3a,\cdots,(p-1)a\}$. Note that these are all distinct residues modulo $p$; consider when two residues of this type are equal $ia \equiv ja \bmod p$. So $(i-j)a \equiv 0 \bmod p$. Since $p$ is prime and doesn&#39;t divide $a$, by Euclid&#39;s Lemma, $p \mid i-j$ i.e. $i \equiv j \bmod p$. So, the set $\{a,2a,3a,\cdots,(p-1)a\}$ is really just a reshuffling of the $p-1$ residues $\{1,2,3,\cdots,p-1\}$ (since there are $p-1$ numbers in the set, and they are all distinct modulo $p$). Therefore,</p>
+<center>
+$\begin{align} 
+a \cdot 2a \cdot 3a \cdots (p-1)a \equiv 1 \cdot 2 \cdot 3 \cdots (p-1) \bmod p 
+\end{align}$
+</center>
+
+<p>Since $p \nmid (p-1)!$, we can divide this out with Euclid&#39;s Lemma, and we arrive at $a^{p-1} \equiv 1 \bmod p$.</p>
+<center>
+$\blacksquare$
+</center>
+
+<hr>
+<p>Just as we talked about how ring theory fits into number theory briefly, it might not be surprising to see that its cousin group theory plays a big role as well. The proof of Fermat&#39;s Little Theorem simplifies quite a bit with the tools of groups, and much of what we bothered proving above is group theory in disguise.</p>
+<p><strong>Proof with Groups:</strong> Note that $\{1,2,\cdots,p-1\} = (\mathbb{Z}/p\mathbb{Z})^{\times}$ is a group under multiplication. Consider some $a \in (\mathbb{Z}/p\mathbb{Z})^{\times}$, and its cyclic subgroup $A = \{1,a,a^2,\cdots,a^{k-1}\}$. $|A| = k$, and by Lagrange&#39;s Theorem, $|A|$ divides $|(\mathbb{Z}/p\mathbb{Z})^{\times}| = p-1$. So $p-1 = k \ell$ for some $\ell$, and $a^{p-1} = a^{k \ell} = (a^k)^\ell = 1^\ell = 1$. $\blacksquare$</p>
+<hr>
+<p>Given how much interest there is in them, it shouldn&#39;t be surprising that there are so many number theory results about the primes.</p>
+<p><strong>Wilson&#39;s Theorem:</strong> For $p$ prime, $(p-1)! \equiv -1 \bmod p$.</p>
+<p><strong>Proof:</strong> Note for all numbers $x \in \{1,2,3,\cdots,p-1\}$, they each have a multiplicative inverse i.e. $\exists y \ \textrm{s.t.} \ xy = 1$. This is best seen by using Bézout&#39;s Lemma: since $\gcd(x,p)=1$ as $p$ is prime, there exists $n,m$ such that $nx+mp=1$. Thus this reduces to $nx \equiv 1 \bmod p$, showing the existence of a multiplicative inverse $n$. </p>
+<p>Further, note that $1$ and $p-1$ are the only numbers to be their own inverse. To see this, we essentially want to solve $a \equiv a^{-1} \bmod p$ or equivalently $a^2 \equiv 1 \bmod p$. Further, we&#39;re solving $a^2 - 1 = (a-1)(a+1) \equiv 0 \bmod p$. So $p \mid (a-1)(a+1)$, and since $p$ is prime, $p \mid (a-1)$ or $p \mid (a+1)$. In the language of residues, this means that $a \equiv \pm 1 \bmod p$ which reduces to either $1$ or $p-1$.</p>
+<p>Now back to the theorem at hand, if we consider $(p-1)! = 1 \cdot 2 \cdot 3 \cdots (p-1)$, all the numbers except $1$ and $p-1$ pair off with their inverses, cancelling each other out. Thus $(p-1)! \equiv 1 \cdot (p-1) \equiv -1 \bmod p$.</p>
+<center>
+$\blacksquare$
+</center>
+
+<p>Here&#39;s another result that illustrates in particular how useful unique factorization of the primes is.</p>
+<p><strong>Theorem:</strong> A countable product of countable sets is countable.</p>
+<p><strong>Proof:</strong> We&#39;ll show this for the case of infinitely countable sets, since 1) the product of finite sets is obvious, and 2) the definition of countability relies on injections from a set to $\mathbb{N}$, so countability of products of sets will follow if we can show $\mathbb{N}^{k}$ is countable. If we have countable sets $A_1, A_2, \cdots, A_k$, we then have injections $f_i : A_i \rightarrow \mathbb{N}$. Then we have the injection $g: A_1 \times \cdots \times A_k \rightarrow \mathbb{N}^k$</p>
+<center>
+$g(a_1, a_2, \cdots, a_k) = (f_1(a_1), f_2(a_2), \cdots, f_k(a_k))$
+</center>
+
+<p>So the countability of $A_1 \times \cdots \times A_k$ will follow from the countability of $\mathbb{N}^k$. So consider the injection $F: \mathbb{N}^k \rightarrow \mathbb{N}$.</p>
+<center>
+$F(n_1, n_2, \cdots, n_k) = 2^{n_1} 3^{n_2} 5^{n_3} \cdots p_k^{n_k}$
+</center>
+
+<p>where $p_i$ is the $i^\textrm{th}$ prime number. By the Uniqueness of Factorization, $F$ is injective. For completeness, $F \circ g : A_1 \times \cdots \times A_k \rightarrow \mathbb{N}$ shows $A_1 \times \cdots \times A_k$ is countable.</p>
+<center>
+$\blacksquare$
+</center>
+
+<p>This ability to uniquely encode integers by their prime factorization is a nice trick to hold onto, especially for problems that involve <em>all</em> the natural numbers, giving us a path to break the problems up into the more &quot;fundamental&quot;, smaller parts.</p>
+<p><strong>Euler&#39;s Product Formula:</strong> $\begin{align} \sum_{n=1}^\infty \frac{1}{n^s} = \prod_{p \ \textrm{prime}} \frac{1}{1-p^{-s}} \end{align}$</p>
+<p><strong>Proof:</strong> The trick is essentially just the use of the Fundametal Theorem of Arithmetic in a generating function-style way. If you write the sum out with prime factors, the relation becomes clear:</p>
+<center>
+$\begin{align}
+\sum_{n=1}^\infty \frac{1}{n^s} &amp; = 1 + \frac{1}{2^s} + \frac{1}{3^s} + \frac{1}{4^s} + \frac{1}{5^s} + \frac{1}{6^s} + \frac{1}{7^s} + \cdots \\
+&amp; = 1 + \frac{1}{2^s} + \frac{1}{3^s} + \frac{1}{2^s \cdot 2^s} + \frac{1}{5^s} + \frac{1}{2^s \cdot 3^s} + \frac{1}{7^s} + \cdots \\ 
+&amp; = \left(1 + \frac{1}{2^s} + \frac{1}{2^{2s}} + \frac{1}{2^{3s}} + \cdots \right)\left(1 + \frac{1}{3^s} + \frac{1}{3^{2s}} + \frac{1}{3^{3s}} + \cdots \right)\cdots \\
+&amp; = \left(\frac{1}{1 - \frac{1}{2^s}} \right)\left(\frac{1}{1 - \frac{1}{3^s}} \right)\left(\frac{1}{1 - \frac{1}{5^s}} \right)\left(\frac{1}{1 - \frac{1}{7^s}} \right) \cdots \\
+&amp; = \prod_{p \ \textrm{prime}} \frac{1}{1-p^{-s}} 
+\end{align}$
+</center>
+
+<p>The 4th and 5th equalities follow from being products of geometric series. The key step is the 3rd equality. If you consider any term generated by that infinite product, you&#39;re essentially picking out which prime factors the denominator gets; when you consider each factor, you&#39;re asking, &quot;How many of this prime factor does my denominator get?&quot; By the Fundamental Theorem of Arithmetic, prime factorizations are unique and thus this process of choosing prime factors means each term $\frac{1}{n^s}$ appears once and only once. At least, that&#39;s the idea for why this formula <em>should</em> work. To actually prove the sum and product are the same, you have to give a bit more effort using the absolute convergence of that sum on the left. $\blacksquare$</p>
+<hr>
+<p>The sum we discussed above is famously known as the <strong>Riemann zeta function</strong> $\zeta(s)$, the center of the even more famously open million-dollar <strong>Riemann Hypothesis</strong> problem. Even without name, you probably have seen individual instances of the zeta function before, as individual instances of the function have been studied for hundreds of years.</p>
+<ul>
+<li>$\zeta(1) = \sum_{n=1}^\infty \frac{1}{n}$ is the divergernt <strong>harmonic series</strong></li>
+<li>$\zeta(2) = \sum_{n=1}^\infty \frac{1}{n^2} = \frac{\pi^2}{6}$ is the <strong>Basel problem</strong></li>
+<li>$\zeta(3) = \sum_{n=1}^\infty \frac{1}{n^3} \approx 1.2020578$ is <strong>Apéry&#39;s constant</strong>, named after the man who proved it irrational</li>
+</ul>
+<p>The most useful of which to keep in mind for most people is probably the harmonic series $\zeta(1)$, as it appears as an incredibly useful example in bounding series and proving contradictions, being one of the simplest divergent series there is. Here&#39;s a neat example proving a fact we already know.</p>
+<p><strong>Theorem:</strong> There are infinitely many primes.</p>
+<p><strong>Proof (Euler):</strong> Say there were only finitely many primes $p_1,p_2,\cdots,p_n$. Then consider the product</p>
+<center>
+$\begin{align} \prod_{i=1}^n \left( 1 + \frac{1}{p_i} + \frac{1}{p_i^2} + \frac{1}{p_i^3} + \cdots \right) = \prod_{i=1}^n \left( \frac{1}{1 - \frac{1}{p_i}} \right) \end{align}$
+</center>
+
+<p>The righthand side is obtained since each $p_i &gt; 1$ i.e. $\frac{1}{p_i} &lt; 1$, thus making each geometric series converge. So this finite product of geometric series converges to some value.</p>
+<p>Note, however, that since every integer has a unique prime factorization, we can see that this product is equivalent to </p>
+<center>
+$\begin{align} 1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + \frac{1}{5} + \cdots = \sum_{k=0}^\infty \frac{1}{k} \end{align}$
+</center>
+
+
+<p>(think Euler&#39;s Product Formula). But we know that the harmonic series diverges, giving us our contradiction. So there must be infinitely many primes.</p>
+<center>
+$\blacksquare$
+</center>
+
+<p>The nice thing about this proof for me is that it begins to illustrate some of the more calculus-y tools we have at our disposal to prove facts about the integers. The field of <em>analytic number theory</em> and using results commonly associated with continuous functions or the real numbers to show facts of the integers always feels a bit surprsing to me, but this proof is a nice introduction to the topic.</p>
+<h2 id="finding-primes">Finding Primes</h2>
+<p>The above results are interesting and actually quite useful, but to be used in practice requires actually <em>knowing a number is prime</em>. If you don&#39;t mind just having existence of a solution or proof, like we did in the countability proofs, then you have most of what you want already. But having an actual list of prime numbers, or at least knowing <em>where</em> to find prime numbers is often needed to apply some of our powerful results on primes. If we didn&#39;t look for them, cryptography, for one, would completely break down along side all of online security.</p>
+<h2 id="primality-tests">Primality Tests</h2>
+<h3 id="trial-division">Trial Division</h3>
+<p>One way we can find primes is by having some criterion $\Phi(n)$ that can tell us if $n$ is prime or not. The simplest test is to just check a number satisfies one of our definitions of being prime. This is probably the original test we all tried at some point: sitting down and just manually checking if a number has any divisors besides itself. Of course, we can do some simple optimizations to avoid needless division.</p>
+<ul>
+<li>If the number is even, it&#39;s not prime</li>
+<li>If the number ends in 0 or 5, then it&#39;s divisible by 5 and not prime</li>
+<li>We only need to check numbers of the form $6k \pm 1$</li>
+<li>We only need to check the prime divisors up to $\sqrt{n}$</li>
+</ul>
+<p>and a whole host of other simple division rules that we can use to simplify this process. Though, as I&#39;m sure we&#39;ve all felt doing this process, it&#39;s not great and there must be a better way. In fact, we should be glad that trial division and factoring directly is hard, as again, much of modern cryptography relies on the assumption that determining prime factorization is difficult.</p>
+<h3 id="wilson-s-theorem">Wilson&#39;s Theorem</h3>
+<p>You may not have realized it yet, but we&#39;ve already seen a more sophisticated primality test with <strong>Wilson&#39;s Theorem</strong>. If $n$ is <em>not</em> prime, then there are two cases:</p>
+<ol>
+<li>$n$ can be written as $n=ab$ with $a \neq b$. Since $a,b&lt;n$, it must be that $a,b$ appear somewhere in the list $\{1,2,\cdots,(n-1)\}$, meaning that $(n-1)! = 1 \cdot 2 \cdots (n-1)$ is a multiple of $n$ i.e. $(n-1)! \equiv 0 \bmod n$.</li>
+<li>If $n$ cannot be written like in Case 1, then $n = p^2$ for some prime $p$ (if $n$ had 2+ distinct prime factors, we can find $a,b$ to be in Case 1). But $2p &lt; p^2 = n$ for $p&gt;2$. So the numbers $p, 2p$ appear somewhere in $1 \cdot 2 \cdots (n-1)$ i.e. $n = p^2 \mid (n-1)!$ and thus $(n-1)! \equiv 0 \bmod n$.</li>
+</ol>
+<p>So if $n$ is composite, $(n-1)! \equiv 0 \bmod n$. The only exception is for $n = 4$ where $(4-1)! = 6 \equiv 2 \bmod 4$, but that&#39;s fine since $2 \not\equiv -1 \bmod 4$.</p>
+<p><strong>Wilson&#39;s Theorem:</strong> $n$ is prime if and only if $(n-1)! \equiv -1 \bmod n$.</p>
+<p>But this test is not great, as you can imagine it grows exponentially worse to evaluate $(n-1)!$ as $n$ grows larger, even despite <a href="https://www.quantamagazine.org/mathematicians-discover-the-perfect-way-to-multiply-20190411/">advances in multiplication</a>.</p>
+<h3 id="fermat-s-test">Fermat&#39;s Test</h3>
+<p>Inspired by Wilson&#39;s Theorem, we might be inclined to see if our other theorems about prime numbers are sufficient tests. How about Fermat&#39;s Little Theorem? While we have only shown it&#39;s a necessary condition to being prime, there is a formulation for it being sufficient as well.</p>
+<p><strong>Fermat&#39;s Little Theorem:</strong> $p$ is prime if and only if $a^{p-1} \equiv 1 \bmod p$ for all $a \in \{1,2,\cdots,n-1\}$.</p>
+<p><strong>Proof of Converse:</strong> We&#39;ll show the contrapositive. Say $n$ is composite i.e. $n$ has a divisor $\exists d \ \textrm{s.t.} \ d \mid n$. Suppose that $d^{n-1} \equiv 1 \bmod n$ i.e. $d^{n-1} = 1 + kn$ for some $k$, or more helpfully, $d^{n-1} - kn = 1$. $d$ divides $n$, so $d \mid d^{n-1} - kn = 1$, so $d = 1$, giving us our contradiction. Hence if $n$ is composite, we have found a number such that $d^{n-1} \not\equiv 1 \bmod n$. $\blacksquare$</p>
+<p>There are a couple reasons why using FLT as a criterion so much better than what Wilson&#39;s theorem provides.</p>
+<p><strong>1) Exponentiation:</strong> Computing multiplication—especially factorials—is slow, but exponentiation is relatively easy due it being <em>repeated</em> multiplication of the same number. For example, here&#39;s a common trick using repeated squaring to compute exponents $a^n \bmod p$.</p>
+<ol>
+<li>Write $n$ in binary i.e. $n = c_0 2^0 + c_1 2^1 + \cdots + c_k 2^k$ where $c_i \in \{0,1 \}$</li>
+<li>Iteratively compute $a^{2^i} = (a^{2^{i-1}})^2 \bmod p$ i.e. Find $a^{2}$, then $a^{2^2} = (a^2)^2$, then $a^{2^3} = (a^{2^3})^2$ reduced $\textrm{mod} \ p$</li>
+<li>Calculate $a^n = a^{c_0 2^0 + c_1 2^1 + \cdots + c_k 2^k} = (a^{2^0})^{c_0} \cdot (a^{2^1})^{c_1}  \cdots (a^{2^k})^{c_k} \bmod p$</li>
+</ol>
+<p>Expanding $n$ into binary caps the size of the total number of multiplications and divisions we compute to be proportional to $\log(n)$ as opposed to $n$, making this fairly efficient to compute $\textrm{mod} \ p$.</p>
+<p><strong>2) Multiple Computations:</strong> While if we want a <em>definitive</em> proof that a number is prime, we will have to compute $a^{p-1} \bmod p$ for every value of $a$, we can stop our test whenever we want. We can only check some values, even just a single one if we wanted, and expedite the calculations. These sped up tests aren&#39;t definitive, but they can give us <strong>probable prime numbers</strong>.</p>
+<p>The second benefit is what leads us to make this prime-testing algorithm:</p>
+<p><strong>Fermat Primality Test:</strong> To check if $p$ is prime, repeat the following $k$ times:</p>
+<ol>
+<li>Pick a number uniformly $a \in \{2,\cdots,p-1\}$</li>
+<li>Compute $a^{p-1} \bmod p$<ul>
+<li>If $a^{p-1} \not\equiv 1 \bmod p$, return &quot;$p$ is composite&quot;</li>
+</ul>
+</li>
+</ol>
+<p>Here, we let $k$ be a type of threshold if we accept $p$ to be prime if we&#39;re okay not being 100% certain with our test result to cut down computational cost. It must be reiterated, this really is a <strong>probable test</strong> if we don&#39;t check every number. For example,</p>
+<center>
+$2^{340} \equiv 1 \bmod 341$
+</center>
+
+<p>but $341 = 11 \cdot 31$. We can have false positives if we rely on this criterion. But if we do another test,</p>
+<center>
+$3^{340} \equiv 56 \bmod 341$
+</center>
+
+<p>we can find a <strong>Fermat witness</strong> to show 341 is composite. False positives might seem to preclude us from using this test, but there&#39;s a nice property that gives us reason to use this as an efficient test.</p>
+<hr>
+<p><strong>Claim:</strong> If a composite number $n$ has a Fermat witness $a$ with $\gcd(a,n)=1$, then at least half of the numbers $\{1,2,3,\cdots, n-1\}$ are Fermat witnesses.</p>
+<p><strong>Proof:</strong> Let&#39;s call $S = \{1,2,3,\cdots, n-1\}$, and we&#39;ll consider the following 3 sets:</p>
+<center>
+$\begin{align}
+A &amp; = \{a \in S \ : \ a^{n-1} \equiv 1 \bmod n \textrm{ &amp; } \gcd(a,n) = 1 \} &amp; | \ \textrm{Numbers that pass the test} \\
+B &amp; = \{b \in S \ : \ b^{n-1} \not\equiv 1 \bmod n \textrm{ &amp; } \gcd(b,n) = 1 \} &amp; | \ \textrm{Non-trivial Fermat witnesses} \\
+% C &amp; = \{c \in S \ : \ c^{n-1} \equiv 1 \bmod n \textrm{ &amp; } \gcd(c,n) &gt; 1 \} &amp; | \ \textrm{Empty set} \ \varnothing \\
+C &amp; = \{c \in S \ : \ \gcd(c,n) &gt; 1 \} &amp; | \ \textrm{Trivial Fermat witnesses} \\
+\end{align}$
+</center>
+
+<p>Clearly all these sets are disjoint.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Claim:</strong> $C$ is the trivial Fermat witnesses.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Proof:</strong> Essentially the same proof why divisors are Fermat witnesses. Say $x \in S$ with $\gcd(x,n) = d &gt; 1$. Suppose that $x^{n-1} \equiv 1 \bmod n$, so $x^{n-1} = 1 + kn$. $d \mid x$ and $d \mid n$, so $d \mid x^{n-1} - kn = 1$, contradicting $d&gt;1$. So $x^{n-1} \not\equiv 1 \bmod n$. $\blacksquare$</p>
+<!-- By showing all the non-coprime integers are Fermat witnesses, we have also shown that $C = \varnothing$.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Corollary:** $C = \varnothing$ -->
+<!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Proof:** Essentially the same proof why divisors are Fermat witnesses. Say $c \in C$ with $\gcd(c,n) = d > 1$. $c^{n-1} \equiv 1 \bmod n$ means $c^{n-1} = 1 + kn$. $d \mid c$ and $d \mid n$, so $d \mid c^{n-1} - kn = 1$, contradicting $d>1$. So $C = \varnothing$. -->
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Claim:</strong> $A,B,C \neq \varnothing$</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Proof:</strong> $1 \in A$ so $A\neq \varnothing$. $B \neq \varnothing$ by assumption. $C \neq \varnothing$ since $n$ is composite and its divisors are in $D$.</p>
+<p>What we are interested in showing is that $B$, the non-trivial Fermat witnesses, has a lot of elements. What we&#39;ll show is that $|B| + |C| \geq \frac{1}{2} S$, and we&#39;ll do this in a similar way we proved Fermat&#39;s Little Theorem by &quot;permuting&quot; elements with multiplication.</p>
+<p>Pick any $b \in B$, and consider the set $Ab = \{ab \bmod n \ : \ a \in A\}$.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Claim:</strong> $Ab \subseteq B$, and $|Ab| = |A|$</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Proof:</strong> Pick any $a \in A$, and consider $ab \in Ab$. Since $\gcd(a,n) = \gcd(b,n) = 1$, we get that $\gcd(ab,n) = 1$. Also, note that $(ab)^{n-1} \equiv a^{n-1} b^{n-1} \equiv b^{n-1} \not\equiv 1 \bmod n$. Hence $ab \in B$ for all $a \in A$, i.e. $Ab \subseteq B$. For the second half, note that since $\gcd(b,n) = 1$, we can imply that $(a_1 b \equiv a_2 b \bmod n \Rightarrow a_1 \equiv a_2 \bmod n)$. So the elements of $Ab$ are distinct, and hence $|Ab| = |A|$. $\blacksquare$</p>
+<p>So we have that $|A| = |Ab| \leq |B|$. Therefore, since $A \cup B \cup C = \{1,2,\cdots,n-1\}$ and they are distinct, as well as $|A|,|B|,|C| &gt; 0$ by being non-empty, we have</p>
+<center>
+$|S| = n-1 = |A| + |B| + |C| \geq |A| + |A| + 1 &gt; 2|A|$
+</center>
+
+<p>Hence, $|A| &lt; \frac{1}{2} (n-1)$, and so its complement $|A^c| = |B| + |C| &gt; \frac{1}{2}(n-1)$. </p>
+<center>
+$\blacksquare$
+</center>
+
+<p><br/></p>
+<p>It&#39;s worth mentioning, like with Fermat&#39;s Little Theorem, there is a group theoretic proof of this. If you&#39;re familiar with groups, the above looks a lot like we&#39;re working with cosets indirectly. The idea is that we look at the group $G = (\mathbb{Z}/n\mathbb{Z})^{\times}$ (since $n$ is composite, we look only at the invertible elements), and note that $A$ above as the set of numbers that pass the test form a subgroup. If there is a non-trivial Fermat witness i.e. $B \neq \varnothing$, then $A$ is a proper subgroup so $|G/A| \geq 2$, and hence $|A|$ can only contain at most half of the elements of $G$ (Lagrange&#39;s Theorem), and hence further that $|A|$ contains less than half of the full set $\{1,2,\cdots,n-1\}$.</p>
+<hr>
+<p>So if over half the numbers $\{1,2,\cdots,n-1\}$ are Fermat witnesses for composite $n$, we can say that the chance of $n$ being returned prime after $k$ Fermat Primality Tests is usually at most $\left(\frac{1}{2}\right)^k \rightarrow 0$ as we increase $k$. Or better, $n$ is returned accurately composite with probability at least $1 - \left(\frac{1}{2}\right)^k \rightarrow 1$. </p>
+<p>Some things to note here:</p>
+<ol>
+<li>We&#39;re using the phrase &quot;...with probability...&quot; loosely here, since either a number is composite or not; primality is deterministic. Probability might be better replaced with &quot;confidence&quot; or &quot;our belief that...&quot;. After $k$ tests, <em>we believe with confidence</em> $1 -\left(\frac{1}{2}\right)^k$ that $n$ is prime. If a number is actually prime, it will always pass Fermat&#39;s test, no matter how many times you run it, but we don&#39;t have that knowledge beforehand when running the tests.</li>
+<li>Our bound on the number of Fermat witnesses relied on there being at least 1 Fermat witness $a$ with $\gcd(a,n) = 1$. There are unfortunately numbers that are not prime that also do not have Fermat witnesses. These are called <a href="https://en.wikipedia.org/wiki/Carmichael_number"><strong>Carmichael numbers</strong></a>, and gives us either a need to supplement this test further, or just leave a bit of room for doubt with these strong false positives.</li>
+</ol>
+<h3 id="other-tests">Other Tests</h3>
+<p>We&#39;ve gone in-depth on one test, but it&#39;s worth mentioning that primality tests are still important and relevant topics in number theory. A more updated version of a Fermat-type test is found in the <a href="https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test"><strong>Miller-Rabin test</strong></a> which uses theories of <a href="https://en.wikipedia.org/wiki/Quadratic_reciprocity">quadratic reciprocity</a>, and a polynomial-time algorithm was found a little while ago with the <a href="https://en.wikipedia.org/wiki/AKS_primality_test"><strong>AKS primality test</strong></a>.</p>
+<h3 id="different-types-of-primes">Different Types of Primes</h3>
+<p>Another approach that is perhaps the most common one today is instead of checking and calculating <em>every</em> odd number&#39;s primality, we check only certain <strong>forms of primes</strong>. This is usually not an exhaustive method and will skip over some primes, but we get the benefit of finding the primes much quicker with specialized tests. Some types of primes include:</p>
+<ul>
+<li><strong>Mersenne primes</strong> are of the form $2^n - 1$ for an integer $n$</li>
+<li><strong>Fermat primes</strong> are of the form $2^{2^n} - 1$ for an integer $n$</li>
+<li>$p$ is a <strong>Sophie Germain prime</strong> if $2p+1$ is also prime.</li>
+</ul>
+<p>Mersenne primes have been of particular interest throughout history, with odd <a href="https://www.youtube.com/watch?v=T0xKHwQH-4I&amp;t=346s">facts about them even involving perfect numbers</a>. There of modern interest because we can efficiently test their primality, and as such this class of primes has held many records for being the largest known prime (contrasted with the faster growing Fermat primes, of which only 5 are known).</p>
+<p>One of the faster tests available for Mersenne primes appears in a bit of a surprising way.</p>
+<p><strong>Lucas-Lehmer Primality Test:</strong> Let $M_p = 2^p - 1$ be the Mersenne number we want to test, with $p$ an odd prime*. Define the sequence $s_n = s_{n-1}^2 - 2$ with $s_1 = 4$. Then $M_p$ is prime if and only if $s_{p-1} \equiv 0 \bmod M_p$.</p>
+<p><strong>Proof:</strong> Many proofs of the correctness of this test are fairly lengthy and tedious. So, I&#39;m going to default to linking the <a href="https://fermatslibrary.com/s/a-really-trivial-proof-of-the-lucas-lehmer-test">group-theoretic proof</a> which I find more enlightening than the others (a proof, I might add, which uses group theory in the loosest sense, using results which can be learned in 5-10 minutes from scratch).</p>
+<p>*we let $p$ be an odd prime since if $p=ab$ is composite, then $2^p - 1$ is composite:</p>
+<center>
+$2^p - 1 = (2^{a})^b - 1 = (2^a - 1)\left(1 + 2^a + (2^a)^2 + \cdots + (2^a)^{b-1} \right)$
+</center>
+
+<h3 id="prime-generating-formula">Prime Generating Formula</h3>
+<p>In fact, it is possible to write a closed formula for such a prime test $\Phi(n)$ using some of our criteria above. Here&#39;s one using Wilson&#39;s theorem:</p>
+<center>
+
+$\begin{align} \Phi(n) = \left\lfloor \frac{(n-1)! \bmod n }{n-1} \right\rfloor \cdot n \end{align}$
+
+</center>
+
+<p>This isn&#39;t anything we haven&#39;t talked about: the floor of that division is essentially just using our inefficient Wilson&#39;s theorem based test to return 1 or 0 if $n$ is prime or not, then multiplying by $n$ so that the function actually returns $n$ if it is prime.</p>
+<p>But we can do a bit better. We can remove the modular arithmetic, and make it such that instead of $\Phi(n)$ checking if $n$ is prime, make it such that $\Phi(n)$ returns the $n^\textrm{th}$ prime. The below is called <strong>Willans&#39; Formula</strong>:</p>
+<center>
+
+$\begin{align} \Phi(n) = 1 + \sum_{i=1}^{2^n} \left\lfloor \left( \frac{n}{\sum_{j=0}^{i} \left\lfloor \cos^2 \left( \frac{(j-1)! + 1}{j} \pi \right) \right\rfloor }  \right)^{1/n} \right\rfloor \end{align}$
+
+</center>
+
+<p>As you can probably guess just by looking at it, this isn&#39;t all that much more efficient, and the instance of $\frac{(j-1)! + 1}{j}$ should tell you that this is still just Wilson&#39;s theorem doing the work under the hood. There&#39;s a few more tricks invovled that we&#39;ll discuss later, but if you want the whole explanation of the mechanisms behind the formula, see <a href="https://www.youtube.com/watch?v=j5s0h42GfvM">this video</a>.</p>
+<h2 id="sieves-and-filters">Sieves and Filters</h2>
+<p>So far, we&#39;ve gone through and talked about simultaneously very interesting yet shallow results on prime numbers. We&#39;ve barely scratched the surface in just how important primes are, as we&#39;ve mostly stuck to readily calculable, number theory results, even of which we&#39;ve only touched a handful. Even in this post, I&#39;ve tried avoiding group theory for the sake of accessibility. But I hope all so far has illuminated that we shouldn&#39;t shy away from the mysteries of the primes, for there is much we can say about them.</p>
+<p>But that&#39;s isn&#39;t to say that these problems and questions are easily solved (if they <em>can</em> be solved at all). I mean, just take a look at some of our previous prime tests. You would never come up with some of these tests just by investigating numbers—I wouldn&#39;t have. They all managed to be byproducts of more dense, abstract results that hide their applications unless one to be studying the right things at the right time. Even now, the Lucas-Lehmer test&#39;s group theory proof is merely a verification of correctness; the proof I like and understand best gives no insight into how one might have actually discovered that test for Mersenee primes.</p>
+<p>So, let&#39;s take a step back in our quest to discover more prime numbers, and begin from the very start. How would you, say in elementary or middle school, <strong>try to test if a number is prime?</strong></p>
+<p>It&#39;s exactly as we suggested first: let&#39;s just try and divide the number and see if we can factorize it; we take a big number and see if we can reduce it to a product of smaller numbers. But what if we instead did the reverse? What if instead of checking big numbers, why don&#39;t we instead <em>build up</em> from smaller numbers, and eliminate composite numbers that way? We know that 2 is prime, but anything that is a multiple of 2 definitely isn&#39;t prime. Same with 3. 4 is a multiple of 2, so we can skip that.</p>
+<p>This inspires a nice little algorithm to filter primes from a list:</p>
+<p><strong>Sieve of Eratosthenes:</strong> To find the prime numbers less than $n$, do the following:</p>
+<ol>
+<li>Keep track of 3 different list of numbers: <code>prime</code>, <code>composite</code>, <code>unmarked</code>. Everything (except 1) starts as <code>unmarked</code>.</li>
+<li>Find the least <code>unmarked</code> number $p$.</li>
+<li>Add every multiple of $p$ less than $n$ to the <code>composite</code> list, and remove them from <code>unmarked</code>.</li>
+<li>Add $p$ to <code>prime</code> and remove it from <code>unmarked</code>.</li>
+<li>Repeat Steps 2–4 until <code>unmarked</code> is empty.</li>
+</ol>
+<!-- ![Sieve of Eratosthenes Animation](/img/prime-number-theorem/sieve_eratosthenes.svg) -->
+<iframe src="/img/prime-number-theorem/sieve_eratosthenes.svg" width="760" height="760" frameborder="0"></iframe>
+
+
+<p>This can sound more complicated than it actually is, but it really is just the reverse idea of our trial divsion primality check. If a number $p$ is not a multiple of some prime less than it, it must be prime. We then can use that prime $p$ to find its multiples $pn$ and eliminate those as prime candidates. So first we find 2, and mark it prime, and then eliminate all the even numbers. The next number we find is 3, and eliminate all the multiples of 3. We eliminated 4 earlier with the evens, but then find 5 and remove the multiples of 5. We eliminated 6 with the evens (and again with the 3s), but get the chance to add 7 and remove the multiples of 7. (It turns out to eliminate all the composite numbers less than 100, we only need to eliminate all the multiples of $2,3,5,7$ since $11^2 &gt; 100$)</p>
+<!-- add more on sieves -->
+<p>Using <strong>sieves</strong> is a pretty common idea in number theory and combinatorics, since they give a concrete method to count, or at the very least <em>give an upper bound</em> for sizes of sets. They don&#39;t necessarily need to count primes like we did before, since they just need to be able to &quot;sift out&quot; or &quot;filter&quot; the elements we don&#39;t care, and this forms the basis for many proofs. But we&#39;ll come back to this point later.</p>
+<p>For now, what the old Sieve of Eratosthenes should help visualize is why it&#39;s so hard to find primes. Only 25 numbers between 1–100 are prime. Only 168 are prime between 1–1000. As we increase the amount of numbers we look at, it becomes increasingly harder for a given $n$ to be prime; $n$ has to be able to dodge being a multiple of so many previous primes before it. Even just 2 being a prime reduces our potential candidate list in half. 3 being prime removes another sixth of our candidates, and so on. Primes just naturally get rarer, and so it shouldn&#39;t be that strange searching for larger and larger primes become incerasingly challenging. Can we quantify this rarity in primes?</p>
+<h3 id="probability-of-being-prime">Probability of Being Prime</h3>
+<p>One intuitive notion I think the Sieve of Eratosthenes shows really well is the idea of how divisibility translates to &quot;probability&quot;. What is the probability a number is even? Well, every other number is divisible by 2, and we eliminate those in our sieve. How about being divisble by 3? Well, that seems like that should be with probability $\frac{1}{3}$. What about being divisble by 7789, for <strong>large enough $n$</strong>, you&#39;d expect $\frac{1}{7789}$ to be divisible.</p>
+<p>This thought can give us a way to think about the probability of being prime too. What does it mean for $n$ to be prime? Well, as our sieve describes, $n$ being prime should be equivalent to $n$ not being divisible by any prime less than it. We&#39;ll let $f(n) = \mathbb{P}(n \ \textrm{is prime})$, so we want to find</p>
+<center>
+
+$\displaystyle f(n) = \mathbb{P}(n \ \textrm{is prime}) \approx \prod_{p&lt;n \ \textrm{prime}} \mathbb{P}(p \ \textrm{not dividing} \ n)$
+
+</center>
+
+<p>If the probability of being divisible by $p$ is $\frac{1}{p}$, then being not divisible by $p$ should have probability $1-\frac{1}{p}$.</p>
+<center>
+
+$\displaystyle f(n) \approx \prod_{p&lt;n \ \textrm{prime}} \left( 1 - \frac{1}{p} \right) $
+
+</center>
+
+<p>This estimate is nice enough, but what we care more about this function is how it changes; can we relate the primality of $n$ to $n+1$? Well, since our product only includes primes, the only way the product changes is if $n$ is prime or not. If $n$ is prime, well that&#39;s a new prime to consider $n+1$ not being divisible by, and if $n$ is not prime, then that doesn&#39;t affect our product (ignore the fact that $n \nmid n+1$, we&#39;re only looking for a heuristic argument right now).</p>
+<center>
+
+$
+\begin{align}
+f(n+1) &amp; \approx \prod_{p&lt;n+1 \ \textrm{prime}} \left( 1 - \frac{1}{p} \right) \\
+% &amp; = \prod_{p&lt;n \ \textrm{prime}} \left( 1 - \frac{1}{p} \right) \cdot \begin{cases} 1-\frac{1}{n} &amp; \textrm{if} \ n \ \textrm{is prime} \\ 1 &amp; \textrm{if} \ n \ \textrm{is not prime} \end{cases}
+&amp; = \prod_{p&lt;n \ \textrm{prime}} \left( 1 - \frac{1}{p} \right) \cdot \mathbb{P}(n \ \textrm{is not a prime divisor of} \ n+1) \\
+&amp; = f(n) \cdot (1 - \mathbb{P}(n \ \textrm{is a prime divisor of} \ n+1)) \\
+&amp; = f(n) \cdot \left(1 - \mathbb{P}(n \ \textrm{is a prime}) \cdot \mathbb{P}(n \ \textrm{divides} \ n+1) \right) \\
+&amp; = f(n) \cdot \left(1 - f(n) \cdot \frac{1}{n} \right) \\
+\end{align}
+$
+
+</center>
+
+<p>Rearranging a little bit, we get that</p>
+<center>
+
+$\displaystyle f(n+1) - f(n) \approx -\frac{(f(n))^2}{n}$
+
+</center>
+
+<p>If $f(n)$ is a nice enough function, we can approximate further that </p>
+<center>
+
+$\displaystyle f&#39;(n) \approx f(n+1) - f(n) \approx -\frac{(f(n))^2}{n}$
+
+</center>
+
+<p>We can solve this differentiable equation, giving us</p>
+<center>
+
+$\displaystyle -\frac{f&#39;(n)}{(f(n))^2} = \frac{1}{n} \Rightarrow f(n) = \frac{1}{\ln(cn)}$
+
+</center>
+
+<hr>
+<p>Tying things together, note by our Euler Product Formula for the Riemann zeta function, we could also have done this rough derivation with</p>
+<center>
+
+$\displaystyle \frac{1}{f(n)} \approx \prod_{p&lt;n \ \textrm{prime}} \left(\frac{1}{1 - \frac{1}{p}} \right) \approx \sum_{k=1}^{n} \frac{1}{k} \approx \ln(n)$
+
+</center>
+
+
+<hr>
+<p>Perhaps to make it clearer, if the probability of being prime is roughly $\frac{1}{\ln(n)}$, then there are roughly $\pi(n) \approx \frac{n}{\ln(n)}$ many primes less than $n$ ($\pi(n)$ is often used to denote the <strong>prime-counting function</strong>, and give the number of primes less than $n$).</p>
+<p>Although we only used rough estimates, we ended up with a result that formalizes our intuition that it becomes more difficult and unlikely for larger numbers to be prime. But also note that by our treatment of what &quot;the probability of being prime&quot; means,</p>
+<center>
+
+$\displaystyle f(n) = \mathbb{P}(n \ \textrm{is prime}) = \mathbb{P}(\textrm{has no prime divisor} \ p&lt;n)$
+
+</center>
+
+<p>all numbers less than $n$ should have the same probability of not having a prime divisor less than $p&lt;n$—after all, we treated our probability of not having a divisor $p$ as $\frac{1}{p}$ which only depends on $p$, not $n$, formalizing the idea of &quot;dodging&quot; being in the fraction of numbers that are a multiple of $p$. So a more accurate statement is that the <em>fraction of numbers that are prime from 1–$n$ is proportional</em> to $\frac{1}{\ln(n)}$. If this is unclear why we specify this, just imagine we include prime divisors $p&gt;n$. Even though it&#39;s impossible for $p \mid n$ with $p&gt;n$, our intuition of not being in the fraction of numbers that are mulitiples of $p$ would have us include an additional factor of $1-\frac{1}{p}$ in our product. This obviously lowers our probability just by considering a wider range of numbers that &quot;miss&quot; dividng $n$, but in actuality have no impact on the actual prime-ness of $n$ (what we&#39;ve stumbled upon for formalizing probability is known as <a href="https://en.wikipedia.org/wiki/Natural_density">natural density</a>).</p>
+<p>With this in mind, let&#39;s keep moving forward where we&#39;ll later do this with the rigor it deserves.</p>
+<hr>
+<p>It should be noted that weirdly enough, as nice as this intuitive argument is, it is actually just techincally, barely wrong. In reality,  the asymptotics we&#39;ve been studying actually look like</p>
+<center>
+
+$\displaystyle f(n) \approx \prod_{p&lt;n \ \textrm{prime}} \left(1 - \frac{1}{p} \right) \approx \frac{1}{e^{\gamma} \ln(n)}$
+
+</center>
+
+<p>where $\gamma$ is the <a href="https://en.wikipedia.org/wiki/Euler%27s_constant">Euler–Mascheroni constant</a>. I don&#39;t have a good answer why this is the case and what our argument misses besides the fact that we worked with estimates and assumed independence of of divisibility.</p>
+<!-- But let's clear up exactly what we meant by "probability of being prime". Using our Sieve of Eratosthenes, we are considering how many integers in 1–$n$ dodge being a multiple of all the primes less than $n$. So in our loose definition of what the probability of being prime means, we are saying that approximately the fraction of numbers that are prime in the range 1–$n$ is $\frac{1}{\ln(n)}$. -->
+<h2 id="distributions-and-the-prime-number-theorem">Distributions and the Prime Number Theorem</h2>
+<p>With our first little idea in the works that primes are approximately logarithmically distributed, we now look for some more precise results on how the primes are distributed.  </p>
+<h3 id="bertrand-s-postulate">Bertrand&#39;s Postulate</h3>
+<p>Perhaps one of the earliest and most well-known distribution results we have is Bertrand&#39;s Postulate. Due to the logarithmic nature we&#39;ve found, it shouldn&#39;t be surprising that this result involves a multiplicative range instead of an arithmetic one:</p>
+<p><strong>Bertrand&#39;s Postulate:</strong> $\forall n \geq 2,  \ \exists p \ \textrm{prime s.t.} \ n&lt;p&lt;2n$</p>
+<p>This doesn&#39;t necessarily say this is the smallest guaranteed interval to find a prime, nor does it say this interval generates a unique prime (for example, 7 satisfies the Postulate for both $n=4,5$). Nonetheless, it characterizes that feeling of having to expand our search for primes to greater ranges of integers. But what about the range $[n,2n]$ necessitates a prime being there?</p>
+<hr>
+<p><strong>Proof (Erdős):</strong> Before we get into the proof, we are first going to want to play around with what will become our key guide towards the proof. Consider</p>
+<center>
+
+$\displaystyle {2n \choose n} = \frac{(2n)!}{(n!)^2}$
+
+</center>
+
+<p>If you try factoring this for a few values of $n$, something apparent appears. For example, here&#39;s the factorization for $n=22$.</p>
+<center>
+
+$\displaystyle {2\cdot 22 \choose 22} = 2^3\cdot 3 \cdot5 \cdot 13 \cdot \color{red}{23} \cdot \color{red}{29} \cdot \color{red}{31} \cdot \color{red}{37} \cdot \color{red}{41} \cdot \color{red}{43}$
+
+</center>
+
+<p>It seems that $2n \choose n$ contains all prime factors between $n$ and $2n$ once, and no prime factor greater $2n$. We&#39;re going to try and use that fact to bound $2n \choose n$ appropriately to show that there needs to be at least one prime factor in $[n,2n]$ for it to be not too small and not too large. If we&#39;re going to talk about its factorization via how large it is, let&#39;s start to find some inequalities. </p>
+<p><strong>Lemma 1:</strong> $ \ \displaystyle \frac{4^n}{2n} \leq {2n \choose n}$ </p>
+<p><strong>Proof:</strong> $4^n = (1+1)^{2n} = \sum_{k=0}^{2n} {2n \choose k} = 2 + \sum_{k=1}^{2n-1} {2n \choose k} \leq 2n \cdot {2n \choose n}$. The last inequality comes from the middle binomial coefficient being the greatest. $\ \blacksquare$</p>
+<p>Next, it seems natural we should understand the prime factorization of factorials. Let $R_p(n)$ be the largest exponent such that for a prime $p$, $p^R \mid n$ (note for <em>any</em> prime $p$; it might be that $R_p(n) = 0$). We are interested in $R_p({2n \choose n})$.</p>
+<p><strong>Lemma 2:</strong> For any prime $p$ and $R = R_p({2n \choose n})$, $ \ \displaystyle p^R \leq 2n$.</p>
+<p><strong>Proof:</strong> There&#39;s a nice <a href="https://en.wikipedia.org/wiki/Legendre%27s_formula">formula</a> (due to Legendre) that gives </p>
+<center>
+
+$\displaystyle R_p(n!) = \sum_{i=1}^{\infty} \left\lfloor \frac{n}{p^i} \right\rfloor$
+
+</center>
+
+<p>If this is not obvious, the idea is that you count how many multiples of $p,p^2,p^3,\cdots$ appear from $1$ to $n$, and each occurrence contributes 1 to the exponent $R$ (it&#39;s only one contribution even for $p^2,p^3,\cdots$ since we already count each of the factors previously i.e. $p^2$ is a multiple of $p$ as well). Further, if $p^i &gt; n$, then the $\left\lfloor \frac{n}{p^i} \right\rfloor$ reduces to 0 so we don&#39;t count powers of primes that don&#39;t divide $n!$.</p>
+<p>Back to the problem at hand, since we&#39;re considering the division of two factorials, $R = R_p({2n \choose n})$ gains contributions from powers of $p$ in $(2n)!$ and loses powers from the division of powers of $p$ in $(n!)^2$. Hence,</p>
+<center>
+
+$\displaystyle R = \sum_{i=1}^{\infty} \left\lfloor \frac{2n}{p^i} \right\rfloor - 2\sum_{i=1}^{\infty} \left\lfloor \frac{n}{p^i} \right\rfloor = \sum_{i=1}^{\infty} \left( \left\lfloor \frac{2n}{p^i} \right\rfloor - 2\left\lfloor \frac{n}{p^i} \right\rfloor \right)$
+
+</center>
+
+<p>It&#39;s not hard to see (if you want, just graph it) that the only values of this final sum&#39;s terms are</p>
+<center>
+
+$\displaystyle \left\lfloor \frac{2n}{p^i} \right\rfloor - 2\left\lfloor \frac{n}{p^i} \right\rfloor = \begin{cases} 0 &amp; \textrm{if} \ \left\lfloor \frac{n}{p^i} \right\rfloor \bmod 1 &lt; \frac{1}{2} \\ 1 &amp; \textrm{if} \ \left\lfloor \frac{n}{p^i} \right\rfloor \bmod 1 \geq \frac{1}{2} \end{cases}$
+
+</center>
+
+<p>(This essentially checks if doubling $n$ to $2n$ has room for another multiple of $p^i$ beyond the expected contributions in the ranges of length $n$). Alternatively, notice that each term is an integer, and</p>
+<center>
+
+$\displaystyle \left\lfloor \frac{2n}{p^i} \right\rfloor - 2\left\lfloor \frac{n}{p^i} \right\rfloor &lt; \frac{2n}{p^i} - 2\left( \frac{n}{p^i} - 1 \right) = 2$
+
+</center>
+
+<p>Further, this term is all 0 when $p^i &gt; 2n$ i.e. $i &gt; \log_p(2n)$ by the floor function. So, $R \leq \log_p(2n)$ and thus $p^R \leq p^{\log_p(2n)} = 2n$. $ \ \blacksquare$</p>
+<hr>
+<p>Already, we can deduce quite a lot of information about the number of primes that divide $2n \choose n$. Using our two lemmas, let $p_1,\cdots,p_\ell$ be the primes dividing $2n \choose n$. Then</p>
+<center>
+
+$\displaystyle \frac{4^n}{2n} \leq {2n \choose n} = \prod_{i = 1}^\ell p_i^{R_p({2n \choose n})} \leq \prod_{i = 1}^\ell 2n = (2n)^\ell$
+
+</center>
+
+<p>Taking logarithms, we get that $\ell \geq \frac{2n \log(2)}{\log(2n)} - 1$, giving a lower bound on <em>how many</em> primes must divide $2n \choose n$. Also, it is clear that no prime dividing ${2n \choose n}$ can be greater than $2n$ (check Legendre&#39;s formula if needed) and so in particular this gives us an upper bound on $\pi(2n)$ the number of primes less than or equal to $2n$.</p>
+<hr>
+<p><strong>Lemma 3:</strong> If $p$ is an odd prime and $\frac{2n}{3} &lt; p \leq n$, then $R_p({2n \choose n}) = 0$.</p>
+<p><strong>Proof:</strong> $(2n)!$ contains two factors of $p$ via $p$ and $2p$. $(n!)^2$ also contains two factors of $p$. These factors cancel in ${2n \choose n}$. The bound ensures that $3p &gt; 2n$ cannot appear in the numerator to contribute more factors (and it being odd makes it so that $2p$ doesn&#39;t contribute more than expected). $\blacksquare$</p>
+<p>It&#39;s also easy to see by similar reasoning that for prime $p$:</p>
+<ul>
+<li>if $n&lt;p\leq 2n$, then $R_p({2n \choose n}) = 1$</li>
+<li>if $p &gt; 2n$, then $R_p({2n \choose n}) = 0$</li>
+</ul>
+<p>These will be useful later. Finally, we need one more simpler bound before proving the Postulate. We&#39;ll introduce one last piece of notation for the <strong>primorial</strong>.</p>
+<center>
+
+$\displaystyle n\# = \prod_{p \leq n \ \textrm{prime}} p$
+
+</center>
+
+<p>It&#39;s essentially $n!$ but only looking at primes less than $n$ as opposed to all integers less than $n$.</p>
+<p><strong>Lemma 4:</strong> For $n\geq 1$, $n\# &lt; 4^n$.</p>
+<p><strong>Proof:</strong> We&#39;ll do this by induction, checking even and odd cases (the base cases are easy to check). Supoose this holds for up to $n-1$.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>(Even)</strong> Say $n$ is even i.e. $n=2k$. Since $2k$ is composite, then by the inductive hypothesis,</p>
+<center>
+$(2k)\# = (2k-1)\# &lt; 4^{2k-1} &lt; 4^{2k}$
+</center>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>(Odd)</strong> Say $n$ is odd i.e. $n=2k+1$, and consider </p>
+<center>
+
+<!-- $\displaystyle {2k+1 \choose k} = \frac{(2k+1)!}{k!(k+1)!} > \prod_{i=k}^{2k} i > \prod_{\textrm{prime} \ k+2 \leq p \leq 2k+1} p = \frac{(2k+1)\\#}{(k+1)\\#}$  -->
+$\displaystyle {2k+1 \choose k} = \frac{(2k+1)!}{k!(k+1)!} &gt; \prod_{\textrm{prime} \ k+2 \leq p \leq 2k+1} p = \frac{(2k+1)\#}{(k+1)\#}$ 
+
+</center>
+
+<p>We get the inequality since the binomial coefficient is an integer, with all the prime factors between $k+2$ and $2k+1$ dividing it since they divide the numerator but not the denominator. These relations get us close to allowing use of our inductive hypothesis.</p>
+<center>
+
+$\begin{align} 
+(2k+1)\# &amp; = (k+1)\# \cdot \frac{(2k+1)\#}{(k+1)\#} \\
+&amp; &lt; 4^{k+1} \cdot {2k+1 \choose k} \\
+&amp; &lt; 4^{k+1} \cdot 2^{2k} \\
+&amp; = 4^{2k+1}
+\end{align}$ 
+
+</center>
+
+<p>We get the last inequality by noting that $\sum_{i=0}^{2k+1} {2k+1 \choose i} = 2^{2k+1}$ and ${2k+1 \choose k} = {2k+1 \choose k+1}$ since $2k+1$ is odd. So ${2k+1 \choose k} &lt; \frac{1}{2} 2^{2k+1} = 2^{2k}$. $\ \blacksquare$</p>
+<p><strong>Proof of Bertrand&#39;s Postulate:</strong> Say this is false, and let $n \geq 3$ be such a counterexample with no prime $p$ in the interval $n &lt; p &lt; 2n$. Note by our lemmas, there are no prime factors $p$ of $2n \choose n$ such that:</p>
+<ul>
+<li>$2n &lt; p$ as such a factor must divide $(2n)!$</li>
+<li>$p = 2n$ since $2n$ is even</li>
+<li>$n&lt;p&lt;2n$ by assumption</li>
+<li>$\frac{2n}{3} &lt; p \leq n$ by <strong>Lemma 3</strong></li>
+</ul>
+<p>So all prime factors of $2n \choose n$ must be $p \leq \frac{2n}{3}$. So we can simplify the prime factorization to be</p>
+<center>
+
+$\displaystyle {2n \choose n} =  \prod_{\textrm{prime } p} p^{R} = \prod_{p \leq \frac{2n}{3}} p^{R}$
+
+</center>
+
+<p>But also, if $p &gt; \sqrt{2n}$, then ${2n \choose n}$ has at most one factor of $p$ (since $p^2 &gt; 2n$ and can&#39;t divide $(2n)!$ i.e. see Lemma 2). So, if we can further simplify our prime factorization for that interval</p>
+<center>
+
+$\displaystyle {2n \choose n} = \prod_{p \leq \frac{2n}{3}} p^{R} = \left( \prod_{p \leq \sqrt{2n}} p^{R} \right) \left(\prod_{\sqrt{2n} &lt; p \leq \frac{2n}{3}} p^{R} \right) \leq \left( \prod_{p \leq \sqrt{2n}} p^{R} \right) \left(\prod_{\sqrt{2n} &lt; p \leq \frac{2n}{3}} p^{1} \right)$
+
+</center>
+
+<p>Using <strong>Lemma 2</strong>, we can bound $p^R \leq 2n$. Also, obviously, there can only be at most $\sqrt{2n} - 1$ distinct prime numbers less than or equal to $\sqrt{2n}$ (there are only that many integers less than $\sqrt{2n}$ excluding 1, after all). Starting with <strong>Lemma 1</strong> and ending with <strong>Lemma 4</strong>, we can combine all of this into one final inequality.</p>
+<center>
+
+$\begin{align} 
+\frac{4^n}{2n} \leq {2n \choose n} &amp; \leq \left( \prod_{p \leq \sqrt{2n}} p^{R} \right) \left(\prod_{\sqrt{2n} &lt; p \leq \frac{2n}{3}} p \right) \\
+&amp; \leq (2n)^{\sqrt{2n} - 1} \prod_{p \leq \frac{2n}{3}} p \\
+&amp; &lt; (2n)^{\sqrt{2n} - 1} 4^{2n/3} \\
+\end{align}$
+
+</center>
+
+<p>Rearranging a little bit more, we end with the inequality</p>
+<center>
+
+$\displaystyle 4^{n/3} \leq (2n)^{\sqrt{2n}} \Rightarrow 2^{\sqrt{2n}} \leq (2n)^3$
+
+</center>
+
+<p>This inequality fails for $n&gt;427$, giving us our contradiction that we needed. Hence, we have shown Bertrand&#39;s Postulate is true for $n&gt;427$. </p>
+<p>To show it for $n\leq 426$, this is small enough that we don&#39;t need to do anything hard; we can just find a set of primes that work for all desired intervals. Consider the list</p>
+<center>
+
+$3,5,7,13,23,43,83,163,317,631$
+
+</center>
+
+<p>This sequence of primes are chosen to be such that the next prime in the sequence is the largest prime less than twice the previous. We don&#39;t need to know all the primes less than 427 and check every case of $(n,2n)$, since these give us all the examples we need!</p>
+<center>
+$\blacksquare$
+</center>
+
+<hr>
+<p>Despite its simplicity, the impact of Bertrand&#39;s Postulate can be found in many results. For example, it gives a simple bound on prime gaps: if you have a prime $p$, you know you only have to search up to $2p$ before you find your next prime. However, these types of bounds are rarely obvious.</p>
+<p><strong>Legendre&#39;s Conjecture (Unsolved):</strong> $\forall n \geq 2,  \ \exists p \ \textrm{prime s.t.} \ n^2&lt;p&lt;(n+1)^2$.</p>
+<p>Note that $(n+1)^2 \leq 2n^2$ for $n&gt;2$, so we can&#39;t solve this using Bertrand&#39;s postulate. This is not to say there have not been improvements, however:</p>
+<p><strong>Nagura (1952):</strong> $\forall n \geq 25,  \ \exists p \ \textrm{prime s.t.} \ n&lt;p&lt;\frac{6}{5}n$</p>
+<p>Getting hard, concrete bounds like this are rarely tangible, as the insight necessary to get an object to analyze is quite demanding. Even for the above proof, it is not totally obvious that the point of investigation begins at binomial coefficients. With the major result of the Prime Number Theorem at the end, we will obtain asymptotic bounds to shrink this interval as much as we want.</p>
+<p>Here&#39;s another interesting consequence of Bertrand&#39;s postulate:</p>
+<!-- https://www3.nd.edu/~dgalvin1/pdf/bertrand.pdf -->
+<p><strong>Claim:</strong> The set $\{1,2,3,\cdots,2n\}$ can be partitioned into pairs $\{a_1,b_1\}$, $\{a_2,b_2\}$, $\cdots$, $\{a_n,b_n\}$ so that for all pairs $a_i + b_i$ is prime.</p>
+<p><strong>Proof:</strong> We use induction.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Base Case:</strong> $n = 1$ works as $1+2=3$ is prime. </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Inductive Step:</strong> Say we can find such a partitioning for any set of even size less than $2n$. By Bertrand&#39;s Postulate, there is a prime $2n &lt; p &lt; 4n$, i.e. there is a prime of the form $p = 2n + m$ for $1 \leq m &lt; 2n$ (note $m$ must be odd). We can now pair off some numbers in the set by</p>
+<center>
+
+$\displaystyle \left\{2n,m \right \},\{2n-1,m+1\},\{2n-2,m+2\},\cdots,\left \{n + \left\lceil \frac{m}{2} \right\rceil, n + \left\lfloor \frac{m}{2} \right\rfloor \right \}$
+
+</center>
+
+<p>with every pair summing to $p$. These pairs take care of the numbers $\{m,m+1,\cdots,2n\}$. The remaining set of $\{1,2,\cdots,m-1\}$ can be partitioned by the inductive hypothesis (since $m-1 &lt; 2n$ is even). $\ \blacksquare$</p>
+<p>Also, we can chain intervals together if we want to find lots of distinct primes. I.e. if we look in the intervals $[1,2]$, $[2,4]$, $[4,8]$, etc., because each interval picks up exactly where the last one left off, we can find as many distinct primes as intervals we&#39;re willing to check. In fact, we&#39;ve already briefly seen this trick used once in Willan&#39;s formula:</p>
+<center>
+
+$\begin{align} \Phi(n) = 1 + \sum_{i=1}^{\color{red}{2^n}} \left\lfloor \left( \frac{n}{\sum_{j=0}^{i} \left\lfloor \cos^2 \left( \frac{(j-1)! + 1}{j} \pi \right) \right\rfloor }  \right)^{1/n} \right\rfloor \end{align}$
+
+</center>
+
+<p>The $2^n$ ensures we find <em>at least</em> $n$ distinct primes as we check the intervals $[1,2]$, $[2,4]$, $[4,8]$, etc. This guarantee of finding new primes in these intervals lends itself quite nicely to prime generation, even if in unexpected ways:</p>
+<p><strong>Wright&#39;s Prime Generating Formula:</strong> There&#39;s a value of $\alpha \in (1,2)$ such that </p>
+<center>
+
+$\displaystyle \left\lfloor 2^\alpha \right\rfloor, \left\lfloor 2^{2^\alpha} \right\rfloor, \left\lfloor 2^{2^{2^\alpha}} \right\rfloor, \cdots$
+
+</center>
+
+<p>are all prime. (The value <a href="https://www.jstor.org/stable/2306356">Wright originally gave</a> was $\alpha \approx 1.929$)</p>
+<p><strong>Proof:</strong> Just to be clear, what we&#39;re exactly saying is that there&#39;s a value $\alpha$ such that for the recurrence</p>
+<center>
+
+$\displaystyle g_0 = \alpha, \ \ \ g_{n+1} = 2^{g_n}$
+
+</center>
+
+<p>we have $\left\lfloor g_n \right\rfloor$ is prime. The idea is that we want to bound $p_n &lt; g_n &lt; p_n + 1$, which leads naturally to trying to find our constant $\alpha$ in between the repeated <em>logarithms</em> of $p_n$ and $p_n + 1$. We can ensure such a constant exists by picking primes that are spaced far enough away—hence Bertrand&#39;s Postulate—that will help create a sequence that converges to $\alpha$. </p>
+<p>So, first we choose a sequence of primes $p_n$ such that</p>
+<ul>
+<li>$p_1 = 2$ or $3$,</li>
+<li>$2^{p_n} &lt; p_{n+1} &lt; p_{n+1} + 1 &lt; 2^{p_{n} + 1}$ </li>
+</ul>
+<p>We know we can choose such a sequence of primes thanks to Bertrand&#39;s Postulate. These will be the primes our magic sequence $\lfloor g_n \rfloor$ will generate. Taking the $\log_2$ (from here on, $\log$ will refer to $\log_2$) of this inequality, we find that</p>
+<center>
+
+$\displaystyle p_n &lt; \log(p_{n+1}) &lt; \log(p_{n+1} + 1) &lt; p_{n} + 1$
+
+</center>
+
+<p>Now we define two more sequences:</p>
+<center>
+
+$\displaystyle u_n = \log^{(n)} (p_n) \ \ \ \ \ \ \ \ \  v_n = \log^{(n)}(p_n + 1)$
+
+</center>
+
+<p>where $\log^{(n)} (x) = \overset{\textrm{n times}}{\overline{\log(\log(\cdots \log}}(x) \cdots ))$ i.e. the $n$-fold composition of $\log$ with itself. By taking further $\log$ of our inequalities $n$ times, we get that</p>
+<center>
+
+$\displaystyle u_{n} &lt; u_{n+1} &lt; v_{n+1} &lt; v_{n}$
+
+</center>
+
+<p>$u_{n}$ is a bounded (by $v_1$) monotonically increasing sequence, and so it converges $u_n \rightarrow \alpha$. So we obtain that $u_n &lt; \alpha &lt; v_n$ ($v_n$ might converge to something else, but we know at least that all terms of $v_n$ must be greater than $\alpha$ or else it&#39;d contradict our inequalities above).</p>
+<p>By letting $g_0 = \alpha$, and $g_{n+1} = 2^{g_n}$ as described, and repeatedly raising our inequalities to the power 2, we then get</p>
+<center>
+
+$\displaystyle u_{n} &lt; \alpha &lt; v_{n} \Rightarrow p_n &lt; g_n &lt; p_n + 1$
+
+</center>
+
+<p>Therefore, $\lfloor g_n \rfloor = p_n$ and follows our sequence of primes. $\ \blacksquare$</p>
+<hr>
+<p>Actually <em>computing</em> such an $\alpha$ is not easy though. We&#39;ve shown the existence of such a number as the limit of a sequence, but finding that limit is quite hard. Even calculating approximations of $\alpha$ via $u_n$ is hard, since we need to <em>already have a sequence of primes</em> $p_n$ predetermined (so unfortunately, this isn&#39;t that useful for actually <em>generating</em> more primes, but at best generating numbers close to primes outside of our seqeuence). </p>
+<p>But because it&#39;s sequence dependent, there are many such constants that serve our purpose. For instance, if we let</p>
+<center>
+
+$\displaystyle p_1 = 3, p_2 = 13, p_3 = 16381$
+
+</center>
+
+<p>we can find that it&#39;s corresponding $\alpha$ (which is also maximal) is about</p>
+<center>
+
+$\begin{align} 
+
+\log(3) &amp; \approx 1.5849625 \\
+\log(\log(13)) &amp; \approx 1.8876967 \\
+\log(\log(\log(16381))) &amp; \approx 1.9287787 \\
+
+\end{align}$
+
+</center>
+
+<p>If we instead choose a different sequence, like</p>
+<center>
+
+$\displaystyle p_1 = 2, p_2 = 5, p_3 = 37$
+
+</center>
+
+<p>we can find a different approximation:</p>
+<center>
+
+$\begin{align} 
+
+\log(2) &amp; = 1 \\
+\log(\log(5)) &amp; \approx 1.2153233 \\
+\log(\log(\log(37))) &amp; \approx 1.2516476 \\
+
+\end{align}$
+
+</center>
+
+<p>Also, if you like these power-towers and primes, we&#39;re quite lucky Bertrand&#39;s postulate finds a prime in $n &lt; p &lt; 2n$, as that also immediately means we can find primes in $n &lt; p &lt; 3n$, or in any range $n &lt; p &lt; Bn$. So really, we can generalize our theorem and proof quite easily to instead say:</p>
+<p><strong>Claim:</strong> For all $B \geq 2$, there&#39;s a value of $\alpha$ such that </p>
+<center>
+
+$\displaystyle \left\lfloor B^\alpha \right\rfloor, \left\lfloor B^{B^\alpha} \right\rfloor, \left\lfloor B^{B^{B^\alpha}} \right\rfloor, \cdots$
+
+</center>
+
+<p>are all prime.</p>
+<!-- can improve this B value to any (1+epsilon) with PNT -->
+<h2 id="prime-number-theorem">Prime Number Theorem</h2>
+<p>Bertrand&#39;s Postulate gave us a nice first step towards making precise how primes are distributed by giving us an upper bound on how frequently primes arise. Bringing things back around, Bertrand&#39;s Postulate also suggests that the number of primes grows at least logarithmically. Again, consider the intervals</p>
+<center>
+
+$\displaystyle (1,2]$, $(2,4]$, $(4,8],\cdots$
+
+</center>
+
+<p>We know there is at least 1 prime in each of these disjoint intervals, so we know that $p_n \leq 2^n$ where $p_n$ is the nth prime. Thus, if we let $\pi(x)$ be the prime-counting function from before, then we have that $\pi(x) \geq \log_2(x)$. Of course, this is not that close to our previous estimate with $\pi(x) \approx \frac{x}{\ln(x)}$, but it is an initial, definitive start beyond our heuristics to precisely describe the distribution of primes.</p>
+<p>We can, however, bound $\pi(x)$ with just Bertrand&#39;s postulate in a promising way. From here on, $\log$ refers to the natural logarithm $\ln$. Recall from before that we found that </p>
+<center>
+$\displaystyle \pi(2n) \geq \frac{2n \log(2)}{\log(2n)} - 1 = \frac{2n}{\log(2n)}\left(\log(2) - \frac{\log(2n)}{2n} \right)$
+</center>
+
+<p>This, however, suffers from the fact that our proof only makes sense for integers $n$. If we want to extend this to all real numbers $x\geq 2$, we will need to work around it a bit more. Let $n=\lfloor x/2 \rfloor$, so $2n \leq x &lt; 2n+2$ and in particular $x - 2 &lt; 2n$.</p>
+<center>
+$\displaystyle \pi(x) \geq \pi(2n) \geq \frac{2n}{\log(2n)}\left(\log(2) - \frac{\log(2n)}{2n} \right) \geq \frac{x-2}{\log(x)}\left(\log(2) - \frac{\log(2n)}{2n} \right)$
+</center>
+
+<p>The function $\frac{\log(x)}{x}$ is maximized at $x=e$ with value $\frac{1}{e}$. Also, for $x\geq 4$, $x-2 \geq \frac{x}{2}$</p>
+<center>
+$\displaystyle \pi(x) \geq \frac{x-2}{\log(x)}\left(\log(2) - \frac{\log(2n)}{2n} \right) \geq \frac{x}{\log(x)} \cdot \frac{1}{2}\left(\log(2) - \frac{1}{e} \right)$
+</center>
+
+<p>So we have bounded from below $\pi(x)$ by $\frac{x}{\log(x)}$ up to a positive constant (one can just check that this also holds for $4 &gt; x\geq 2$). This bound is nowhere near optimal, but I tried giving a constant that was most readily calculable with less additional verification needed; we could give better bounds but have to check for smaller values manually, and or have seemingly arbitrary constants pop out of nowhere to verify later. We can also give a similar upper bound, but it will take a bit more work. First notice that</p>
+<center>
+$\displaystyle 4^n = \sum_{k=0}^{2n} {2n \choose k} \geq {2n \choose n} \geq \prod_{n \leq p \ \textrm{prime} \leq 2n} p \geq \prod_{n \leq p \ \textrm{prime} \leq 2n} n = n^{\pi(2n) - \pi(n)}$
+</center>
+
+<p>Again taking logarithms, we have</p>
+<center>
+$\displaystyle \pi(2n) - \pi(n) \leq \frac{n\log (4)}{\log (n)}$
+</center>
+
+<p>This is close to what we want, in that $\pi(2n) - \pi(n)$ counts the number of primes in the interval $(n,2n]$ of length $n$, but we want the number of primes in the interval $(0,n]$. And as before, to make this work for real numbers, our bounds have to a be a bit more careful. Let $n = \lfloor x \rfloor$ i.e. $n \leq x &lt; n+1$.</p>
+<center>
+
+$\begin{align}
+
+\pi(2x)-\pi(x) &amp; \leq \pi(2(n+1)) - \pi(n) \\
+&amp; = \big(\pi(2n+2) - \pi(2n) \big) + \big(\pi(2n) - \pi(n) \big) \\
+&amp; \leq 2 + \frac{n \log(4)}{\log(n)} \\
+&amp; = \frac{n}{\log(n)} \left( 2 \cdot \frac{\log(n)}{n} + \log(4)  \right) \\
+&amp; \leq \frac{n}{\log(n)} \left( 2 \cdot \frac{1}{e} + \log(4)  \right) \\
+&amp; \leq \frac{x}{\log(\sqrt{x})} \left(\frac{2}{e} + \log(4)  \right) \\
+&amp; = \frac{x}{\log(x)} \cdot 2 \left(\frac{2}{e} + \log(4)  \right) \\
+
+\end{align}$
+
+</center>
+
+<p>The only main point of interest is to recall that for $x\geq 3$, we have $n \geq x - 1 \geq \sqrt{x}$. We can now chain together exponentially decreasing intervals with a suitable cut-off to bound $\pi(x)$. Let $\ell$ be the greatest integer such that $x/2^\ell &gt; \sqrt{x}$. </p>
+<center>
+
+$\begin{align}
+
+% \pi(x) = \left( \pi(x) - \pi \left(\frac{x}{2} \right) \right) + \left( \pi\left(\frac{x}{2^{2}} \right) - \pi\left(\frac{x}{2^{3}} \right) \right) + \cdots + \left( \pi\left(\frac{x}{2^{\ell}} \right) - \pi\left(\frac{x}{2^{\ell + 1}} \right) \right) + \pi\left(\frac{x}{2^{\ell + 1}} \right)
+
+\pi(x) &amp; = \left( \pi(x) - \pi \left(\frac{x}{2} \right) \right) + \pi\left(\frac{x}{2} \right) \\
+&amp; = \sum_{k=0}^{\ell} \left( \pi \left( \frac{x}{2^{k}} \right) - \pi \left( \frac{x}{2^{k+1}} \right)  \right) + \pi \left( \frac{x}{2^{\ell+1}} \right) \\
+&amp; \leq \sum_{k=0}^{\ell} \left(  \frac{x/2^{k+1}}{\log\left(x/2^{k+1} \right)} \cdot c  \right) + \pi \left( \frac{x}{2^{\ell+1}} \right)
+
+
+\end{align}$
+
+</center>
+
+<p>where $c$ is the constant found before. Now for all $k \leq \ell$, we have $x/2^k &gt; \sqrt{x}$ i.e. $\log\left(x/2^k \right) &gt; \frac{1}{2} \log(x)$.</p>
+<center>
+
+$\begin{align}
+
+\pi(x) &amp; \leq \sum_{k=0}^{\ell} \left(  \frac{x/2^{k+1}}{\log\left(x/2^{k+1} \right)} \cdot c \right) + \pi \left( \frac{x}{2^{\ell+1}} \right) \\
+&amp; \leq \sum_{k=0}^{\ell} \left(  \frac{x/2^{k+1}}{\frac{1}{2}\log(x)} \cdot c \right) + \pi \left( \frac{x}{2^{\ell+1}} \right) \\
+&amp; = \frac{x}{\log(x)} \cdot c \cdot \sum_{k=0}^{\ell} \left(  \frac{1}{2^{k}} \right) + \pi \left( \frac{x}{2^{\ell+1}} \right) \\
+&amp; \leq \frac{x}{\log(x)} \cdot c \cdot 1 + \pi \left( \frac{x}{2^{\ell+1}} \right) \\
+&amp; \leq \frac{x}{\log(x)} \cdot c + \sqrt{x} \\
+&amp; \leq \frac{x}{\log(x)} \cdot c + \frac{x}{\log(x)} \\
+&amp; = \frac{x}{\log(x)}\left(c + 1 \right) \\
+&amp; = \frac{x}{\log(x)}\left(\frac{4}{e} + 2\log(4) + 1 \right)
+
+\end{align}$
+
+</center>
+
+<p>Recalling by construction that $x/2^{\ell+1} \leq \sqrt{x}$, and the trivial bound $\pi\left(x/2^{\ell+1}\right) \leq x/2^{\ell+1}$. We also used that $\log(x) \leq \sqrt{x}$ i.e. $\sqrt{x} \leq x/\log(x)$. All together, we have </p>
+<center>
+
+$\displaystyle \frac{x}{\log(x)} \left(\frac{1}{2}\log(2) - \frac{1}{2e} \right) \leq \pi(x) \leq \frac{x}{\log(x)}\left(\frac{4}{e} + 2\log(4) + 1 \right)$
+
+</center>
+
+<p>This gives some real, concrete motivation to pursue the Prime Number Theorem.</p>
+<hr>
+<h3 id="proof-of-the-prime-number-theorem">Proof of the Prime Number Theorem</h3>
+<p>For the sake of time, we give up some elementary-ness for concision in the following proof of the Prime Number Theorem. In the spirit of analytic number theory as we tasted before with Euler&#39;s proof of the infinitude of primes, we will borrow some (in the grand scheme simple) tools from complex analysis, investigating the properties of some specific functions to get at the result we want. The original paper can be found <a href="https://people.mpim-bonn.mpg.de/zagier/files/doi/10.2307/2975232/fulltext.pdf">here</a>. If you aren&#39;t already familiar with holomorphic functions, types of convergence, complex integrals, and the like, here&#39;s a good time to catch up on it. Not much is totally needed, but we need to be careful of the details.</p>
+<p>The ultimate idea of the proof is to analyze analytic properties of some functions to deduce results about their asymptotics.</p>
+<p><strong>Prime Number Theorem:</strong> $\pi(x) \sim \frac{x}{\log(x)}$, that is, $\lim_{x \to \infty} \frac{\pi(x)}{x/\log(x)} = 1$.</p>
+<p>From here on out, to simplify notation, $p$ will always refer to indexing primes, and as often as possible I&#39;ll try to keep $s \in \mathbb{C}$ reserved for complex variables and $x \in \mathbb{R}$ for real ones. The three functions of interest to us for this proof are:</p>
+<ul>
+<li>$\displaystyle \zeta(s) = \sum_{n=1}^{\infty} \frac{1}{n^s}$ (the Riemann Zeta Function)</li>
+<li>$\displaystyle \vartheta(x) = \sum_{p \leq x} \log p$ (the first Chebyshev function)</li>
+<li>$\displaystyle \Phi(s) = \sum_{p} \frac{\log p}{p^s}$ (I couldn&#39;t find a name for this one)</li>
+</ul>
+<p>The main goal of this proof is to prove the following equivalent statement.</p>
+<p><strong>Theorem:</strong> The Prime Number Theorem is equivalent to $\vartheta(x) \sim x$.</p>
+<p>This shouldn&#39;t be too surprising given that $π(x) = \sum_{p \leq x} 1$, so the logarithmic factor might be expected.</p>
+<p><strong>Proof:</strong> We will appropriately bound the limits by each other to determine equality. First, note </p>
+<center>
+
+$\displaystyle \vartheta(x) = \sum_{p \leq x} \log p \leq \sum_{p \leq x} \log x = \pi(x) \log(x)$.
+
+</center>
+
+<!-- Dividing by $x$, and letting $x \rightarrow \infty$, -->
+<p>Dividing by $x$,</p>
+<center>
+
+<!-- $\displaystyle \frac{\vartheta(x)}{x} \leq \frac{\pi(x) \log(x)}{x}$. -->
+<!-- $\displaystyle \lim \limits_{x \rightarrow \infty} \frac{\vartheta(x)}{x} \leq \liminf\limits_{x\rightarrow \infty} \frac{\pi(x) \log(x)}{x}$ -->
+$\displaystyle \frac{\vartheta(x)}{x} \leq \frac{\pi(x) \log(x)}{x}$
+
+</center>
+
+<!-- To get the corresponding lower bound, let $\alpha \in (0,1)$. -->
+<p>To get the corresponding lower bound, let $\epsilon \in (0,1)$.</p>
+<center>
+
+<!-- $\displaystyle \vartheta(x) = \sum_{p \leq x} \log p \geq \sum_{x^\alpha \leq p \leq x} \log p \geq \left(\pi(x) - \pi(x^\alpha) \right) \log(x^\alpha) \geq \alpha \left(\pi(x) - x^\alpha \right)  \log(x)$ -->
+$\begin{align} 
+
+\vartheta(x) = \sum_{p \leq x} \log p \geq \sum_{x^{1-\epsilon} \leq p \leq x} \log p &amp; \geq \left(\pi(x) - \pi(x^{1-\epsilon}) \right) \log(x^{1-\epsilon}) \\ 
+&amp; \geq (1-\epsilon) \left(\pi(x) - x^{1-\epsilon} \right)  \log(x)
+
+
+\end{align}$
+
+
+</center>
+
+<!-- Again dividing by $x$ and letting $x \to \infty$: -->
+<p>Again dividing by $x$,</p>
+<center>
+
+<!-- $\displaystyle 1 \geq \alpha \limsup\limits_{x\rightarrow \infty} \frac{\left(\pi(x) - x^\alpha \right) \log(x)}{x} = \alpha \limsup\limits_{x\rightarrow \infty} \frac{\pi(x) \log(x)}{x}$ -->
+$\displaystyle \frac{\vartheta(x)}{x} \geq (1 - \epsilon) \frac{\left(\pi(x) - x^{1- \epsilon} \right) \log(x)}{x}$
+
+</center>
+
+<p>Combining everything,</p>
+<center>
+
+<!-- $\displaystyle 1 \leq \liminf\limits_{x\rightarrow \infty} \frac{\pi(x) \log(x)}{x} \leq \limsup\limits_{x\rightarrow \infty} \frac{\pi(x) \log(x)}{x} \leq \frac{1}{\alpha}$ -->
+$\displaystyle (1 - \epsilon) \frac{\left(\pi(x) - x^{1- \epsilon} \right) \log(x)}{x} \leq \frac{\vartheta(x)}{x} \leq \frac{\pi(x) \log(x)}{x} $
+
+
+</center>
+
+<!-- Letting $\alpha \to 1^-$, we get $\lim\limits_{x\rightarrow \infty} \frac{\pi(x)}{x/\log x} = 1$. For the purposes of this proof, we do not need the other direction, so we leave it as is. $\blacksquare$ -->
+<p>Since we can take $\epsilon \rightarrow 0$ and the term $x^{-\epsilon} \log(x) \rightarrow 0$ as $x \rightarrow \infty$, we get the sandwiched bounds (this can be explicitly written assuming either limit exists and taking limits and limit inferior/superior). $\blacksquare$</p>
+<hr>
+<p>We&#39;ll consider this equivalent statement with $\vartheta(x)$ since the &quot;jumps&quot; at each prime $p$ of $\log(p)$ instead of 1 as in $\pi(x)$ makes it slightly nicer to work with. We have already met the Riemann zeta function before and seen how it relates to primes directly with its product form. Let&#39;s now justify it a bit more concretely.</p>
+<p><strong>Proposition (I):</strong> $\zeta(s)$ absolutely converges for $\Re(s)&gt;1$.</p>
+<p><em>Proof:</em> $\displaystyle \sum_{n=1}^{\infty} \left| \frac{1}{n^s} \right| = \sum_{n=1}^{\infty} \left| \frac{1}{n^{\Re(s)}} \right| \left| \frac{1}{e^{i \Im(s) \log(n)}} \right| = \sum_{n=1}^{\infty} \frac{1}{n^{\Re(s)}}$. This converges since $\Re(s)&gt;1$. $\blacksquare$</p>
+<p><strong>Corollary (Euler&#39;s Product Form):</strong> $\zeta(s) = \prod_{p}\left(1-p^{-s}\right)^{-1}$ for $\Re(s) &gt; 1$.</p>
+<p><em>Proof:</em> We derived the above earlier assuming we could rearrange terms however we wanted, and absolute convergence gives us that prerequisite to do it safely (see <a href="https://en.wikipedia.org/wiki/Riemann_series_theorem">Riemann&#39;s rearrangment theorem</a>). $\blacksquare$</p>
+<p><strong>Proposition (II):</strong> $\zeta(s) - \frac{1}{s-1}$ extends holomorphically to $\Re(s)&gt;0$.</p>
+<p><em>Proof:</em> The idea of looking at this function is to note that the right term $\frac{1}{s-1}$ is the integral of the infinite sum that defines $\zeta(s)$. While neither may be defined for $\Re(s) &gt; 0$ individually, their difference will cancel out just right to give us the extension we want. If this isn&#39;t clear, think about how the harmonic series and its related integral both diverge, but their difference gives rise to the <a href="https://en.wikipedia.org/wiki/Euler%27s_constant">Euler-Mascheroni Constant</a>. So, with this in mind, we use a clever rewriting of this difference, and bound it appropriately to show it converges uniformly (on compact sets) via the Weierstrass M-test, hence showing such a limiting function exists and by uniform convergence is also holomorphic. First, note</p>
+<center>
+
+$\displaystyle \zeta(s) - \frac{1}{s-1} = \sum_{n=1}^{\infty} \frac{1}{n^s} - \int_1^\infty \frac{1}{x^s} \mathrm{d}x = \sum_{n=1}^{\infty} \int_n^{n+1} \left( \frac{1}{n^s} - \frac{1}{x^s} \right) \mathrm{d}x$
+
+</center>
+
+<p>with the Fundamental Theorem of Calculus, we can further rewrite the integral terms: </p>
+<center>
+
+$\displaystyle \int_n^{n+1} \left( \frac{1}{n^s} - \frac{1}{x^s} \right) \mathrm{d}x = \int_n^{n+1} \left( \int_{x}^{n} \frac{\mathrm{d}}{\mathrm{d}u}\left( \frac{1}{u^s} \right) \mathrm{d}u \right) \mathrm{d}x = \int_n^{n+1}  \int_{x}^{n} \frac{-s}{u^{s+1}} \mathrm{d}u \ \mathrm{d}x$
+
+</center>
+
+<p>Now let&#39;s see if we can bound this to apply the M-test:</p>
+<center>
+
+$\displaystyle \left| \int_n^{n+1}  \int_{x}^{n} \frac{-s}{u^{s+1}} \mathrm{d}u \ \mathrm{d}x \right| \leq  \frac{1}{2} \max_{n \leq u \leq n+1} \left| \frac{s}{u^{s+1}} \right| \leq \frac{\left| s \right|}{n^{\Re(s)+1}} \leq \frac{C}{n^{\delta+1}} := M_n$
+
+</center>
+
+<p>We evaluate the modulus as we did before, and the maximum is given since the fraction is decreasing in $u$. Now for any compact i.e. closed and bounded set $K \subseteq \{ s \in \mathbb{C} \ : \ \Re(s) &gt; 0 \}$, since $|s|$ and $\Re(s)$ are continuous, they achieve their bounds so there are constants $C = \max \{ |s| \ : \ s \in K \}$ and $\delta = \min \{ \Re(s) \ : \ s \in K \}$. Since $\delta &gt; 0$, the sum of $M_n$ converge and so by the M-test get that our sum defining the function converges uniformly and absolutely giving us existence of such a function. Since it also converges uniformly on compacts in the region $\Re(s)&gt;0$ and the finite sums $f_k(s) = \sum_{n=1}^{k} \int_n^{n+1} \left( \frac{1}{n^s} - \frac{1}{x^s} \right) \mathrm{d}x$ are holomorphic, the limit $\zeta(s) - \frac{1}{s-1}$ is holomorphic as well. $\blacksquare$</p>
+<p><strong>Proposition (III):</strong> $\vartheta(x) = O(x)$ i.e. there are constants $C,x_0$ such that for all $x\geq x_0$, we have  $\left| \vartheta(x) \right| \leq C \left| x \right| $.</p>
+<p><em>Proof:</em> Using similar methods from before,</p>
+<center>
+
+$\displaystyle 2^{2n} = (1+1)^{2n} = \sum_{k=0}^{2n} {2n \choose k} \geq {2n \choose n} \geq \prod_{n \leq p \leq 2n} p = e^{\sum_{n \leq p \leq 2n} \log p} = e^{\vartheta(2n) - \vartheta(n)}$
+
+</center>
+
+<p>Hence $\vartheta(2n) - \vartheta(n) \leq 2n \log(2)$. We can now extend this to all $x$ instead of just even $x = 2n$ also in a similar method from before. Let $n = \lfloor x/2 \rfloor$:</p>
+<center>
+
+$\begin{align}
+
+\vartheta(x) - \vartheta(x/2) &amp; =  \big( \vartheta(x) - \vartheta(2n) \big) + \big( \vartheta(2n) - \vartheta(n) \big) + \big( \vartheta(n) - \vartheta(x/2) \big) \\
+&amp; \leq \sum_{2n &lt; p \leq x} \log p + 2n\log(2) - \sum_{n \leq p \leq x/2} \log p \\
+&amp; \leq 2 \log(x) + 2n\log(2) \\
+&amp; \leq 2x + x\log(2)\\
+&amp; \leq (2+\log(2))x
+
+
+\end{align}$
+
+</center>
+
+<p>The first few inequalties are just writing out the sums and checking indices correctly. We obtain the second-to-last inequality by noting by choice $2n \leq x$ and $\log(x) \leq x$. Let $C = 2+\log(2)$. Now let $r$ be the least integer such that $1&gt;x/2^r$.</p>
+<center>
+
+$\begin{align}
+
+\vartheta(x) &amp; = \left(\vartheta(x) - \vartheta(x/2) \right) + \cdots + \left(\vartheta(x/2^{r-1}) - \vartheta(x/2^{r}) \right) + \vartheta(x/2^{r}) \\
+&amp; \leq Cx + C(x/2) + \cdots C(x/2^{r-1}) + 0 \\
+&amp; \leq 2Cx
+
+\end{align}$
+
+</center>
+
+<p>This works for all $x&gt;1$, hence showing $\vartheta(x) = O(x)$. (Note: this bound is quite bad, but we used it to get concrete values to see clearly $\vartheta(x) = O(x) $. In particular, if you use the fact that $\log(x) = o(x)$, you can make $C$ as close to $\log(2)$ as you want for sufficiently large $x \geq x_0$, and this is what the original proof does) $\blacksquare$</p>
+<p><strong>Proposition (IV):</strong> For $\Re(s)\geq 1$, $\zeta(s) \neq 0$ and $\Phi(s) - \frac{1}{s-1}$ is holomorphic.</p>
+<!-- https://rtullydo.github.io/complex-analysis-411-notes/section-14.html -->
+<p><em>Proof:</em> By <strong>Proposition (I)</strong> and the Euler Product Form, we can show $\zeta(s) \neq 0$. It might seem intuitively obvious that $\zeta(s) \neq 0$ since $1-p^{-s} \neq 0$ and so we are taking the product of non-zero terms, but since our product is infinite, we have to check that the product doesn&#39;t shrink too fast. For example, even though $\frac{n}{n+1} \neq 0$, the product</p>
+<center>
+
+$\displaystyle \prod_{n=1}^\infty \frac{n}{n+1} = \lim_{n\to\infty} \frac{1}{n+1} = 0$
+
+</center>
+
+<p>Note that $\left(1-p^{-s} \right)^{-1} - 1 = \left( p^s - 1 \right)^{-1}$ is absolutely convergent for $\Re(s) &gt; 1$ since $\left| \left( p^s - 1 \right)^{-1} \right| = \left| p^{-s} / \left( 1 - p^{-s} \right) \right| =  p^{-\Re(s)} / \left| 1 - p^{-s} \right| \leq p^{-\Re(s)}/2$. So in particular, this means that $\left(1-p^{-s} \right)^{-1} \rightarrow 1$ as we run through increasing primes. Let $N$ be the integer such that $\left(1-p^{-s} \right)^{-1} \in B(1,1/2)$ for $p \geq N$, so we can write the product</p>
+<!-- $\left| \left( p^s - 1 \right)^{-1} \right| \leq \left| \left( p^{\Re(s)} - 1 \right)^{-1} \right| \leq p^{-\Re(s)}$. -->
+<center>
+
+$\displaystyle \prod_p \frac{1}{1-p^{-s}} = \prod_{2\leq p &lt; N} \frac{1}{1-p^{-s}} \ \cdot \ \prod_{N \leq p} \frac{1}{1-p^{-s}}$
+
+</center>
+
+<p>Since the second product&#39;s terms are bounded away from 0, we can use the (standard branch of the) complex logarithm $\log(z) = \ln(|z|) + i\arg(z)$.</p>
+<center>
+
+$\displaystyle \log \left( \prod_{N \leq p} \frac{1}{1-p^{-s}} \right) = \sum_{N \leq p} \log\left( \frac{1}{1-p^{-s}} \right) \leq \sum_{N \leq p} 2 \left| \frac{1}{1-p^{-s}}  - 1 \right|$
+
+</center>
+
+<p>getting the last inequality via the Taylor series for $\log(z+1)$. We showed above this last sum converges, so the $\log$ sum converges, and in particular by the continuity of $e^x$ the product converges:</p>
+<center>
+
+$\displaystyle \prod_{N \leq p} \frac{1}{1-p^{-s}} = \exp \left( \sum_{N \leq p} \log\left( \frac{1}{1-p^{-s}} \right) \right) \neq 0$.
+
+</center>
+
+<p>Since the individual terms $\frac{1}{1-p^{-s}}$ are non-zero, we get on the whole that for $\Re(s) &gt; 1$,</p>
+<center>
+
+$\displaystyle \zeta(s) = \prod_p \frac{1}{1-p^{-s}} \neq 0$
+
+</center>
+
+<p>To start on the second part, we build off a bit of what we just talked about noting that $\log(\zeta(s)) = -\sum_p \log\left(1-p^{-s} \right)$. Differentiating,</p>
+<!-- -\sum_p \frac{\mathrm{d}}{\mathrm{d}s}\log\left( 1-p^{-s} \right) -->
+<center>
+
+$\displaystyle -\frac{\zeta&#39;(s)}{\zeta(s)} = \sum_p \frac{p^{-s}\log(p)}{1-p^{-s} } = \sum_p \frac{\log(p)}{p^{s} - 1 } = \Phi(s) + \sum_p \frac{\log(p)}{p^s \left( p^{s} - 1 \right) }$
+
+</center>
+
+<p>So in particular,</p>
+<center>
+
+$\displaystyle \Phi(s) = -\frac{\zeta&#39;(s)}{\zeta(s)} - \sum_p \frac{\log(p)}{p^s \left( p^{s} - 1 \right) }$
+
+</center>
+
+
+<p>The sum on the right converges for $\Re(s) &gt; \frac{1}{2}$. So the only possibilities for problematic poles for $\Phi(s)$ come from the term $-\zeta&#39;(s)/\zeta(s)$. By <strong>Proposition (II)</strong>, we can extend $\zeta(s)$ to a meromorphic function on $\Re(s)&gt;0$ with a simple pole at $s=1$. Thus, $-\zeta&#39;(s)/\zeta(s)$ has simple poles at $s=1$ and the zeroes of $\zeta(s)$. We already showed $\zeta(s) \neq 0$ for $\Re(s) &gt; 1$, so if we want to show there are no problems for $\Phi(s)$, we just need to show that there are no zeroes for $\zeta(s)$ on $\Re(s)=1$. We will do so by contradiction by considering multiple zeroes on the line $\Re(s)=1$.</p>
+<!-- All together, we can extend $\Phi(s)$ meromorphically to $\Re(s)>\frac{1}{2}$ with the same simple poles as $-\zeta'(s)/\zeta(s)$. -->
+<p>Suppose that $\zeta(s)$ has a zero of order $\mu$ at $s=1+i\alpha$ and a zero of order $\nu$ at $s=1+2i\alpha$ for $\alpha \in \mathbb{R} \setminus \{ 0 \}$. Since $\Phi$ has a simple pole at $s=1$, it has associated residue $1$ (note the sign is flipped since we have $-\zeta&#39;(s)/\zeta(s)$ instead of $\zeta&#39;(s)/\zeta(s)$), and for a zero of $\zeta(s)$ of order $k$ it also has residue $-k$.</p>
+<center>
+
+$\displaystyle \lim_{\epsilon \to 0^+} \epsilon \Phi(1+\epsilon) = 1, \ \lim_{\epsilon \to 0^+} \epsilon \Phi(1+\epsilon \pm i\alpha) = -\mu, \ \lim_{\epsilon \to 0^+} \epsilon \Phi(1+\epsilon \pm 2i\alpha) = -\nu$
+
+</center>
+
+<p>We include both zeroes $1 \pm i\alpha$ since $\zeta(\bar{s}) = \overline{\zeta(s)}$. Now, consider the sum</p>
+<!-- <center>
+
+$\displaystyle \zeta(\bar{s}) = \sum_{n} \frac{1}{n^{\bar{s}}} = \sum_{n} \frac{1}{n^{\Re(s)} \cdot e^{-\Im(s) \log n}}  = \overline{\sum_{n} \frac{1}{n^{\Re(s)} \cdot e^{\Im(s) \log n}}} = \overline(\zeta(s))$
+
+</center> -->
+<center>
+
+$\displaystyle \sum_{r=-2}^2 {4 \choose 2+r} \Phi(1+\epsilon+ri\alpha) = \sum_p \frac{\log p}{p^{1+\epsilon}}\left( p^{i\alpha/2} + p^{-i\alpha/2} \right)^4 \geq 0$
+
+</center>
+
+<p>The first equality is by direct computation, and we get the inequality since sums of conjugates are real and hence their 4th powers are non-negative real numbers. Now mulitplying through by $\epsilon&gt;0$ and taking the limit $\epsilon \to 0$:</p>
+<center>
+
+$\displaystyle 0 \leq \lim_{\epsilon \to 0} \sum_{r=-2}^2 {4 \choose 2+r} \epsilon \Phi(1+\epsilon+ri\alpha) = 6 - 2\nu - 8\mu$
+
+</center>
+
+<p>Since the only pole of $\zeta(s)$ for $\Re(s)&gt;0$ is at $s=1$, $1+\epsilon+ri\alpha$ must be zeroes of positive order i.e. $\mu, \nu \geq 0$. Therefore, $2\nu + 8\mu \leq 6$ can only hold if $\mu=0$ i.e. $\zeta(1+i\alpha) \neq 0$. </p>
+<p>Hence $\Phi(s)$ only has the simple pole at $s=1$ for $\Re(s) \geq 1$, and hence $\Phi(s) - \frac{1}{s-1}$ is holomorphic on that half-plane. $\blacksquare$</p>
+<p>Next we strengthen our result from <strong>(III)</strong> to show that $\vartheta(x) \sim x$. </p>
+<p><strong>Proposition (V):</strong> $\displaystyle \int_1^\infty \frac{\vartheta(x) - x}{x^2} \ \mathrm{d}x$ is a convergent integral.</p>
+<p>The idea is that if $\vartheta(x) \approx \lambda x$ for $\lambda &gt; 1$, then the integral would be approximately $\int_1^\infty \frac{\lambda x - x}{x^2} \ \mathrm{d}x = \int_1^\infty (\lambda-1) \frac{1}{x} \ \mathrm{d}x$, which 
+would diverge; the convergence of the integral forces the integrand to decay at the rate we want. We will do this with what Newman calls the <em>Analytic Theorem</em>.</p>
+<p><strong>Analytic Theorem.</strong> Let $f(t)$ $(t \geq 0)$ be a bounded and locally integrable function and suppose that the function $g(z) = \int_0^{\infty} f(t) e^{-zt} \ \mathrm{d}t$ $(\Re(z) &gt; 0)$ extends holomorphically to $\Re(z) \geq 0$. Then $\int_0^{\infty} f(t) \ \mathrm{d}t$ exists (and equals $g(0)$).</p>
+<p>The idea of this theorem is to take the Laplace transform of $f(t)$ analyze its &quot;spectrum&quot;. If the spectrum analysis is nice and differentiable, it means that around $s=0$, $g$ can&#39;t have singularities that blow up and so make the integral of $f$ blow up; the behavior of $g$ limits the behavior of $f$. I&#39;ll leave the proof of the theorem to the original paper, but the idea above is enough (especially if you have seen the Laplace transform before).</p>
+<p><em>Proof of V:</em> The function $\Phi(s)$ looks a lot like $\vartheta(x)$. For $\Re(s)&gt;1$, we can interchange the sum in $\Phi(s)$ with an integral:</p>
+<center>
+
+<!-- $\displaystyle \Phi(s) = \sum_p \frac{\log p}{p^s} = \int_1^\infty \frac{\mathrm{d}\vartheta(x)}{x^s} = s \int_{1}^{\infty} \frac{\vartheta(x)}{x^{s+1}} \ \mathrm{d}x = s \int_{0}^{\infty} e^{-st}\vartheta(e^t) \ \mathrm{d}t$  -->
+$\displaystyle \Phi(s) = \sum_p \frac{\log p}{p^s} = \int_1^\infty \frac{1}{x^s} \ \mathrm{d}\vartheta(x)$ 
+
+</center>
+
+<p>Note the differential is with respect to $\mathrm{d}\vartheta(x)$ as opposed to just $\mathrm{d}x$. If you aren&#39;t familiar with measure theory and the Lebesgue integral, the idea is that we are &quot;stretching&quot; the x-axis according to $\vartheta(x)$, giving weights to the intervals we&#39;re integrating over with respect to $\vartheta(x)$. If $g(x)$ was differentiable, it might be more familiar to write this transformed interval as $\mathrm{d}g(x) = g&#39;(x) \ \mathrm{d}x$. <a href="https://en.wikipedia.org/wiki/Riemann%E2%80%93Stieltjes_integral">Here are more details on the specific case we&#39;re working with</a>. We get the sum equivalence since $\vartheta(x)$ is a step function, so we only evaluate at the step discontinuities at the primes. Most usefully for us, these types of integrals admit a type of integration by parts. </p>
+<!-- In particular, $\mathrm{d} \vartheta(x)$ means take integral with measure $\mu_{\vartheta}(E) = \sum_{p \in E} \log p$ -->
+<center>
+
+<!-- $\displaystyle \Phi(s) = \sum_p \frac{\log p}{p^s} = \int_1^\infty \frac{\mathrm{d}\vartheta(x)}{x^s} = s \int_{1}^{\infty} \frac{\vartheta(x)}{x^{s+1}} \ \mathrm{d}x = s \int_{0}^{\infty} e^{-st}\vartheta(e^t) \ \mathrm{d}t$  -->
+$\begin{align} 
+
+\int_1^\infty \frac{1}{x^s} \ \mathrm{d}\vartheta(x) &amp; = \left[ \frac{1}{x^s} \cdot \vartheta(x) \right]_{1}^{\infty} - \int_1^\infty \vartheta(x) \ \mathrm{d} \left( \frac{1}{x^s} \right) \\
+&amp; = \left[ \frac{1}{x^s} \cdot \vartheta(x) \right]_{1}^{\infty} - \int_1^\infty \vartheta(x) \frac{-s}{x^{s+1}} \ \mathrm{d}x \\
+&amp; = 0 + s \int_1^\infty \frac{\vartheta(x)}{x^{s+1}} \ \mathrm{d}x \\
+&amp; = s \int_0^\infty \frac{\vartheta(e^t)}{e^{ts}} \ \mathrm{d}t
+
+\end{align}$
+
+</center>
+
+<p>Note since $\vartheta(x) = O(x)$ and $\Re(s)&gt;1$, we have $\left| \vartheta(x)/x^s \right| \leq C/x^{\Re(s)-1} \rightarrow 0$ as $x\to\infty$. With the exact same bounding, we see the integral term is also convergent. We get the last equality substituting $x=e^t$. Now we apply the Analytic Theorem to $f(t) = \vartheta(e^t)e^{-t} - 1$ and $g(z) = \Phi(z+1)/(z+1) - 1/z$. To verify, note that from the above derivation we have</p>
+<center>
+
+$\begin{align} 
+
+\frac{\Phi(z+1)}{z+1} &amp; = \int_0^\infty \vartheta(e^t)e^{-t(z+1)} \ \mathrm{d}t \\
+&amp; = \int_0^\infty \vartheta(e^t)e^{-t}e^{-zt} \ \mathrm{d}t \\
+&amp; = \int_0^\infty \left(f(t) + 1 \right)e^{-zt} \ \mathrm{d}t \\
+&amp; = \int_0^\infty f(t) e^{-zt} \ \mathrm{d}t + \frac{1}{z} \\
+
+\end{align}$
+
+</center>
+
+<p>Note by <strong>(III)</strong>, $\vartheta(e^t) = O(e^t)$, so $f(t) = \vartheta(e^t)e^{-t} - 1 = O(1)$ and so is bounded, and only has countably many discontinuities at $\log p$ for primes $p$ where $\vartheta(x)$ has its jump discontinuities at the primes and thus is locally integrable (i.e. integrable on every closed subinterval of $(0,\infty)$). By <strong>(IV)</strong>, $g(z) = \frac{\Phi(z+1)}{z+1} - \frac{1}{z} = \frac{\Phi(z+1) - 1/z - 1}{z+1}$ extends holomorphically to $\Re(z) \geq 0$ since $z+1 \neq 0$ and $\Phi(z+1) - 1/z$ is holomorphic for $\Re(z) \geq 0$. So we use the <strong>Analaytic Theorem</strong> and conclude that </p>
+<center>
+
+$\displaystyle g(0) = \int_0^\infty f(t) \ \mathrm{d}t = \int_0^\infty \vartheta(e^t)e^{-t} - 1 \ \mathrm{d}t = \int_0^\infty \frac{\vartheta(x) - x}{x^2} \ \mathrm{d}x$
+
+</center>
+
+<p>is a convergent integral. $\blacksquare$</p>
+<p><strong>Prime Number Theorem:</strong> $\vartheta(x) \sim x$.</p>
+<p><em>Proof:</em> For contradiction, assume that $\lim\limits_{x \to \infty} \vartheta(x)/x \neq 1$. We check two cases. First, say for some $\lambda &gt; 1$, $\limsup\limits_{x\rightarrow \infty} \vartheta(x)/x \geq \lambda$ i.e. there are arbitrarily large $x_n$ such that $\vartheta(x_n) \geq \lambda x_n$ (we drift too far above $x$). Also, since $\vartheta(x)$ is non-decreasing, we have $\min\limits_{t \in [x_n, \lambda x_n]} \vartheta(t) = \vartheta(x_n) \geq \lambda x_n$. Hence integrating over this interval,</p>
+<!-- For contradiction, assume that $\limits_{x\limsup\rightarrow \infty} \vartheta(x)/x \geq 1$. -->
+<center>
+
+$\displaystyle \int_{x_n}^{\lambda x_n} \frac{\vartheta(t) - t}{t^2} \ \mathrm{d}t \geq \int_{x_n}^{\lambda x_n} \frac{\lambda x_n - t}{t^2} \ \mathrm{d}t = \int_1^{\lambda} \frac{\lambda - t}{t^2} \ \mathrm{d}t = \lambda - 1 - \log \lambda &gt; 0$
+
+</center>
+
+<p>Picking the $x_n$ such that the intervals $[x_n, \lambda x_n]$ are disjoint, we get</p>
+<center>
+
+$\displaystyle \int_1^\infty \frac{\vartheta(t) - t}{t^2} \ \mathrm{d}t \geq \sum_{n=0}^\infty \int_{x_n}^{\lambda x_n} \frac{\vartheta(t) - t}{t^2} \ \mathrm{d}t \geq \sum_{n=0}^\infty \lambda - 1 - \log \lambda = \infty$
+
+</center>
+
+<p>This contradicts the convergence established in <strong>(V)</strong>, and so $\limsup\limits_{x\rightarrow \infty} \vartheta(x)/x \leq 1$. Similarly, if we assume $\liminf\limits_{x\rightarrow \infty} \vartheta(x)/x \leq \lambda &lt; 1$, i.e. there are abitrarily large $x_n$ such that $\vartheta(x_n) \leq \lambda x_n$, we get a similar divergence looking at the interval $[\lambda x_n, x_n]$. </p>
+<center>
+
+$\displaystyle \int_{\lambda x_n}^{x_n} \frac{\vartheta(t) - t}{t^2} \ \mathrm{d}t \leq \int_{\lambda x_n}^{x_n} \frac{\lambda x_n - t}{t^2} \ \mathrm{d}t = \int_\lambda^{1} \frac{\lambda - t}{t^2} \ \mathrm{d}t =\log\lambda - (\lambda - 1) &lt; 0$
+
+</center>
+
+<p>Therefore $1 \leq \liminf\limits_{x\rightarrow \infty} \vartheta(x)/x \leq \limsup\limits_{x\rightarrow \infty} \vartheta(x)/x \leq 1$ and so $\lim\limits_{x\to\infty} \vartheta(x)/x=1$. $\blacksquare$</p>
+<hr>
+<p>Thus, we have proven one of the most fundamental results in analytic number theory.</p>
+<h3 id="do-we-need-the-primes-at-all-">Do We Need the Primes At All?</h3>
+<p>I want to note not much of this proof actually used any key properties of the primes. The only time we ever actually used &quot;primeness&quot; was in deducing the Euler product form to show that $\zeta(s) \neq 0$ for $\Re(s) \geq 1$. The rest followed from analytic properties of the functions $\pi(x)$, $\Phi(s)$, and $\vartheta(x)$. If you can find another subset of $\mathbb{N}$ that implied similar non-vanishing properties, this proof could be easily adapted. For instance, for any subset $S \subseteq \mathbb{N}$, we can let $\pi_S(x) = \left| S \cap \mathbb{N}_{\leq x} \right| = \# \{ n \leq x \ : \ n \in S \}$ i.e. $\pi_S(x)$ is the $S$ counting function instead of prime counting function. Similarly let $\vartheta_S(x) = \sum_{s \in S, s \leq x} \log s$, we have the equivalence from before with the same proof.</p>
+<p><strong>Theorem:</strong> $\pi_S(x) \sim \frac{x}{\log x}$ if and only if $\vartheta_S(x) \sim x$.</p>
+<p>What was hard was establishing either of these asymptotics, which is where the analytic properties became important, and in particular needed the primes and fundamental theorem of arithmetic to establish the non-vanishing of $\zeta(s)$.</p>
+<h2 id="consequences-of-the-prime-number-theorem">Consequences of the Prime Number Theorem</h2>
+<p>The Prime Number Theorem allows us to extend and strengthen many of the results we have already spent time combing through. Quite possibly the most immediate allows us to estimate the number of primes less than or equal to $n$.</p>
+<p><strong>Corollary:</strong> $\displaystyle \pi(n) \approx \frac{n}{\log n}$.</p>
+<p>Of course, this is only useful for large $n$ as we approach the asymptotics. The actual estimate given by $n/\log n$ isn&#39;t great, and often in practice it is better to use the <strong>Logarithmic integral</strong>.</p>
+<p><strong>Proposition:</strong> The PNT is equivalent to $\pi(x) \sim \mathrm{Li}(x) = \int_2^x \frac{\mathrm{d}t}{\log t}$.</p>
+<p><strong>Proof:</strong> This follows from the fact that $\mathrm{Li}(x) \sim \frac{x}{\log x}$ as well, and that can be obtained with integration by parts. <a href="https://willhoffer.com/2021-11-14/asymptotics-of-the-logarithmic-integral/">If interested, you can read the whole induction to obtain the asymptotics here</a>. $\blacksquare$</p>
+<!-- f(x)~g(x) and h(x)~g(x), then f(x)~h(x) -->
+<p>This roughly makes sense to be a better estimate of $\pi(n)$, as it is a more &quot;dynamic&quot; estimate by integrating over the &quot;density&quot; of the primes suggested by the PNT. For a small interval $(t, t + \epsilon]$ around $t$, the number of primes in that interval is approximately </p>
+<center>
+
+$\displaystyle \mathrm{d \pi} \approx \frac{\mathrm{d}}{\mathrm{d}t} \left( \frac{t}{\log t} \right) \ \mathrm{d}t = \frac{\log t - 1}{(\log t)^2} \ \mathrm{d}t \approx \frac{\mathrm{d}t}{\log t}$
+
+</center>
+
+<p>More crudely, just consider $\pi(t+dt) - \pi(t) = \frac{t+dt}{\log(t+dt)} - \frac{t}{\log t} \approx \frac{t+dt}{\log t} - \frac{t}{\log t} \approx \frac{dt}{\log t}$. The point is that this integral uses the estimate of the PNT to create tighter bounds in accordance to how far along we have counted, as opposed to uniformly treating the number of primes in an interval the same everywhere. <a href="https://arxiv.org/pdf/1311.1093">You can read more on this specific estimate here</a>.</p>
+<p>This estimate should hopefully look familiar, as it and the Prime Number Theorem affirm one of our big suspicians originally! Remember we found heuristically, by considering the Sieve of Eratosthenes, that the probability of $n$ being prime should be about the probability of $n$ not being divisible by any number $x&lt;n$ which resulted in a probability of $1/\log n$. The derivative should make this even more concrete, and even more simply, the number of primes less than $n$ is $\pi(n)$, so the probability of a number up to $n$ being prime should be about $\pi(n)/n \approx 1/\log n$. This also then gives the interpretation that the average gap between primes less than or equal to $n$ is about $\log n$.</p>
+<p>So, if you need a prime, let&#39;s say around $2^{512}$ for cryptographic purposes, the odds of a number around there being prime is about $1/\log(2^{512}) \approx 1/356$. Since even numbers are obviously not prime, we need to check on average about $356/2 = 178$ numbers to find a prime of that magnitude (and this is without any optimizations, or fault tolerances in allowing probable primes like before).</p>
+<!-- Mauerer's probable prime generating algorithm: https://link.springer.com/article/10.1007/BF00202269 -->
+<h3 id="estimating-the-nth-prime-number">Estimating the nth Prime Number</h3>
+<p>The Prime Number Theorem also implies a similar type of inverse relation. As before, let $p_n$ be the $n^\textrm{th}$ prime number.</p>
+<p><strong>Proposition:</strong> $p_n \sim n \log n$.</p>
+<p><em>Proof:</em> This follows since $n = \pi(p_n) \sim \frac{p_n}{\log p_n}$ i.e. $p_n \sim n \log p_n$. This is almost what we want, so resubstituting the relation back into itself one more time gives </p>
+<center>
+
+$\displaystyle p_n \sim n \log p_n \sim n \log (n \log p_n) \sim n\log n + n\log \log p_n \sim n \log n$
+
+</center>
+
+<p>This works in particular because logarithms preserve asymptotics for functions increasing to $\infty$, and the PNT implies $\log p_n \sim \log n$. So we can rewrite these substitutions of $p_n$ as substitutions of $\log p_n$. $\blacksquare$</p>
+<!-- From f/g = 1, then log(f)/log(g) = [log(g) + log(f/g)]/log (g) = 1 + log(f/g)/log(g) = 1 + 0/infty = 1 -->
+<!-- Using similar logic and taking logarithms of the actual limit statement of the PNT can add more rigor to the above if wanted. $\blacksquare$  -->
+<!-- https://www.quora.com/How-does-the-Prime-Number-Theorem-imply-that-the-nth-prime-number-is-very-close-to-n-log-n-as-n-grows-very-large -->
+<!-- https://proofwiki.org/wiki/Approximate_Value_of_Nth_Prime_Number -->
+<p>Like the original Prime Number Theorem estimate, this isn&#39;t that great of an approximation. Since $n = \pi(p_n) \sim \mathrm{Li(p_n)}$, we get the better approximation that $p_n \sim \mathrm{Li}^{-1}(n)$ (note this works due to monotonicity). A better second order estimation given by analyzing the Logarithmic integral is </p>
+<center>
+
+$\displaystyle p_n \sim n\log n + n\log \log n - n$
+
+</center>
+
+<p>It seems we get close to something like this directly from our asymptotics above, but we need more careful analysis to get here. Cipolla found this originally in 1902 (of reference I cannot find), but there have been more elaborate methods that result from looking at $\mathrm{Li}^{-1}$. One such developed for more general inversion problems can be found <a href="https://inria.hal.science/inria-00076983/document">here (helpfully, also in English)</a>. Here is one possible, more numeric idea to get this better approximation. We start with the better estimate of $n = \pi(p_n) = \mathrm{Li}(p_n)$. By using the asymptotic expansion given by the integration by parts, we obtain the better estimate</p>
+<center>
+
+$\displaystyle \mathrm{Li}(x) \sim \frac{x}{\log x} \sum_{n=0}^\infty \frac{n!}{\left(\log x \right)^n} \sim \frac{x}{\log x} \sum_{n=0}^\infty \frac{1}{\left(\log x \right)^n} = \frac{x}{\log x} \cdot \frac{1}{1 - \frac{1}{\log x}} = \frac{x}{\log x - 1}$
+
+</center>
+
+<p>Again using $\pi(p_n) = n$, we get</p>
+<center>
+
+<!-- $\displaystyle n \sim \frac{p_n}{\log p_n - 1}$ -->
+$\displaystyle p_n \sim n \left( \log p_n  - 1 \right) = f(p_n)$
+
+</center>
+
+<p>Hence, we want to approximate solutions to $f(x) = x$. Now, note that $f&#39;(x) = \frac{n}{x} &lt; 1$ since $p_n &gt; n$. Hence, by the Contraction Mapping Theorem, this equation has a (stable) fixed point which we know to be $p_n$, so we can iteratively give guesses to get better and better approximations of the fixed point $p_n$. We start with our initial guess we got before of $p_n \approx n \log n$.</p>
+<center>
+
+$\displaystyle p_n \approx n \left( \log \left( n \log n \right)  - 1 \right) = n \left( \log n + \log \log n   - 1 \right) = n \log n + n \log \log n - n$
+
+</center>
+
+<p>which was the better estimate from before! We can plug this in again to get one more estimate, but since we are adding terms together, it won&#39;t simplify as cleanly.</p>
+<center>
+
+$\displaystyle p_n \approx n \log \left( n \log n + n \log \log n - n \right) - n$
+
+</center>
+
+<p>Heuristically, though, this approximation performs worse, likely due to the accumulated errors ignored in our estimations and asymptotics; what we really want to solve is $\pi(p_n) = n$, but we can only estimate $\pi(n)$. This results in a fixed point solution that may be close to $p_n$, but not exactly.</p>
+<!-- One way to understand this is through the [relative condition number](https://en.wikipedia.org/wiki/Condition_number#One_variable) that quantifies the relative sensitivity of our solutions (the nth prime number $p_n$) to small changes and errors in the input ($n$). Since we are effectively solving $p_n = \pi^{-1}(n)$, we get that
+
+<center>
+
+$\displaystyle \left| \frac{n \cdot \left(\pi^{-1} \right)'(n)}{\pi^{-1}(n)} \right| = \left| \frac{n \cdot \frac{1}{\pi' \left( \pi^{-1}(n) \right)}}{\pi^{-1}(n)}  \right| = \left| \frac{n \cdot \frac{1}{\frac{1}{\log \left( \pi^{-1}(n) \right)}}}{\pi^{-1}(n)}  \right| = \left| \frac{n \log p_n}{p_n}  \right| $
+
+</center> -->
+<h3 id="revisiting-bertrand-s-postulate">Revisiting Bertrand&#39;s Postulate</h3>
+<p>The Prime Number Theorem allows us to strengthen and show some of the results we have already discussed. For instance, Bertrand&#39;s postulate falls out almost immediately from the estimates given by the PNT.</p>
+<center>
+
+$\displaystyle \pi(2n) - \pi(n) \sim \frac{2n}{\log(2n)} - \frac{n}{\log n} \sim \frac{n}{\log n}$
+
+</center>
+
+<p>So for large $n$, there is not only at least one prime, but many primes in the interval $(n, 2n]$. Of course, our original proof of Bertrand&#39;s Postulate has its benefits, one being that its concrete and establishes at least one prime for <em>all</em> intervals like this, rather than the slightly more vague asymptotic notion. Perhaps a bit more interestingly is that this shows that there are roughly the same number of primes in the interval $(0,n]$ as there is from $(n,2n]$, which is a bit surprising given that $\pi(n)$ isn&#39;t linear. But because $\log n$ grows slow enough, the asymptotics balance out. Similarly, we can strengthen Bertrand&#39;s Postulate to any non-zero interval $(n, (1+\epsilon)n]$.</p>
+<center>
+
+$\displaystyle \pi((1+\epsilon)n) - \pi(n) \sim \frac{(1+\epsilon)n}{\log((1+\epsilon)n)} - \frac{n}{\log n} \sim \frac{\epsilon n}{\log n}$
+
+</center>
+
+<p>So all we need is $n$ to be large enough to overcome the scaling of $\epsilon$; we can take a &quot;small&quot; enough interval given that $n$ is big enough to make that interval have enough room for primes to occur. How big that $n$ must be is not super easy to get given that we haven&#39;t done any of the (also difficult) error analysis of the Prime Number Theorem, but a good estimate might just start with getting this asymptotic term greater than 1.</p>
+<h3 id="a-quick-application-of-the-prime-number-theorem">A Quick Application of the Prime Number Theorem</h3>
+<p>To round things off, here&#39;s a quick application of the PNT. While it is nonetheless an interesting and key result about the behavior and distribution of primes, the PNT is not just a novelty and can be used to give bounds on other prime related problems. In particular because it tells us that the average gap of primes around $n$ is $\log n$, they occur just frequently enough for their harmonic style sum to grow logarithmically slower, and so still diverge.</p>
+<p><strong>Proposition:</strong> $\sum_{p \textrm{ prime}} \frac{1}{p}$ diverges.</p>
+<p><strong>Proof:</strong> We can use a Riemann-Stieltjes style integral rewriting like we did before, and use integration by parts.</p>
+<center>
+
+$\displaystyle \sum_{p \leq t} \frac{1}{p} = \int_{2}^{t} \frac{1}{x} \ \mathrm{d}\pi(x) = \left[ \frac{\pi(x)}{x} \right]_2^t - \int_2^t \frac{-\pi(x)}{x^2} \ \mathrm{d}x = \frac{\pi(t)}{t} - \frac{\pi(2)}{2} + \int_2^t \frac{\pi(x)}{x^2} \ \mathrm{d}x$
+
+</center>
+
+<p>Applying the PNT, we get</p>
+<center>
+
+$\displaystyle \sum_{p \leq t} \frac{1}{p} \sim \frac{1}{\log t} + \int_2^t \frac{1}{x \log x} \ \mathrm{d}x \sim \frac{1}{\log t} + \log\log t - \log \log 2$
+
+</center>
+
+<p>$\log \log t \to \infty$ as $t \to \infty$, hence the sum $\sum_p \frac{1}{p}$ diverges. $\blacksquare$</p>
+<h2 id="an-analogue-to-the-prime-number-theorem-in-k-x-">An Analogue to the Prime Number Theorem in $K[x]$</h2>
+<p>Before finshing this post off, I want to remind us where we started. Before treating primes in this abstract, removed way, we started with how we all learned what a prime number is: a number that has no other factors other than 1 and itself. We then recalled the slighlty more useful, still simple and well-known fact that every natural number can be factored as a product of primes, a fact which we summarized with the <strong>natural numbers are a unique factorization domain (UFD)</strong>. But since the natural numbers aren&#39;t the only UFD, this leads to the obvious question: is there a Prime Number Theorem for <em>other</em> UFDs? It turns out, there is.</p>
+<p>One of the most common and useful UFDs is the ring of polynomials over a field $K[x]$. That is, if $K$ is a field, then the set $K[x]$ of one-variable polynomials in $x$ with coefficients in $K$ is a UFD. For a quick refresher for why if you know some ring theory, $K[x]$ is a principal ideal domain (PID) due to the division algorithm (which works since $K$ is a field), and every PID is a UFD. Our &quot;primes&quot; in $K[x]$ are not numbers, but rather <em>irreducible polynomials</em> i.e. polynomials that cannot be factored into a product of non-constant polynomials.</p>
+<p><strong>Example:</strong> In $\mathbb{R}[x]$, $x^2 + 1$ is irreducible since it has no roots, but in $\mathbb{C}[x]$ factors into irreducibles as $x^2+1 = (x-i)(x+i)$.</p>
+<p>For any infinite field, there are an infinite number of irreducible polynomials: just take the linear polynomials $f(x) = x - \alpha$ for $\alpha \in K$, just like how there are an infinite number of primes in $\mathbb{N}$. Since there is no obvious ordering on polynomials, we can&#39;t make a prime counting style function $\pi(x)$ easily for $K[x]$. </p>
+<p>However, if we let $K = \mathbb{F}_q$ be the finite field of (prime power) order $q$, and $P_n$ denote the set of monic irreducible polynomials of degree $n$, then it turns out</p>
+<center>
+
+$\displaystyle | P_n | = \# \{ \textrm{monic irreducible polynomials of degree } n \} \sim \frac{q^n}{n} = \frac{x}{\log_q x}$
+
+</center>
+
+<p>where we make the substitution $x = q^n$ to highlight the analogy. <a href="https://arxiv.org/pdf/1001.0409">The proof is not super long</a>, but requires knowing some field/Galois theory. On the whole, it is not difficult and the prerequisites can be learned relatively quickly, but are still necessary. In particular for finite fields, <a href="https://kconrad.math.uconn.edu/blurbs/galoistheory/finitefields.pdf">this is a great refresher</a>.</p>
+<p><strong>Theorem:</strong> The number of monic irreducible polynomials of degree $n$ over the finite field $\mathbb{F}_q$ is $P_n = \frac{1}{n} \sum_{d \mid n} \mu(n/d) q^d$ where $\mu$ is the Möbius function.</p>
+<p><em>Proof:</em> We proceed combinatorially, counting the number of elements of finite fields in two different ways that relate to the size of the set $P_n$. The case for $n=1$ is clear since $| P_1 | = q = \frac{1}{1} \sum_{d \mid 1} \mu(1/d) q^1$ since there are $q$ monic linear polynomials (that are all irreducible) and the only divisor of 1 is 1 itself. So for the remainder of the proof, we assume $n&gt;1$.</p>
+<p>Let $R_n = \bigcup \{\textrm{roots of } f(x) \ \mid \ f(x) \in P_n \}$ be the collection of all the roots in $\overline{\mathbb{F}_q}$ of polynomials in $P_n$. Since these irreducible polynomials are of degree $n$, the splitting field for all of these polynomials are $\mathbb{F}_{q^n}$, so we can restrict our attention there. Since irreducible polynomials are minimal polynomials of their roots, we can make use of two properties to characterize $R_n$.</p>
+<ul>
+<li><strong>Roots of minimal (and so irreducible) polynomials are distinct</strong>: This can be seen by $\mathbb{F}_q$ being the splitting field of the separable polynomial $x^q - x$ and so Galois. More directly since every element satisfies $x^q - x$ by Lagrange&#39;s theorem, take irreducible $f$ with root $\alpha \in \mathbb{F}_q$, so $f(x) \mid x^q - x$ and so is separable.</li>
+<li><strong>Distinct irreducible polynomial have distinct roots:</strong> Since each irreducible $f$ is the minimal polynomials of its roots, and minimal polynomials are unique, distinct irreducibles have distinct roots.</li>
+</ul>
+<!-- Also, note that all roots of irreducible polynomials are distinct (since $\mathbb{F}\_q$ is the splitting field of the separable polynomial $x^q - x$; alternatively, take any irreducible and hence minimal polynomial $f$ with root $\alpha \in \mathbb{F}\_q$, so $f(x) \mid x^q - x$ and so is separable). -->
+<p>So $R_n$ is actually the union of disjoint $n$-element sets, one for each polynomial $f(x) \in P_n$ i.e. $\left| R_n \right| = n \left| P_n \right|$. Therefore it is sufficient to count $R_n$ to count $P_n$. Building off the definition of $R_n$:</p>
+<center>
+
+$\begin{align}
+
+R_n &amp; = \{ \alpha \in \mathbb{F}_{q^n} \ \mid \ \exists f(x) \in P_n \textrm{ s.t. } f(\alpha) = 0  \} \\
+&amp; = \{ \alpha \in \mathbb{F}_{q^n} \ \mid \ \left[ \mathbb{F}_q(\alpha) : \mathbb{F}_q \right] = n \} \\
+&amp; = \{ \alpha \in \mathbb{F}_{q^n} \ \mid \ \alpha \textrm{ not contained in any proper subfield of } \mathbb{F}_{q^n} \} \\
+&amp; = \{ \alpha \in \mathbb{F}_{q^n} \ \mid \ \alpha \textrm{ not contained in any maximal proper subfield of } \mathbb{F}_{q^n} \} \\
+
+\end{align}$
+
+</center>
+
+<p>The second equality comes from the degree of simple field extensions. The third is for degree reasons from the Tower Law. The fourth follows from $\mathbb{F}_{q^n}/\mathbb{F}_q$ having a finite number of subfields (or more generally from an application of Zorn&#39;s lemma that allows us to extend subfields to maximal ones; also, as <a href="https://proofwiki.org/wiki/Steinitz%27s_Theorem">a result of the Primitive Element Theorem</a> or Fundamental Theorem of Galois Theory, a finite separable field extension can only have finitely many intermediate fields). Note the subfields of $\mathbb{F}_{q^n}$ are $\mathbb{F}_{q^k}$ such that $k \mid n$ (most quickly seen by the Fundamental Theorem of Galois Theory). So writing $n = p_1^{e_1}p_2^{e_2}p_3^{e_3}\cdots p_r^{e_r}$ as its prime factorization, we find that the maximal subfields of $\mathbb{F}_{q^n}$ are</p>
+<center>
+
+$\displaystyle F_{p_1} = \mathbb{F}_{q^{n/p_1}} \ , \ \ F_{p_2} = \mathbb{F}_{q^{n/p_2}} \ , \ \ \cdots \ \ , \ \  F_{p_r} = \mathbb{F}_{q^{n/p_r}}$
+
+</center>
+
+<p>Hence, by our final equivalence above, $| R_n | = \left| \mathbb{F}_{q^n} \setminus \left( F_{p_1} \cup F_{p_2} \cup \cdots \cup F_{p_r} \right) \right|$. Also, the lattice of subfields of $\mathbb{F}_{q^n}$ correspond to the lattice of divisors of $n$ (again by the Fundamental Theorem of Galois Theory), so we get the intersections of fields as we would expect with $F_{p_i} \cap F_{p_j} = \mathbb{F}_{q^{n/p_i p_j}}$ (and similarly for intersections of more than 2 fields). So using inclusion-exclusion counting,</p>
+<center>
+
+$\begin{align}
+
+\left| \bigcup_{i=1}^r F_{p_i} \right| &amp; = \left( \sum_{i=1}^r | F_{p_i} | \right) - \left( \sum_{1\leq i &lt; j \leq r} | F_{p_i} \cap F_{p_j} | \right) + \cdots + (-1)^{r+1} \left| \bigcap_{i=1}^r F_{p_i} \right| \\
+&amp; = \left( \sum_{i=1}^r q^\frac{n}{p_i} \right) - \left( \sum_{1 \leq i &lt; j \leq r} q^\frac{n}{p_i p_j} \right) + \cdots + (-1)^{r+1} q^\frac{n}{p_1 p_2 \cdots p_r}
+
+\end{align}$
+
+<!-- \| F\_{p\_1} \cup F\_{p\_2} \cup \cdots \cup F\_{p\_r} \| 
+
+(-1)^{r+1} \left| F\_{p\_1} \cap F\_{p\_2} \cap \cdots \cap F\_{p\_r} \right|
+
+\| F\_{p\_1} \| \cup \| F\_{p\_2} \| \cup \| \cdots \| \cup \| F\_{p\_r} \| -->
+
+
+</center>
+
+<p>And so in particular,</p>
+<center>
+
+$\displaystyle |R_n | = q^n - \left( \sum_{i=1}^r q^\frac{n}{p_i} \right) + \left( \sum_{1 \leq i &lt; j \leq r} q^\frac{n}{p_i p_j} \right) - \cdots + (-1)^{r} q^\frac{n}{p_1 p_2 \cdots p_r}$
+
+</center>
+
+<p>So dividing by $n$ and applying the Möbius function (noting that $\mu(d) = 0$ for divisors for non square-free divisors), we have</p>
+<center>
+
+$\displaystyle |P_n | = \frac{1}{n} \sum_{d \mid n} \mu(d) q^{n/d} = \frac{1}{n} \sum_{d \mid n} \mu(n/d) q^{d}$
+
+</center>
+
+<p>We get the last equality since as $d$ runs over all divisors of $n$, so does $n/d$. $\blacksquare$</p>
+<p><strong>Corollary:</strong> $|P_n| \sim \frac{q^n}{n}$.</p>
+<p><em>Proof:</em> The dominant term in the expression is $q^n/n$, since the largest power of $q$ in the formula is at most $q^{n/2}$ since the smallest non-trivial divisor of $n$ is at least 2, and thus bound the remaining terms by $o(q^n/n)$. $\blacksquare$</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>This post, while dense, has only scratched the surface of what primes and the Prime Number Theorem actually has to offer. From other bounds in combinatorics and analysis, to important computational heuristics in cryptography, primes, while random, find their ways into many facets of math. There&#39;s always more to revisit, but that&#39;s all for another day.</p>
+<!-- give cool corollary of Bertrand's
+generalizations with Sylvester's thm: https://www.renyi.hu/~p_erdos/1934-01.pdf
+maybe talk a bit about Chebyshev's proof of Bertrand's postulate to get initial estimates on PNT
+show later PNT gives better bounds: always a prime between n and (1+epsilon)n 
+PNT shows there are roughly n/log n primes between n and 2n -->
+<!-- simple patterns -->
+<!-- show cartesian products of N is countable -->
+<!-- encoding all the numbers via prime products -> i.e. riemann zeta function -->
+   <!-- maybe euler proof of infinite primes -->
+<!-- 
+
+* euclid's lemma:
+  * basically shows irreducible -> prime -> Z is a UFD
+  * in general ring theory, easier to show irreducible <-> prime assuming UFD
+
+* infinitude of primes
+* euπ¸clid's lemma
+* fundamental theorem of arithmetic
+  * elaborate a bit on ring theory and abstract algebra
+  * the integers are a UFD, but not Z[√-5]
+  * let's us talk about objects with unique decomposition (show Riemann zeta function decomposition)
+    * maybe introduce Euler's proof of infinite primes to bring in Riemann zeta function
+  * this fundamental encoding shapes a lot (gives proof of N is countable, Gödel's thms, etc)
+    * extends naturally to rationals
+* build a bit more on relevance of primes and modern results that are easier to understand breaking things down into smaller parts
+  * i.e. group theory results, chinese remainder theorem, structure theorem, lagrange's theorem (useful since if we know prime divisors, can infer more probably), characteristic of a field is prime
+* Even though the primes look random, we can say a lot about them still
+  * simple results: p = 6k ± 1, 24 | p^2 - 1, goldbach's conjecture, idk find more, mersenne primes and perfect numbers, we even have a formula for them
+  * there's a dedicated search to finding the next largest prime number (maybe give current record)
+    * maybe talk about types of primes (mersenee, fermat, probable, etc)
+* Finding Primes and Primality Tests
+* We have facts about how the primes are distributed too
+* Bertrand's postulate
+  * not obvious always: Legendre's conjecture
+* Dirichlet's theorem on arithmetic progressions
+  * Green-Tao thm: there exist arbitrarily long arithmetic progressions in the primes
+  * Extension -> too hard
+* Prime number theorem
+  * seems hard to think about
+  * introduce sieves for some intuition
+ -->
+
+              <div id="disqus_thread"></div>
+            <script>
+                (function() {  // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+
+                    s.src = '//delta-thoughts.disqus.com/embed.js';
+
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            </div>
+          </div>
+          <div class="two columns"></div>
+        </div>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <script type="text/javascript">
+          window.MathJax = {
+            tex2jax: {
+              inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+              processEscapes: true
+            }
+          };
+        </script>
+        <script async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS_CHTML"></script>
+
+
+        <!-- <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-101583586-1','auto');ga('send','pageview');
+        </script>
+    </body>
+</html>

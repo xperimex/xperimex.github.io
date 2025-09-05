@@ -1,0 +1,126 @@
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 760">
+  <script type="text/javascript"><![CDATA[
+    // Adjustable font family
+    const FONT_FAMILY = "Raleway, sans-serif";
+  ]]></script>
+  
+  <style>
+    .number { font: bold 12px var(--font-family); }
+    .prime { fill: green; }
+    .composite { fill: red; }
+    .unmarked { fill: black; }
+    .current { fill: blue; }
+    .box { fill: none; stroke: #ccc; }
+    .legend { font: 12px var(--font-family); }
+    #status { font: 16px var(--font-family); }
+  </style>
+  
+  <!-- Grid of numbers -->
+  <g id="grid">
+    <!-- Numbers will be added here programmatically -->
+  </g>
+  
+  <!-- Centered and Equally Spaced Legend -->
+  <g id="legend" transform="translate(325, 660)">
+    <rect x="-210" width="20" height="20" fill="green" />
+    <text x="-185" y="15" class="legend">Prime</text>
+    
+    <rect x="-120" width="20" height="20" fill="red" />
+    <text x="-95" y="15" class="legend">Composite</text>
+    
+    <rect x="0" width="20" height="20" fill="black" />
+    <text x="25" y="15" class="legend">Unmarked</text>
+    
+    <rect x="105" width="20" height="20" fill="blue" />
+    <text x="130" y="15" class="legend">Current</text>
+  </g>
+  
+  <!-- Status text -->
+  <text id="status" x="325" y="730" text-anchor="middle">Initializing Sieve of Eratosthenes</text>
+
+  <script type="text/javascript"><![CDATA[
+    const GRID_SIZE = 100;
+    const GRID_WIDTH = 10;
+    const ANIMATION_SPEED = 500; // milliseconds
+    let numbers;
+
+    function createGrid() {
+      const gridElement = document.getElementById('grid');
+      gridElement.innerHTML = ''; // Clear existing grid
+      for (let i = 0; i < GRID_SIZE; i++) {
+        const x = (i % GRID_WIDTH) * 60 + 30;
+        const y = Math.floor(i / GRID_WIDTH) * 60 + 30;
+        
+        const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+        g.setAttribute("transform", `translate(${x}, ${y})`);
+        
+        const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+        rect.setAttribute("width", "50");
+        rect.setAttribute("height", "50");
+        rect.setAttribute("class", "box");
+        g.appendChild(rect);
+        
+        const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        text.setAttribute("x", "25");
+        text.setAttribute("y", "30");
+        text.setAttribute("text-anchor", "middle");
+        text.setAttribute("class", "number unmarked");
+        text.textContent = i + 1;
+        g.appendChild(text);
+        
+        gridElement.appendChild(g);
+      }
+      numbers = document.querySelectorAll('.number');
+      numbers[0].setAttribute("class", "number composite");
+    }
+
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    async function markMultiples(prime) {
+      for (let i = prime * prime; i <= GRID_SIZE; i += prime) {
+        numbers[i - 1].setAttribute("class", "number composite");
+        document.getElementById('status').textContent = `Marking multiples of ${prime}`;
+        await sleep(ANIMATION_SPEED / 4);
+      }
+    }
+
+    async function runSieve() {
+      for (let i = 2; i <= Math.sqrt(GRID_SIZE); i++) {
+        if (numbers[i - 1].classList.contains('unmarked')) {
+          numbers[i - 1].setAttribute("class", "number current");
+          document.getElementById('status').textContent = `Found new prime: ${i}`;
+          await sleep(ANIMATION_SPEED);
+          numbers[i - 1].setAttribute("class", "number prime");
+          await markMultiples(i);
+        }
+      }
+      
+      // Mark remaining unmarked numbers as prime
+      for (let i = 0; i < GRID_SIZE; i++) {
+        if (numbers[i].classList.contains('unmarked')) {
+          numbers[i].setAttribute("class", "number prime");
+          document.getElementById('status').textContent = `Marking remaining primes`;
+          await sleep(ANIMATION_SPEED / 4);
+        }
+      }
+    }
+
+    async function animateSieve() {
+      while (true) {
+        createGrid();
+        document.getElementById('status').textContent = "Starting Sieve of Eratosthenes";
+        await sleep(ANIMATION_SPEED * 2);
+        await runSieve();
+        document.getElementById('status').textContent = "Sieve complete! Restarting...";
+        await sleep(ANIMATION_SPEED * 10);
+      }
+    }
+
+    // Set font family
+    document.documentElement.style.setProperty('--font-family', FONT_FAMILY);
+
+    animateSieve();
+  ]]></script>
+</svg>

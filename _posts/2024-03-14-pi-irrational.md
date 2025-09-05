@@ -23,7 +23,7 @@ This proof is pretty well-known, but to me, it's not necessarily obvious. Sure, 
 
 I mention this, since I was recently thinking about an arguably more famous irrational number: $\pi$. A number studied forever that manages to appear in random sums, integrals, and expressions it has no right being in, it's no surprise it is one of the few symbols of math that transcends pop culture. And despite that, before writing this, I couldn't explain or prove why it is irrational. $\pi$ is geometric at heart, and translating to number-theoretic contexts just didn't seem to make sense. But along the way of finding out its proof (that stumped many before me), there is much to unpack about not just about $\pi$, but irrational numbers on the whole.
 
-If you care for only the proof that $e$ and $\pi$ are irrational, skip [here]. Otherwise, follow through the table of contents for whatever you're looking for.
+If you care for only the proof that $e$ and $\pi$ are irrational, skip [here](#the-original-proof-of-the-irrationality-of). Otherwise, follow through the table of contents for whatever you're looking for.
 
 
 ## Decimal Expansions
@@ -1247,7 +1247,7 @@ Pell's equation seems innocuous at first—just a genereic equation that people 
 For an absurd historical example of Pell's equation, here's [one attributed to Archimedes](https://en.wikipedia.org/wiki/Archimedes%27s_cattle_problem). 
 
 
-## The Original Proof of the Irrationality $\pi$
+## The Original Proof of the Irrationality of $\pi$
 
 We've gone through a few properties and interesting tidbits that characterize irrational numbers especially as it comes to computing and approximating them. These tools, especially of continued fractions, give a tool that can be used to deduce irrationality of numbers. In fact, the first proofs that $e$ and $\pi$ were irrational originally came from them. But I wanted to talk about them specifically because I want it to be clear jsut how little we actually know of irrational numbers and how difficult it can actually be to show that numbers are irrational (as we'll discuss below). Continued fractions, though, seem to be a more universal way out. We've already shown how $\sqrt{2}$ is irrational, but the actual proof is quite unique; we didn't use any of the characteristics of irrational numbers. But then we showed it was irrational again purely from its continued fraction, and that almost completely streamlined the proof to not only be direct, but essentially shorten the proof to one line: just show the continued fraction. 
 

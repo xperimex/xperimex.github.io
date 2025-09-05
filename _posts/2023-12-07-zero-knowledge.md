@@ -192,7 +192,7 @@ In other words, can we prove to a verifier that for some polynomial $h(x)$, we k
 
 ----------------
 
-The reason why polynomials are interesting is because they are incredibly hard to cheat. Say the prover has a polynomial $f(x)$, and claims to know the _exact_ polynomial that the verifier has $g(x)$, that is the prover claims $f(x) \equiv g(x)$. If both polynomials are of degree $d$, then either $f(x)=g(x)$ has $d$ solutions by the Fundamental Theorem of Algebra, or has infinite solutions if and only if $f(x) \equiv g(x)$. So if the verifier picks a random value $s$ for the prover to evaluate, it is extremely unlikely that $f(s) = g(s)$ if they are not genuinely the same. If the prover does not know $g(x)$ and just guessed a random polynomial $f(x)$, if the verifier pick a random integer from the range $s \in [1,10000]$, there is _at most_ a $\frac{d}{10000}$ chance that $f(s) = g(s)$.
+The reason why polynomials are interesting is because they are incredibly hard to cheat. Say the prover has a polynomial $f(x)$, and claims to know the _exact_ polynomial that the verifier has $g(x)$, that is the prover claims $f(x) \equiv g(x)$. If both polynomials are of degree $d$, then either $f(x)=g(x)$ has at most $d$ solutions by the Fundamental Theorem of Algebra, or has infinite solutions if and only if $f(x) \equiv g(x)$. So if the verifier picks a random value $s$ for the prover to evaluate, it is extremely unlikely that $f(s) = g(s)$ if they are not genuinely the same. If the prover does not know $g(x)$ and just guessed a random polynomial $f(x)$, if the verifier pick a random integer from the range $s \in [1,10000]$, there is _at most_ a $\frac{d}{10000}$ chance that $f(s) = g(s)$.
 
 ----------------
 

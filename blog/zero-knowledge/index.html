@@ -177,7 +177,7 @@ $\blacksquare$
 
 <p>In other words, can we prove to a verifier that for some polynomial $h(x)$, we know that $p(x) = (x-r_1)(x-r_2)\cdots (x-r_n)\cdot h(x)$? For brevity and convenience, we&#39;ll call the <strong>target polynomial</strong> $t(x) = (x-r_1)(x-r_2)\cdots (x-r_n)$.</p>
 <hr>
-<p>The reason why polynomials are interesting is because they are incredibly hard to cheat. Say the prover has a polynomial $f(x)$, and claims to know the <em>exact</em> polynomial that the verifier has $g(x)$, that is the prover claims $f(x) \equiv g(x)$. If both polynomials are of degree $d$, then either $f(x)=g(x)$ has $d$ solutions by the Fundamental Theorem of Algebra, or has infinite solutions if and only if $f(x) \equiv g(x)$. So if the verifier picks a random value $s$ for the prover to evaluate, it is extremely unlikely that $f(s) = g(s)$ if they are not genuinely the same. If the prover does not know $g(x)$ and just guessed a random polynomial $f(x)$, if the verifier pick a random integer from the range $s \in [1,10000]$, there is <em>at most</em> a $\frac{d}{10000}$ chance that $f(s) = g(s)$.</p>
+<p>The reason why polynomials are interesting is because they are incredibly hard to cheat. Say the prover has a polynomial $f(x)$, and claims to know the <em>exact</em> polynomial that the verifier has $g(x)$, that is the prover claims $f(x) \equiv g(x)$. If both polynomials are of degree $d$, then either $f(x)=g(x)$ has at most $d$ solutions by the Fundamental Theorem of Algebra, or has infinite solutions if and only if $f(x) \equiv g(x)$. So if the verifier picks a random value $s$ for the prover to evaluate, it is extremely unlikely that $f(s) = g(s)$ if they are not genuinely the same. If the prover does not know $g(x)$ and just guessed a random polynomial $f(x)$, if the verifier pick a random integer from the range $s \in [1,10000]$, there is <em>at most</em> a $\frac{d}{10000}$ chance that $f(s) = g(s)$.</p>
 <hr>
 <h3 id="first-attempt">First Attempt</h3>
 <p>Here&#39;s a naive way to prove to a verifier they know such a polynomial:</p>
@@ -333,7 +333,10 @@ $e(g^a, g^b) = e(g^b, g^a) = e(g^{ab}, g^1) = e(g^a, g^1)^b = e(g^1, g^b)^a = e(
             }
           };
         </script>
-        <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS_CHTML"></script>
+
+
+        <!-- <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
         <script>
             (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
             function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
