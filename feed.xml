@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Sat, 06 Sep 2025 04:00:01 GMT</lastBuildDate>
+      <lastBuildDate>Sat, 06 Sep 2025 04:03:46 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -8805,8 +8805,8 @@ $2024 = 2 \cdot 2 \cdot 2 \cdot 11 \cdot 23$
 <li><a href="#finding-primes">Finding Primes</a></li>
 <li><a href="#primality-tests">Primality Tests</a><ul>
 <li><a href="#trial-division">Trial Division</a></li>
-<li><a href="#wilsons-theorem">Wilson&#39;s Theorem</a></li>
-<li><a href="#fermats-test">Fermat&#39;s Test</a></li>
+<li><a href="#wilson-s-theorem">Wilson&#39;s Theorem</a></li>
+<li><a href="#fermat-s-test">Fermat&#39;s Test</a></li>
 <li><a href="#other-tests">Other Tests</a></li>
 <li><a href="#different-types-of-primes">Different Types of Primes</a></li>
 <li><a href="#prime-generating-formula">Prime Generating Formula</a></li>
@@ -8817,7 +8817,7 @@ $2024 = 2 \cdot 2 \cdot 2 \cdot 11 \cdot 23$
 </ul>
 </li>
 <li><a href="#distributions-and-the-prime-gap">Distributions and the Prime Gap</a><ul>
-<li><a href="#bertrands-postulate">Bertrand&#39;s Postulate</a></li>
+<li><a href="#bertrand-s-postulate">Bertrand&#39;s Postulate</a></li>
 </ul>
 </li>
 <li><a href="#prime-number-theorems">Prime Number Theorems</a><ul>
