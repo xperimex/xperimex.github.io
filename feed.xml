@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Sat, 06 Sep 2025 03:22:41 GMT</lastBuildDate>
+      <lastBuildDate>Sat, 06 Sep 2025 04:00:01 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -9049,7 +9049,7 @@ $\blacksquare$
 </center>
 
 <p>Here&#39;s another result that illustrates in particular how useful unique factorization of the primes is.</p>
-<p><strong>Theorem:</strong> A countable product of countable sets is countable.</p>
+<p><strong>Theorem:</strong> A finite product of countable sets is countable.</p>
 <p><strong>Proof:</strong> We&#39;ll show this for the case of infinitely countable sets, since 1) the product of finite sets is obvious, and 2) the definition of countability relies on injections from a set to $\mathbb{N}$, so countability of products of sets will follow if we can show $\mathbb{N}^{k}$ is countable. If we have countable sets $A_1, A_2, \cdots, A_k$, we then have injections $f_i : A_i \rightarrow \mathbb{N}$. Then we have the injection $g: A_1 \times \cdots \times A_k \rightarrow \mathbb{N}^k$</p>
 <center>
 $g(a_1, a_2, \cdots, a_k) = (f_1(a_1), f_2(a_2), \cdots, f_k(a_k))$
@@ -10263,6 +10263,17 @@ PNT shows there are roughly n/log n primes between n and 2n -->
 ]]></description>
          <link>http://xperimex.github.io/blog/prime-number-theorem</link>
          <guid isPermaLink="true">http://xperimex.github.io/blog/prime-number-theorem</guid>
+         <dc:creator><![CDATA[Adi Mittal]]></dc:creator>
+      </item>
+      <item>
+         <title><![CDATA[Introductory Quantum Elliptic Curve Cryptography]]></title>
+         <description><![CDATA[Actually important online doomsday prepping 
+
+ <!-- end metadata -->
+<p>Much like</p>
+]]></description>
+         <link>http://xperimex.github.io/blog/quantum-elliptic-curves</link>
+         <guid isPermaLink="true">http://xperimex.github.io/blog/quantum-elliptic-curves</guid>
          <dc:creator><![CDATA[Adi Mittal]]></dc:creator>
       </item>
    </channel>

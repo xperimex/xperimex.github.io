@@ -358,7 +358,7 @@ $\blacksquare$
 
 Here's another result that illustrates in particular how useful unique factorization of the primes is.
 
-**Theorem:** A countable product of countable sets is countable.
+**Theorem:** A finite product of countable sets is countable.
 
 **Proof:** We'll show this for the case of infinitely countable sets, since 1) the product of finite sets is obvious, and 2) the definition of countability relies on injections from a set to $\mathbb{N}$, so countability of products of sets will follow if we can show $\mathbb{N}^{k}$ is countable. If we have countable sets $A_1, A_2, \cdots, A_k$, we then have injections $f_i : A_i \rightarrow \mathbb{N}$. Then we have the injection $g: A_1 \times \cdots \times A_k \rightarrow \mathbb{N}^k$
 
