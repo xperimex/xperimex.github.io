@@ -52,7 +52,7 @@ Though, math has come a long way, and now slowly but surely we are starting to u
   - [Analyzing the nth Prime](#analyzing-the-nth-prime)
   - [Revisiting Bertrand's Postulate](#revisiting-bertrands-postulate)
   - [A Quick Application of the PNT](#a-quick-application-of-the-pnt)
-- [An Analogue to the Prime Number Theorem](#an-analogue-to-the-prime-number-theorem)
+- [An Analogue to the Prime Number Theorem in $K[x]$](#an-analogue-to-the-prime-number-theorem-in-k-x-)
 - [Conclusion](#conclusion)
 
 

@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Sat, 06 Sep 2025 04:07:48 GMT</lastBuildDate>
+      <lastBuildDate>Sat, 06 Sep 2025 04:28:24 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -8831,7 +8831,7 @@ $2024 = 2 \cdot 2 \cdot 2 \cdot 11 \cdot 23$
 <li><a href="#a-quick-application-of-the-pnt">A Quick Application of the PNT</a></li>
 </ul>
 </li>
-<li><a href="#an-analogue-to-the-prime-number-theorem">An Analogue to the Prime Number Theorem</a></li>
+<li><a href="#an-analogue-to-the-prime-number-theorem-in-k-x-">An Analogue to the Prime Number Theorem in $K[x]$</a></li>
 <li><a href="#conclusion">Conclusion</a></li>
 </ul>
 <h2 id="what-is-a-prime-number-">What is a Prime Number?</h2>
