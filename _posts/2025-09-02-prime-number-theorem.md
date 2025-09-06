@@ -45,7 +45,7 @@ Though, math has come a long way, and now slowly but surely we are starting to u
   - [Probability of Being Prime](#probability-of-being-prime)
 - [Distributions and the Prime Gap](#distributions-and-the-prime-gap)
   - [Bertrand's Postulate](#bertrand-s-postulate)
-- [Prime Number Theorems](#prime-number-theorems)
+- [Prime Number Theorem](#prime-number-theorem)
   - [Proof of the Prime Number Theorem](#proof-of-the-prime-number-theorem)
   - [Do We Need the Primes at All?](#do-we-need-the-primes-at-all-)
 - [Consequences of the Prime Number Theorem](#consequences-of-the-prime-number-theorem)
