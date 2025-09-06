@@ -1867,7 +1867,7 @@ $\displaystyle \|R\_n \| = q^n - \left( \sum\_{i=1}^r q^\frac{n}{p\_i} \right) +
 
 </center>
 
-So dividing by $n$ and applying the Möbius function (noting that $\mu(d) = 0$ for divisors for non square-free divisors), we have
+So dividing by $n$ and applying the Möbius function (noting that $\mu(d) = 0$ for non square-free divisors), we have
 
 <center>
 
