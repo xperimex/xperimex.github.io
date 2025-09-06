@@ -11,7 +11,7 @@
 
 ---END_METADATA---
 
-It's not unfair to call prime numbers the foundation for not just number theory and mathematics, but many mathematicians careers. At an early age, around 7 years old in 1st-2nd grade in the US, kids learn multiplication and division. From there, we learn that we can break down numbers into smaller numbers, we call factors or divisors. For example,
+It's not unfair to call prime numbers the foundation for not just number theory and mathematics, but many mathematicians' careers. At an early age, around 7 years old in 1st-2nd grade in the US, kids learn multiplication and division. From there, we learn that we can break down numbers into smaller numbers, we call factors or divisors. For example,
 
 <center>
 $2024 = 2 \cdot 2 \cdot 2 \cdot 11 \cdot 23$

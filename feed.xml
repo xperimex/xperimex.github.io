@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Sat, 06 Sep 2025 04:03:46 GMT</lastBuildDate>
+      <lastBuildDate>Sat, 06 Sep 2025 04:07:48 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -8784,7 +8784,7 @@ $\begin{align}
          <title><![CDATA[The Prime Number Theorem and Similar Mysteries]]></title>
          <description><![CDATA[Where modern number theory begins. 
 
- <p>It&#39;s not unfair to call prime numbers the foundation for not just number theory and mathematics, but many mathematicians careers. At an early age, around 7 years old in 1st-2nd grade in the US, kids learn multiplication and division. From there, we learn that we can break down numbers into smaller numbers, we call factors or divisors. For example,</p>
+ <p>It&#39;s not unfair to call prime numbers the foundation for not just number theory and mathematics, but many mathematicians&#39; careers. At an early age, around 7 years old in 1st-2nd grade in the US, kids learn multiplication and division. From there, we learn that we can break down numbers into smaller numbers, we call factors or divisors. For example,</p>
 <center>
 $2024 = 2 \cdot 2 \cdot 2 \cdot 11 \cdot 23$
 </center>
