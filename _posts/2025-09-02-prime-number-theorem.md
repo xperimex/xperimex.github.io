@@ -1762,7 +1762,7 @@ So all we need is $n$ to be large enough to overcome the scaling of $\epsilon$; 
 
 ### A Quick Application of the Prime Number Theorem
 
-To round things off, here's a quick application of the PNT. While it is nonetheless an interesting and key result about the behavior and distribution of primes, the PNT is not just a novelty and can be used to give bounds on other prime related problems. In particular because it tells us that the average gap of primes around $n$ is $\log n$, they occur just frequently enough for their harmonic style sum to grow logarithmically slower, and so still diverge.
+To round things off, here's a quick application of the PNT. While it is nonetheless an interesting and key result about the behavior and distribution of primes, the PNT is not just a novelty and can be used to give bounds on other prime related problems. In particular because it tells us that the average gap of primes around $n$ is $\log n$, they occur just frequently enough for their harmonic style sum to grow logarithmically slower than the typical harmonic sum, and so still diverge.
 
 **Proposition:** $\sum_{p \textrm{ prime}} \frac{1}{p}$ diverges.
 
@@ -1783,6 +1783,8 @@ $\displaystyle \sum_{p \leq t} \frac{1}{p} \sim \frac{1}{\log t} + \int_2^t \fra
 </center>
 
 $\log \log t \to \infty$ as $t \to \infty$, hence the sum $\sum_p \frac{1}{p}$ diverges. $\blacksquare$
+
+Alternatively, [here's a direct proof of the above result that avoids using the PNT](https://youtu.be/u3po6EyQKn4?si=Wp5rVYB8LsA9Cc5_).
 
 ## An Analogue to the Prime Number Theorem in $K[x]$
 

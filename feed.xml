@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Sat, 06 Sep 2025 08:38:12 GMT</lastBuildDate>
+      <lastBuildDate>Sat, 06 Sep 2025 08:40:56 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -10122,7 +10122,7 @@ $\displaystyle \pi((1+\epsilon)n) - \pi(n) \sim \frac{(1+\epsilon)n}{\log((1+\ep
 
 <p>So all we need is $n$ to be large enough to overcome the scaling of $\epsilon$; we can take a &quot;small&quot; enough interval given that $n$ is big enough to make that interval have enough room for primes to occur. How big that $n$ must be is not super easy to get given that we haven&#39;t done any of the (also difficult) error analysis of the Prime Number Theorem, but a good estimate might just start with getting this asymptotic term greater than 1.</p>
 <h3 id="a-quick-application-of-the-prime-number-theorem">A Quick Application of the Prime Number Theorem</h3>
-<p>To round things off, here&#39;s a quick application of the PNT. While it is nonetheless an interesting and key result about the behavior and distribution of primes, the PNT is not just a novelty and can be used to give bounds on other prime related problems. In particular because it tells us that the average gap of primes around $n$ is $\log n$, they occur just frequently enough for their harmonic style sum to grow logarithmically slower, and so still diverge.</p>
+<p>To round things off, here&#39;s a quick application of the PNT. While it is nonetheless an interesting and key result about the behavior and distribution of primes, the PNT is not just a novelty and can be used to give bounds on other prime related problems. In particular because it tells us that the average gap of primes around $n$ is $\log n$, they occur just frequently enough for their harmonic style sum to grow logarithmically slower than the typical harmonic sum, and so still diverge.</p>
 <p><strong>Proposition:</strong> $\sum_{p \textrm{ prime}} \frac{1}{p}$ diverges.</p>
 <p><strong>Proof:</strong> We can use a Riemann-Stieltjes style integral rewriting like we did before, and use integration by parts.</p>
 <center>
@@ -10139,6 +10139,7 @@ $\displaystyle \sum_{p \leq t} \frac{1}{p} \sim \frac{1}{\log t} + \int_2^t \fra
 </center>
 
 <p>$\log \log t \to \infty$ as $t \to \infty$, hence the sum $\sum_p \frac{1}{p}$ diverges. $\blacksquare$</p>
+<p>Alternatively, <a href="https://youtu.be/u3po6EyQKn4?si=Wp5rVYB8LsA9Cc5_">here&#39;s a direct proof of the above result that avoids using the PNT</a>.</p>
 <h2 id="an-analogue-to-the-prime-number-theorem-in-k-x-">An Analogue to the Prime Number Theorem in $K[x]$</h2>
 <p>Before finshing this post off, I want to remind us where we started. Before treating primes in this abstract, removed way, we started with how we all learned what a prime number is: a number that has no other factors other than 1 and itself. We then recalled the slighlty more useful, still simple and well-known fact that every natural number can be factored as a product of primes, a fact which we summarized with the <strong>natural numbers are a unique factorization domain (UFD)</strong>. But since the natural numbers aren&#39;t the only UFD, this leads to the obvious question: is there a Prime Number Theorem for <em>other</em> UFDs? It turns out, there is.</p>
 <p>One of the most common and useful UFDs is the ring of polynomials over a field $K[x]$. That is, if $K$ is a field, then the set $K[x]$ of one-variable polynomials in $x$ with coefficients in $K$ is a UFD. For a quick refresher for why if you know some ring theory, $K[x]$ is a principal ideal domain (PID) due to the division algorithm (which works since $K$ is a field), and every PID is a UFD. Our &quot;primes&quot; in $K[x]$ are not numbers, but rather <em>irreducible polynomials</em> i.e. polynomials that cannot be factored into a product of non-constant polynomials.</p>
