@@ -47,7 +47,7 @@ Though, math has come a long way, and now slowly but surely we are starting to u
   - [Bertrand's Postulate](#bertrand-s-postulate)
 - [Prime Number Theorems](#prime-number-theorems)
   - [Proof of the Prime Number Theorem](#proof-of-the-prime-number-theorem)
-  - [Do We Need the Primes Above n?](#do-we-need-the-primes-above-n)
+  - [Do We Need the Primes at All?](#do-we-need-the-primes-at-all-)
 - [Consequences of the Prime Number Theorem](#consequences-of-the-prime-number-theorem)
   - [Analyzing the nth Prime](#analyzing-the-nth-prime)
   - [Revisiting Bertrand's Postulate](#revisiting-bertrands-postulate)
@@ -1664,7 +1664,7 @@ So, if you need a prime, let's say around $2^{512}$ for cryptographic purposes, 
 
 ### Estimating the nth Prime Number
 
-The Prime Number Theorem also implies a similar type of inverse relation. As before, let $p_n$ be the $n^\textrm{th}$ prime number.
+The Prime Number Theorem implies a similar type of inverse relation. As before, let $p_n$ be the $n^\textrm{th}$ prime number.
 
 **Proposition:** $p_n \sim n \log n$.
 
@@ -1686,7 +1686,7 @@ This works in particular because logarithms preserve asymptotics for functions i
 <!-- https://proofwiki.org/wiki/Approximate_Value_of_Nth_Prime_Number -->
 
 
-Like the original Prime Number Theorem estimate, this isn't that great of an approximation. Since $n = \pi(p_n) \sim \mathrm{Li(p_n)}$, we get the better approximation that $p_n \sim \mathrm{Li}^{-1}(n)$ (note this works due to monotonicity). A better second order estimation given by analyzing the Logarithmic integral is 
+We saw before a few attempts to find prime generating formulae, and while the PNT doesn't give us one directly, it gives us a method to at least *estimate* the nth prime. Like the original Prime Number Theorem estimate, this isn't that great of an approximation. Since $n = \pi(p_n) \sim \mathrm{Li(p_n)}$, we get the better approximation that $p_n \sim \mathrm{Li}^{-1}(n)$ (note this works due to monotonicity). A better second order estimation given by analyzing the Logarithmic integral is 
 
 <center>
 

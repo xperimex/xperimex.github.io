@@ -78,7 +78,7 @@ $2024 = 2 \cdot 2 \cdot 2 \cdot 11 \cdot 23$
 </li>
 <li><a href="#prime-number-theorems">Prime Number Theorems</a><ul>
 <li><a href="#proof-of-the-prime-number-theorem">Proof of the Prime Number Theorem</a></li>
-<li><a href="#do-we-need-the-primes-above-n">Do We Need the Primes Above n?</a></li>
+<li><a href="#do-we-need-the-primes-at-all-">Do We Need the Primes at All?</a></li>
 </ul>
 </li>
 <li><a href="#consequences-of-the-prime-number-theorem">Consequences of the Prime Number Theorem</a><ul>
@@ -1303,7 +1303,7 @@ $\displaystyle \mathrm{d \pi} \approx \frac{\mathrm{d}}{\mathrm{d}t} \left( \fra
 <p>So, if you need a prime, let&#39;s say around $2^{512}$ for cryptographic purposes, the odds of a number around there being prime is about $1/\log(2^{512}) \approx 1/356$. Since even numbers are obviously not prime, we need to check on average about $356/2 = 178$ numbers to find a prime of that magnitude (and this is without any optimizations, or fault tolerances in allowing probable primes like before).</p>
 <!-- Mauerer's probable prime generating algorithm: https://link.springer.com/article/10.1007/BF00202269 -->
 <h3 id="estimating-the-nth-prime-number">Estimating the nth Prime Number</h3>
-<p>The Prime Number Theorem also implies a similar type of inverse relation. As before, let $p_n$ be the $n^\textrm{th}$ prime number.</p>
+<p>The Prime Number Theorem implies a similar type of inverse relation. As before, let $p_n$ be the $n^\textrm{th}$ prime number.</p>
 <p><strong>Proposition:</strong> $p_n \sim n \log n$.</p>
 <p><em>Proof:</em> This follows since $n = \pi(p_n) \sim \frac{p_n}{\log p_n}$ i.e. $p_n \sim n \log p_n$. This is almost what we want, so resubstituting the relation back into itself one more time gives </p>
 <center>
@@ -1317,7 +1317,7 @@ $\displaystyle p_n \sim n \log p_n \sim n \log (n \log p_n) \sim n\log n + n\log
 <!-- Using similar logic and taking logarithms of the actual limit statement of the PNT can add more rigor to the above if wanted. $\blacksquare$  -->
 <!-- https://www.quora.com/How-does-the-Prime-Number-Theorem-imply-that-the-nth-prime-number-is-very-close-to-n-log-n-as-n-grows-very-large -->
 <!-- https://proofwiki.org/wiki/Approximate_Value_of_Nth_Prime_Number -->
-<p>Like the original Prime Number Theorem estimate, this isn&#39;t that great of an approximation. Since $n = \pi(p_n) \sim \mathrm{Li(p_n)}$, we get the better approximation that $p_n \sim \mathrm{Li}^{-1}(n)$ (note this works due to monotonicity). A better second order estimation given by analyzing the Logarithmic integral is </p>
+<p>We saw before a few attempts to find prime generating formulae, and while the PNT doesn&#39;t give us one directly, it gives us a method to at least <em>estimate</em> the nth prime. Like the original Prime Number Theorem estimate, this isn&#39;t that great of an approximation. Since $n = \pi(p_n) \sim \mathrm{Li(p_n)}$, we get the better approximation that $p_n \sim \mathrm{Li}^{-1}(n)$ (note this works due to monotonicity). A better second order estimation given by analyzing the Logarithmic integral is </p>
 <center>
 
 $\displaystyle p_n \sim n\log n + n\log \log n - n$
