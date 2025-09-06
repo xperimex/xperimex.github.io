@@ -1806,7 +1806,7 @@ where we make the substitution $x = q^n$ to highlight the analogy. [The proof is
 
 **Theorem:** The number of monic irreducible polynomials of degree $n$ over the finite field $\mathbb{F}\_q$ is $P\_n = \frac{1}{n} \sum\_{d \mid n} \mu(n/d) q^d$ where $\mu$ is the Möbius function.
 
-*Proof:* We proceed combinatorially, counting the number of elements of finite fields in two different ways that relate to the size of the set $P_n$. The case for $n=1$ is clear since $\| P\_1 \| = q = \frac{1}{1} \sum\_{d \mid 1} \mu(1/d) q^1$ since there are $q$ monic linear polynomials (that are all irreducible) and the only divisor of 1 is 1 itself. So for the remainder of the proof, we assume $n>1$.
+*Proof:* We proceed combinatorially, counting the number of elements of finite fields in two different ways that relate to the size of the set $P_n$. The case for $n=1$ is clear since $\| P\_1 \| = q = \frac{1}{1} \sum\_{d \mid 1} \mu(d/1) q^d$ since there are $q$ monic linear polynomials (that are all irreducible) and the only divisor of 1 is 1 itself. So for the remainder of the proof, we assume $n>1$.
 
 Let $R_n = \bigcup \\{\textrm{roots of } f(x) \ \mid \ f(x) \in P\_n \\}$ be the collection of all the roots in $\overline{\mathbb{F}\_q}$ of polynomials in $P_n$. Since these irreducible polynomials are of degree $n$, the splitting field for all of these polynomials are $\mathbb{F}\_{q^n}$, so we can restrict our attention there. Since irreducible polynomials are minimal polynomials of their roots, we can make use of two properties to characterize $R\_n$.
 
