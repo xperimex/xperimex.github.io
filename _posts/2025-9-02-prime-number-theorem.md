@@ -21,6 +21,41 @@ There is no "simpler" way to break down the number 2024. But then there's a very
 
 Though, math has come a long way, and now slowly but surely we are starting to unravel the primes, revealing much about the simple numbers we count with to much more.
 
+
+
+
+
+# Table of Contents
+- [What is a Prime Number?](#what-is-a-prime-number-)
+- [Some Foundational Results](#some-foundational-results)
+- [Don't Take These For Granted](#dont-take-these-for-granted)
+  - [Rings and Algebraic Abstractions](#rings-and-algebraic-abstractions)
+  - [Integral Domains and Zero Divisors](#integral-domains-and-zero-divisors)
+  - [Classifying Elements](#classifying-elements)
+- [Some Simple Patterns and Useful Facts](#some-simple-patterns-and-useful-facts)
+- [Finding Primes](#finding-primes)
+- [Primality Tests](#primality-tests)
+  - [Trial Division](#trial-division)
+  - [Wilson's Theorem](#wilsons-theorem)
+  - [Fermat's Test](#fermats-test)
+  - [Other Tests](#other-tests)
+  - [Different Types of Primes](#different-types-of-primes)
+  - [Prime Generating Formula](#prime-generating-formula)
+- [Sieves and Filters](#sieves-and-filters)
+  - [Probability of Being Prime](#probability-of-being-prime)
+- [Distributions and the Prime Gap](#distributions-and-the-prime-gap)
+  - [Bertrand's Postulate](#bertrands-postulate)
+- [Prime Number Theorems](#prime-number-theorems)
+  - [Proof of the Prime Number Theorem](#proof-of-the-prime-number-theorem)
+  - [Do We Need the Primes Above n?](#do-we-need-the-primes-above-n)
+- [Consequences of the Prime Number Theorem](#consequences-of-the-prime-number-theorem)
+  - [Analyzing the nth Prime](#analyzing-the-nth-prime)
+  - [Revisiting Bertrand's Postulate](#revisiting-bertrands-postulate)
+  - [A Quick Application of the PNT](#a-quick-application-of-the-pnt)
+- [An Analogue to the Prime Number Theorem](#an-analogue-to-the-prime-number-theorem)
+- [Conclusion](#conclusion)
+
+
 ## What is a Prime Number?
 
 This isn't a trick question. Primes are still exactly what you (probably) think they are:
@@ -72,47 +107,6 @@ Clearly, $p \mid npb$. By our assumption, $p \mid ab$ so $p \mid mab$. Therefore
 $\blacksquare$
 </center>
 
-While often heralded for their randomness and mystery, there is still quite a lot that can be said about primes that form the basis for much of modern number theory.
-
-# Table of Contents
-
-## [Some Foundational Results](#some-foundational-results)
-
-## [Don't Take These For Granted](#dont-take-these-for-granted)
-- [Rings and Algebraic Abstractions](#rings-and-algebraic-abstractions)
-- [Integral Domains and Zero Divisors](#integral-domains-and-zero-divisors)
-- [Classifying Elements](#classifying-elements)
-
-## [Some Simple Patterns and Useful Facts](#some-simple-patterns-and-useful-facts)
-
-## [Finding Primes](#finding-primes)
-
-## [Primality Tests](#primality-tests)
-- [Trial Division](#trial-division)
-- [Wilson's Theorem](#wilsons-theorem)
-- [Fermat's Test](#fermats-test)
-- [Other Tests](#other-tests)
-- [Different Types of Primes](#different-types-of-primes)
-- [Prime Generating Formula](#prime-generating-formula)
-
-## [Sieves and Filters](#sieves-and-filters)
-- [Probability of Being Prime](#probability-of-being-prime)
-
-## [Distributions and the Prime Gap](#distributions-and-the-prime-gap)
-- [Bertrand's Postulate](#bertrands-postulate)
-
-## [Prime Number Theorems](#prime-number-theorems)
-- [Proof of the Prime Number Theorem](#proof-of-the-prime-number-theorem)
-- [Do We Need the Primes Above n?](#do-we-need-the-primes-above-n)
-
-## [Consequences of the Prime Number Theorem](#consequences-of-the-prime-number-theorem)
-- [Analyzing the nth Prime](#analyzing-the-nth-prime)
-- [Revisiting Bertrand's Postulate](#revisiting-bertrands-postulate)
-- [A Quick Application of the PNT](#a-quick-application-of-the-pnt)
-
-## [An Analogue to the Prime Number Theorem](#an-analogue-to-the-prime-number-theorem)
-
-## [Conclusion](#conclusion)
 
 
 
