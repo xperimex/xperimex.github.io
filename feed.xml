@@ -4,7 +4,7 @@
       <description><![CDATA[Delta Thoughts]]></description>
       <link>http://xperimex.github.io</link>
       <generator>RSS for Node</generator>
-      <lastBuildDate>Sat, 06 Sep 2025 08:40:56 GMT</lastBuildDate>
+      <lastBuildDate>Sun, 07 Sep 2025 08:00:05 GMT</lastBuildDate>
       <atom:link href="http://xperimex.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       <language><![CDATA[en]]></language>
       <item>
@@ -10217,7 +10217,7 @@ $\displaystyle |P_n | = \frac{1}{n} \sum_{d \mid n} \mu(d) q^{n/d} = \frac{1}{n}
 
 <p>We get the last equality since as $d$ runs over all divisors of $n$, so does $n/d$. $\blacksquare$</p>
 <p><strong>Corollary:</strong> $|P_n| \sim \frac{q^n}{n}$.</p>
-<p><em>Proof:</em> The dominant term in the expression is $q^n/n$, since the largest power of $q$ in the formula is at most $q^{n/2}$ since the smallest non-trivial divisor of $n$ is at least 2, and thus bound the remaining terms by $o(q^n/n)$. $\blacksquare$</p>
+<p><em>Proof:</em> The dominant term in the expression is $q^n/n$, since the next largest power of $q$ in the formula is at most $q^{n/2}$ since the smallest non-trivial divisor of $n$ is at least 2, and thus bound the remaining terms by $o(q^n/n)$. $\blacksquare$</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>This post, while dense, has only scratched the surface of what primes and the Prime Number Theorem actually has to offer. From other bounds in combinatorics and analysis, to important computational heuristics in cryptography, primes, while random, find their ways into many facets of math. There&#39;s always more to revisit, but that&#39;s all for another day.</p>
 <!-- give cool corollary of Bertrand's

@@ -1881,7 +1881,7 @@ We get the last equality since as $d$ runs over all divisors of $n$, so does $n/
 
 **Corollary:** $\|P\_n\| \sim \frac{q^n}{n}$.
 
-*Proof:* The dominant term in the expression is $q^n/n$, since the largest power of $q$ in the formula is at most $q^{n/2}$ since the smallest non-trivial divisor of $n$ is at least 2, and thus bound the remaining terms by $o(q^n/n)$. $\blacksquare$
+*Proof:* The dominant term in the expression is $q^n/n$, since the next largest power of $q$ in the formula is at most $q^{n/2}$ since the smallest non-trivial divisor of $n$ is at least 2, and thus bound the remaining terms by $o(q^n/n)$. $\blacksquare$
 
 ## Conclusion
 
